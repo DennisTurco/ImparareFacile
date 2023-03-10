@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>C++ - lezione Cicli</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../../subpages/manualeC.html">Linguaggio C</a>
+            <a href="../../subpages/manualeC++.html">Linguaggio C++</a>
+    </div> 
+    </div>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+
+<!-- Cicli -->
+<article id="5ca7c134-d578-4768-b74c-e626fda34598" class="page sans"><header><h1 class="page-title">Cicli</h1></header><div class="page-body"><nav id="88862286-0270-44f2-8595-26b6ff3c4622" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f9ecb6b7-3105-4903-a109-3b2662c4bcde"><mark class="highlight-blue">Ciclo For</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7918f3a5-cfc0-485f-8404-05b4a32343e1"><mark class="highlight-brown"><strong>Sintassi</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a30eb05f-2651-4574-a0ea-9e311fdab303"><mark class="highlight-brown">Esempi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fbde48df-b351-4e9a-b080-317e6685275a"><mark class="highlight-blue">Ciclo While</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e2a63c3e-39d8-45cc-8cea-836096cd2278"><mark class="highlight-brown"><strong>Sintassi</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8e2deca7-8a18-4d70-ab63-92bdd1155d72"><mark class="highlight-brown">Esempi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9ea48fb3-759d-4590-85b1-73d45827a72d"><mark class="highlight-blue">Ciclo Do-While</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1f0305fd-c0fd-470a-9604-4850881ad469"><mark class="highlight-brown"><strong>Sintassi</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4fb55253-6cd5-412d-b5f8-da3479f55edd"><mark class="highlight-brown">Esempi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#015bc2ac-bcba-4f2b-85e9-e7dffc9da747"><mark class="highlight-blue">Esercizi</mark></a></div></nav><h1 id="f9ecb6b7-3105-4903-a109-3b2662c4bcde" class=""><mark class="highlight-blue">Ciclo For</mark></h1><p id="2e2b7b45-18da-4672-93b3-c6d9c5109104" class="">Quando parliamo di ciclo for parliamo di iterazione definita ovvero di quando abbiamo delle <strong>istruzioni da ripetere </strong>e <strong>conosciamo quante volte </strong>vogliamo <strong>ripeterle</strong>.</p><h2 id="7918f3a5-cfc0-485f-8404-05b4a32343e1" class=""><mark class="highlight-brown"><strong>Sintassi</strong></mark></h2><p id="0a8bb2f8-2e30-4896-b111-09661a070250" class="">Il seguente ciclo scrive per 10 volte sullo schermo la parola “ciao”.</p><pre id="8ff79def-73d3-4249-87e0-84e3b650ef67" class="code code-wrap">
+<code class="language-cpp">for(int i=0; i&lt;10; i++) {
+   cout &lt;&lt; &quot;ciao&quot; &lt;&lt; endl;
+}</code></pre><p id="939b18d1-b098-4916-87a3-4f3d056b2e8a" class="">L’istruzione per richiamare il ciclo <strong>for </strong>si caratterizza è da 4 parti:</p><ul id="d12d1444-db5e-4261-a2d4-ca5b47800144" class="bulleted-list"><li style="list-style-type:disc"><strong>dichiarazione </strong>(non sempre!)<strong> e assegnazione di una variabile contatore</strong>,</li></ul><ul id="a9f043cf-17db-4c85-8f07-c72e988b689d" class="bulleted-list"><li style="list-style-type:disc"><strong>condizione del ciclo</strong>,</li></ul><ul id="51d7f32a-76a6-440a-8ba5-55b7016fc3f2" class="bulleted-list"><li style="list-style-type:disc"><strong>aggiornamento della variabile contatore</strong>,</li></ul><ul id="3f48c44f-6427-47fa-ab51-e3a1fe4df808" class="bulleted-list"><li style="list-style-type:disc"><strong>corpo del ciclo</strong>.</li></ul><p id="df9bbba4-fb0f-4678-8e4f-8152c893cde6" class="">
+</p><p id="6526a917-e22a-48ba-bad7-5cefd5a630c2" class="">nell’esempio precedente:</p><ol type="1" id="46b9f47e-8040-41ae-be3a-97792a8cc0fc" class="numbered-list" start="1"><li><code>int i=0</code>  →  Dichiarazione e assegnazione di una variabile contatore;</li></ol><ol type="1" id="cf02957a-7531-4c8f-86d5-c64331fbf7d2" class="numbered-list" start="2"><li><code>i &lt; 10</code>    →  Condizione del ciclo for;</li></ol><ol type="1" id="66cf062b-5316-4493-a03c-6a8e0fb0a764" class="numbered-list" start="3"><li><code>i++</code>         →   Aggiornamento della variabile contatore;</li></ol><p id="47b6835c-ad2b-474c-9c05-3ed648f995b4" class="">
+</p><h2 id="a30eb05f-2651-4574-a0ea-9e311fdab303" class=""><mark class="highlight-brown">Esempi</mark></h2><p id="8aa7da03-b8fe-4508-b65c-e66b5969cbf4" class=""><span style="border-bottom:0.05em solid"><em><strong>esempio 1</strong></em></span>:</p><pre id="5198424c-4603-4408-adcb-83f5fd3331ee" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    // il primo ciclo viene ripetuto 5 volte
+    // il secondo ciclo viene ripetuto 5 volte
+
+    int val2 = 0;
+
+    for (int i=0; i&lt;5; i++) {
+        val2++;
+    }
+
+    for (int a=0; a&lt;5; a++) {
+        val2++;
+    }
+
+    cout &lt;&lt; &quot;Valore = &quot; &lt;&lt; val2 &lt;&lt; endl &lt;&lt; endl;
+
+}</code></pre><p id="3c78e367-42c2-44cb-828f-18a0d01acb53" class=""><span style="border-bottom:0.05em solid"><em><strong>esempio 2</strong></em></span>:</p><pre id="e8f25874-9841-4c10-ac6b-f6f3fdee701c" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    // il primo ciclo viene ripetuto 5 volte
+    // il secondo ciclo viene ripetuto 5 volte * 5 volte
+
+    int val = 1;
+
+    for (int i=0; i&lt;5; i++) {
+        for (int a=0; a&lt;5; a++) {
+            cout &lt;&lt; &quot;i = &quot; &lt;&lt; i &lt;&lt; endl;
+            cout &lt;&lt; &quot;a = &quot; &lt;&lt; a &lt;&lt; endl;
+            cout &lt;&lt; &quot;Valore = &quot; &lt;&lt; val &lt;&lt; endl &lt;&lt; endl;
+            val++; //  =&gt; val = val + 1;
+        }
+    }
+
+}</code></pre><p id="2ae31fbd-8fe5-47ed-a6a4-f2f4f69ce9fc" class=""><span style="border-bottom:0.05em solid"><em><strong>esempio 3</strong></em></span>:</p><pre id="a337faac-ae5c-4c5e-a958-33bebb8be5d1" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    // il primo ciclo viene ripetuto 5 volte
+    // il secondo ciclo viene ripetuto 5*5 volte
+    // il terzo ciclo viene ripetuto 5*5*3 volte
+
+    int val3 = 1;
+
+    for (int i=0; i&lt;5; i++) {
+        for (int a=0; a&lt;5; a++) {
+            for (int x=0; x&lt;3; x++) {
+                cout &lt;&lt; &quot;i = &quot; &lt;&lt; i &lt;&lt; endl;
+                cout &lt;&lt; &quot;a = &quot; &lt;&lt; a &lt;&lt; endl;
+                cout &lt;&lt; &quot;x = &quot; &lt;&lt; x &lt;&lt; endl;
+                cout &lt;&lt; &quot;Valore = &quot; &lt;&lt; val3 &lt;&lt; endl &lt;&lt; endl;
+                val3++; //  =&gt; val = val + 1;
+            } 
+        }
+    }
+}</code></pre><h1 id="fbde48df-b351-4e9a-b080-317e6685275a" class=""><mark class="highlight-blue">Ciclo While</mark></h1><p id="9b97d29d-ee05-4e4e-b07f-fe1d43ef4149" class="">L’istruzione <strong>while </strong>prevede che prima venga valutata la <em>condizione </em>e poi, se è vera, verranno eseguite le <em>operazioni </em>all’interno del ciclo. Ecco perchè si definisce <strong>pre-condizionale</strong>.</p><p id="70df059c-1d07-4355-8f65-06d70cc7f3c6" class="">Quando la condizione diventa falsa il ciclo si interrompe e si passa all’istruzione successiva.</p><p id="7fe3c0cc-2142-4d28-ad6e-2607f591764f" class="">Il ciclo potrebbe <strong>non essere mai eseguito </strong>se la condizione non fosse vera in partenza.</p><p id="1ed74bf4-e19a-4b8a-a685-abfccb0d9cfd" class="">Il ciclo potrebbe essere <strong>infinito </strong>se la condizione risultasse sempre vera. In questo caso si genera un <strong>loop</strong>.</p><h2 id="e2a63c3e-39d8-45cc-8cea-836096cd2278" class=""><mark class="highlight-brown"><strong>Sintassi</strong></mark></h2><p id="8d4b6f98-998e-4294-af08-0d89987eb0ed" class="">L&#x27;utilizzo tipico del while prevede quasi sempre l&#x27;esecuzione di un blocco di istruzioni, quindi quasi sempre troviamo il costrutto espresso nella forma:</p><pre id="4592fd37-7835-4da3-bed0-79a271156c4b" class="code">
+<code class="language-cpp">while(condizione) {
+		// Istruzioni da eseguire
+}</code></pre><h2 id="8e2deca7-8a18-4d70-ab63-92bdd1155d72" class=""><mark class="highlight-brown">Esempi</mark></h2><p id="18d6f49d-4488-4e5c-94f5-a09a426efe89" class=""><span style="border-bottom:0.05em solid"><em><strong>esempio</strong></em></span>:
+Generiamo i numeri da 0 a 10, a step di 2, utilizzando il ciclo while in C++</p><pre id="721ed0b2-5f47-40db-80f0-9206c431fc5d" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+		int count = 0;
+		while(count &lt;= 10) {
+				cout &lt;&lt; count &lt;&lt; endl;
+				count = count + 2;
+		}
+
+		return 0;
+}</code></pre><h1 id="9ea48fb3-759d-4590-85b1-73d45827a72d" class=""><mark class="highlight-blue">Ciclo Do-While</mark></h1><p id="08def715-075f-442f-bf9f-23f6c4d61f45" class="">L’idea alla base del ciclo <strong>do-while</strong> sta nel fatto che prima si entra nel ciclo (viene eseguito il corpo del ciclo), poi si controllo.</p><p id="f2ca1192-dea0-41e4-af83-a77e723a6f27" class="">In altre parole il corpo del ciclo do-while viene eseguito almeno una volta. </p><p id="aa15235f-a4aa-4ae3-b724-20d06426e645" class="">La semantica del costrutto <strong>do-while</strong> è dunque la seguente:</p><ol type="1" id="720aa0dc-4149-41f8-a5ba-ec40b8397182" class="numbered-list" start="1"><li>Si esegue l’istruzione (o più di una);</li></ol><ol type="1" id="b7f25c44-3eb0-4087-8b1c-595eba9c8da2" class="numbered-list" start="2"><li>Si valuta la condizione, la quale può essere vera o falsa.</li></ol><ol type="1" id="95bbd5b7-49a9-44c6-827b-54d9b90ebeb4" class="numbered-list" start="3"><li>Se la condizione è vera si ritorna al punto 1; altrimenti si passa all’istruzione successiva.</li></ol><h2 id="1f0305fd-c0fd-470a-9604-4850881ad469" class=""><mark class="highlight-brown"><strong>Sintassi</strong></mark></h2><p id="fcc16061-0b4e-459e-9352-c7a9c5b9d383" class="">troviamo il costrutto espresso nella forma:</p><pre id="cd3e004e-20e6-4b82-b891-0dfbf2927d9e" class="code">
+<code class="language-cpp">do {
+
+		// istruzioni;
+
+} while (condizione);</code></pre><h2 id="4fb55253-6cd5-412d-b5f8-da3479f55edd" class=""><mark class="highlight-brown">Esempi</mark></h2><p id="4da4cdd1-d8fe-4434-a79b-c8df05fefae1" class=""><span style="border-bottom:0.05em solid"><em><strong>esempio</strong></em></span>:</p><p id="45206885-3abd-45fb-a1e8-c7c1fa03ae67" class="">inserire un valore finchè non viene letto un valore negativo.</p><pre id="976aef9b-bd4b-41b7-ae4e-720deda7aa50" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+		int valore;
+
+		do {
+				cout &lt;&lt; &quot;Inserire valore negativo: &quot;;
+				cin &gt;&gt; valore;
+		} while (valore &gt;= 0); 
+		// il ciclo continua fintanto che non si inserisce un valore negativo 
+}</code></pre><h1 id="015bc2ac-bcba-4f2b-85e9-e7dffc9da747" class=""><mark class="highlight-blue">Esercizi</mark></h1><figure id="404a544c-fa0f-4786-ab97-3003d545fa5c"><a href="https://ticoprof.wordpress.com/mix-esercizi-if-for-while-cpp/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">MIX esercizi if/for/while in C++</div><div class="bookmark-description">Mix di esercizi svolti in C++ per il ripasso di if, for, while, do while e numeri casuali ,</div></div><div class="bookmark-href"><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=192" class="icon bookmark-icon"/>https://ticoprof.wordpress.com/mix-esercizi-if-for-while-cpp/</div></div><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=240" class="bookmark-image"/></a></figure></div></article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>

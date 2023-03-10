@@ -31,12 +31,24 @@ function googleTranslateElementInit() {
 <link rel="stylesheet" href="../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
 <link rel="stylesheet" href="../stylesheet/style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
 </head>
 
-<ul class="navbar"> 
-    <li><a href="../index.html">Home</a></li>   
-    <li><a href="https://dennisturco.github.io/">Portfolio</a></li>   
-</ul>
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../subpages/manualeC.html">Linguaggio C</a>
+            <a href="../subpages/manualeC++.html">Linguaggio C++</a>
+    </div> 
+    </div>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
 
@@ -48,7 +60,7 @@ function googleTranslateElementInit() {
     <ul>
         <li> <a href="argomenti_c++/HelloWorld.html"> Hello World </a> </li>
         <li> <a href="argomenti_c++/ControlliCondizionali.html"> Controlli Condizionali: if-else </a> </li>
-        <li> <a href=""> Cicli </a> </li>
+        <li> <a href="argomenti_c++/Cicli.html"> Cicli </a> </li>
         <li> <a href="argomenti_c++/ArrayMonodimensionali.html"> Array Monodimensionali </a> </li>
         <li> <a href="argomenti_c++/ArrayBidimensionali.html"> Array Bidimensionali </a> </li>
         <li> <a href=""> String </a> </li>
@@ -85,6 +97,8 @@ function googleTranslateElementInit() {
 <script>
 	AOS.init();
 </script>
+
+<script src="../navbar.js"></script>
 
 </body>
 </html>

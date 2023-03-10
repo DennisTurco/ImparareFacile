@@ -31,13 +31,27 @@ function googleTranslateElementInit() {
 <link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
 <link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
 </head>
 
-<ul class="navbar"> 
-    <li><a href="../../index.html">Home</a></li>   
-    <li><a href="https://dennisturco.github.io/">Portfolio</a></li>   
-</ul>
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../../subpages/manualeC.html">Linguaggio C</a>
+            <a href="../../subpages/manualeC++.html">Linguaggio C++</a>
+    </div> 
+    </div>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
 
@@ -46,9 +60,153 @@ function googleTranslateElementInit() {
 <div id="mycontent"></div>
 
 
-<h1> Controlli Condizionali If-Else </h1>
-<center><iframe class="pdf" src="../../pdf/lezioniC++/Controlli_Condizionali_If-Else.pdf"></iframe></center>
+<!-- Controlli condizionali -->
+<article id="277bb6aa-f53d-4641-90f9-3c35616c0c6c" class="page sans"><header><h1 class="page-title">Controlli Condizionali: If-Else</h1></header><div class="page-body"><nav id="170f4774-d40c-4317-a02b-8d6e88508f02" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#38e78a73-b25a-489c-8a14-fad4cf7d3bd7"><mark class="highlight-blue">Descrizione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#072704d7-ec55-4724-b7f4-39720a91e4b4"><mark class="highlight-blue">Sintassi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9e2715a1-b6b2-4cb3-a82b-6dbafb7b329a"><mark class="highlight-blue">Funzionamento</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a0f9068b-b140-46b3-bf7b-e8d326cf44e6"><mark class="highlight-blue">In sintesi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7b9a75df-097f-4ed8-94b4-4de77565908e"><mark class="highlight-blue">Esercizi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bca7b92c-3309-4223-82b4-edfce5f7cad9"><mark class="highlight-brown">ESERCIZIO 1: </mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5eba617b-178c-4268-8007-2f3982af6bec"><mark class="highlight-brown">ESERCIZIO 2: </mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4ec9a505-d086-45ff-9006-ef4bc0c25c43"><mark class="highlight-brown">ESERCIZIO 3: </mark></a></div></nav><h1 id="38e78a73-b25a-489c-8a14-fad4cf7d3bd7" class=""><mark class="highlight-blue">Descrizione</mark></h1><p id="2799e8ef-7965-41a2-89f3-603dcd6407c1" class="">Un&#x27;istruzione if-else controlla il ramo condizionale. Le istruzioni nell&#x27;oggetto vengono eseguite solo se l&#x27;oggetto <code><em>if-branchcondition</em></code><em> </em>restituisce un valore diverso da zero (o <code><strong>true</strong></code>). Se il valore di <code><em>condition</em></code><em> </em>è diverso da zero, l&#x27;istruzione seguente viene eseguita e l&#x27;istruzione che segue viene ignorata <code><strong>else</strong></code>. In caso contrario, l&#x27;istruzione seguente viene ignorata e, se è presente un&#x27;istruzione <code><strong>else</strong></code><strong> </strong>che segue, <code><strong>else</strong></code><strong> </strong>viene eseguita.</p><h1 id="072704d7-ec55-4724-b7f4-39720a91e4b4" class=""><mark class="highlight-blue">Sintassi</mark></h1><p id="5fb4d07e-94b0-4e3a-9bcf-ba58cc579c64" class="">The syntax of the <code>if</code> statement is:</p><p id="dbff35c8-02c0-44cb-adab-35f535856da4" class="">LA sintassi dell' <code>if</code> statement è:</p><pre id="53db0331-30ee-45ea-98b4-b01387f1d078" class="code code-wrap">
+<code class="language-cpp">if (condizione) {
+  // corpo dell&#x27;if statement
+}</code></pre><p id="e8e24dd6-3923-4760-b106-666579a81b9c" class="">L' <code>if</code> statement valuta la <code>condizione</code> dentro alle parentesi <code>( )</code>.</p><ul id="b0a6e5f5-f287-4674-a3b7-fae294133293" class="bulleted-list"><li style="list-style-type:disc">Se la <code>condizione</code> risulta <code>true</code>, il codice dentro al corpo dell' <code>if</code> viene <em>eseguito</em>.</li></ul><ul id="6ac092b6-896e-49e2-9fc6-e876b9af7077" class="bulleted-list"><li style="list-style-type:disc">Se la <code>condizione</code> risulta <code>false</code>, il codice dentro al corpo dell' <code>if</code> viene <em>evitato</em>.</li></ul><p id="248f1f9e-9110-4201-abb4-1e5119ed4037" class=""><strong>Nota:</strong> Il codice dentro <code>{ }</code> è il corpo dell' <code>if</code> statement.</p><h1 id="9e2715a1-b6b2-4cb3-a82b-6dbafb7b329a" class=""><mark class="highlight-blue">Funzionamento</mark></h1><p id="e5225e77-a53f-407f-909d-985914db0b54" class="">L'istruzione <mark class="highlight-teal"><strong>if</strong></mark> permette di verificare determinate condizioni ed ha la seguente sintassi:</p><pre id="6d406af4-6876-4e3f-95dc-ff8201fa3666" class="code">
+<code class="language-cpp">//...
 
+if(condizione){
+	//....
+}
+
+//...</code></pre><p id="84a5c8f1-96a8-4e6e-9380-8f87003aebfa" class="">In questo caso <strong>se</strong> l'espressione risulta <strong>vera</strong>, fa eseguire l'istruzione immediatamente successiva, <strong>altrimenti</strong> (se la condizione è <strong>falsa</strong>) si salta l'istruzione (od il blocco di istruzioni) e si procede nell'esecuzione delle istruzioni successive, che possono essere la prosecuzione del programma o un semplice <span style="border-bottom:0.05em solid"><mark class="highlight-teal"><strong>else</strong></mark></span>, ad indicare la possibile alternativa all'if:</p><pre id="4f3b82e1-9300-445b-976e-d089942105dc" class="code">
+<code class="language-cpp">if(condizione){
+	//....
+} else {
+	//...
+}</code></pre><p id="4b5e324c-d89d-4934-8e76-7581e8e439b0" class="">o un <span style="border-bottom:0.05em solid"><strong><mark class="highlight-teal">else if</mark></strong></span><strong> </strong>che permette di verificare una o più condizioni:</p><pre id="ae321639-b794-4f40-a60a-b66f90b47698" class="code">
+<code class="language-cpp">if(condizione1){
+	//....
+} 
+else if(condizione2){
+	//...
+} else {
+	//...
+}</code></pre><p id="1559e4fb-da6b-4164-a961-d489468782d3" class="">Così si può comandare il flusso del programma decidendo di eseguire una parte di codice oppure no (nel caso del solo <strong>if</strong>), di fare una scelta tra due parti di codice (nel caso <strong>if</strong>– <strong>else</strong>) o di fare una scelta tra più parti di codice (nel caso <strong>if</strong> – <strong>else if</strong>– <strong>else</strong>).</p><figure id="39cf4f94-d231-49d8-863a-5ae863c47792" class="image"><img style="width:757px" src="../../images/for_pages/if.png"/></figure><h1 id="a0f9068b-b140-46b3-bf7b-e8d326cf44e6" class=""><mark class="highlight-blue">In sintesi</mark></h1><ul id="15531feb-09e7-43a6-b8cf-dc56a50df423" class="bulleted-list"><li style="list-style-type:disc">Utilizzare l&#x27; <code>if</code>istruzione per specificare un blocco di codice C++ da eseguire se una condizione è <code>true</code>.</li></ul><ul id="ba33b11b-a55e-431d-aab7-ca8a6de1ed5c" class="bulleted-list"><li style="list-style-type:disc">Utilizzare l&#x27; <code>else</code>istruzione per specificare un blocco di codice da eseguire se la condizione è <code>false</code>.</li></ul><ul id="96d75d0e-3966-4ec3-b04e-b873d16ea53a" class="bulleted-list"><li style="list-style-type:disc">Utilizzare l&#x27; <code>else if</code>istruzione per specificare una nuova condizione se la prima condizione è <code>false</code>.</li></ul><p id="d83b7e5a-a57e-48f6-bf18-30a956e37a45" class="">
+</p><p id="ee576710-5bd5-4ca0-bc96-e8c72efa32cf" class=""><em>esempio</em>:</p><pre id="692803d5-e0bf-477a-8286-354ae3d86c45" class="code">
+<code class="language-cpp">if (risultato_esame &gt;= 18){
+	printf (&quot;Complimenti hai superato l'esame&quot;); 
+}
+else if (risultato_esame &gt;= 15) {
+	printf (&quot;Devi sostenere l'orale per questo esame&quot;);
+}
+else {
+	printf (&quot;Non hai superato l'esame&quot;);
+}</code></pre><h1 id="7b9a75df-097f-4ed8-94b4-4de77565908e" class=""><mark class="highlight-blue">Esercizi</mark></h1><figure id="0e88ef6f-1ce4-4e99-87ef-ba8864c3b41f"><a href="https://ticoprof.wordpress.com/2016/03/29/esercizi-di-programmazione-selezione/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">20 Esercizi di programmazione con la Selezione (if)</div><div class="bookmark-description">20 Esercizi svolti su if in C++ semplici o con if nidificati e connettivi logici, risolvibili anche con altri linguaggi di programmazione C, java, python o pascal o con algobuild.</div></div><div class="bookmark-href"><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=192" class="icon bookmark-icon"/>https://ticoprof.wordpress.com/2016/03/29/esercizi-di-programmazione-selezione/</div></div><img src="https://ticoprof.files.wordpress.com/2016/03/test.gif?fit=440%2C330" class="bookmark-image"/></a></figure><h2 id="bca7b92c-3309-4223-82b4-edfce5f7cad9" class=""><mark class="highlight-brown">ESERCIZIO 1: </mark></h2><p id="fec17579-7fd4-41fe-808d-e73ca0979c11" class="">realizzare un programma che chiede all'utente 3 valori (valore1, valore2, valore3), in base ai quali il programma restituisce in output i 3 valori dal maggiore al minore.</p><blockquote id="d078a745-324a-424c-ba2c-7a3506628a59" class="">Esempio Output:
+inserisci 3 numeri: 
+4
+3
+5
+numero3 &gt;= numero1 &gt;= numero2</blockquote><p id="910d47de-0448-4128-9df8-92c810778896" class="">SOLUZIONE:</p><pre id="f094343f-caf2-4bba-b3f7-4aa921924653" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+	int numero1;
+	int numero2;
+	int numero3;
+	
+	cout &lt;&lt; &quot;inserisci 3 numeri: &quot;;
+	cin &gt;&gt; numero1;
+	cin &gt;&gt; numero2;
+	cin &gt;&gt; numero3;
+
+if (numero1 &gt;= numero2 &amp;&amp; numero1 &gt;= numero3) {
+        if (numero2 &gt;= numero3) {
+            cout &lt;&lt; &quot;numero1 &gt;= numero2 &gt;= numero3&quot; &lt;&lt; endl;
+        }
+        else {
+            cout &lt;&lt; &quot;numero1 &gt;= numero3 &gt;= numero2&quot; &lt;&lt; endl;
+        }
+    }
+    else if (numero2 &gt;= numero1 &amp;&amp; numero2 &gt;= numero3) {
+        if (numero1 &gt;= numero3) {
+            cout &lt;&lt; &quot;numero2 &gt;= numero1 &gt;= numero3&quot; &lt;&lt; endl;
+        }
+        else {
+            cout &lt;&lt; &quot;numero2 &gt;= numero3 &gt;= numero1&quot; &lt;&lt; endl;
+        }
+    }
+    else {
+        if (numero2 &gt;= numero1) {
+            cout &lt;&lt; &quot;numero3 &gt;= numero2 &gt;= numero1&quot; &lt;&lt; endl;
+        }
+        else {
+            cout &lt;&lt; &quot;numero3 &gt;= numero1 &gt;= numero2&quot; &lt;&lt; endl;
+        }
+    }
+		
+		return 0;
+}</code></pre><h2 id="5eba617b-178c-4268-8007-2f3982af6bec" class=""><mark class="highlight-brown">ESERCIZIO 2: </mark></h2><p id="b1d586ab-6052-4623-983a-b395bbf3bc08" class="">realizzare un programma che chiede all'utente 2 valori, in base ai quali il programma dice qual è il maggiore, oppure uguali nel caso.</p><blockquote id="c8828903-0713-4eea-b868-456a53c54a85" class="">Esempio Output:
+inserisci primo valore:  7
+inserisci secondo valore: 3 
+il numero maggiore e&#x27;:  7</blockquote><p id="a9f55d03-a4fb-4d66-a0da-eadf27982f92" class="">SOLUZIONE:</p><pre id="5836e907-6696-4c17-9c47-a38cc1291600" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int x;
+    int y;
+
+    cout &lt;&lt; &quot;inserisci primo valore: &quot;;
+    cin &gt;&gt; x;
+
+    cout &lt;&lt; &quot;inserisci secondo valore: &quot;;
+    cin &gt;&gt; y;
+
+    if(x&gt;y){
+        cout &lt;&lt; &quot;il numero maggiore e&#x27;: &quot; &lt;&lt; x;
+    }
+    else if(x&lt;y){
+        cout &lt;&lt; &quot;il numero maggiore e&#x27;: &quot; &lt;&lt; y;
+    }
+    else{
+        cout &lt;&lt; &quot;i numeroi sono uguali&quot;;
+    }
+    return 0;
+}</code></pre><h2 id="4ec9a505-d086-45ff-9006-ef4bc0c25c43" class=""><mark class="highlight-brown">ESERCIZIO 3: </mark></h2><p id="b4b24a07-76b4-4fa1-80a9-2b368747c214" class="">realizzare un programma che chiede all'utente 1 valore, se il valore è:</p><p id="8b735351-ff96-4989-8974-9d22ff9c3b71" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>1</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x&gt;1 ∧ x &lt; 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></span><span>﻿</span></span>  → il voto è estremamente insufficiente</p><p id="7975934a-94b0-46e8-982e-8288fb2fad12" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>5</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">x&gt;=5 ∧ x &lt; 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span></span><span>﻿</span></span>  → il voto è insufficiente</p><p id="cd415719-e12c-43c5-89b7-48a36d130b79" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>6</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">x&gt;=6 ∧ x &lt; 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span></span><span>﻿</span></span>  → il voto è sufficiente</p><p id="84de086f-d833-4234-9890-487ef6f345ff" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>7</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">x&gt;=7 ∧ x &lt; 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></span><span>﻿</span></span>  → il voto è buono</p><p id="f5c28fbe-182f-466a-882c-ed86539ad8c0" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>8</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">x&gt;=8 ∧ x &lt; 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span></span><span>﻿</span></span>  → il voto è ottimo</p><p id="fe9c1bb6-37e5-4ba0-9da2-3f602a84f614" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>9</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">x&gt;=9 ∧ x &lt;= 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10</span></span></span></span></span><span>﻿</span></span>  → il voto è eccellente</p><p id="be8ebb28-8257-4730-a4b4-02cc04f90d4a" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>∨</mo><mi>x</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">x&lt;0 ∨ x&gt;10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10</span></span></span></span></span><span>﻿</span></span>  → il voto non è valido</p><blockquote id="07c3c74d-3a67-48a0-8bdc-3af6e82bca19" class="">Esempio Output:
+inserisci valore:  7
+il voto e' buono</blockquote><p id="448bafac-f565-4f5f-b7df-15305c310dad" class="">SOLUZIONE:</p><pre id="ea1bd8db-45bf-4ddb-b713-3a483d0c491a" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+    float val;
+
+    cout &lt;&lt; &quot;inserisci valore: &quot;;
+    cin &gt;&gt; val;
+
+    if(val1&gt;1 &amp;&amp; val1&lt;5){
+        cout &lt;&lt; &quot;il voto e&#x27; estremamente insufficiente&quot;;
+    }
+    else if(val1&gt;=5 &amp;&amp; val1&lt;6){
+        cout &lt;&lt; &quot;il voto e&#x27; insufficiente&quot;;
+    }
+    else if(val1&gt;=6 &amp;&amp; val1&lt;7){
+        cout &lt;&lt; &quot;il voto e&#x27; sufficiente&quot;;
+    }
+    else if(val1&gt;=7 &amp;&amp; val1&lt;8){
+        cout &lt;&lt; &quot;il voto e&#x27; buono&quot;;
+    }
+    else if(val1&gt;=8 &amp;&amp; val1&lt;9){
+        cout &lt;&lt; &quot;il voto e&#x27; ottimo&quot;;
+    }
+    else if(val1&gt;=9 &amp;&amp; val1&lt;=10){
+        cout &lt;&lt; &quot;il voto e&#x27; eccellente&quot;;
+    }
+    else if(val1&lt;0 || val1&gt;10){
+        cout &lt;&lt; &quot;il voto non e&#x27; valido&quot;;
+    }
+    else {
+        cout &lt;&lt; &quot;errore...&quot;;
+    }
+
+    return 0;
+
+}</code></pre></div></article>
 
 <footer id="footer">
     <div style="height: 2px;"></div>
@@ -71,6 +229,11 @@ function googleTranslateElementInit() {
 <script>
 	AOS.init();
 </script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
 
 </body>
 </html>

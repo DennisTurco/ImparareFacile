@@ -31,13 +31,27 @@ function googleTranslateElementInit() {
 <link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
 <link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
 </head>
 
-<ul class="navbar"> 
-    <li><a href="../../index.html">Home</a></li>   
-    <li><a href="https://dennisturco.github.io/">Portfolio</a></li>   
-</ul>
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../../subpages/manualeC.html">Linguaggio C</a>
+            <a href="../../subpages/manualeC++.html">Linguaggio C++</a>
+    </div> 
+    </div>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
 
@@ -46,8 +60,183 @@ function googleTranslateElementInit() {
 <div id="mycontent"></div>
 
 
-<h1> Hello World </h1>
-<center><iframe class="pdf" src="../../pdf/lezioniC/Hello_World.pdf"></iframe></center>
+<!-- Hello World -->
+<article id="d1e7b3ee-15dc-43ea-86e8-637fa62708e2" class="page sans"><header><h1 class="page-title">Hello World</h1></header><div class="page-body"><nav id="8c114513-a517-4f57-bb3a-27f67e5742bc" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#48f6b953-3dad-4a29-9fa5-94702f9af937"><mark class="highlight-blue">Hello World</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c549803e-d168-40bb-9cf2-24351a75b47b"><mark class="highlight-blue">Variabili</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f4d4b578-f83b-4711-9e78-bc848e75d3fd"><mark class="highlight-brown">Variabili - tipi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f9f91f58-06ef-4dcc-ba46-b12786f4e7bf"><mark class="highlight-orange">int</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#72f64b7a-99a6-48dd-ab98-34f479596c4d"><mark class="highlight-orange">char</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#97f2524e-3db6-42b1-b0ba-23f77235dc4a"><mark class="highlight-orange">float e double</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#89b01ed3-3a80-4e0c-81a4-2db5b32d7c86"><mark class="highlight-orange">bool</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f39ed188-2e50-4df7-84cb-6f562002424f"><mark class="highlight-blue">Operatori</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#40cfbb81-6fdb-42af-9f01-e6e12ee44b64"><mark class="highlight-brown"><strong>Operatori aritmetici</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#341ff493-5374-42f2-871c-6452e74bf2c2"><mark class="highlight-brown"><strong>Operatori di confronto</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8e2f9c1d-d1f6-45a6-a0e6-246a41ed409d"><mark class="highlight-brown"><strong>Operatori logici</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#48278fd5-a162-47b6-9b73-e1eb72dd530c"><mark class="highlight-blue">Input - Output</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f18fbb18-244a-4123-8f18-6556675c908a"><mark class="highlight-brown">printf</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ec12c3d2-22fd-4184-aa9f-302336fa4fa6"><mark class="highlight-brown">scanf</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#173c836a-7f60-43e4-9887-c053d9d68c29"><mark class="highlight-blue">Esercizi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5cd1e94a-87aa-4803-a6a3-011474f5a660"><mark class="highlight-brown">Esercizio 1</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e4691aa3-6d29-4a22-afee-ccbf1b93409f"><mark class="highlight-brown">Esercizio 2</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#70baee0a-1ed0-4e84-883a-2c7082bb779a"><mark class="highlight-brown">Esercizio 3</mark></a></div></nav><h1 id="48f6b953-3dad-4a29-9fa5-94702f9af937" class=""><mark class="highlight-blue">Hello World</mark></h1><p id="ba5144d3-862d-42f4-b6f3-4b18ba9f3ebf" class="">Il <strong>primo programma in C</strong>
+il più semplice in assoluto è il famoso “Hello World!” (Ciao Mondo) che ha soltanto lo scopo di stampare a video la scritta per spiegare la sintassi basilare del linguaggio.</p><pre id="e337929d-5076-4ceb-8e2a-bccb392a48bc" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;  //libreria
+
+int main (){ //inizio del main
+	//corpo del main
+	printf(&quot;Hello World!&quot;);
+	return 0;
+} //fine del main</code></pre><p id="dfbcf9bc-d789-4b8a-8c84-f849471e0ea3" class="">
+</p><p id="49e7d355-716e-4471-92c0-4cba1eadba68" class=""><span style="border-bottom:0.05em solid">Elementi Fondamentali:</span></p><ul id="5abd45e0-2888-4937-b254-7866b4cdd1ac" class="bulleted-list"><li style="list-style-type:disc"><code><strong>#include</strong></code> è una direttiva del preprocessore, un comando, che permette di richiamare le librerie standard del C. 
+Senza librerie un programma non avrebbe a disposizione i comandi per eseguire anche le operazioni più semplici, come leggere un file o stampare a video una scritta.</li></ul><ul id="3f09cabb-ad3b-4e3f-8dfc-10c678311214" class="bulleted-list"><li style="list-style-type:disc">La funzione principale in un qualsiasi programma in C è il <code><strong>main()</strong></code> che, in questo caso, non ha parametri, ma può ricevere anche degli input da riga di comando. Il main è indispensabile ed unico e deve esserci sempre;</li></ul><ul id="7ad32be7-0c2d-4700-8c81-63e484afcdf1" class="bulleted-list"><li style="list-style-type:disc">Le <strong>parentesi graffe </strong><code><strong>{}</strong></code> servono, invece, per delimitare blocchi di istruzioni, o come vengono abitualmente chiamate “statement”, che sono eseguite in ordine, da quella più in alto, giù fino all'ultima;</li></ul><ul id="da1d79c4-e40e-49ab-87a3-721ad4e2a4cf" class="bulleted-list"><li style="list-style-type:disc">Il <strong>punto e virgola </strong><code><strong>;</strong></code>, invece, serve per “chiudere” un'istruzione, per far capire che dopo quel simbolo ne inizia una nuova.</li></ul><ul id="e1f52e1f-d5cb-4026-a48a-9c697cb2e535" class="bulleted-list"><li style="list-style-type:disc"><code><strong>printf()</strong></code>, adibita a stampare a video tutto quello che gli viene passato come argomento e che fa parte della libreria <code>&lt;stdio.h&gt;</code>, senza la cui inclusione, non avrebbe senso.</li></ul><p id="de6ddac9-2f02-41f9-b2b6-3f64198f9985" class="">
+</p><p id="d8847022-6c74-4414-9bfd-ce794a8c80ee" class="">All'interno di un ftprogramma C possono essere inseriti dei <mark class="highlight-teal"><strong>commenti</strong></mark>, basti sapere, per adesso, che esistono due modi:</p><ul id="3ea40765-5145-4e63-9272-805416bf3d3b" class="bulleted-list"><li style="list-style-type:disc"><code>//</code> – Tutto quello che sta a destra sulla medesima riga viene considerato commento e viene ignorato (ai fini dell'interpretazione del linguaggio) dal compilatore;</li></ul><ul id="34dceb0d-25de-46b4-91cc-3dbe70ab92c0" class="bulleted-list"><li style="list-style-type:disc"><code>/* … */</code> – Tutto quello che è compreso tra i due asterischi viene considerato commento; questa forma viene utilizzata per commenti su più righe.</li></ul><p id="dee7826b-9dba-4949-aa28-0ee293055a03" class="">
+</p><h1 id="c549803e-d168-40bb-9cf2-24351a75b47b" class=""><mark class="highlight-blue">Variabili</mark></h1><p id="ae56f6e6-d6cc-4163-a143-d81c1b6de472" class="">Le variabili vengono definite da un <mark class="highlight-teal"><strong>tipo </strong></mark>e da un <mark class="highlight-teal"><strong>nome</strong></mark>.</p><p id="4aff6130-c5b9-4dc5-ba94-23c440abc022" class=""><span style="border-bottom:0.05em solid"><em>esempio:</em></span></p><pre id="9f75f949-2b05-4dff-85d4-1732e07b5cba" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main (){
+	int x;  //int (valore intero) indica il tipo, 
+					//mentre x indica il nome della variabile
+}</code></pre><p id="8757264a-4a17-46ef-8c10-6e57571e7b7c" class="">Il nome per identificare una variabile (o una funzione o una costante) viene comunemente riferito come <mark class="highlight-teal"><strong>identificatore</strong></mark>.  → <span style="border-bottom:0.05em solid">nome = identificatore</span></p><p id="9263c21f-af4e-4531-a4d0-7f38017fd079" class="">Un <mark class="highlight-teal"><strong>identificatore </strong></mark>è costituito da una o più lettere, cifre o caratteri e deve iniziare con una lettera o il carattere di sottolineatura (underscore “_” );</p><p id="e7d3e983-ab3c-49b3-a7a9-fc2d6d80697c" class="">il C è <mark class="highlight-teal"><strong>case-sensitive</strong></mark>, quindi si fa distinzione tra lettere maiuscole e lettere minuscole:</p><pre id="bf269b61-4021-47e6-9d3b-f9ccffde676d" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main (){
+	//sono due variabili diverse
+	int x;
+	int X;
+}</code></pre><p id="5f1bfb41-4c61-404d-afff-9dc38b2d18ea" class="">
+</p><p id="21fdbea6-a226-4b09-a0d3-289bed486f33" class="">Il <strong><mark class="highlight-teal">tipo </mark></strong>della variabile indica quale tipo di valori può assumere il contenuto della variabile stessa, si può ben capire che un tipo <span style="border-bottom:0.05em solid">intero</span> conterà soltanto dei numeri, mentre il tipo <span style="border-bottom:0.05em solid">carattere</span> conterrà solamente lettere dell'alfabeto, numeri e simboli;</p><p id="57992da5-44b2-4137-9f0e-86c8a6f86fe7" class=""><span style="border-bottom:0.05em solid"><em>esempio:</em></span></p><pre id="795ba995-c0e6-4d24-81b9-45b46106ba8b" class="code">
+<code class="language-c">#include &lt;stdlib.h&gt;
+
+int main (){
+	int valore = 10;
+	char carattere = &#x27;c&#x27;;
+}</code></pre><p id="0da8567e-3259-4ff9-adf6-6a784e59a56d" class="">
+</p><p id="ab52cd32-4fc9-495a-99e6-07802861912a" class=""><mark class="highlight-teal"><strong>Tutte le variabili</strong></mark>, prima di essere utilizzate, <mark class="highlight-teal"><strong>devono essere dichiarate</strong></mark>, cioè deve essere detto al compilatore il tipo della variabile ed il suo nome (es. int x)</p><p id="e703636c-fafa-4275-b299-08ec28c512f6" class=""><span style="border-bottom:0.05em solid"><em>esempio:</em></span></p><pre id="e5f44d8c-8ba0-4fd0-8bf8-3d53a34d8f75" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main (){
+	x = 5; //errore!! -&gt; la variabile x non e&#x27; stata dichiarata!
+	
+	int x;
+	x = 5; //OK
+}</code></pre><p id="889dd16e-adce-44e3-a544-2499f4d8f516" class="">
+</p><p id="e1a83a7d-d100-4c56-9e61-53a41cd3d1fd" class="">Successivamente <mark class="highlight-teal"><strong>la variabile deve essere inizializzata</strong></mark>, cioè le deve essere assegnato un valore, operazione che generalmente viene fatta contemporaneamente alla dichiarazione.</p><pre id="0db80747-bebd-4628-80da-47b274f0a6d4" class="code"><code class="language-c">// solo dichiarazione int x; // inizializzazione x = 10;</code></pre><pre id="d92041f9-eabd-46b6-ac0d-16edafaaef5a" class="code"><code class="language-c">// dichiarazione ed inizializzazione int y = 15;</code></pre><p id="856aec7a-a5f2-4d1e-acb9-15bdc83c7841" class="">
+</p><p id="ab13c76d-9dbe-44c4-90ff-13ef9768e0ff" class="">
+</p><h2 id="f4d4b578-f83b-4711-9e78-bc848e75d3fd" class=""><mark class="highlight-brown">Variabili - tipi</mark></h2><p id="d9e3a5de-3f7a-41c1-907e-1b0dc33d4799" class="">Nella tabella seguente sono mostrati i vari tipi (principali), la parola chiave C che li identifica (<code>char</code> per carattere, <code>int</code> per intero, etc.), la tipologia di informazioni che rappresentano ed il numero di byte necessari per la loro rappresentazione in C:</p><table id="e7f56a86-8347-4ee9-8cbb-f30242baddac" class="simple-table"><thead class="simple-table-header"><tr id="e0f34e05-755a-437d-a071-0c54dcfe45d8"><th id="LS^g" class="simple-table-header-color simple-table-header">Tipi di dichiarazione</th><th id="XBmf" class="simple-table-header-color simple-table-header" style="width:170px">Rappresentazione</th><th id="b{@^" class="simple-table-header-color simple-table-header">Numero di byte</th></tr></thead><tbody><tr id="a3d52132-4614-4608-8d88-a1fad9d2734c"><td id="LS^g" class=""><code>int</code></td><td id="XBmf" class="" style="width:170px">Numero intero</td><td id="b{@^" class="">2 (16 bit)</td></tr><tr id="0ce7a87e-b50d-4bde-b1b3-991689a4f4c7"><td id="LS^g" class=""><code>char</code></td><td id="XBmf" class="" style="width:170px">Carattere</td><td id="b{@^" class="">1 (8 bit)</td></tr><tr id="d1834c84-2ac5-476b-b191-5e14a8c7b17e"><td id="LS^g" class=""><code>short</code></td><td id="XBmf" class="" style="width:170px">Numero intero “corto”</td><td id="b{@^" class="">2 (16 bit)</td></tr><tr id="05e066b9-6a65-47e0-91d9-31da4b224a26"><td id="LS^g" class=""><code>long</code></td><td id="XBmf" class="" style="width:170px">Numero intero “lungo”</td><td id="b{@^" class="">4 (32 bit)</td></tr><tr id="11ecaff8-671e-4d98-bf3b-2a8fbe4ddd3e"><td id="LS^g" class=""><code>float</code></td><td id="XBmf" class="" style="width:170px">Numero reale</td><td id="b{@^" class="">4 (32 bit)</td></tr><tr id="2d9e44a4-78a0-4521-bb37-400c364eb2e5"><td id="LS^g" class=""><code>double</code></td><td id="XBmf" class="" style="width:170px">Numero reale “lungo”</td><td id="b{@^" class="">8 (64 bit)</td></tr><tr id="daa41d56-9c59-4291-8914-7b37db287ba6"><td id="LS^g" class=""><code>bool</code></td><td id="XBmf" class="" style="width:170px">Confronto</td><td id="b{@^" class="">1 (8 bit)</td></tr></tbody></table><h3 id="f9f91f58-06ef-4dcc-ba46-b12786f4e7bf" class=""><mark class="highlight-orange">int</mark></h3><p id="e9c09c7f-ad10-4871-896e-46e4da25a43e" class="">Il tipo <strong>int </strong>permette di rappresentare numeri interi. Possiamo dichiarare un <code>int</code> con due varianti: <strong>short e long</strong>, anche se in realtà un tipo <code>int</code> è già di per se' un tipo <code>short</code>, mentre il la keyword <code>long</code> permette di estendere (utilizzando due byte in più) il range dei valori che il tipo int può assumere, consentendoci di lavorare con grandi numeri. (attenzione ad usare operazione di divisione <code>/</code>).</p><p id="24cfff02-5e5a-4836-b3b3-bb7005216c4a" class="">I numeri interi, rappresentati da <code>int</code>, sono quelli “senza la virgola” o parti frazionate.</p><pre id="b8f9654a-077c-4844-bb94-7357330578c0" class="code">
+<code class="language-c">int x = 7;
+int y = 3;
+int z;
+z = x / y; // z vale 2, cioè la parte intera della divisione tra 7 e 3</code></pre><hr id="c5ab47de-a253-4b98-b351-9da2b2c47d6b"/><h3 id="72f64b7a-99a6-48dd-ab98-34f479596c4d" class=""><mark class="highlight-orange">char</mark></h3><p id="4d940240-db81-42cb-91bb-5943ab3dd55a" class="">Il tipo<strong> </strong><code><strong>char</strong></code><mark class="highlight-teal"><strong> </strong></mark>può contenere qualsiasi carattere definito secondo lo <a href="https://www.asciitable.com/">standard ASCII</a>, quindi qualsiasi lettera (maiuscola o minuscola), cifra (da 0 a 9) e simbolo previsto dalla codifica.</p><p id="630541de-b254-4989-9f91-7c5a87765bed" class="">È molto importante ricordare che un <code>char</code> può contenere uno ed un solo carattere. (più avanti vedremo come memorizzare degli insieme di caratteri, ossia stringhe).</p><p id="af8a8437-4f79-4051-b7af-63576d52d708" class="">Per <mark class="highlight-teal"><strong>dichiarare una variabile char</strong></mark>, ad esempio inizializzandola con la lettera ‘<code>r</code>‘, basta scrivere:</p><pre id="ada154b3-b717-44f6-abcf-490665c1a3da" class="code"><code class="language-c">char a = &#x27;r&#x27;;</code></pre><hr id="cc117f44-918c-4200-8940-ac2a032cd3f9"/><h3 id="97f2524e-3db6-42b1-b0ba-23f77235dc4a" class=""><mark class="highlight-orange">float e double</mark></h3><p id="7a4c6695-fec9-4162-8f84-2f2f746f2bfd" class="">I tipi <code><strong>float</strong></code><mark class="highlight-teal"> </mark>e <code><strong>double</strong></code> sono i cosiddetti numeri in virgola mobile, che rappresentano l'insieme dei numeri reali: con essi possiamo rappresentare numeri molto piccoli o numeri molto grandi, positivi e negativi e naturalmente con e senza decimali.</p><p id="ce698187-37d6-420c-85cc-dedecfbe4245" class="">La differenza tra i due sta nel numero di bit riservati alla rappresentazione dei numeri, che si va a riflettere sul range di numeri e sul numero di cifre dopo la virgola che possiamo memorizzare. Quindi se abbiamo bisogno di particolare accuratezza, utilizziamo il tipo <code>double</code>.</p><pre id="74efe651-c74d-4f65-9566-f1b04b2211dc" class="code"><code class="language-c">double x = 7.0;
+double y = 2.0;
+double z;
+z = x / y; // z vale 3.5</code></pre><hr id="4b3125bb-02f7-4635-acdb-6d233e0c606f"/><h3 id="89b01ed3-3a80-4e0c-81a4-2db5b32d7c86" class=""><mark class="highlight-orange">bool</mark></h3><p id="ac2b917a-9207-4485-a903-570ea16bee9b" class="">i tipi <code>bool</code> sono valori che possono essere <code>true</code> oppure <code>false</code>.</p><pre id="249fcbba-04b7-4fd9-841c-4e50c6a71ae6" class="code"><code class="language-c">bool x = true;
+bool y = false;</code></pre><pre id="a310cd68-c26f-4ed6-8b97-20b838b627e0" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    bool a = true;
+    bool b = false;
+    int c = a;
+    bool d = 4;
+    bool e = 1;
+    bool f = c;
+    if (a || b) printf(&quot; OK&quot;);
+    if (a &amp;&amp; b) printf(&quot; Impossibile&quot;);
+    if (a == b) printf(&quot; Impossibile&quot;);
+    if (a != b) printf(&quot; OK&quot;);
+    if (a == true) printf(&quot; OK&quot;);
+    if (a) printf(&quot; OK&quot;);
+    printf(&quot; a=%d, b=%d, c=%c, d=%d, e=%e, f=%f&quot;, a, b, c, d, e, f);
+}</code></pre><h1 id="f39ed188-2e50-4df7-84cb-6f562002424f" class=""><mark class="highlight-blue">Operatori</mark></h1><p id="5fea9075-1dac-4118-b1a9-628d067a4c3a" class="">Gli <strong><mark class="highlight-teal">operatori </mark></strong>si suddividono in:</p><ul id="b6a1e7c8-2381-496d-9bab-0fd72f92bd57" class="bulleted-list"><li style="list-style-type:disc">Operatori aritmetici;</li></ul><ul id="52904f3c-67d4-45bb-8e04-c3640afc2f5c" class="bulleted-list"><li style="list-style-type:disc">Operatori di confronto;</li></ul><ul id="1cfb238e-28f7-4076-bc9a-2d9909850138" class="bulleted-list"><li style="list-style-type:disc">Operatori logici;</li></ul><h2 id="40cfbb81-6fdb-42af-9f01-e6e12ee44b64" class=""><mark class="highlight-brown"><strong>Operatori aritmetici</strong></mark></h2><p id="c2386fb7-613b-42d5-a097-966732b49fc6" class="">Comprendono somma, sottrazione, moltiplicazione, divisione intera, divisione con modulo ecc. (in ordine <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>).</p><table id="ec4bd16f-ae59-434c-8c52-8fa17007821a" class="simple-table"><thead class="simple-table-header"><tr id="9a6482fa-a632-4200-b9ae-fa2e058145ec"><th id="@t&lt;~" class="simple-table-header-color simple-table-header">Operazioni con gli int</th><th id="J&gt;Dn" class="simple-table-header-color simple-table-header">Simbolo</th><th id="nrz^" class="simple-table-header-color simple-table-header">Esempio</th></tr></thead><tbody><tr id="9ef5ad23-5384-41ef-bca5-c59767056437"><td id="@t&lt;~" class="">Addizione</td><td id="J&gt;Dn" class="">+</td><td id="nrz^" class="">4 + 27 = 31</td></tr><tr id="ea91cf7c-77d2-47d3-a823-bdcdf77738d6"><td id="@t&lt;~" class="">Sottrazione</td><td id="J&gt;Dn" class="">–</td><td id="nrz^" class="">76 – 23 = 53</td></tr><tr id="6b6bda1d-c8bc-436c-b3cc-6f1e94d2b6fd"><td id="@t&lt;~" class="">Moltiplicazione</td><td id="J&gt;Dn" class="">*</td><td id="nrz^" class="">4 * 7 = 28</td></tr><tr id="e66b1533-c4be-49df-9068-ad6efd50970d"><td id="@t&lt;~" class="">Divisione intera</td><td id="J&gt;Dn" class="">/</td><td id="nrz^" class="">10 / 3 = 3
+(3 è il n di volte divisibili senza resto)</td></tr><tr id="91c0a896-c890-412f-a2fb-be5d747a6adb"><td id="@t&lt;~" class="">Divisione con modulo</td><td id="J&gt;Dn" class="">%</td><td id="nrz^" class="">11 / 6 = 5 (5 è il resto della divisione)</td></tr></tbody></table><table id="447e54dc-8fb7-49ac-ac67-c2a87cf9b657" class="simple-table"><thead class="simple-table-header"><tr id="d1fb2bf6-944e-4cbe-856e-a13e2bdb8524"><th id="_wU~" class="simple-table-header-color simple-table-header">Operazioni con i double</th><th id="[Ls^" class="simple-table-header-color simple-table-header">Simbolo</th><th id=":Bjs" class="simple-table-header-color simple-table-header">Esempio</th></tr></thead><tbody><tr id="e9b35bbf-837a-4a9d-84e9-f7247e8b5b0f"><td id="_wU~" class="">Addizione</td><td id="[Ls^" class="">+</td><td id=":Bjs" class="">2.5 + 14.3 = 16.8</td></tr><tr id="2144d6ba-dce2-431a-abb0-cbc5102195e8"><td id="_wU~" class="">Sottrazione</td><td id="[Ls^" class="">–</td><td id=":Bjs" class="">43.8 – 12.7 = 31.1</td></tr><tr id="784a641a-c488-4714-a338-472693a125aa"><td id="_wU~" class="">Moltiplicazione</td><td id="[Ls^" class="">*</td><td id=":Bjs" class="">7.5 * 3.0 = 22.5</td></tr><tr id="22d6630f-9aba-4fdb-b35d-bd661b9ae587"><td id="_wU~" class="">Divisione</td><td id="[Ls^" class="">/</td><td id=":Bjs" class="">5.0 / 2.0 = 2.5</td></tr></tbody></table><p id="8f24d031-3c2b-4175-b6e8-3c80f386be6b" class="">Esistono poi degli operatori ai quali bisogna porre particolare attenzione, questi sono l'operatore di incremento (++) e decremento (--) post-fisso e suffisso.</p><p id="f24d043c-2e30-4ee7-b41f-12af28690a59" class=""><em>esempio</em>:</p><pre id="8e9df9c6-20df-4dc1-a2fd-66d4fca036c2" class="code"><code class="language-c">int x = 2;
+x++; //equivale a scrivere x = x + 1;</code></pre><p id="b76387a7-6de9-4e34-8d43-26bc0abc3b01" class="">
+</p><p id="30204603-42bd-4a12-b196-b0ef5e41ca78" class="">Inoltre esistono metodi alternativi (e più veloci) rispetto alle banali (ma chiare) operazioni:</p><pre id="fc51a7bf-c2db-4010-875a-4c343f07dad5" class="code">
+<code class="language-c">int x = 2;
+int y = 3;
+x += y;  //equivale a scrivere x = x + y;</code></pre><p id="052bf35d-4d9f-40ae-935d-eedbc659047b" class="">Questa forma risulta essere più concisa, e per questo più facile da usare, ma bisogna porre attenzione nel suo uso perché potrebbe indurre in errori dovuti alla poca chiarezza del codice:</p><pre id="5affdb4e-2f33-4134-bc53-18b58565546e" class="code">
+<code class="language-c">int y = 4; 
+y += 2; // j adesso vale 6
+
+int x = 3; x *= y + 3; 
+// x adesso vale 27 
+// questo perché equivale a x=x*(y+3) e non x=(x*y)+3
+</code></pre><h2 id="341ff493-5374-42f2-871c-6452e74bf2c2" class=""><mark class="highlight-brown"><strong>Operatori di confronto</strong></mark></h2><p id="8645d692-aa66-48e7-9d78-f3ad479feae5" class="">Operatori che permettono di verificare determinate condizioni, come ad esempio l'uguaglianza(<code>==</code>), la disuguaglianza(<code>!=</code>) oppure <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>;</p><table id="7bdd2489-f22b-4034-b85e-6a9498482269" class="simple-table"><thead class="simple-table-header"><tr id="938d5ac4-b71b-4d9b-86bf-4faf2064d0a6"><th id="nm^g" class="simple-table-header-color simple-table-header" style="width:90.66666666666667px">Simbolo</th><th id="Veku" class="simple-table-header-color simple-table-header" style="width:156px">Significato</th><th id="u;Ph" class="simple-table-header-color simple-table-header" style="width:90.66666666666667px">Utilizzo</th></tr></thead><tbody><tr id="21f7c26e-4b01-4d21-8aee-549287fb57e3"><td id="nm^g" class="" style="width:90.66666666666667px">==</td><td id="Veku" class="" style="width:156px">uguale a</td><td id="u;Ph" class="" style="width:90.66666666666667px"><code>a == b</code></td></tr><tr id="7a4ca95f-82fd-4f36-8019-f50a5227a276"><td id="nm^g" class="" style="width:90.66666666666667px">! =</td><td id="Veku" class="" style="width:156px">diverso da</td><td id="u;Ph" class="" style="width:90.66666666666667px"><code>a != b</code></td></tr><tr id="02dede4a-9856-44ec-b15e-58d755a989df"><td id="nm^g" class="" style="width:90.66666666666667px">&gt;</td><td id="Veku" class="" style="width:156px">maggiore</td><td id="u;Ph" class="" style="width:90.66666666666667px"><code>a &gt; b</code></td></tr><tr id="1445baae-9d39-40a1-bf2b-08a863601dde"><td id="nm^g" class="" style="width:90.66666666666667px">&gt;=</td><td id="Veku" class="" style="width:156px">maggiore o uguale</td><td id="u;Ph" class="" style="width:90.66666666666667px"><code>a &gt;= b</code></td></tr><tr id="313bbbc2-2409-485a-adc5-dd73580aaf18"><td id="nm^g" class="" style="width:90.66666666666667px">&lt;</td><td id="Veku" class="" style="width:156px">minore</td><td id="u;Ph" class="" style="width:90.66666666666667px"><code>a &lt; b</code></td></tr><tr id="cbd97042-b6b7-42e7-941a-b8646478574f"><td id="nm^g" class="" style="width:90.66666666666667px">&lt;=</td><td id="Veku" class="" style="width:156px">minore o uguale</td><td id="u;Ph" class="" style="width:90.66666666666667px"><code>a &lt;= b</code></td></tr></tbody></table><p id="2ac03696-8b2e-425c-9f8d-135dddef755f" class=""><em>esempi</em>:<div class="indented"><p id="4edde8c5-a001-451c-a78a-102854755e70" class="">a == b     VERO ←→ a è uguale a b.
+                FALSO altrimenti.</p><p id="7759c416-178d-4cb8-abb0-09a7940848d7" class="">a &gt; b        VERO ←→ a è maggiore strettamente di b.
+                FALSO altrimenti.</p></div></p><h2 id="8e2f9c1d-d1f6-45a6-a0e6-246a41ed409d" class=""><mark class="highlight-brown"><strong>Operatori logici</strong></mark></h2><p id="21292ae8-5a6b-462a-9d49-f6a6660212c3" class="">Da utilizzare con le istruzioni condizionali ed iterative, come ad esempio l'operatore e/allo stesso tempo (<code>&amp;&amp;</code>),  o/oppure(<code>||</code>) </p><table id="00d0dc7b-9047-4a9d-9de3-b221c9c78fcb" class="simple-table"><thead class="simple-table-header"><tr id="22b5277e-e36c-4e16-a528-fdda7852856a"><th id=";rAp" class="simple-table-header-color simple-table-header">Simbolo</th><th id="aVdU" class="simple-table-header-color simple-table-header">Significato</th><th id="JiV\" class="simple-table-header-color simple-table-header">Utilizzo</th></tr></thead><tbody><tr id="98df5949-0c82-4053-9bcc-0034bbd4cee0"><td id=";rAp" class="">&amp;&amp;</td><td id="aVdU" class="">AND logico</td><td id="JiV\" class=""><code>a &amp;&amp; b</code></td></tr><tr id="f9f5efed-8843-43e0-8940-154a2863912f"><td id=";rAp" class="">||</td><td id="aVdU" class="">OR logico</td><td id="JiV\" class=""><code>a || b</code></td></tr></tbody></table><p id="95246128-cbd7-462d-910b-2f71a3d97683" class=""><em>esempi</em>:<div class="indented"><p id="745861d6-90cb-4604-9339-589ccdf1a539" class="">a &amp;&amp; b    VERO ←→ a è vero e b è vero.
+                FALSO altrimenti.</p><p id="00b8c9a2-54ae-44e8-8a04-7b4289cb96ed" class="">a || b        VERO ←→ a è vero e/o b è vero. 
+                FALSO altrimenti</p></div></p><p id="4c06a940-25d8-4a18-a6c9-2927c354ac00" class="">
+</p><h1 id="48278fd5-a162-47b6-9b73-e1eb72dd530c" class=""><mark class="highlight-blue">Input - Output</mark></h1><p id="bed526e9-2218-42a9-94ac-cae6de22aab9" class="">In questa lezione esaminiamo gli strumenti che il <strong>linguaggio C</strong>
+ci offre per operare su input e output. In particolare vediamo come effettuare semplici stampe a video a partire dalle informazioni inserite con la tastiera.</p><p id="742e57a5-c07c-4ea7-9190-e7f9d549d581" class="">Per fare questo dobbiamo includere il file <strong>&lt;stdio.h&gt;</strong>
+che mette a disposizione alcune funzioni predefinite per eseguire la lettura da un dispositivo di input (es. tastiera) o scrittura su un dispositivo di output (es. video);</p><p id="3717ac44-35f1-4039-bf1d-13cc4da69943" class="">le funzioni di cui parleremo sono: <div class="indented"><ol type="1" id="75bbaf61-1783-4e5c-b97b-8842cf86bbc6" class="numbered-list" start="1"><li><strong>printf()</strong></li></ol><ol type="1" id="961452a8-936b-4416-b571-a180786b3ed5" class="numbered-list" start="2"><li><strong>scanf()</strong></li></ol></div></p><h2 id="f18fbb18-244a-4123-8f18-6556675c908a" class=""><mark class="highlight-brown">printf</mark></h2><p id="02a73969-5f82-412b-a240-3dd0fce2e6b2" class="">L'istruzione per stampare a video più usata è la <mark class="highlight-teal"><strong>printf()</strong></mark>, che ci permette di controllare ciò che viene stampato, nel senso che permette di decidere cosa stampare ed in quale forma. La struttura di printf è la seguente:</p><pre id="bbe418c5-b121-4393-9272-7152d373a064" class="code"><code class="language-c">int printf(char *formato, lista argomenti ...)</code></pre><p id="2b957e45-f7c2-4bfc-b783-5299d7e9a4ca" class="">Stampa sullo <strong>stdout</strong> (il video o la console in questo caso) la lista di argomenti conformemente alla stringa di formato specificata. La funzione ritorna il numero di caratteri stampanti. La stringa di formato ha due tipi di argomenti:</p><ul id="f7e173ba-ede7-429d-bf15-5ee1cadffe0a" class="bulleted-list"><li style="list-style-type:disc"><strong>caratteri ordinari</strong> – questi vengono copiati nell'output;</li></ul><ul id="45457b87-50ed-420a-b6bb-f395ae8db3b2" class="bulleted-list"><li style="list-style-type:disc"><strong>specificazioni di conversione</strong> – contraddistinte dal carattere percentuale “%” e da un carattere che specifica il formato con il quale stampare le variabili presenti nella lista di argomenti.</li></ul><p id="66c1bd6a-602b-474d-a5b2-db52f4f2da5e" class="">La tabella seguente mostra i possibili formati che possono essere usati per formattare le variabili; tali considerazioni si applicano anche al comando <code>scanf()</code>;</p><table id="dd941252-9a31-43b4-8ef8-537e198fbe19" class="simple-table"><thead class="simple-table-header"><tr id="b36781d0-ba33-4822-b08f-75bd79314869"><th id="IV|`" class="simple-table-header-color simple-table-header">Stringa di controllo</th><th id="DXPw" class="simple-table-header-color simple-table-header">Cosa viene stampato</th></tr></thead><tbody><tr id="5f1abc4e-3329-41ec-a08c-41444b0839cf"><td id="IV|`" class=""><code>%d, %i</code></td><td id="DXPw" class="">Intero decimale</td></tr><tr id="43ac8cd5-7fe6-49ca-8dc0-1140f4d4b4e7"><td id="IV|`" class=""><code>%f</code></td><td id="DXPw" class="">Valore in virgola mobile</td></tr><tr id="ccb7e457-1420-476b-9125-634db96ebcde"><td id="IV|`" class=""><code>%c</code></td><td id="DXPw" class="">Un carattere</td></tr><tr id="013b83f3-fe1a-40a4-9b3d-bb0ac9451291"><td id="IV|`" class=""><code>%s</code></td><td id="DXPw" class="">Una stringa di caratteri</td></tr><tr id="03266d3d-6117-452a-a08c-44ed6417e1e7"><td id="IV|`" class=""><code>%o</code></td><td id="DXPw" class="">Numero ottale</td></tr><tr id="f61c367f-a157-4cc5-b773-3fc399aef80f"><td id="IV|`" class=""><code>%x, %X</code></td><td id="DXPw" class="">Numero esadecimale</td></tr><tr id="5d1e3832-26c8-41d7-b529-e284814ed0b5"><td id="IV|`" class=""><code>%u</code></td><td id="DXPw" class="">Intero senza segno</td></tr><tr id="86aafaef-a1c4-437c-9e83-dac27801d792"><td id="IV|`" class=""><code>%f</code></td><td id="DXPw" class="">Numero reale (float o double)</td></tr><tr id="7c1e8360-7bd1-4788-b7c1-43260c4fbdc8"><td id="IV|`" class=""><code>%e, %E</code></td><td id="DXPw" class="">Formato scientifico</td></tr><tr id="d1de38c7-b8ba-4116-9772-dec0510ea54c"><td id="IV|`" class=""><code>%%</code></td><td id="DXPw" class="">Stampa il carattere %</td></tr></tbody></table><p id="ba8ad2e0-ded6-4305-bbad-61423501076c" class=""><em>esempio</em>:</p><pre id="2c1402f5-f27b-4b35-a3d4-79a12ed5e064" class="code">
+<code class="language-c">int x = 10;
+printf(&quot;Il numero è %d \n&quot;, x);
+/* l&#x27;output a video è &quot;Il numero è 10&quot; */
+printf(&quot;%f \n&quot;, 24.3);
+/* l&#x27;output a video è 24.3 */
+printf(&quot;IVA = 20%% \n&quot;);
+/* l&#x27;output a video è, &quot;IVA = 20%&quot; */</code></pre><p id="4e25a54f-bc33-40a9-a0ef-11f5ea8787c0" class="">
+</p><p id="ab81eff0-bad6-4f67-87d9-314670d4b0c7" class="">Le <mark class="highlight-teal"><strong>sequenze di escape</strong></mark> servono per rappresentare quei caratteri “speciali” presenti nella codifica ASCII e che non stampano nulla a video, ma permetto di introdurre all'interno di ciò che verrà stampato eventuali spaziature.</p><table id="c252be0a-22d5-4f06-85bd-8cebe7bdbc92" class="simple-table"><thead class="simple-table-header"><tr id="ad7a6f52-02d8-4d6f-9bb1-bf91f5ed5d31"><th id="VZN~" class="simple-table-header-color simple-table-header">Tipo di opzione</th><th id="p{}|" class="simple-table-header-color simple-table-header">Descrizione</th></tr></thead><tbody><tr id="0583f92d-0693-4ebf-bcc6-fdad449c7f4d"><td id="VZN~" class=""><code>\n</code></td><td id="p{}|" class="">Ritorno a capo</td></tr><tr id="5655f179-62a5-44a7-baa3-9db48ac159c9"><td id="VZN~" class=""><code>\t</code></td><td id="p{}|" class="">Tabulazione orizzontale</td></tr><tr id="6f10203b-007a-446c-b533-05ca0c25a61a"><td id="VZN~" class=""><code>\b</code></td><td id="p{}|" class="">Tabulazione verticale</td></tr><tr id="bf9f3fcf-aa2a-4cbb-bb64-0c126bbb3d73"><td id="VZN~" class=""><code>\a</code></td><td id="p{}|" class="">Torna indietro di uno spazio</td></tr><tr id="add19ac9-fee9-4cc0-abe5-c73a1adb6dda"><td id="VZN~" class=""><code>\f</code></td><td id="p{}|" class="">Salto pagina</td></tr></tbody></table><h2 id="ec12c3d2-22fd-4184-aa9f-302336fa4fa6" class=""><mark class="highlight-brown">scanf</mark></h2><p id="2d51750e-84c5-4647-b76e-cd30e5043958" class="">La funzione <mark class="highlight-teal"><strong>scanf()</strong></mark> serve per leggere dallo <strong>stdin</strong> (generalmente la tastiera) una sequenza di caratteri (lettere o cifre) che verranno memorizzate all'interno di opportune variabili. Scanf è, quindi, definita come segue:</p><pre id="535b44de-56d6-43b5-a9b4-6a8108fa0a2a" class="code"><code class="language-c">int scanf(char *formato, lista argomenti ...)</code></pre><p id="69f3e606-98eb-4056-b28e-3b6d7d26410a" class="">A differenza di <code>printf()</code>, però la variabile deve essere messa preceduta dal simbolo <code>&amp;</code>, perché in realtà tra gli argomenti non dobbiamo passare il nome della variabile, ma il suo indirizzo, cosa che può essere fatta tranquillamente utilizzando un puntatore (ed ecco il perché del <code>&amp;</code>, simbolo che serve ad ottenere l'indirizzo del puntatore;</p><pre id="0bbbe8d8-60f8-48c5-a8c1-77c79cb1bf8f" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+int main(){
+	int i;
+	scanf(&quot;%d \n&quot;, &amp;i);
+	printf(&quot;%d \n&quot;, i);
+}</code></pre><p id="652ad350-8a48-4a08-bbba-e71b59eddc65" class=""><strong>Questo semplice programma sopra esposto serve solamente per leggere un numero da tastiera e ristamparlo a video;</strong></p><h1 id="173c836a-7f60-43e4-9887-c053d9d68c29" class=""><mark class="highlight-blue">Esercizi</mark></h1><h2 id="5cd1e94a-87aa-4803-a6a3-011474f5a660" class=""><mark class="highlight-brown">Esercizio 1</mark></h2><p id="632b2980-6a3e-4feb-a6a7-2b84855127d7" class="">realizzare un programma che chiede all'utente 2 valori interi e ne restituisce la somma. </p><blockquote id="b2c0e902-6310-4683-b3b3-ab79ce64c632" class="">Esempio Output:
+inserisci primo valore: 3
+inserisci secondo valore: 5
+la somma è: 8</blockquote><p id="a35ffeb7-d5eb-4f84-91a3-272750f72f55" class="">SOLUZIONE:</p><pre id="24b60839-e6b6-4fe2-803a-8d746747ff27" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main() { 
+    // dichiarazione variabili intere
+    int x;
+    int y;
+    
+    // lettura variabili
+    printf(&quot;inserisci primo valore: &quot;);
+    scanf(&quot;%d&quot;, &amp;x);
+    printf(&quot;inserisci secondo valore: &quot;);
+    scanf(&quot;%d&quot;, &amp;y);
+    
+		// operazioni
+    int somma = x+y;
+    
+    // stampa somma
+    printf(&quot;la somma è: %d&quot;, somma);
+    
+    return 0;
+}</code></pre><h2 id="e4691aa3-6d29-4a22-afee-ccbf1b93409f" class=""><mark class="highlight-brown">Esercizio 2</mark></h2><p id="cc7c55b7-acda-41de-b735-32dcdb0ced26" class="">realizzare un programma che chiede all'utente un valore intero e ne restituisce il valore successivo (+1) e quello precedente (-1). </p><blockquote id="4c4bb0ef-b637-4ad6-adf3-14160ec7f3ea" class="">Esempio Output:
+inserisci valore: 4
+valore: 4
+valore + 1: 5 
+valore - 1: 3</blockquote><p id="27824eb6-65ae-4454-8d3f-aa02b38f730e" class="">SOLUZIONE:</p><pre id="c3daf34b-3cc8-4558-8398-2565449fba21" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main(){
+    // dichiarazione variabili
+    int x;
+    
+    // lettura variabili
+    printf(&quot;inserisci valore: &quot;);
+		scanf(&quot;%d&quot;, &amp;x);
+    
+    // operazioni
+    int somma = x+1;
+    int sottrazione = x-1;
+    
+    //stampa
+    printf(&quot;valore: %d\n&quot;, x);
+		printf(&quot;valore + 1: %d\n&quot;, somma);
+		printf(&quot;valore - 1: %d\n&quot;, sottrazione);
+    
+    return 0;
+}</code></pre><h2 id="70baee0a-1ed0-4e84-883a-2c7082bb779a" class=""><mark class="highlight-brown">Esercizio 3</mark></h2><p id="cbabac6c-7425-49b1-a9fe-62fea949832f" class="">realizzare un programma che chiede all'utente 2 valori reali e ne restituisce la media.</p><blockquote id="01d11004-3b0c-4ede-8397-7aafe1196cf5" class="">Esempio Output:
+inserisci primo valore: 6
+inserisci secondo valore: 5 
+la media è: 5.5</blockquote><p id="4d4973b5-1a0f-418d-bc21-cc89388551d5" class="">SOLUZIONE:</p><pre id="5f5382b3-17b5-4654-898f-54920885a668" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main(){
+    // dichiarazione variabili
+    float x;
+    float y;
+
+    // lettura variabili
+    printf(&quot;inserisci primo valore: &quot;);
+    scanf(&quot;%f&quot;, &amp;x);
+    printf(&quot;inserisci secondo valore: &quot;);
+    scanf(&quot;%f&quot;, &amp;y);
+    
+    float media = (x+y)/2;
+
+    // operazioni
+    printf(&quot;la media è: %f&quot;, media);
+
+    return 0;
+}</code></pre></div></article>
 
 
 <footer id="footer">
@@ -71,6 +260,11 @@ function googleTranslateElementInit() {
 <script>
 	AOS.init();
 </script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
 
 </body>
 </html>
