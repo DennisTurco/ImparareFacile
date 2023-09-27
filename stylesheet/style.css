@@ -191,11 +191,11 @@ body {
 	max-width: 800px;
 	margin: auto;
 	margin-top: 200px;
-	text-align: center;
 }
 
-.container h1 {
+.container h1, h2 {
 	padding: 10px;
+	text-align: center;
 }
 
 .container .item {
