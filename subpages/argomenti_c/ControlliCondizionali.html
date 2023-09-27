@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>C - lezione Controlli Condizionali If-Else</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../manualeC.html">Linguaggio C</a>
+            <a href="../manualeC++.html">Linguaggio C++</a>
+            <a href="../manualePython.html">Linguaggio Python</a>
+            <a href="../manualeSQL.html">Linguaggio SQL</a>
+            <a href="../manualeGIT.html">Linguaggio GIT</a>
+        </div>  
+    </div>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Controlli Condizionali If-Else -->
+<article id="8303da44-2688-4bee-92ef-c9b9ca1dcd99" class="page sans"><header><h1 class="page-title">Controlli Condizionali: If-Else</h1></header><div class="page-body"><nav id="d7cb5090-eda5-47ad-a943-f730dc29bfbb" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#00cc774d-a8bd-4ed7-9ee2-cd97a59eddd7"><mark class="highlight-blue">Descrizione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#310dd074-0d66-4fed-a280-ff11f3487a32"><mark class="highlight-blue">Sintassi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#21cafc55-3cab-49ed-a5ba-ccf5be771caa"><mark class="highlight-blue">Funzionamento</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#766f4e5a-5c99-4fe9-b2ca-663206d586e1"><mark class="highlight-blue">In sintesi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d0119d85-afe0-4b83-a576-a6db69fd85c8"><mark class="highlight-blue">Esercizi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1bb61f29-d817-4519-a18e-f9d7ffc9641e"><mark class="highlight-brown">ESERCIZIO 1: </mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#adad2e9d-d870-45d6-b4a9-f6a5200516c3"><mark class="highlight-brown">ESERCIZIO 2: </mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#68c86140-0712-4d15-bccc-7ad9b5bc1020"><mark class="highlight-brown">ESERCIZIO 3: </mark></a></div></nav><h1 id="00cc774d-a8bd-4ed7-9ee2-cd97a59eddd7" class=""><mark class="highlight-blue">Descrizione</mark></h1><p id="cda53235-cc89-487d-9563-9b9f488cb8ff" class="">Un&#x27;istruzione if-else controlla il ramo condizionale. Le istruzioni nell&#x27;oggetto vengono eseguite solo se l&#x27;oggetto <code><em>if-branchcondition</em></code><em> </em>restituisce un valore diverso da zero (o <code><strong>true</strong></code>). Se il valore di <code><em>condition</em></code><em> </em>è diverso da zero, l&#x27;istruzione seguente viene eseguita e l&#x27;istruzione che segue viene ignorata <code><strong>else</strong></code>. In caso contrario, l&#x27;istruzione seguente viene ignorata e, se è presente un&#x27;istruzione <code><strong>else</strong></code><strong> </strong>che segue, <code><strong>else</strong></code><strong> </strong>viene eseguita.</p><h1 id="310dd074-0d66-4fed-a280-ff11f3487a32" class=""><mark class="highlight-blue">Sintassi</mark></h1><p id="6a5f0e62-74a2-4675-84f8-2c0093382a6b" class="">The syntax of the <code>if</code> statement is:</p><p id="d9918525-a900-47b5-90e1-f4149d27833a" class="">LA sintassi dell' <code>if</code> statement è:</p><pre id="39988846-8b65-4999-bccf-645aaba20a79" class="code code-wrap">
+<code class="language-c">if (condizione) {
+    // corpo dell&#x27;if statement
+}</code></pre><p id="74967619-caa0-4e0a-99c4-17af124aea30" class="">L' <code>if</code> statement valuta la <code>condizione</code> dentro alle parentesi <code>( )</code>.</p><ul id="34e67845-cdd5-4784-a766-b5bfdd9debd1" class="bulleted-list"><li style="list-style-type:disc">Se la <code>condizione</code> risulta <code>true</code>, il codice dentro al corpo dell' <code>if</code> viene <em>eseguito</em>.</li></ul><ul id="475fac96-14ec-42cc-af97-81bea4cf8e00" class="bulleted-list"><li style="list-style-type:disc">Se la <code>condizione</code> risulta <code>false</code>, il codice dentro al corpo dell' <code>if</code> viene <em>evitato</em>.</li></ul><p id="2d1b8c86-3da5-439a-876d-1706ea2beee2" class=""><strong>Nota:</strong> Il codice dentro <code>{ }</code> è il corpo dell' <code>if</code> statement.</p><h1 id="21cafc55-3cab-49ed-a5ba-ccf5be771caa" class=""><mark class="highlight-blue">Funzionamento</mark></h1><p id="181b83a8-bf21-497c-b70a-db15e6784699" class="">L'istruzione <mark class="highlight-teal"><strong>if</strong></mark> permette di verificare determinate condizioni ed ha la seguente sintassi:</p><pre id="4c3e3b6e-9712-412e-861e-9506092a9165" class="code">
+<code class="language-c">//...
+
+if(condizione){
+    //....
+}
+
+//...</code></pre><p id="af405a89-245c-4dbd-b852-a52d8f04e104" class="">In questo caso <strong>se</strong> l'espressione risulta <strong>vera</strong>, fa eseguire l'istruzione immediatamente successiva, <strong>altrimenti</strong> (se la condizione è <strong>falsa</strong>) si salta l'istruzione (od il blocco di istruzioni) e si procede nell'esecuzione delle istruzioni successive, che possono essere la prosecuzione del programma o un semplice <span style="border-bottom:0.05em solid"><mark class="highlight-teal"><strong>else</strong></mark></span>, ad indicare la possibile alternativa all'if:</p><pre id="73266bb6-5131-46b0-b003-6a5ae085640b" class="code">
+<code class="language-c">if(condizione){
+    //....
+} else {
+    //...
+}</code></pre><p id="c09cf15c-4772-491e-9e29-ad3674b0979f" class="">o un <span style="border-bottom:0.05em solid"><strong><mark class="highlight-teal">else if</mark></strong></span><strong> </strong>che permette di verificare una o più condizioni:</p><pre id="aa4885af-371d-4077-a5a6-29d1f6ecd5fb" class="code">
+<code class="language-c">if(condizione1){
+    //....
+} 
+else if(condizione2){
+    //...
+} else {
+    //...
+}</code></pre><p id="c8b06e57-2559-4f14-a9fd-88adf15a7230" class="">Così si può comandare il flusso del programma decidendo di eseguire una parte di codice oppure no (nel caso del solo <strong>if</strong>), di fare una scelta tra due parti di codice (nel caso <strong>if</strong>– <strong>else</strong>) o di fare una scelta tra più parti di codice (nel caso <strong>if</strong> – <strong>else if</strong>– <strong>else</strong>).</p><figure id="328be7ab-69e2-43b0-8190-b1152cb01aed" class="image"><img style="width:757px" src="../../images/for_pages/if.png"/></figure><h1 id="766f4e5a-5c99-4fe9-b2ca-663206d586e1" class=""><mark class="highlight-blue">In sintesi</mark></h1><ul id="6f03acaf-a796-4ec1-8be2-37d20f8f6ff0" class="bulleted-list"><li style="list-style-type:disc">Utilizzare l&#x27; <code>if</code>istruzione per specificare un blocco di codice C++ da eseguire se una condizione è <code>true</code>.</li></ul><ul id="1990a64b-395c-4119-bcde-c5a93c1334f8" class="bulleted-list"><li style="list-style-type:disc">Utilizzare l&#x27; <code>else</code>istruzione per specificare un blocco di codice da eseguire se la condizione è <code>false</code>.</li></ul><ul id="92745e7f-7e1a-46c6-901c-d7d4ad5c8bde" class="bulleted-list"><li style="list-style-type:disc">Utilizzare l&#x27; <code>else if</code>istruzione per specificare una nuova condizione se la prima condizione è <code>false</code>.</li></ul><p id="ee0c4756-b166-496d-9b5f-4cc5dfc59969" class="">
+</p><p id="be5ac68a-6a74-4e09-8758-4b591b228b28" class=""><em>esempio</em>:</p><pre id="6b4d48d8-9c1d-46f8-b227-9b28d814f769" class="code">
+<code class="language-c">if (risultato_esame &gt;= 18){
+    printf (&quot;Complimenti hai superato l'esame&quot;); 
+}
+else if (risultato_esame &gt;= 15) {
+    printf (&quot;Devi sostenere l'orale per questo esame&quot;);
+}
+else {
+    printf (&quot;Non hai superato l'esame&quot;);
+}</code></pre><h1 id="d0119d85-afe0-4b83-a576-a6db69fd85c8" class=""><mark class="highlight-blue">Esercizi</mark></h1><h2 id="1bb61f29-d817-4519-a18e-f9d7ffc9641e" class=""><mark class="highlight-brown">ESERCIZIO 1: </mark></h2><p id="2834e643-6f1b-4068-8fc8-a5ef92b33fa2" class="">realizzare un programma che chiede all'utente 3 valori (valore1, valore2, valore3), in base ai quali il programma restituisce in output i 3 valori dal maggiore al minore.</p><blockquote id="6ed307c1-edc3-4d3d-9f46-08cf56749875" class="">Esempio Output:
+inserisci 3 numeri: 
+4
+3
+5
+numero3 &gt;= numero1 &gt;= numero2</blockquote><p id="a1053c25-f9ca-4ad3-8d43-53f89c37d38a" class="">SOLUZIONE:</p><pre id="f32e18fc-8dda-4769-8476-7733ded024e6" class="code">
+<code class="language-c">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int numero1;
+    int numero2;
+    int numero3;
+    
+    printf(&quot;inserisci 3 numeri: &quot;);
+    scanf(&quot;%d&quot;, numero1);
+    scanf(&quot;%d&quot;, numero2);
+    scanf(&quot;%d&quot;, numero3);
+    
+if (numero1 &gt;= numero2 &amp;&amp; numero1 &gt;= numero3) {
+        if (numero2 &gt;= numero3) {
+            printf(&quot;numero1 &gt;= numero2 &gt;= numero3 \n&quot;);
+        }
+        else {
+            printf(&quot;numero1 &gt;= numero3 &gt;= numero2 \n&quot;);
+        }
+    }
+    else if (numero2 &gt;= numero1 &amp;&amp; numero2 &gt;= numero3) {
+        if (numero1 &gt;= numero3) {
+            printf(&quot;numero2 &gt;= numero1 &gt;= numero3 \n&quot;);
+        }
+        else {
+            printf(&quot;numero2 &gt;= numero3 &gt;= numero1 \n&quot;);
+        }
+    }
+    else {
+        if (numero2 &gt;= numero1) {
+            printf(&quot;numero3 &gt;= numero2 &gt;= numero1 \n&quot;);
+        }
+        else {
+            printf(&quot;numero3 &gt;= numero1 &gt;= numero2 \n&quot;);
+        }
+    }
+        
+        return 0;
+}</code></pre><p id="185e63f0-be93-42d7-93dd-071d77a8085f" class="">
+</p><h2 id="adad2e9d-d870-45d6-b4a9-f6a5200516c3" class=""><mark class="highlight-brown">ESERCIZIO 2: </mark></h2><p id="691ca855-0b6f-4452-9a81-b667a8b3a256" class="">realizzare un programma che chiede all'utente 2 valori, in base ai quali il programma dice qual è il maggiore, oppure uguali nel caso.</p><blockquote id="cc678d8a-73f1-4fab-9b73-bee91947d621" class="">Esempio Output:
+inserisci primo valore:  7
+inserisci secondo valore: 3 
+il numero maggiore e&#x27;:  7</blockquote><p id="47871b41-a857-4e2f-8e87-d450a5d85c5e" class="">SOLUZIONE:</p><pre id="5785387f-0e20-44d1-bb9e-a19233d5602a" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main(){
+    int x;
+    int y;
+
+    printf(&quot;inserisci primo valore: &quot;);
+    scanf(&quot;%d&quot; , &amp;x);
+
+    printf(&quot;inserisci secondo valore: &quot;);
+    scanf(&quot;%d&quot; , &amp;y);
+
+    if(x&gt;y){
+        printf(&quot;il numero maggiore e&#x27;: %d&quot;, x);
+    }
+    else if(x&lt;y){
+        printf(&quot;il numero maggiore e&#x27;: %d&quot;, y);
+    }
+    else{
+        printf(&quot;i numeroi sono uguali&quot;);
+    }
+    return 0;
+}</code></pre><h2 id="68c86140-0712-4d15-bccc-7ad9b5bc1020" class=""><mark class="highlight-brown">ESERCIZIO 3: </mark></h2><p id="d9d5864f-14f0-461d-8fe5-ac8f706149f0" class="">realizzare un programma che chiede all'utente 1 valore, se il valore è:</p><p id="5e7169d6-16a6-4419-8a73-3279ea91cd33" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>1</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x&gt;1 ∧ x &lt; 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></span><span>﻿</span></span>  → il voto è estremamente insufficiente</p><p id="cb5737c8-4343-435c-8978-676a54d5486a" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>5</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">x&gt;=5 ∧ x &lt; 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span></span><span>﻿</span></span>  → il voto è insufficiente</p><p id="439f0230-1493-48a8-9a0d-c5ae111af0c7" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>6</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">x&gt;=6 ∧ x &lt; 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span></span><span>﻿</span></span>  → il voto è sufficiente</p><p id="6e656436-978c-4970-bb3f-a9987c24bc98" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>7</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">x&gt;=7 ∧ x &lt; 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></span><span>﻿</span></span>  → il voto è buono</p><p id="4dc46e6d-6622-4e6e-82f3-c70bb08aff41" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>8</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">x&gt;=8 ∧ x &lt; 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span></span><span>﻿</span></span>  → il voto è ottimo</p><p id="7d0528be-4fb1-46df-a7cd-5a067438e695" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mo>=</mo><mn>9</mn><mo>∧</mo><mi>x</mi><mo>&lt;</mo><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">x&gt;=9 ∧ x &lt;= 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10</span></span></span></span></span><span>﻿</span></span>  → il voto è eccellente</p><p id="bbf7de64-e72e-43bf-8e92-5a8c933c1c67" class=""><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>∨</mo><mi>x</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">x&lt;0 ∨ x&gt;10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10</span></span></span></span></span><span>﻿</span></span>  → il voto non è valido</p><blockquote id="bf9c71b4-d62b-414d-85c0-85d13bfd5049" class="">Esempio Output:
+inserisci valore:  7
+il voto e' buono</blockquote><p id="eb26691e-d37d-4f84-8396-99aa56b19714" class="">SOLUZIONE:</p><pre id="29407027-85f5-4c27-9a6b-28b7a8ac30b1" class="code">
+<code class="language-c">#include &lt;stdio.h&gt;
+
+int main(){
+
+    float val1;
+
+    printf(&quot;inserisci valore: &quot;);
+    scanf(&quot;%f&quot; , &amp;val1);
+
+    if(val1&gt;1 &amp;&amp; val1&lt;5){
+        printf(&quot;il voto e&#x27; estremamente insufficiente&quot;);
+    }
+    else if(val1&gt;=5 &amp;&amp; val1&lt;6){
+        printf(&quot;il voto e&#x27; insufficiente&quot;);
+    }
+    else if(val1&gt;=6 &amp;&amp; val1&lt;7){
+        printf(&quot;il voto e&#x27; sufficiente&quot;);
+    }
+    else if(val1&gt;=7 &amp;&amp; val1&lt;8){
+        printf(&quot;il voto e&#x27; buono&quot;);
+    }
+    else if(val1&gt;=8 &amp;&amp; val1&lt;9){
+        printf(&quot;il voto e&#x27; ottimo&quot;);
+    }
+    else if(val1&gt;=9 &amp;&amp; val1&lt;=10){
+        printf(&quot;il voto e&#x27; eccellente&quot;);
+    }
+    else if(val1&lt;0 || val1&gt;10){
+        printf(&quot;il voto non e&#x27; valido&quot;);
+    }
+    else {
+        printf(&quot;errore...&quot;);
+    }
+
+    return 0;
+
+}</code></pre></div></article>
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>C++ - STL List</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../manualeC.html">Linguaggio C</a>
+            <a href="../manualeC++.html">Linguaggio C++</a>
+            <a href="../manualePython.html">Linguaggio Python</a>
+            <a href="../manualeSQL.html">Linguaggio SQL</a>
+            <a href="../manualeGIT.html">Linguaggio GIT</a>
+        </div>  
+    </div>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- List -->
+<article id="1a5bbf25-34e2-4a39-8797-999ceebbab15" class="page sans"><header><h1 class="page-title">List</h1><p class="page-description"></p></header><div class="page-body"><nav id="c0932bd1-b4d1-4060-a3f8-3dd8917ece55" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7834b6a7-4dde-415c-abf2-6d3223fe2026">🔗 <mark class="highlight-blue">Links</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#598b17c3-a7d4-47d2-b5ce-b90ead89e577">📃 <mark class="highlight-blue">Tipi di liste</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d240e5f7-2de5-4abc-8863-5b1b04c6acf5"><mark class="highlight-brown">Single List</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ee0052a4-c6c4-4fb0-9d27-e9d88de40a7d"><mark class="highlight-brown">Doubly Linked List</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#01052b31-5085-45d3-868c-5c2a5651b5d5"><mark class="highlight-brown">Circular Linked List</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7eb7c238-8fc6-4ed0-8a20-736f979a032d"><mark class="highlight-brown">Circular Doubly Linked List</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#84d32dab-237d-4051-986d-b588efccc53f">📊 <mark class="highlight-blue">Graficamente</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d87e2a0e-c934-493f-b55c-dd3dfd356ee8">⚜ <mark class="highlight-blue">std::list</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#aeadac41-821e-46bf-93d6-ae0962ac2370"><mark class="highlight-brown">Creazione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ebca3348-925a-4a2b-bc51-5e512d81a540"><mark class="highlight-brown">Operazioni base</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#080be447-6f48-403e-a3d0-ed7db145a5c4"><mark class="highlight-orange">Aggiunta elemento</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#db60fa05-39d6-4492-a447-97eb8664c4a6"><mark class="highlight-orange">Accesso elemento</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b0fc8a4f-0694-432f-ae44-69de2d0e737b"><mark class="highlight-orange">Rimozione elemento</mark></a></div></nav><h1 id="7834b6a7-4dde-415c-abf2-6d3223fe2026" class="">🔗 <mark class="highlight-blue">Links</mark></h1><ul id="732fc3c2-91a2-4c33-8381-32d8df927597" class="bulleted-list"><li style="list-style-type:disc">Pagina Ufficiale:<figure id="8446c13e-13f8-4579-8f15-ce6fdc0a37f8"><a href="https://cplusplus.com/reference/list/list/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href"><img src="https://cplusplus.com/favicon.ico" class="icon bookmark-icon"/>https://cplusplus.com/reference/list/list/</div></div></a></figure></li></ul><ul id="5fa388d8-3ea5-4724-a776-4f2c6d6f18a4" class="bulleted-list"><li style="list-style-type:disc">Pagina Consigliata:<figure id="a43bf696-7429-4834-8eac-6ec6d09b1e2c"><a href="https://www.geeksforgeeks.org/list-cpp-stl/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">List in C++ Standard Template Library (STL) - GeeksforGeeks</div><div class="bookmark-description">A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.</div></div><div class="bookmark-href"><img src="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png" class="icon bookmark-icon"/>https://www.geeksforgeeks.org/list-cpp-stl/</div></div><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png" class="bookmark-image"/></a></figure></li></ul><p id="365ffd1b-478a-4164-8032-7105be580c5b" class="">
+</p><hr id="514a00d4-c626-4fae-bac7-596cdf8237f6"/><h1 id="598b17c3-a7d4-47d2-b5ce-b90ead89e577" class="">📃 <mark class="highlight-blue">Tipi di liste</mark></h1><figure id="1ce675fb-41d6-427d-b04e-3f2d64723bdd" class="image"><a href="../../images/for_pages/list1.png"><img style="width:1920px" src="../../images/for_pages/list1.png"/></a></figure><h2 id="d240e5f7-2de5-4abc-8863-5b1b04c6acf5" class=""><mark class="highlight-brown">Single List</mark></h2><p id="32206678-ae6b-484e-b2c1-5221cf105573" class="">Una <mark class="highlight-teal"><strong>lista singolarmente concatenata</strong></mark> è il tipo più semplice di lista collegata, con ogni nodo contenente dati e un puntatore al nodo successivo con lo stesso tipo di dati. Il nodo memorizza l&#x27;indirizzo del nodo successivo nella sequenza poiché ha un puntatore al nodo successivo. Un singolo elenco collegato consente di attraversare i dati in una sola direzione.</p><h2 id="ee0052a4-c6c4-4fb0-9d27-e9d88de40a7d" class=""><mark class="highlight-brown">Doubly Linked List</mark></h2><p id="102f275c-1e09-45fd-9f63-084a27f4522d" class="">Una <mark class="highlight-teal"><strong>lista doppiamente concatenata</strong></mark> contiene un puntatore sia al nodo successivo che a quello precedente nella catena. Dati, un puntatore al nodo successivo e un puntatore al nodo precedente costituiscono i tre componenti. Questo permette anche di tornare indietro nell&#x27;elenco.</p><h2 id="01052b31-5085-45d3-868c-5c2a5651b5d5" class=""><mark class="highlight-brown">Circular Linked List</mark></h2><p id="15c56ab6-cd87-40ff-92c4-e45f67b4f432" class="">La <mark class="highlight-teal"><strong>lista circolare collegata</strong></mark> è una forma di una lista collegata che è circolare. Il puntatore al primo nodo della lista è incluso nell&#x27;ultimo nodo di una lista circolare collegata. Quando si attraversa una lista circolare collegata, si può iniziare da qualsiasi nodo e attraversare la lista in qualsiasi direzione avanti o indietro fino a raggiungere lo stesso nodo da cui si è iniziato.</p><h2 id="7eb7c238-8fc6-4ed0-8a20-736f979a032d" class=""><mark class="highlight-brown">Circular Doubly Linked List</mark></h2><p id="cf34c76e-c6ac-4186-a5d3-609e7a874990" class="">Una <mark class="highlight-teal"><strong>lista concatenata circolare bidirezionale</strong></mark>, nota anche come lista doppiamente concatenata circolare, è un tipo più complesso di lista concatenata contenente un puntatore sia al nodo successivo che a quello precedente della catena. La differenza tra un elenco collegato singolarmente e un elenco collegato circolare è la stessa tra un elenco doppiamente collegato e un elenco doppio circolare.</p><p id="07da184d-505f-40ee-bc4e-e2807c404475" class="">
+</p><hr id="81dccf79-711f-43d3-8076-5c65b54900ca"/><h1 id="84d32dab-237d-4051-986d-b588efccc53f" class="">📊 <mark class="highlight-blue">Graficamente</mark></h1><figure id="f2a35a7b-a81c-4bbf-8e4d-84042ca72834" class="image"><a href="../../images/for_pages/list4.png"><img style="width:759px" src="../../images/for_pages/list4.png"/></a><figcaption>Linked list, inserimento</figcaption></figure><figure id="6237b0b3-c4e0-4239-ba1f-970388d2ada2" class="image"><a href="../../images/for_pages/list3.png"><img style="width:759px" src="../../images/for_pages/list3.png"/></a><figcaption>linked list, rimozione</figcaption></figure><p id="636a3085-1998-4a5a-804a-c44e018791e3" class="">
+</p><hr id="f208d96a-6b26-43d6-9470-e5cc7fabfe10"/><h1 id="d87e2a0e-c934-493f-b55c-dd3dfd356ee8" class="">⚜ <mark class="highlight-blue">std::list</mark></h1><p id="eabb7187-6afe-4688-975d-bd1e86d3f605" class=""><strong><mark class="highlight-teal">C++ List è un contenitore STL</mark></strong> che memorizza gli elementi in modo casuale in luoghi non correlati. Per mantenere l&#x27;ordine sequenziale, ogni elemento della lista include due collegamenti:</p><ul id="50d38ae5-f442-4bec-8c38-a03e6345fa1f" class="bulleted-list"><li style="list-style-type:disc">uno che punta all&#x27;elemento precedente.</li></ul><ul id="17c4f508-a235-431f-9f5b-82cb1d052622" class="bulleted-list"><li style="list-style-type:disc">un altro che punta al prossimo elemento.</li></ul><figure id="f195f6d3-4b5f-4ec2-bb62-f274dde48253" class="image"><a href="../../images/for_pages/list2.png"><img style="width:420px" src="../../images/for_pages/list2.png"/></a><figcaption>Lista doppiamente concatenata</figcaption></figure><p id="52f86b5d-8671-46db-8c0c-3b48f80730b4" class="">La libreria standard del C++ implementa la lista doppiamente concatenata.</p><h2 id="aeadac41-821e-46bf-93d6-ae0962ac2370" class=""><mark class="highlight-brown">Creazione</mark></h2><p id="cae558b6-6833-48ea-a0f2-22843e4bb1cc" class="">Per creare una lista std::list è necessario includere la libreria:</p><pre id="0fc0d79f-801a-4648-aa34-5c4a8478eb86" class="code"><code class="language-cpp">#include &lt;list&gt;</code></pre><p id="742823f1-2353-425d-8132-26e9895d4d61" class="">per dichiarare un oggetto di tipo std::list:</p><pre id="4edac4cf-f71f-4383-8764-e38f9078e93c" class="code"><code class="language-cpp">std::list&lt;Type&gt; list_name = {value1, value2, ...};</code></pre><ul id="914ce753-4454-450b-95a8-168d1b8ecf00" class="bulleted-list"><li style="list-style-type:disc"><code>std::list</code> → dichiara un contenitore STL di tipo list</li></ul><ul id="f78afeaa-eb08-499f-a6c9-fe8bc18b81f7" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;Type&gt;</code> → definisce il tipo dei valori inseriti nella lista</li></ul><ul id="f79de758-309c-4be2-b2e1-3c1f56466778" class="bulleted-list"><li style="list-style-type:disc"><code>list_name</code> → identificatore dell'oggetto</li></ul><ul id="03383fcb-c9a4-4e3e-80b2-8f5a24406d33" class="bulleted-list"><li style="list-style-type:disc"><code>value1, value2, ...</code> → valori inseriti all'interno della lista</li></ul><h2 id="ebca3348-925a-4a2b-bc51-5e512d81a540" class=""><mark class="highlight-brown">Operazioni base</mark></h2><p id="c7df485d-4f79-4bb5-85d7-9c052fb8e8cc" class="">Le operazioni di base delle std::list sonmo:</p><ol type="1" id="5f87f888-d055-4c0f-9be5-aec22ffefe81" class="numbered-list" start="1"><li>Aggiunta elemento.</li></ol><ol type="1" id="3cc4db3e-0f3b-41e6-b0e4-cec7cee617ff" class="numbered-list" start="2"><li>Accesso elemento.</li></ol><ol type="1" id="1c570ad3-8b40-4ed1-90b6-a0eb97259baa" class="numbered-list" start="3"><li>Rimozione elemento.</li></ol><h3 id="080be447-6f48-403e-a3d0-ed7db145a5c4" class=""><mark class="highlight-orange">Aggiunta elemento</mark></h3><p id="f54a9278-b612-47fc-9c9e-6c8267e95fea" class="">2 modi per aggiungere un elemento alla lista:</p><ul id="efce78c1-0af2-445f-89da-de8a839efc03" class="bulleted-list"><li style="list-style-type:disc"><code>push_front()</code> → aggiunge elemento all'inizio della lista.</li></ul><ul id="eef3d149-8183-4c96-949a-fccf1cb44763" class="bulleted-list"><li style="list-style-type:disc"><code>push_back()</code> → aggiunge elemento alla fine della lista.</li></ul><pre id="03c84351-1fbe-46da-96a2-f7bc8d619a3b" class="code"><code class="language-cpp">// add element at the beginning
+numbers.push_front(0);
+
+// add element at the end
+numbers.push_back(4);</code></pre><h3 id="db60fa05-39d6-4492-a447-97eb8664c4a6" class=""><mark class="highlight-orange">Accesso elemento</mark></h3><p id="c5d3cbfa-065b-4e75-84e4-0cc42bab6262" class="">2 modi per accedere agli elementi della lista:</p><ul id="d974a03d-0276-407c-8d7e-ed892106bbf3" class="bulleted-list"><li style="list-style-type:disc"><code>front()</code> → ritorna il primo elemento della lista.</li></ul><ul id="e7547b58-fa0d-4ee6-bebb-603e55cecd0f" class="bulleted-list"><li style="list-style-type:disc"><code>back()</code> → ritorna l'ultimo elemento della lista.</li></ul><pre id="72fff2f0-93b6-49f6-b801-654ac4e37c1a" class="code"><code class="language-cpp">// display the first element
+cout &lt;&lt; &quot;First Element: &quot; &lt;&lt; numbers.front() &lt;&lt; endl;
+
+// display the last element
+cout &lt;&lt; &quot;Last Element: &quot; &lt;&lt; numbers.back();</code></pre><h3 id="b0fc8a4f-0694-432f-ae44-69de2d0e737b" class=""><mark class="highlight-orange">Rimozione elemento</mark></h3><p id="6d3ab6bc-57ce-4f35-8bf7-c5dcc4464834" class="">2 modi per rimuovere gli elementi della lista:</p><ul id="c713a8c8-f3dc-4384-8545-a4b20264367f" class="bulleted-list"><li style="list-style-type:disc"><code>pop_front()</code> → rimuove il primo elemento della lista.</li></ul><ul id="830fc8b7-bc75-4806-a0c4-73879b73804d" class="bulleted-list"><li style="list-style-type:disc"><code>pop_back()</code> → rimuove l'ultimo elemento della lista.</li></ul><pre id="0223e59b-56fa-4556-828a-1374b1a0987e" class="code"><code class="language-cpp">// remove the first element of the list
+numbers.pop_front();
+
+// remove the last element of the list
+numbers.pop_back();</code></pre></div></article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>

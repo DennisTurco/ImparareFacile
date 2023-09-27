@@ -1,0 +1,447 @@
+/*--------------------------------------
+|	             GENERAL			   |
+----------------------------------------*/
+* {
+	-webkit-font-smoothing: antialiased;
+	/* Safari */
+	-moz-osx-font-smoothing: grayscale;
+	/* Safari */
+	box-sizing: border-box;
+}
+
+
+body {
+	cursor: default;
+	background-color: rgb(42, 42, 42);
+	color: white;
+}
+
+h1 {
+	text-align: center;
+	font-family: Georgia, serif;
+	color: #e06c29;
+	/* fallback for old browsers */
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+strong {
+	text-align: center;
+	font-family: Georgia, serif;
+}
+
+a {
+	position: relative;
+	color: rgb(211, 187, 187);
+	text-decoration: none;
+}
+
+a:hover {
+	transition: 0.5s;
+	color: rgb(117, 107, 107);
+}
+
+a::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: rgb(117, 107, 107);
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+a:hover::before {
+	transform: scaleX(1);
+}
+
+/*--------------------------------------
+|	             NAVBAR				   |
+----------------------------------------*/
+body {
+	margin: 0;
+	font-family: Arial
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #333;
+}
+
+.topnav a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.active {
+	background-color: #04AA6D;
+	color: white;
+}
+
+.topnav .icon {
+	display: none;
+}
+
+.dropdown {
+	float: left;
+	overflow: hidden;
+}
+
+.dropdown .dropbtn {
+	font-size: 17px;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.topnav a:hover,
+.dropdown:hover .dropbtn {
+	background-color: #555;
+	color: white;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+@media screen and (max-width: 600px) {
+
+	.topnav a:not(:first-child),
+	.dropdown .dropbtn {
+		display: none;
+	}
+
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.topnav.responsive {
+		position: relative;
+	}
+
+	.topnav.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+
+	.topnav.responsive .dropdown {
+		float: none;
+	}
+
+	.topnav.responsive .dropdown-content {
+		position: relative;
+	}
+
+	.topnav.responsive .dropdown .dropbtn {
+		display: block;
+		width: 100%;
+		text-align: left;
+	}
+}
+
+/*--------------------------------------
+|	            Box linguaggi	       |
+----------------------------------------*/
+.container {
+	max-width: 800px;
+	margin: auto;
+	margin-top: 200px;
+	text-align: center;
+}
+
+.container h1 {
+	padding: 10px;
+}
+
+.container .item {
+	height: 400px;
+	width: 300px;
+	margin: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	margin: auto;
+	margin-top: 50px;
+	opacity: 0.8;
+	transition: 0.5s;
+
+}
+
+.container .item:hover {
+	height: 400px;
+	width: 300px;
+	margin: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	margin: auto;
+	margin-top: 50px;
+	opacity: 1;
+	transition: 0.5s;
+}
+
+
+/*--------------------------------------
+|	            Argomenti			   |
+----------------------------------------*/
+.argomenti h2 {
+	text-align: center;
+	font-family: Georgia, serif;
+	color: #7d5feb;
+	/* fallback for old browsers */
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+
+/*--------------------------------------
+|	            argomenti      			|
+----------------------------------------*/
+.note {
+	text-align: center;
+	margin-top: 100px;
+	font-size: 12px;
+}
+
+
+
+/*--------------------------------------
+|	            Torna su			   |
+----------------------------------------*/
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 1;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: #333;
+	color: white;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 4px;
+	opacity: 0.8;
+	height: 50px;
+}
+
+#myBtn:hover {
+	opacity: 1;
+	background-color: #555;
+}
+
+
+/*--------------------------------------
+|	              Footer			   |
+----------------------------------------*/
+footer {
+	height: 180px;
+	bottom: 0px;
+	width: 100%;
+	background-color: #333;
+	color: white;
+	text-align: center;
+	position: static;
+	margin-top: 300px;
+	z-index: 1;
+}
+
+footer img {
+	width: 310x;
+	transition: 0.5s;
+	opacity: 0.5;
+	position: relative;
+	max-width: 100%;
+	height: auto;
+}
+
+footer img:hover {
+	transition: 0.5s;
+	opacity: 1;
+}
+
+footer a {
+	color: aliceblue;
+	text-decoration-color: rgb(217, 105, 7);
+	text-decoration-thickness: 2px;
+	transition: 0.5s;
+}
+
+footer a:hover {
+	color: grey;
+	transition: 0.5s;
+}
+
+footer table {
+	margin-top: 15px;
+}
+
+footer table th {
+	border: none;
+	width: 60px;
+	padding-left: 20px;
+}
+
+/*--------------------------------------
+|	              Scrollbar			   |
+----------------------------------------*/
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+
+}
+
+
+/*--------------------------------------
+|	   Visualizzazione da telefono	   |
+----------------------------------------*/
+@media only screen and (max-width: 720px) {
+	#wakatime_figure {
+		width: 500px;
+		height: 500px;
+	}
+}
+
+@media only screen and (max-width: 620px) {
+
+	/* For mobile phones: */
+	footer,
+	table {
+		position: static;
+	}
+
+	li a {
+		padding: 2px, 2px;
+	}
+
+	#imageGallery {
+		width: 250px;
+	}
+
+	.tab,
+	.tabcontent {
+		width: 400px;
+	}
+
+	#wakatime_figure {
+		width: 400px;
+		height: 400px;
+	}
+
+}
+
+@media only screen and (max-width: 436px) {
+
+	/* For mobile phones: */
+	#fingerprint {
+		display: none;
+	}
+
+	#imageGallery {
+		width: 220px;
+	}
+
+	.tab,
+	.tabcontent {
+		width: 350px;
+	}
+
+	#wakatime_figure {
+		width: 350px;
+		height: 350px;
+	}
+
+	#wakatime_figure embed {
+		border-radius: 10px;
+	}
+}
+
+@media only screen and (max-width: 376px) {
+
+	/* For mobile phones: */
+	#school {
+		display: none;
+	}
+
+	#imageGallery {
+		width: 200px;
+	}
+
+	.tab,
+	.tabcontent {
+		width: 300px;
+	}
+
+	#wakatime_figure {
+		width: 270px;
+		height: 270px;
+	}
+
+	#wakatime_figure embed {
+		border-radius: 7px;
+	}
+}

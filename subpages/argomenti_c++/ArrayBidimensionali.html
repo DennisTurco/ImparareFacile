@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>C++ - lezione Array Bidimensionali</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../manualeC.html">Linguaggio C</a>
+            <a href="../manualeC++.html">Linguaggio C++</a>
+            <a href="../manualePython.html">Linguaggio Python</a>
+            <a href="../manualeSQL.html">Linguaggio SQL</a>
+            <a href="../manualeGIT.html">Linguaggio GIT</a>
+        </div>  
+    </div>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Array Bidimensionali -->
+<article id="59cab5f4-b9b8-4387-96f4-624886a5f232" class="page sans"><header><h1 class="page-title">Array Bidimensionali</h1></header><div class="page-body"><nav id="07282522-0ee3-4d95-9275-64c09709bf85" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d588b3d0-bffd-4c60-9fad-aa9e4ca625fa"><mark class="highlight-blue">Descrizione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7b989c20-7b8e-4cd5-950a-cac271e9d1a2"><mark class="highlight-blue">Dichiarazione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ac2644bc-9808-4d3e-8b14-0b9c6c6bafa1"><mark class="highlight-blue">Operazioni</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f1bbd657-188d-41f3-8036-84994203f92e"><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Accesso elemento</strong></span></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dbf32d12-7638-469f-ba77-75692fd6a40c"><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Lettura elemento</strong></span></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2e38ef87-685e-4472-9abf-4cf3d160b40a"><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Scrittura elemento</strong></span></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b3319ba0-fb03-4114-82ae-d782abbe4536"><mark class="highlight-blue">Algoritmi principali</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d13827ff-cc8f-41fb-8ea3-e7fb5fd85a9f"><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Stampa Matrice</strong></span></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fd7dd7ba-62e8-4650-830f-787712bc7d6c"><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Leggi Matrice</strong></span></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3c22f20f-634e-4ac8-a799-39013b540d07"><mark class="highlight-blue">Esercizi</mark></a></div></nav><h1 id="d588b3d0-bffd-4c60-9fad-aa9e4ca625fa" class=""><mark class="highlight-blue">Descrizione</mark></h1><p id="0611848e-1832-4421-996c-b67c56c445c8" class="">Matrici (array bidimensionali) Un array bidimensionale, anche detto matrice, è una variabile strutturata tale che:</p><ul id="cdcedb78-47eb-4e54-a1cb-13590ee108b9" class="bulleted-list"><li style="list-style-type:disc">gli elementi sono tutti dello stesso tipo;</li></ul><ul id="d34aeabd-a949-4011-8f1b-89cc40ea3380" class="bulleted-list"><li style="list-style-type:disc">il meccanismo di accesso (diretto) ai suoi elementi consiste di due espressioni intere (indici);</li></ul><h1 id="7b989c20-7b8e-4cd5-950a-cac271e9d1a2" class=""><mark class="highlight-blue">Dichiarazione</mark></h1><pre id="ed8c11a6-b78f-4ad6-9e5b-07d9144e63a8" class="code code-wrap">
+<code class="language-cpp">int C[4][3];
+
+float f[M][N];
+
+char b[2][3]={{&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;},{&#x27;d&#x27;, &#x27;e&#x27;, &#x27;f&#x27;}}
+
+int A[ ][3]= { 1,2,3,4,5,6,7,8,9 };</code></pre><h1 id="ac2644bc-9808-4d3e-8b14-0b9c6c6bafa1" class=""><mark class="highlight-blue">Operazioni</mark></h1><h3 id="f1bbd657-188d-41f3-8036-84994203f92e" class=""><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Accesso elemento</strong></span></mark></h3><pre id="6d8934be-05a3-429c-968b-dede3d21f156" class="code">
+<code class="language-cpp">int matrice[3][3] = {{2, 4, 6}, {5, 1, 8}, {4, 3, 0}};
+matrice[0][2];  // -&gt; mi riferisco al valore 6</code></pre><h3 id="dbf32d12-7638-469f-ba77-75692fd6a40c" class=""><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Lettura elemento</strong></span></mark></h3><pre id="208b1a11-7fb7-43b4-88d7-bc6ac06b0011" class="code">
+<code class="language-cpp">int matrice[3][3] = {{2, 4, 6}, {5, 1, 8}, {4, 3, 0}};
+cin &gt;&gt; matrice[0][2]; 
+// inserisco un valore nella posizione 0,2</code></pre><h3 id="2e38ef87-685e-4472-9abf-4cf3d160b40a" class=""><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Scrittura elemento</strong></span></mark></h3><pre id="d3c681b1-2e44-4b26-86bd-f2127f319aae" class="code">
+<code class="language-cpp">int matrice[3][3] = {{2, 4, 6}, {5, 1, 8}, {4, 3, 0}};
+cout &lt;&lt; matrice[1][2]; //Output: 8</code></pre><h1 id="b3319ba0-fb03-4114-82ae-d782abbe4536" class=""><mark class="highlight-blue">Algoritmi principali</mark></h1><h3 id="d13827ff-cc8f-41fb-8ea3-e7fb5fd85a9f" class=""><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Stampa Matrice</strong></span></mark></h3><pre id="9565e01e-5767-4d09-8219-043cbda654db" class="code">
+<code class="language-cpp">int matrice[3][3] = {{2, 4, 6}, {5, 1, 8}, {4, 3, 0}};
+
+for(int i=0; i&lt;3; i++) {
+    for(int j=0; j&lt;3; j++) {
+        cout &lt;&lt; matrice[i][j] &lt;&lt; &quot;  &quot;;
+    }
+    cout &lt;&lt; endl;
+}</code></pre><h3 id="fd7dd7ba-62e8-4650-830f-787712bc7d6c" class=""><mark class="highlight-brown"><span style="border-bottom:0.05em solid"><strong>Leggi Matrice</strong></span></mark></h3><pre id="e3c60bb6-d097-450f-8298-e16e357578c8" class="code">
+<code class="language-cpp">int matrice[3][3];
+
+for(int i=0; i&lt;3; i++) {
+    for(int j=0; j&lt;3; j++) {
+        cin &gt;&gt; matrice[i][j];
+    }
+}
+</code></pre>
+<p id="3d69ffbd-571e-4d68-99eb-75d3e9133800" class="">
+</p><h1 id="3c22f20f-634e-4ac8-a799-39013b540d07" class=""><mark class="highlight-blue">Esercizi</mark></h1><figure id="6350dc89-d329-41ab-9b45-b88922b399c8"><a href="https://ticoprof.wordpress.com/2020/04/17/esercizi-con-array-bidimensionali-in-cplusplus/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">20 Esercizi con matrici (array bidimensionali)</div><div class="bookmark-description">Matrici: 20 Esercizi svolti sulle matrici o array bidimensionali, soluzioni in C++, ma affrontabili anche in C, Java, Pyton, Pascal o qualsiasi altro linguaggio di programmazione.</div></div><div class="bookmark-href"><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=192" class="icon bookmark-icon"/>https://ticoprof.wordpress.com/2020/04/17/esercizi-con-array-bidimensionali-in-cplusplus/</div></div><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=240" class="bookmark-image"/></a></figure></div></article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>

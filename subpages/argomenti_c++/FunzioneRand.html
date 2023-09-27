@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>C++ - lezione Funzione rand()</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../manualeC.html">Linguaggio C</a>
+            <a href="../manualeC++.html">Linguaggio C++</a>
+            <a href="../manualePython.html">Linguaggio Python</a>
+            <a href="../manualeSQL.html">Linguaggio SQL</a>
+            <a href="../manualeGIT.html">Linguaggio GIT</a>
+        </div>  
+    </div>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Funzione rand() -->
+<article id="89c52fb1-931e-4342-9d5b-cc9bf894044a" class="page sans"><header><h1 class="page-title">Funzione rand()</h1></header><div class="page-body"><nav id="a75f8f06-1865-402d-8606-53e9f40503cd" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#134768bb-aba4-4252-b7c5-b8beca50ec06"><mark class="highlight-blue">Descrizione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e039aa32-82bf-4b61-87f2-cd9ac18039ec"><mark class="highlight-blue">Come generare valori in un range specifico</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#deebfcd3-185e-4873-a74f-404d03581692"><mark class="highlight-brown">Esempio pratico</mark></a></div></nav><h1 id="134768bb-aba4-4252-b7c5-b8beca50ec06" class=""><mark class="highlight-blue">Descrizione</mark></h1><p id="607373ff-5b05-4ecb-9601-d80c8047ca41" class="">Documentazione Ufficiale:</p><figure id="32a54a2e-bb01-4264-ad85-dce82d65b43f"><a href="https://cplusplus.com/reference/cstdlib/rand/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href"><img src="https://cplusplus.com/favicon.ico" class="icon bookmark-icon"/>https://cplusplus.com/reference/cstdlib/rand/</div></div></a></figure><p id="7e238a6e-db42-4458-87c4-0c7e4ea49760" class="">Vediamo come <strong>generare numeri casuali in C++</strong>. Fulcro del nostro lavoro sarà la funzione <strong>rand()</strong>
+ la quale viene utilizzata per generare un numero compreso nell&#x27;intervallo tra 0 e RAND_MAX, dove RAND_MAX è un valore che cambia a seconda del compilatore usato (in genere 32767).</p><h1 id="e039aa32-82bf-4b61-87f2-cd9ac18039ec" class=""><mark class="highlight-blue">Come generare valori in un range specifico</mark></h1><figure id="2aa99caf-f503-4e0e-918a-0a35bf3fe908" class="image"><img style="width:1305px" src="../../images/for_pages/rand.png"/></figure><pre id="b891aa6e-45c5-411e-b7e7-7263757f203e" class="code">
+<code class="language-cpp">v1 = rand() % 100;         // v1 in the range 0 to 99
+v2 = rand() % 100 + 1;     // v2 in the range 1 to 100
+v3 = rand() % 30 + 1985;   // v3 in the range 1985-2014</code></pre><h2 id="deebfcd3-185e-4873-a74f-404d03581692" class=""><mark class="highlight-brown">Esempio pratico</mark></h2><pre id="bf5814b5-6f86-4f09-a4a7-b1b7c63759eb" class="code">
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main () {
+        
+        // inizializzazione
+    srand ((unsigned) time (NULL));
+    
+    int v;
+
+    // Genera numeri casuali qualsiasi
+    for (int i=0; i&lt;10; i++) {
+        v = rand();
+        cout &lt;&lt; v &lt;&lt; &quot; &quot;;
+    }
+
+    cout &lt;&lt; endl;
+
+    // Genera numeri casuali da 1 a 5
+    for (int i=0; i&lt;10; i++) {
+        v = rand() % 5 + 1;
+        cout &lt;&lt; v &lt;&lt; &quot; &quot;;
+    }
+    
+    cout &lt;&lt; endl;
+
+    // Genera numeri casuali da 10 a 19
+    for (int i=0; i&lt;10; i++) {
+        v = rand() % 10 + 10;
+        cout &lt;&lt; v &lt;&lt; &quot; &quot;;
+    }
+    
+    cout &lt;&lt; endl;
+
+    return 0;
+}</code></pre><p id="15dafc17-ad64-4adb-9509-b5e6aab1c5bc" class="">
+</p></div></article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>

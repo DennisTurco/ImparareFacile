@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>SQL - Trigger</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../manualeC.html">Linguaggio C</a>
+            <a href="../manualeC++.html">Linguaggio C++</a>
+            <a href="../manualePython.html">Linguaggio Python</a>
+            <a href="../manualeSQL.html">Linguaggio SQL</a>
+            <a href="../manualeGIT.html">Linguaggio GIT</a>
+        </div>  
+    </div>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!--trigger -->
+<article id="2642bdfa-e17a-4f48-a761-e0c91f969fb8" class="page sans"><header><h1 class="page-title">Trigger</h1></header><div class="page-body"><nav id="7c0a9712-7723-4302-bae4-6678b84f8f09" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#404b250a-5e92-4aea-9069-45f4c261f0d1"><mark class="highlight-blue">Link utili</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f10ef653-3276-442c-bff8-b5be8953f579"><mark class="highlight-blue">Cosa sono?</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#20efaa3e-fbf9-48b6-9cee-0715afc6e05e"><mark class="highlight-blue">A cosa servono?</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7d60d42a-9759-4ee2-ac40-bbb7cfc5113a"><mark class="highlight-blue">Sintassi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e8797ea3-93e4-431b-a2d3-f13639b5b52e"><mark class="highlight-blue">Esempi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e2517da8-b7d0-4c7e-b375-e4fb63476f6f"><mark class="highlight-brown">Esempio 1</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1a9f1e33-0ef2-4c39-9b45-7ec7bfa6ee23"><mark class="highlight-brown">Esempio 2</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f786d4b2-b943-4170-814d-65e7cf8fc507"><mark class="highlight-brown">Esempio 3</mark></a></div></nav><h1 id="404b250a-5e92-4aea-9069-45f4c261f0d1" class=""><mark class="highlight-blue">Link utili</mark></h1><figure id="f24ffcdb-b5fb-477a-b0aa-dd08f4995e4d"><a href="https://it.wikipedia.org/wiki/Trigger_(basi_di_dati)" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Trigger (basi di dati)</div><div class="bookmark-description">Il trigger, nelle basi di dati, è una procedura che viene eseguita in maniera automatica in coincidenza di un determinato evento, come ad esempio la cancellazione di un record di una tabella. In questo modo si ha a disposizione una tecnica per specificare e mantenere vincoli di integrità anche complessi. I trigger permettono agli utenti di specificare vincoli di integrità più complessi dato che un trigger è essenzialmente una procedura PL/SQL (Oracle),&amp;#91;1&amp;#93; Transact-SQL (Microsoft),&amp;#91;2&amp;#93; PL/pgSQL (PostgreSQL),&amp;#91;3&amp;#93; ecc.</div></div><div class="bookmark-href"><img src="https://it.wikipedia.org/static/apple-touch/wikipedia.png" class="icon bookmark-icon"/>https://it.wikipedia.org/wiki/Trigger_(basi_di_dati)</div></div></a></figure><figure id="11bac316-b76b-4e16-85bf-c83c1ce0644f"><a href="https://www.mssqltips.com/sqlservertip/5909/sql-server-trigger-example/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">SQL Server Trigger Example</div><div class="bookmark-description">Learn about SQL Server triggers, their use and how to create a simple trigger to track data changes in a table.</div></div><div class="bookmark-href"><img src="https://www.mssqltips.com/favicon.ico" class="icon bookmark-icon"/>https://www.mssqltips.com/sqlservertip/5909/sql-server-trigger-example/</div></div><img src="https://www.mssqltips.com/images_newsletter/5909_NewsletterImage.png" class="bookmark-image"/></a></figure><h1 id="f10ef653-3276-442c-bff8-b5be8953f579" class=""><mark class="highlight-blue">Cosa sono?</mark></h1><p id="0f0a937a-2b85-40b6-a32a-e98d0ba2b568" class="">I <mark class="highlight-teal"><strong>trigger </strong></mark>sono delle procedure che vengono eseguite quando si verifica un evento nel database, in maniera automatica.</p><p id="3ca7805e-a2ca-4fdd-b2a5-4dc689c144de" class="">I trigger permettono agli utenti di specificare vincoli di integrità più complessi.</p><p id="43778b28-165e-427b-844c-49f8c7d488bb" class="">I trigger, in particolare, vengono eseguiti quando un utente esegue un operazione di:</p><ul id="3b989e63-c2dc-4437-9fb4-7e50155ca31f" class="bulleted-list"><li style="list-style-type:disc">INSERT</li></ul><ul id="bcb80768-00c3-4270-aeea-007ef4e16aab" class="bulleted-list"><li style="list-style-type:disc">UPDATE</li></ul><ul id="a4789d1f-6b17-4090-8089-d09c976c8e0a" class="bulleted-list"><li style="list-style-type:disc">DELETE</li></ul><p id="d8410ce4-2f0f-44ad-a668-75e2837194f3" class="">I trigger vengono eseguiti quando si verifica un evento valido, altrimenti vengono “ignorati”.</p><h1 id="20efaa3e-fbf9-48b6-9cee-0715afc6e05e" class=""><mark class="highlight-blue">A cosa servono?</mark></h1><p id="3f5f714b-19b6-4d83-bb7a-f582448c9f0e" class="">I trigger possono servire per diversi scopi:</p><ol type="1" id="4223fe5c-71f3-4831-be7c-5443a52fe12d" class="numbered-list" start="1"><li>per mantenere <strong>l&#x27;integrità referenziale </strong>tra le varie tabelle</li></ol><ol type="1" id="1dd5748f-8060-40ce-9cf3-90a94d0d8440" class="numbered-list" start="2"><li>per mantenere <strong>l&#x27;integrità dei dati </strong>della singola tabella</li></ol><ol type="1" id="99e8768b-6fa1-427a-8f5d-24ad3e61c728" class="numbered-list" start="3"><li>per <strong>monitorare</strong> i campi di una tabella ed eventualmente generare eventi ad hoc</li></ol><ol type="1" id="08bbdf26-b4e3-4197-bff2-62d06fa91ab5" class="numbered-list" start="4"><li>per creare <strong>tabelle di auditing </strong>per i record che che vengono modificati o eliminati</li></ol><h1 id="7d60d42a-9759-4ee2-ac40-bbb7cfc5113a" class=""><mark class="highlight-blue">Sintassi</mark></h1><pre id="7b8eda9a-bf67-4c6f-bf87-c7c0815960de" class="code"><code code class="language-sql">CREATE TRIGGER trigger_name   
+ON { Table name or view name }   
+[ WITH &lt;Options&gt; ]  
+{ FOR | AFTER | INSTEAD OF }   
+{ [INSERT], [UPDATE] , [DELETE] }</code></pre><ul id="a79fbf2e-18d1-4047-a0ec-77286d8fafb4" class="bulleted-list"><li style="list-style-type:disc">nome trigger<p id="657d16fe-a90e-4b92-939b-bbbf640b4163" class=""><code>CREATE [OR REPLACE] TRIGGER &lt;nome trigger&gt;</code></p></li></ul><ul id="0b770e53-78bd-4162-9128-7b374b16d02d" class="bulleted-list"><li style="list-style-type:disc">collocazione temporale del trigger<p id="ddf58a0d-90f6-4d03-bd29-f1b7940d6a13" class=""><code>BEFORE | AFTER | INSTEAD OF</code></p></li></ul><ul id="3d2b2589-2ddc-4c2f-a93c-bef40362a06e" class="bulleted-list"><li style="list-style-type:disc">azione(i) del trigger<p id="99c403b4-e952-46ee-af8d-1a0f23a7cdae" class=""><code>INSERT OR UPDATE [OF &lt;colonna(e)&gt;] OR DELETE ON &lt;tabella&gt;</code></p></li></ul><ul id="4be6e5eb-4bfe-4e1c-b105-67e51ffa50b2" class="bulleted-list"><li style="list-style-type:disc">tipo di trigger (opzionale)<p id="1be21faa-1b9b-4e7f-96d7-cde81c527223" class=""><code>FOR EACH ROW</code></p></li></ul><ul id="3d489568-51e5-42a5-b199-a5ea38185a59" class="bulleted-list"><li style="list-style-type:disc">restrizioni trigger (solo per triggers for each row)<p id="c72471aa-7fbd-4de2-a356-5f3b3df8d403" class=""><code>WHEN (&lt;condizione&gt;)</code></p></li></ul><ul id="bac19440-9634-4033-a23d-f00c02611a52" class="bulleted-list"><li style="list-style-type:disc">corpo del trigger<p id="72f4294c-2761-4743-8603-95630fd0b5f3" class=""><code>&lt;blocco PL/SQL&gt;</code></p></li></ul><h1 id="e8797ea3-93e4-431b-a2d3-f13639b5b52e" class=""><mark class="highlight-blue">Esempi</mark></h1><p id="c99182af-dba8-42ba-8f4f-7638d81b8913" class="">per gli esempi sottostanti prendiamo in considerazione la seguente tabella:</p><pre id="d5be13f0-b5cf-4a33-8f50-5a8bfcad1a80" class="code"><code code class="language-sql">CREATE TABLE Student(
+		studentID INT NOT NULL AUTO_INCREMENT,
+		FName VARCHAR(20),
+		LName VARCHAR(20),
+		Address VARCHAR(30),
+		City VARCHAR(15),
+		Marks INT,
+		PRIMARY KEY(studentID)
+);</code></pre><h2 id="e2517da8-b7d0-4c7e-b375-e4fb63476f6f" class=""><mark class="highlight-brown">Esempio 1</mark></h2><p id="2b894bb8-c669-43da-833c-266f409899ae" class="">Nel trigger sottostante, stiamo cercando di calcolare la percentuale dello studente non appena i suoi dettagli vengono aggiornati al database.</p><pre id="2efb16aa-acb3-44ec-b89f-fa9658082ed1" class="code"><code class="language-sql">CREATE TRIGGER sample_trigger
+before INSERT
+ON student
+FOR EACH ROW
+SET new.total = new.marks/6;</code></pre><h2 id="1a9f1e33-0ef2-4c39-9b45-7ec7bfa6ee23" class=""><mark class="highlight-brown">Esempio 2</mark></h2><p id="ac959a61-bb0d-42ce-8f51-20817829f44b" class="">Qui quando inseriamo i dati nella tabella studente automaticamente il trigger verrà invocato. Il trigger aggiungerà 100 alla colonna marks nella colonna student.</p><pre id="7bf6f868-7e62-4106-adcc-359db7030b54" class="code"><code class="language-sql">CREATE TRIGGER calculate
+before INSERT 
+ON student
+FOR EACH ROW
+SET new.marks = new.marks+100;</code></pre><h2 id="f786d4b2-b943-4170-814d-65e7cf8fc507" class=""><mark class="highlight-brown">Esempio 3</mark></h2><p id="a8e64661-40e2-48ca-bea0-a63bce9fca2b" class="">inanzitutto creiamo una seconda tabella per questo specifico esempio:</p><pre id="e0bcc50e-782c-4f28-b6d9-3f444f9c3c1d" class="code"><code class="language-sql">create table Final_mark(
+per int );</code></pre><p id="43618744-6b6b-49fa-ba36-d1574336a3c4" class="">Quando inseriamo i dati nella tabella, il trigger total mark memorizza il risultato nella tabella Final_mark.</p><pre id="9f4ee72b-3d52-47ae-8dcf-5acb6c508774" class="code"><code code class="language-sql">CREATE TRIGGER total_mark
+after insert 
+ON student
+FOR EACH ROW
+insert into Final_mark values(new.marks);</code></pre><p id="0d4c6d8b-ecf0-4680-a3ff-d72ac778d4b3" class="">
+</p></div></article>
+
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>

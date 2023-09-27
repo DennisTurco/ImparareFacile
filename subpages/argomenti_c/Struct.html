@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>C - Struct</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../manualeC.html">Linguaggio C</a>
+            <a href="../manualeC++.html">Linguaggio C++</a>
+            <a href="../manualeSQL.html">Linguaggio SQL</a>
+			<a href="../manualeGIT.html">Linguaggio GIT</a>
+    </div> 
+    </div>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Struct -->
+<article id="e54cce42-45ab-41d6-9af3-17f0429cf1e9" class="page sans"><header><h1 class="page-title">Struct</h1></header><div class="page-body"><nav id="a97f2d5f-2837-4a4c-92bb-bc9c96e03b6d" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b44cc73e-17e0-4496-9eef-335dfa46c8e3"><mark class="highlight-blue">Link utili</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3e35d075-876a-481e-8845-0ecdca41d745"><mark class="highlight-blue">Struct</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b25b3403-7284-4e2f-bfba-4b90211541d1"><mark class="highlight-blue">Accedere ai campi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cc82b3e1-e341-4601-8ed2-03be8e4ff4b2"><mark class="highlight-blue">Passare una struct ad una funzione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cbde1ebf-2809-4018-b697-6f2b97fbb334"><mark class="highlight-blue">Esempi</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ba4141f0-672a-4191-910c-0a624651874d"><mark class="highlight-brown">Esempio 1</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c22a67d9-28d0-4d38-a244-d3dee9669deb"><mark class="highlight-brown">Esempio 2</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#524f2be7-c5a7-4239-b03f-37e45fe099cc"><mark class="highlight-brown">Esempio 3</mark></a></div></nav><h1 id="b44cc73e-17e0-4496-9eef-335dfa46c8e3" class=""><mark class="highlight-blue">Link utili</mark></h1><figure id="2acc214a-de72-4b7f-bba7-8403c172c802"><a href="https://www.w3schools.com/c/c_structs.php#" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">C Structures (structs)</div><div class="bookmark-description">W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.</div></div><div class="bookmark-href"><img src="https://www.w3schools.com/favicon.ico" class="icon bookmark-icon"/>https://www.w3schools.com/c/c_structs.php#</div></div><img src="https://www.w3schools.com/images/w3schools_logo_436_2.png" class="bookmark-image"/></a></figure><h1 id="3e35d075-876a-481e-8845-0ecdca41d745" class=""><mark class="highlight-blue">Struct</mark></h1><p id="666f7508-9fac-49fc-9b63-c16db6fadfb1" class="">Le <mark class="highlight-orange">strutture </mark>(chiamate anche struct) sono un modo per raggruppare diverse variabili correlate in un unico posto. Ogni variabile nella struttura è nota come <strong>membro</strong> della struttura.</p><p id="76997637-fc1c-4955-8233-a4331f1cc412" class="">A differenza di un array , una struttura può contenere molti tipi di dati diversi (int, float, char, ecc.).</p><blockquote id="18e6dd58-ab3d-4689-a310-888cc7fb1b39" class="">Nota: possibile anche creare array (vettori) di strutture, come vedremo più avanti.</blockquote><p id="8626f131-84f8-414a-bab7-83f638a3c8e0" class="">
+</p><pre id="01113af6-f3a4-4c60-8ec7-ceb67725f8b4" class="code code-wrap"><code class="language-c">struct libro { // dichiarazione della struct
+  char titolo[100]; // membro (tipo stringa)
+  char autore[50];  // membro (tipo stringa)
+  int anno_pubblicazione;  // membro (tipo int)
+  float prezzo;  // membro (tipo float)
+};  // fine della struct</code></pre><p id="dbca3eae-0fc9-47b2-b9d6-a9436238ca3e" class="">
+</p><p id="85c7c2d1-fe6f-4bbb-bbef-16a0f4afc2de" class="">Per accedere alla struttura è necessario crearne una variabile.</p><p id="f6c1f49b-d31c-4e08-8ccf-49dd560945e4" class="">Utilizzare la <code>struct</code>parola chiave all&#x27;interno del <code>main()</code>metodo, seguita dal nome della struttura e quindi dal nome della variabile di struttura:</p><p id="685c2232-1783-4a4d-bb92-3b1a6a6ff818" class=""><code>struct nome_struct nome_variabile;</code></p><p id="98297923-1b30-409b-b15c-40c4f7143c26" class="">dove:</p><ul id="e1a1c8c7-ee05-4122-9e7d-24cc7f928e17" class="bulleted-list"><li style="list-style-type:disc"><code>nome_struct</code> indica il nome della struct che abbiamo dichiarato, nell'esempio precedente si chiama “libro”.</li></ul><ul id="07fa6c32-615d-4e3c-b60f-1736e8512754" class="bulleted-list"><li style="list-style-type:disc"><code>nome_variabile</code> nome definito dall'utente.</li></ul><pre id="b277bd24-e7b6-4c9e-a4fc-8237f999f666" class="code"><code class="language-c">struct libro {
+  char titolo[100];
+  char autore[50];
+  int anno_pubblicazione;
+  float prezzo;
+};
+
+int main() {
+	struct libro l;
+}</code></pre><h1 id="b25b3403-7284-4e2f-bfba-4b90211541d1" class=""><mark class="highlight-blue">Accedere ai campi</mark></h1><p id="d159485a-8abb-45aa-bfff-6a82416f4f7a" class="">per accedere ai campi (variabili) interne si usa il simbolo <code>.</code></p><pre id="decb258d-fb10-41ee-8e8f-086265a12fbf" class="code"><code class="language-c">// dichiarazione della struct
+struct libro {
+  char titolo[100];
+  char autore[50];
+  int anno_pubblicazione;
+  float prezzo;
+};
+
+int main() {
+	// dichiarazione dell&#x27;oggetto della struct
+	struct libro s;
+
+	// accesso ad un campo della struct
+	s.titolo = &quot;Diario di Jorge&quot;;
+
+	// stampa il titolo del libro
+	printf (&quot;%s \n&quot;, s.titolo); //output: Diario di Jorge
+	
+	return 0;
+}</code></pre><h1 id="cc82b3e1-e341-4601-8ed2-03be8e4ff4b2" class=""><mark class="highlight-blue">Passare una struct ad una funzione</mark></h1><pre id="adbd57d4-9936-4292-8d24-860a98df740c" class="code"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+struct student {
+	int id;
+	char name[20];
+	float percentage;
+};
+
+void func(struct student *record) {
+	printf(&quot; Id is: %d \n&quot;, record-&gt;id);
+	printf(&quot; Name is: %s \n&quot;, record-&gt;name);
+	printf(&quot; Percentage is: %f \n&quot;, record-&gt;percentage);
+}
+
+int main() {
+	struct student record;
+	
+	record.id=1;
+	strcpy(record.name, &quot;Raju&quot;);
+	record.percentage = 86.5;
+	
+	func(&amp;record);
+	return 0;
+}</code></pre><h1 id="cbde1ebf-2809-4018-b697-6f2b97fbb334" class=""><mark class="highlight-blue">Esempi</mark></h1><h2 id="ba4141f0-672a-4191-910c-0a624651874d" class=""><mark class="highlight-brown">Esempio 1</mark></h2><p id="05855215-0723-47d7-88a2-4c45388e74c1" class="">realizzare una struct “classe” con 2 metodi: </p><ul id="511d8743-d370-4e88-a712-1b9dbe0af9d8" class="bulleted-list"><li style="list-style-type:disc">char nome[2];</li></ul><ul id="61a518a9-5771-449e-a67d-28ea5c6b2e02" class="bulleted-list"><li style="list-style-type:disc">int alunni;</li></ul><p id="4632b66c-ee6a-4e1d-ad40-fc7ad7c1992c" class="">che chiede all'utente l'inserimento dei campi della struct e ne stampi il contenuto.</p><p id="8ccb3e73-0c16-4bee-8921-70fdaf33ea52" class="">SOLUZIONE:</p><pre id="0c865c3d-699b-44cd-b311-f0bd41a15bbd" class="code"><code class="language-c">#include &lt;stdio.h&gt;
+
+struct classe {
+	char nome[2];
+	int alunni;
+};
+
+int main() {
+
+	struct classe s;
+	
+	// inserimento
+	printf(&quot;Inserisci il nome della classe (1A, 2B..): &quot;);
+	scanf(&quot;%s&quot;, s[i].nome);
+	printf(&quot;Inserisci il numero di alunni: &quot;);
+	scanf(&quot;%d&quot;, &amp;s[i].alunni);
+	printf(&quot;\n&quot;);
+
+
+	// stampa
+	printf(&quot;Nome della classe: %s\n&quot;, s[i].nome);
+	printf(&quot;Numero alunni: %d\n&quot;, s[i].alunni);
+	printf(&quot;\n&quot;);
+
+	return 0;
+}</code></pre><h2 id="c22a67d9-28d0-4d38-a244-d3dee9669deb" class=""><mark class="highlight-brown">Esempio 2</mark></h2><p id="ebc77488-084e-453b-abb1-c7a3be708950" class="">realizzare una struct “classe” con 2 metodi: </p><ul id="d75fc1b4-1f34-42b6-b208-371a3e8fde21" class="bulleted-list"><li style="list-style-type:disc">char nome[2];</li></ul><ul id="b1676f53-1135-44bb-81e0-5cd8ba89d613" class="bulleted-list"><li style="list-style-type:disc">int alunni;</li></ul><p id="8a0b0f2d-7e9a-457a-a930-fbb61ad22b97" class="">che chiede all'utente l'inserimento dei campi della struct e ne stampi il contenuto.
+<span style="border-bottom:0.05em solid"><em>Nota</em></span>: utilizzare un array di struct (es. <code>struct classe s[size];</code> con size grandezza arbitraria).</p><p id="67166897-e4be-4e81-9d2e-d641a4e38441" class="">SOLUZIONE:</p><pre id="2ebbfe49-1e10-498b-a70f-f634c9f1209e" class="code"><code class="language-c">#include &lt;stdio.h&gt;
+
+struct classe {
+	char nome[2];
+	int alunni;
+};
+
+int main() {
+	int size = 3;
+
+	struct classe s[size];
+	
+	// inserimento
+	for (int i=0; i&lt;size; i++) {
+		printf(&quot;Inserisci il nome della classe (1A, 2B..): &quot;);
+		scanf(&quot;%s&quot;, s[i].nome);
+		printf(&quot;Inserisci il numero di alunni: &quot;);
+		scanf(&quot;%d&quot;, &amp;s[i].alunni);
+
+		printf(&quot;\n&quot;);
+	}
+
+	// stampa
+	for (int i=0; i&lt;size; i++) {
+		printf(&quot;Nome della classe: %s\n&quot;, s[i].nome);
+		printf(&quot;Numero alunni: %d\n&quot;, s[i].alunni);
+
+		printf(&quot;\n&quot;);
+	}
+
+	return 0;
+}</code></pre><h2 id="524f2be7-c5a7-4239-b03f-37e45fe099cc" class=""><mark class="highlight-brown">Esempio 3</mark></h2><p id="d9353d08-023d-40ac-a9fb-1454d4e0a1eb" class="">come l'esercizio presedente, ma in più aggiungere la funzione “ordinamento” che ordina gli elementi della struct in base al campo “alunni”, l'obbiettivo è quello di ottenere la stampa ordinata in ordine crescente</p><p id="37807460-e001-48b9-a8d6-beffc11f8540" class="">SOLUZIONE:</p><pre id="c57f5af1-1360-4642-b084-25d54d9dc46f" class="code"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+struct classe {
+	char nome[2];
+	int alunni;
+};
+
+void inserimento(struct classe *s, int size) {
+	for (int i=0; i&lt;size; i++) {
+		printf(&quot;Inserisci il nome della classe (1A, 2B..): &quot;);
+		scanf(&quot;%s&quot;, s[i].nome);
+		printf(&quot;Inserisci il numero di alunni: &quot;);
+		scanf(&quot;%d&quot;, &amp;s[i].alunni);
+
+		printf(&quot;\n&quot;);
+	}
+}
+
+void stampa(struct classe *s, int size) {
+	for (int i=0; i&lt;size; i++) {
+		printf(&quot;Nome della classe: %s\n&quot;, s[i].nome);
+		printf(&quot;Numero alunni: %d\n&quot;, s[i].alunni);
+
+		printf(&quot;\n&quot;);
+	}
+}
+
+void ordinamento(struct classe *s, int size) {
+	int temp;
+	char temp_nome[2];
+	for (int i=0; i&lt;size; i++) {
+		for (int j=i+1; j&lt;size; j++) {
+			if (s[i].alunni &gt; s[j].alunni) {
+				temp = s[i].alunni;
+				s[i].alunni = s[j].alunni;
+				s[j].alunni = temp;
+
+				strcpy(temp_nome, s[i].nome);
+				strcpy(s[i].nome, s[j].nome);
+				strcpy(s[j].nome, temp_nome);
+			}
+		}
+	}
+}
+
+int main() {
+	int size = 3;
+
+	struct classe s[size];
+	
+	// inserimento
+	inserimento(&amp;s, size);
+
+	// ordinamento
+	ordinamento(&amp;s, size);
+
+	// stampa
+	stampa(&amp;s, size);
+
+	return 0;
+}</code></pre></div></article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>

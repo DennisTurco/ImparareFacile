@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Python - lezione Input e Output</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Linguaggi 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="../manualeC.html">Linguaggio C</a>
+            <a href="../manualeC++.html">Linguaggio C++</a>
+            <a href="../manualePython.html">Linguaggio Python</a>
+            <a href="../manualeSQL.html">Linguaggio SQL</a>
+            <a href="../manualeGIT.html">Linguaggio GIT</a>
+        </div> 
+    </div>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Input e Output -->
+<article id="1f47a95b-b146-47dd-9799-93115f46b010" class="page sans"><header><h1 class="page-title">Input e Output</h1><p class="page-description"></p></header><div class="page-body"><nav id="104972db-d05b-409b-8a5d-4048cab19c38" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6a775be2-9d45-49ac-b1a6-43fb81732a7a">1️⃣ <mark class="highlight-blue">Output</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3152410d-d0b5-4d75-9fa4-113dd41864ac"><mark class="highlight-brown"><strong>Using formatted string literals</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#38370c38-726f-4ff3-b012-65d372e30774"><mark class="highlight-brown"><strong>Using format()</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f620dc73-d333-4ce2-b4e3-c9b96d0c586c"><mark class="highlight-brown"><strong>Using % Operator</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f6d82906-e2e5-44ac-8803-b6907d084418">2️⃣ <mark class="highlight-blue">Input</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5a717d2f-ec20-41e3-998b-ae4f56611c91">📝 <mark class="highlight-blue">Esercizi</mark></a></div></nav><h1 id="6a775be2-9d45-49ac-b1a6-43fb81732a7a" class="">1️⃣ <mark class="highlight-blue">Output</mark></h1><p id="2e2a0923-30bd-48bd-a1a6-ab245291b613" class="">L’<mark class="highlight-teal"><strong>output</strong></mark> permettere di stampare a schermo.</p><p id="043824ff-322b-4321-a582-b3cdbaa7926b" class="">La funzione che si usa per stampare (output) a schermo qualcosa è la funzione <code>print()</code></p><p id="9cf5d337-0638-499a-a6c1-5b5ad41c81f5" class="">La formattazione dell’output può essere fatto in più modi:</p><ol type="1" id="5ddfc40e-9db9-4b0d-bd7c-956aa8f9969a" class="numbered-list" start="1"><li><strong>Using formatted string literals</strong></li></ol><ol type="1" id="ddcda7eb-27f7-4e25-841f-6f13578d2fd8" class="numbered-list" start="2"><li><strong>Using format()</strong></li></ol><ol type="1" id="a62b65e7-31dc-4d7d-aa21-65ade53dee39" class="numbered-list" start="3"><li><strong>Using % Operator</strong></li></ol><blockquote id="0bfe48c6-9eb7-41d6-acd4-f8173f1ef31c" class=""><em>Nota</em>: nessun modo è migliore di un’altro, la scelta è puramente personale.</blockquote><h2 id="3152410d-d0b5-4d75-9fa4-113dd41864ac" class=""><mark class="highlight-brown"><strong>Using formatted string literals</strong></mark></h2><p id="a69c22bf-432e-405e-8f59-f05b442d0661" class="">Si inserisce il carattere <code>f</code> o <code>F</code> prima di <code>‘</code> e si mettono le <code>{}</code> con il nome della variabile dove la si vuole stampare.</p><pre id="84bdabf5-b52e-4ba0-bf9e-5658059615bb" class="code"><code class="language-py">x = 5
+y = 10
+
+print(f&#x27;x is: {x}; y is: {y}&#x27;)
+
+# Output:
+#    x is: 5; y is: 10</code></pre><h2 id="38370c38-726f-4ff3-b012-65d372e30774" class=""><mark class="highlight-brown"><strong>Using format()</strong></mark></h2><p id="d85a3d48-78a7-45f5-b4a0-2429a4acfd19" class="">Simile a prima, con la differenza che non si mette il carattere <code>f</code> prima di <code>‘</code>, ne il nome delle variabili all’interno di <code>{}</code>. Si aggiunge <code>.format()</code> dopo la chiusura di <code>’</code> con argomento il nome delle variabili nell’ordine in cui si vogliono stampare. </p><pre id="e3c617e5-07a5-4b9e-88cd-81cd0959d9dc" class="code"><code class="language-py">x = 5
+y = 10
+
+print(&#x27;x is: {}; y is: {}&#x27;.format(x, y))
+
+# Output:
+#    x is: 5; y is: 10</code></pre><h2 id="f620dc73-d333-4ce2-b4e3-c9b96d0c586c" class=""><mark class="highlight-brown"><strong>Using % Operator</strong></mark></h2><p id="b854b7a0-8b4a-4b64-8233-9bacccdeac0a" class="">Stile simile al <code>printf</code> del linguaggio C.
+si mette il simbolo <code>%</code> preceduto dalla lettera che fa riferimento al tipo della variabile che si vuole stampare.</p><ul id="a464e3e4-8315-447a-af31-2b560ad0639c" class="bulleted-list"><li style="list-style-type:disc"><code>%d</code> → integer</li></ul><ul id="cc046d53-f864-4532-a1fc-5b3cefa4bdd1" class="bulleted-list"><li style="list-style-type:disc"><code>%f</code> → float</li></ul><ul id="2ed133fb-e176-4231-b26d-1e12944a5305" class="bulleted-list"><li style="list-style-type:disc"><code>%s</code> → string</li></ul><ul id="e18346e6-38ed-4584-8d15-7329f336097a" class="bulleted-list"><li style="list-style-type:disc"><code>%x</code> → hexadecimal</li></ul><ul id="655170ef-8d37-4496-95a6-dfc14d4fc0e9" class="bulleted-list"><li style="list-style-type:disc"><code>%o</code> → octal</li></ul><pre id="6d3541d2-8e43-4e8e-840a-31dc1f3f87ac" class="code"><code class="language-py">x = 5
+y = 10
+
+print(&#x27;x is: %d; y is: %d&#x27;, x, y)
+
+# Output:
+#    x is: 5; y is: 10</code></pre><h1 id="f6d82906-e2e5-44ac-8803-b6907d084418" class="">2️⃣ <mark class="highlight-blue">Input</mark></h1><p id="17abe090-9422-4736-b8d4-9ea6c44bb2fd" class="">L’<mark class="highlight-teal"><strong>input</strong></mark> permette di scrivere qualcosa a tastira.</p><p id="767178a7-511e-4261-ac65-d42a9d890795" class="">La funzione che si usa per scrivere (input) a tastiera è la funzione <code>input()</code></p><ul id="fb57401d-5a62-49d4-829f-284a673c8733" class="bulleted-list"><li style="list-style-type:disc">Ottenere l’input senza messaggio:<pre id="788c2390-433b-4881-bda6-585de1d87efe" class="code"><code class="language-py">result = input()</code></pre></li></ul><ul id="1bcb75cb-a9c2-4dcb-a100-2c64a2ff47f2" class="bulleted-list"><li style="list-style-type:disc">Ottenere l’input con messaggio:<pre id="d9c2f7c2-41b8-407a-ac76-d376d9072f62" class="code"><code class="language-py">result = input(&quot;Insert some text: &quot;)</code></pre></li></ul><ul id="82739079-740d-4330-8d8b-c0613e583250" class="bulleted-list"><li style="list-style-type:disc">Ottenere l’input intero (int) con messaggio:<pre id="cd5b09d7-e598-4692-8a07-67c36c85a51b" class="code"><code class="language-py">result = int(input(&quot;Insert an integer: &quot;))</code></pre></li></ul><h1 id="5a717d2f-ec20-41e3-998b-ae4f56611c91" class="">📝 <mark class="highlight-blue">Esercizi</mark></h1><ul id="cc1183cc-f31f-451f-be77-4c830a53375f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://tomamic.github.io/esercizi-2023.html#/2">Esercizio1</a></li></ul><ul id="1492043e-a047-412e-b381-50d4cb6be18b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://tomamic.github.io/esercizi-2023.html#/3">Esercizio2</a></li></ul><p id="a22e11bd-d9e5-4ca2-8894-aee963b7c7aa" class="">
+</p></div></article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
