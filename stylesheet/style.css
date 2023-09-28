@@ -188,14 +188,18 @@ body {
 |	            Box linguaggi	       |
 ----------------------------------------*/
 .container {
-	max-width: 800px;
+	max-width: 300px;
 	margin: auto;
 	margin-top: 200px;
 }
 
-.container h1, h2 {
+.container h1{
 	padding: 10px;
 	text-align: center;
+}
+
+.container h1{
+	padding: 5px;
 }
 
 .container .item {
