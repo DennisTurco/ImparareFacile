@@ -194,13 +194,13 @@ img {
 .table_of_contents-link {
 	text-decoration: none;
 	opacity: 0.9;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+	border-bottom: 1px solid rgb(65, 65, 65);
 }
 
 table,
 th,
 td {
-	border: 1px solid #ebe6e617;
+	border: 1px solid rgb(88, 88, 88);
 	border-collapse: collapse;
 }
 
@@ -496,7 +496,7 @@ blockquote {
 }
 
 .bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
+	color: rgba(194, 191, 184, 0.6);
 	font-size: 0.75em;
 	overflow: hidden;
 	max-height: 4.5em;
