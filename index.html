@@ -32,8 +32,26 @@ function googleTranslateElementInit() {
 <link rel="stylesheet" href="stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
 <link rel="stylesheet" href="stylesheet/style.css"/>
+<link rel="stylesheet" href="stylesheet/popup.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 </head>
+
+
+<!--popup message-->
+<div class='popup-onload'>
+<div class='cnt223'>
+<div class="popup-content">
+      <h2>Benvenuto!!!</h2>
+      <p>
+        Hai bisogno di lezioni private?
+            <br> 👉 <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9">Prenota qui la tua lezione</a>
+      </p>
+      
+<a href='' class='close'>Close</a>
+</div>
+</div>
+</div>
 
 <!--navbar-->
 <div class="topnav" id="myTopnav"> 
@@ -116,6 +134,28 @@ function googleTranslateElementInit() {
 </script>
 
 <script src="navbar.js"></script>
+
+<!--popup-->
+<script src='https://code.jquery.com/jquery-1.8.2.js'></script>
+<script>
+    $(function(){
+        var overlay = $('<div id="overlay"></div>');
+        overlay.show();
+        overlay.appendTo(document.body);
+        $('.popup-onload').show();
+        $('.close').click(function(){
+        $('.popup-onload').hide();
+        overlay.appendTo(document.body).remove();
+        return false;
+    });
+
+    $('.x').click(function(){
+        $('.popup').hide();
+        overlay.appendTo(document.body).remove();
+        return false;
+    });
+});
+</script>
 
 </body>
 </html>
