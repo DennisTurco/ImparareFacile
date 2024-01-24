@@ -59,6 +59,33 @@ a:hover::before {
 }
 
 /*--------------------------------------
+|	             Header text		    |
+----------------------------------------*/
+.header {
+
+    width: 80%;
+	max-width: 600px;
+    color: #73a5b6;
+    text-align: center;
+    padding: 20px;
+	font-size: 14px;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        padding: 5px;
+    }
+
+    .italic-text {
+        font-size: 14px;
+    }
+}
+
+/*--------------------------------------
 |	             NAVBAR				   |
 ----------------------------------------*/
 body {
@@ -185,12 +212,34 @@ body {
 }
 
 /*--------------------------------------
+|	             Buy me a coffè 	   |
+----------------------------------------*/
+#buy-me-coffee-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000; 
+}
+
+@media only screen and (max-width: 600px) {
+    #buy-me-coffee-container {
+        bottom: 5px;
+        left: 5px;
+    }
+
+    #bmc-wbtn {
+        font-size: 12px; 
+    }
+}
+
+
+/*--------------------------------------
 |	            Box linguaggi	       |
 ----------------------------------------*/
 .container {
 	max-width: 300px;
 	margin: auto;
-	margin-top: 200px;
+	margin-top: 100px;
 }
 
 .container h1{
