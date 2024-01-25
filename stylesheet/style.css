@@ -210,6 +210,30 @@ body {
 		text-align: left;
 	}
 }
+/*--------------------------------------
+|	             prenotazione lezione   |
+----------------------------------------*/
+#prenotazione-lezione {
+    position: fixed;
+    bottom: 80px;
+    left: 10px;
+    z-index: 1000; 
+}
+
+.donate-button {
+	display: inline-block;
+	padding: 10px 20px;
+	font-family: 'Cookie', cursive;
+	font-size: 25px;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid #000000;
+	color: #000000;
+	background-color: #e06c29;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+}
 
 /*--------------------------------------
 |	             Buy me a coffè 	   |
