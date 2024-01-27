@@ -68,18 +68,36 @@ function googleTranslateElementInit() {
         Questo sito è sviluppato senza alcun costo, esente da pubblicità. Se apprezzi il lavoro e hai tratto beneficio dall'utilizzo del sito, 
         considera la possibilità di effettuare una donazione. Il tuo contributo sosterrà il continuo miglioramento e l'evoluzione del sito. 
         Grazie di cuore! <br>
-        <a href="https://www.buymeacoffee.com/denno" target="_blank"> ☕ OFFRIMI UN CAFFÈ ☕</a>
+        <div id="donate-button-container">
+            <div id="donate-button"></div>
+            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+            <script>
+                PayPal.Donation.Button({
+                env:'production',
+                hosted_button_id:'KSE2ZLBWFVQEG',
+                image: {
+                src:'https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donate_LG.gif',
+                alt:'Fai una donazione con il pulsante PayPal',
+                title:'Sostieni questo sito con una donazione',
+                }
+                }).render('#donate-button');
+            </script>
+        </div>
     </p>
 </div>
 </center>
 
 
+    
 <div id="prenotazione-lezione">
     <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">👨‍🏫 Prenota una lezione</a>
 </div>
 <div id="buy-me-coffee-container">
     <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="denno" data-color="#e06c29" data-emoji="☕"  data-font="Cookie" data-text="Offrimi un Caffè" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 </div>
+
+
+
 
 <div class="container">
     <h1> Informatica Introduzione </h1>
