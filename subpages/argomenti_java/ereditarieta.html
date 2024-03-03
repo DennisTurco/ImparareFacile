@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Python - lezione Input e Output</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">👨‍🏫 Prenota una lezione</a>
+</div>
+<div id="buy-me-coffee-container">
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="denno" data-color="#e06c29" data-emoji="☕"  data-font="Cookie" data-text="Offrimi un Caffè" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Ereditarietà -->
+<article id="b8f408a9-a2ad-416e-aca5-7c0d329ec4ab" class="page sans"><header><h1 class="page-title">Ereditarietà</h1><p class="page-description"></p></header><div class="page-body"><nav id="69dded7f-7248-4092-aa78-4f54008739ce" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7991e815-352c-4a79-b58c-54dd84e1b096">1️⃣ <mark class="highlight-blue"><strong>Definizione di ereditarietà</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8ed342a0-4761-4539-9d2f-1dd044f71b0d">2️⃣ <mark class="highlight-blue">Visibilità</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#86eb0356-1111-4e1d-85c9-33f624cd0af0">3️⃣ <mark class="highlight-blue">Classe Object</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#91d4c5fe-7ed6-4a62-8d64-2b552795a638">4️⃣ <mark class="highlight-blue">Instanceof</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3b0c07bc-843e-4dbf-a088-0bbcb9299db2">5️⃣ <mark class="highlight-blue">Esempio Completo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#59c6d3fa-1cd0-484e-9ff1-49c137b6e4d9">📑 <mark class="highlight-blue">Esercizi</mark></a></div></nav><h1 id="7991e815-352c-4a79-b58c-54dd84e1b096" class="">1️⃣ <mark class="highlight-blue"><strong>Definizione di ereditarietà</strong></mark></h1><p id="fe4ce64a-9e95-4e4f-b3e0-e2a1cf58c42a" class="">Si dice che una classe <strong>A è una sottoclasse di B</strong> (e analogamente che <em>B è una superclasse di A</em>) quando:</p><ul id="9e66aac3-f2de-4d87-84f9-cd7dee7fa9de" class="bulleted-list"><li style="list-style-type:disc"><em>A</em> eredita da <em>B</em> sia il suo stato che il suo behavior (comportamento)</li></ul><ul id="1db56ce0-7b03-46f1-8d01-0a5c2e8e990f" class="bulleted-list"><li style="list-style-type:disc">e quindi un&#x27;istanza della classe <em>A</em> è utilizzabile in ogni parte del codice in cui sia possibile utilizzare una istanza della classe <em>B</em>.</li></ul><p id="a1464e9d-fe3b-4357-86dd-baefd9fc80f1" class="">
+</p><p id="77212057-567a-43cd-8690-fa2e5e5e7d68" class=""><mark class="highlight-brown"><span style="border-bottom:0.05em solid">Per esempio:</span></mark></p><div id="39a6b11d-a29f-4038-be34-bb7d33789294" class="column-list"><div id="5a58d1b2-33f9-400f-bf2b-6b37847038c0" style="width:37.5%" class="column"><figure id="fb70c4aa-83ce-49b4-b73e-68e79c706fe2" class="image"><img style="width:288px" src="../../images/for_pages/ereditarieta2.png"/><figcaption>La classe degli <em>Studente </em>ha tutte le proprietà della classe <em>Persona (⇒ sottoclasse).</em></figcaption></figure></div><div id="a712030d-1462-40dd-9c52-12882c3c0132" style="width:62.5%" class="column"><figure class="callout" style="white-space:pre-wrap;display:flex" id="f945fc11-d689-49de-9f5c-8d49fa1b7443"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%">un oggetto della classe Studente appartiene alla classe degli studenti e anche alla classe delle persone (ma non viceversa).<br/><br/>⇒ un oggetto Studente ha tutte le propietà (attributi e metodi) di Persona + eventuali altre sue personali propietà.<br/></div></figure><p id="fc5e3fa1-989c-4dbd-baf3-adbce1f7455a" class="">
+</p></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="96882208-22e7-4717-a765-6eb7ccf2538a" class="code"><code class="language-java">package ereditarieta;
+
+// classe base
+public class Persona {
+    // attributi della classe
+    private String nome;
+    private String cognome;
+    private String data_nascita;
+
+    // costruttore
+    // ...
+
+    // metodi della classe
+    // ...
+}
+
+// la classe Studente deriva da Persona 
+// =&gt; (ha accesso agli attributi e ai metodi protected e public).
+public class Studente extends Persona {
+    
+    // attributi della classe
+    private String matricola;
+
+    // costruttore
+    // ...
+
+    // metodi della classe
+    // ...
+}</code></pre><h1 id="8ed342a0-4761-4539-9d2f-1dd044f71b0d" class="">2️⃣ <mark class="highlight-blue">Visibilità</mark></h1><p id="5d7ebc2d-101d-4842-b165-ca6d5197748b" class="">visibilità campi (dati/record) di una classe</p><table id="309f2d21-e051-4caa-9945-be5ad2c0743c" class="simple-table"><tbody><tr id="af282166-c846-4204-a937-6937081a3c8a"><td id="AeZ^" class="" style="width:120.41192626953125px"></td><td id="dOxD" class="" style="width:74.30965423583984px"><code>public </code></td><td id="BIpE" class="" style="width:87.39204406738281px"><code>protected</code></td><td id="PHag" class="" style="width:87.39204406738281px"><code>(default)</code></td><td id="bCjb" class="" style="width:74.30965423583984px"><code>private</code></td></tr><tr id="4b1aac22-3357-445b-9605-b536bb51b643"><td id="AeZ^" class="" style="width:120.41192626953125px">nella classe in cui dichiarati</td><td id="dOxD" class="" style="width:74.30965423583984px">✅</td><td id="BIpE" class="" style="width:87.39204406738281px">✅</td><td id="PHag" class="" style="width:87.39204406738281px">✅</td><td id="bCjb" class="" style="width:74.30965423583984px">✅</td></tr><tr id="43a1882d-e656-42dc-9396-fab540e6586d"><td id="AeZ^" class="" style="width:120.41192626953125px">nello stesso package</td><td id="dOxD" class="" style="width:74.30965423583984px">✅</td><td id="BIpE" class="" style="width:87.39204406738281px">✅</td><td id="PHag" class="" style="width:87.39204406738281px">✅</td><td id="bCjb" class="" style="width:74.30965423583984px">❌</td></tr><tr id="48df7a26-2bb5-4f87-b70c-ec25e1e98ddc"><td id="AeZ^" class="" style="width:120.41192626953125px">nelle sottoclassi (anche se in package diversi)</td><td id="dOxD" class="" style="width:74.30965423583984px">✅</td><td id="BIpE" class="" style="width:87.39204406738281px">✅</td><td id="PHag" class="" style="width:87.39204406738281px">❌</td><td id="bCjb" class="" style="width:74.30965423583984px">❌</td></tr><tr id="2beff1da-3173-458b-b139-ef23ea016e05"><td id="AeZ^" class="" style="width:120.41192626953125px">all’esterno</td><td id="dOxD" class="" style="width:74.30965423583984px">✅</td><td id="BIpE" class="" style="width:87.39204406738281px">❌</td><td id="PHag" class="" style="width:87.39204406738281px">❌</td><td id="bCjb" class="" style="width:74.30965423583984px">❌</td></tr></tbody></table><h1 id="86eb0356-1111-4e1d-85c9-33f624cd0af0" class="">3️⃣ <mark class="highlight-blue">Classe Object</mark></h1><p id="b4491cd2-10b6-47b5-a62f-8cb0c5ee97cb" class="">Tutte le classi sono derivate dalla classe Object (def. in java.lang)</p><figure id="ca0dc0bc-955f-447e-ae8b-e1748617de4d" class="image"><img style="width:240px" src="../../images/for_pages/ereditarieta1.png"/></figure><hr id="d81c8f31-e489-46ed-950c-08c38ce254cf"/><p id="ece4c663-1597-4e1b-81a0-7c4c26c26973" class="">Object contiene l’implementazione di default di alcuni metodi, per esempio:</p><ul id="33cb087c-c1bc-4de3-97b4-b593d6859554" class="bulleted-list"><li style="list-style-type:disc"><code>equals(Object)</code> → boolean<ul id="8ff003b2-3b9f-40ce-aece-76e531c1c501" class="bulleted-list"><li style="list-style-type:circle">confronta i reference dei due oggetti (come ==).</li></ul></li></ul><ul id="8afd242f-b8d9-45e2-8f7c-b7ff5ac275a1" class="bulleted-list"><li style="list-style-type:disc"><code>toString()</code> → String<ul id="7ba02ce6-c237-4562-9593-2e4eac17e762" class="bulleted-list"><li style="list-style-type:circle">restituisce la stringa corrente al reference dell’oggetto di invocazione.</li></ul></li></ul><ul id="fc77c2f6-2633-4a90-a112-3c17ab23161b" class="bulleted-list"><li style="list-style-type:disc"><code>cone()</code> → Object<ul id="f174858b-d6ca-4d22-aa9e-b768fe7f3303" class="bulleted-list"><li style="list-style-type:circle">effettua una copia (superficiale) dell’oggetto di invocazione.</li></ul></li></ul><p id="9d489034-796c-453b-8068-29b98d3f49c3" class="">Questi attributi sono ereditati da tutte le classi, ma possono essere ridefinite.</p><h1 id="91d4c5fe-7ed6-4a62-8d64-2b552795a638" class="">4️⃣ <mark class="highlight-blue">Instanceof</mark></h1><p id="8ca5f5bf-d612-4361-a224-be12b0763244" class="">In java è possibile determinare se un oggetto <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi></mrow><annotation encoding="application/x-tex">o</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">o</span></span></span></span></span><span>﻿</span></span> appartiene o no ad una classe <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span> con l’operatore <code>instanceof</code></p><figure id="f3c33d1b-7ca3-49f4-b55a-bd409a44aa84" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>o</mi><mtext>  </mtext><mi>i</mi><mi>n</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>o</mi><mi>f</mi><mtext>  </mtext><mi>c</mi></mrow><annotation encoding="application/x-tex">o \ \ instanceof \ \ c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">o</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">in</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal">ceo</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">c</span></span></span></span></span></div></figure><p id="b294f133-489c-4359-b74e-ef860586fe9a" class="">dovre:</p><ul id="06f5daf8-c411-4045-a89d-64c5ba0d165d" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi></mrow><annotation encoding="application/x-tex">o</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">o</span></span></span></span></span><span>﻿</span></span> → oggetto;</li></ul><ul id="34bccfe3-7cff-4cff-bcd5-87888676ea02" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span> → classe;</li></ul><p id="2d16a8a7-f80a-40c1-a6b2-a5c11ef65213" class="">restituisce:</p><ul id="891da217-2795-41a2-8bb4-39d159ac79dd" class="bulleted-list"><li style="list-style-type:disc">true → se l’oggetto <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi></mrow><annotation encoding="application/x-tex">o</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">o</span></span></span></span></span><span>﻿</span></span> è di tipo <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span>.</li></ul><ul id="ba625ef0-54d0-4a67-99e0-4bebfae00ae2" class="bulleted-list"><li style="list-style-type:disc">false → altrimenti. </li></ul><h1 id="3b0c07bc-843e-4dbf-a088-0bbcb9299db2" class="">5️⃣<mark class="highlight-blue">Esempio Completo</mark></h1><figure id="eeae04eb-ca89-48e9-b0b3-82a930e23e59" class="image"><img style="width:240px" src="../../images/for_pages/ereditarieta3.png"/></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2705a282-8b1b-40ec-9e37-5ddf2dbc1460" class="code"><code class="language-Java">package Java.ereditarieta_esempio_completo;
+
+// classe base
+public class Rettangolo {
+    // attributi
+    private int base;
+    private int altezza;
+    
+    // costruttore senza parametri
+    public Rettangolo() {
+        this.base = 0;
+        this.altezza = 0;
+    }
+
+    // costruttore con 2 parametri
+    public Rettangolo(int base, int altezza) {
+        this.base = base;
+        this.altezza = altezza;
+    }
+
+    // metodo
+    public int perimetro() {
+        return 2*base + 2*altezza;
+    }
+
+    // metodo
+    public int area() {
+        return base * altezza;
+    }
+
+    // metodi getter
+    public int getBase() {
+        return base;
+    }
+    public int getAltezza() {
+        return altezza;
+    }
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="899116b4-07a5-40e8-bbfa-3c90c9181513" class="code"><code class="language-Java">package Java.ereditarieta_esempio_completo;
+
+// classe derivata
+public class Quadrato extends Rettangolo{
+    // in questo caso questa classe non ha attributi
+    // perchè già tutti contenuti nella classe base
+    
+    // costruttore senza parametri
+    public Quadrato() {
+        super();
+    }
+
+    // costruttore con un parametro 
+    public Quadrato(int lato){
+        super(lato, lato);
+    }
+
+    // metodo
+    public double circonferenza() {
+        return getAltezza()*3.14;
+    }
+
+    // metodo
+    public int perimetro() {
+        // invoca il metodo perimetro della classe base
+        return super.perimetro();
+    }
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8cdb1d7d-ccec-45e9-9c20-ec7c590ac8be" class="code"><code class="language-Java">package Java.ereditarieta_esempio_completo;
+
+public class Main {
+    public static void main(String[] args) {
+        Rettangolo r1 = new Rettangolo(5, 7);
+        Quadrato q1 = new Quadrato(4);
+
+        System.out.println(r1.area());  // area del rettangolo
+        System.out.println(q1.area());  // area del quadrato
+
+        System.out.println(r1 instanceof Rettangolo); // -&gt; true
+        System.out.println(q1 instanceof Quadrato); // -&gt; true
+        System.out.println(q1 instanceof Rettangolo); // -&gt; true
+        System.out.println(r1 instanceof Quadrato); // -&gt; false
+        System.out.println(q1 instanceof Object); // -&gt; true
+    }
+}</code></pre><h1 id="59c6d3fa-1cd0-484e-9ff1-49c137b6e4d9" class="">📑 <mark class="highlight-blue">Esercizi</mark></h1><figure id="5de45e54-1bf3-4dfb-b26a-92bae5eeedf0"><a href="https://www.edutecnica.it/informatica/polimorfismo_x/polimorfismo_x.htm" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Ereditarietà di classi in linguaggio Java:esercizi risolti</div><div class="bookmark-description">Esercizi svolti ereditarietà e polimorfismo in linguaggio Java.</div></div><div class="bookmark-href"><img src="https://www.edutecnica.it/ico.png" class="icon bookmark-icon"/>https://www.edutecnica.it/informatica/polimorfismo_x/polimorfismo_x.htm</div></div></a></figure></div></article>
+
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
