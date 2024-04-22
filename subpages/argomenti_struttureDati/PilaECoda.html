@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Strutture Dati - Pila e Coda</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">👨‍🏫 Prenota una lezione</a>
+</div>
+<div id="buy-me-coffee-container">
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="denno" data-color="#e06c29" data-emoji="☕"  data-font="Cookie" data-text="Offrimi un Caffè" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Pila e Coda -->
+<article id="c273f26a-db92-4235-8b14-e3f5630c32c3" class="page sans">
+    <header>
+        <h1 class="page-title">Pila e Coda</h1>
+        <p class="page-description"></p>
+    </header>
+    <div class="page-body">
+        <nav id="4f9df61d-4a1f-4e7f-a1bd-c1f6ab902b82" class="block-color-gray table_of_contents">
+            <div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+                    href="#69f6c3e5-dcad-40d9-af37-a80846d208e9"><mark class="highlight-blue">1️⃣ Pila
+                        (Stack)</mark></a></div>
+            <div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+                    href="#2f53f4c2-31bf-48f6-b344-73b536646a1e"><mark class="highlight-brown"><strong>Operazioni
+                            principali</strong></mark></a></div>
+            <div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+                    href="#21afca4e-9670-4690-9f72-99dae0100be4"><mark class="highlight-brown"><strong>Utilizzi
+                            tipici</strong></mark></a></div>
+            <div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+                    href="#f3eb9280-a214-42b3-bf42-94b31fa99c66"><mark
+                        class="highlight-brown">Implementazione</mark></a></div>
+            <div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+                    href="#faba273d-2b3c-4a4f-adef-d8a1daccc138"><mark class="highlight-blue">2️⃣ Coda
+                        (Queue)</mark></a></div>
+            <div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+                    href="#84bc7f73-78d6-459e-9c6f-b563e117fb5d"><mark class="highlight-brown"><strong>Operazioni
+                            principali</strong></mark></a></div>
+            <div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+                    href="#bd0fa6bf-c338-43de-842a-b754f7cd420b"><mark class="highlight-brown"><strong>Utilizzi
+                            tipici</strong></mark></a></div>
+            <div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+                    href="#dbd8b16e-7a17-4e35-940e-497ca634e1f9"><mark
+                        class="highlight-brown">Implementazione</mark></a></div>
+        </nav>
+        <h1 id="69f6c3e5-dcad-40d9-af37-a80846d208e9" class=""><mark class="highlight-blue">1️⃣ Pila (Stack)</mark>
+        </h1>
+        <figure id="13e5a214-fbb6-4afa-9373-1385321d13a6"><a href="https://it.wikipedia.org/wiki/Pila_(informatica)"
+                class="bookmark source">
+                <div class="bookmark-info">
+                    <div class="bookmark-text">
+                        <div class="bookmark-title">Pila (informatica)</div>
+                        <div class="bookmark-description">La pila, in informatica, è un tipo di dato astratto che
+                            viene usato in diversi contesti per riferirsi a strutture dati, le cui modalità
+                            d&#x27;accesso ai dati in essa contenuti seguono una modalità LIFO, ovvero tale per cui
+                            i dati vengono letti in ordine inverso rispetto a quello in cui sono stati inseriti
+                            scritti.</div>
+                    </div>
+                    <div class="bookmark-href"><img src="https://it.wikipedia.org/static/apple-touch/wikipedia.png"
+                            class="icon bookmark-icon" />https://it.wikipedia.org/wiki/Pila_(informatica)</div>
+                </div><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/1200px-Data_stack.svg.png"
+                    class="bookmark-image" />
+            </a></figure>
+        <p id="c2395501-18e8-4eb0-a212-832d21060287" class="">Una <strong><mark class="highlight-orange">pila
+                </mark></strong>è una struttura dati lineare che segue il principio
+            &quot;<strong>LIFO</strong>&quot; (Last In, First Out), che significa &quot;l&#x27;ultimo elemento
+            inserito è il primo elemento ad essere rimosso&quot;. In altre parole, l&#x27;accesso e l&#x27;aggiunta
+            degli elementi avvengono solo dalla cima della pila.</p>
+        <p id="9f2e4178-d274-4acd-b213-ec016bf46336" class="">Una pila è facilmente implementabile usando o una
+            lista o un array.</p>
+        <figure id="52e74bdd-e469-4e80-8aea-c2ea5581ad84" class="image"><img style="width:336px"
+                    src="../../images/for_pages/PilaECoda1.png" />
+            <figcaption>La pila un tipo di dato astratto specificato da due operazioni fondamentali: inserimento
+                (<strong>push</strong>) ed estrazione (<strong>pop</strong>).</figcaption>
+        </figure>
+        <h2 id="2f53f4c2-31bf-48f6-b344-73b536646a1e" class=""><mark class="highlight-brown"><strong>Operazioni
+                    principali</strong></mark></h2>
+        <ul id="ba6fbceb-bee7-43af-ba83-e36bec2b9e23" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Push</strong>: Aggiunge un nuovo elemento alla cima della pila.
+            </li>
+        </ul>
+        <ul id="e16411f3-a9a6-4aae-b797-03e948dfa414" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Pop</strong>: Rimuove l&#x27;elemento dalla cima della pila.
+            </li>
+        </ul>
+        <ul id="6eb7991c-4719-4b82-bdc5-5ee9c321f431" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Peek (o Top)</strong>: Restituisce (senza rimuovere)
+                l&#x27;elemento che si trova sulla cima della pila.</li>
+        </ul>
+        <ul id="9c739d2b-d6b8-470a-bdd1-6e18f8ac1d29" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>isEmpty</strong>: Verifica se la pila è vuota.</li>
+        </ul>
+        <ul id="04b7d084-9820-4bf8-9261-1ac4183ffb72" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Size</strong>: Restituisce il numero di elementi presenti nella
+                pila.</li>
+        </ul>
+        <h2 id="21afca4e-9670-4690-9f72-99dae0100be4" class=""><mark class="highlight-brown"><strong>Utilizzi
+                    tipici</strong></mark></h2>
+        <ul id="0632f0ba-2175-4277-b6ec-85ac02d8fdce" class="bulleted-list">
+            <li style="list-style-type:disc">Gestione della chiamata a funzioni (stack delle chiamate).</li>
+        </ul>
+        <ul id="658b7806-90c8-4ae9-b121-e13e0c8c93b6" class="bulleted-list">
+            <li style="list-style-type:disc">Implementazione di algoritmi come la valutazione di espressioni postfix
+                o la navigazione backtracking.</li>
+        </ul>
+        <h2 id="f3eb9280-a214-42b3-bf42-94b31fa99c66" class=""><mark class="highlight-brown">Implementazione</mark>
+        </h2>
+        <figure id="f520456b-d274-4f81-ba25-c134db135e5e"><a
+                href="https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/"
+                class="bookmark source">
+                <div class="bookmark-info">
+                    <div class="bookmark-text">
+                        <div class="bookmark-title">What is Stack? A Complete Tutorial - GeeksforGeeks</div>
+                        <div class="bookmark-description">A Computer Science portal for geeks. It contains well
+                            written, well thought and well explained computer science and programming articles,
+                            quizzes and practice/competitive programming/company interview Questions.</div>
+                    </div>
+                    <div class="bookmark-href"><img
+                            src="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png"
+                            class="icon bookmark-icon" />https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/
+                    </div>
+                </div><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png"
+                    class="bookmark-image" />
+            </a></figure>
+        <h1 id="faba273d-2b3c-4a4f-adef-d8a1daccc138" class=""><mark class="highlight-blue">2️⃣ Coda (Queue)</mark>
+        </h1>
+        <p id="0164da8c-6a52-443f-bd8d-2132cbb5c935" class="">Una <mark class="highlight-orange"><strong>coda
+                </strong></mark>è una struttura dati lineare che segue il principio
+            &quot;<strong>FIFO</strong>&quot; (First In, First Out), che significa &quot;il primo elemento inserito
+            è il primo elemento ad essere rimosso&quot;. In altre parole, l&#x27;accesso agli elementi avviene dalla
+            parte anteriore della coda (detta &quot;front&quot;) e l&#x27;aggiunta degli elementi avviene nella
+            parte posteriore della coda (detta &quot;rear&quot;).</p>
+        <p id="8eff29ac-da34-434c-8ef5-cab9e9237b60" class="">Una coda è facilmente implementabile usando o una
+            lista o un array.</p>
+        <figure id="40e25c94-3f81-4707-8d59-2dde6a306597" class="image"><img style="width:330px"
+                    src="../../images/for_pages/PilaECoda2.png" />
+            <figcaption>La coda un tipo di dato astratto specificato da due operazioni fondamentali:
+                l&#x27;inserimento (<strong>enqueue</strong>) e l&#x27;estrazione (<strong>dequeue</strong>).
+            </figcaption>
+        </figure>
+        <h2 id="84bc7f73-78d6-459e-9c6f-b563e117fb5d" class=""><mark class="highlight-brown"><strong>Operazioni
+                    principali</strong></mark></h2>
+        <ul id="3e61675a-9619-49f7-9516-d859ead2c8f3" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Enqueue</strong>: Aggiunge un nuovo elemento alla fine della
+                coda (rear).</li>
+        </ul>
+        <ul id="3d203673-023b-41be-adad-469e377de780" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Dequeue</strong>: Rimuove l&#x27;elemento dall&#x27;inizio
+                della coda (front).</li>
+        </ul>
+        <ul id="87ff4422-12fe-4aca-9f02-a610c7bae7f2" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Front</strong>: Restituisce (senza rimuovere) l&#x27;elemento
+                che si trova all&#x27;inizio della coda.</li>
+        </ul>
+        <ul id="6efa090e-bc8e-4a9b-92b5-9607e0424867" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>isEmpty</strong>: Verifica se la coda è vuota.</li>
+        </ul>
+        <ul id="4de52b08-95cd-484c-8e1d-e3463e80d448" class="bulleted-list">
+            <li style="list-style-type:disc"><strong>Size</strong>: Restituisce il numero di elementi presenti nella
+                coda.</li>
+        </ul>
+        <h2 id="bd0fa6bf-c338-43de-842a-b754f7cd420b" class=""><mark class="highlight-brown"><strong>Utilizzi
+                    tipici</strong></mark></h2>
+        <ul id="df0522d6-6d4b-4d20-81d8-6813f56db531" class="bulleted-list">
+            <li style="list-style-type:disc">Gestione delle richieste in un sistema di elaborazione dei processi o
+                nella gestione dei job.</li>
+        </ul>
+        <ul id="c5838146-9039-4084-b300-cdc6c0818344" class="bulleted-list">
+            <li style="list-style-type:disc">Implementazione di algoritmi come BFS (Breadth-First Search) per la
+                visita di grafi.</li>
+        </ul>
+        <h2 id="dbd8b16e-7a17-4e35-940e-497ca634e1f9" class=""><mark class="highlight-brown">Implementazione</mark>
+        </h2>
+        <figure id="b3de586e-330e-4cd1-ab13-c477e39c2fbb"><a
+                href="https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/"
+                class="bookmark source">
+                <div class="bookmark-info">
+                    <div class="bookmark-text">
+                        <div class="bookmark-title">Introduction and Array Implementation of Queue - GeeksforGeeks
+                        </div>
+                        <div class="bookmark-description">A Computer Science portal for geeks. It contains well
+                            written, well thought and well explained computer science and programming articles,
+                            quizzes and practice/competitive programming/company interview Questions.</div>
+                    </div>
+                    <div class="bookmark-href"><img
+                            src="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png"
+                            class="icon bookmark-icon" />https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/
+                    </div>
+                </div><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png"
+                    class="bookmark-image" />
+            </a></figure>
+        <figure id="b64849de-0fad-40c1-a95c-85292629d266"><a
+                href="https://www.geeksforgeeks.org/queue-linked-list-implementation/?ref=lbp"
+                class="bookmark source">
+                <div class="bookmark-info">
+                    <div class="bookmark-text">
+                        <div class="bookmark-title">Queue - Linked List Implementation - GeeksforGeeks</div>
+                        <div class="bookmark-description">A Computer Science portal for geeks. It contains well
+                            written, well thought and well explained computer science and programming articles,
+                            quizzes and practice/competitive programming/company interview Questions.</div>
+                    </div>
+                    <div class="bookmark-href"><img
+                            src="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png"
+                            class="icon bookmark-icon" />https://www.geeksforgeeks.org/queue-linked-list-implementation/?ref=lbp
+                    </div>
+                </div><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png"
+                    class="bookmark-image" />
+            </a></figure>
+    </div>
+</article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
