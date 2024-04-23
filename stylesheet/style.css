@@ -215,11 +215,14 @@ body {
 ----------------------------------------*/
 #prenotazione-lezione {
     position: fixed;
-    bottom: 80px;
+    bottom: 10px;
     left: 10px;
     z-index: 1000; 
 }
 
+/*--------------------------------------
+|	            Donazione	           |
+----------------------------------------*/
 .donate-button {
 	display: inline-block;
 	padding: 10px 20px;
@@ -234,28 +237,6 @@ body {
 	cursor: pointer;
 	transition: background-color 0.3s, color 0.3s;
 }
-
-/*--------------------------------------
-|	             Buy me a coffè 	   |
-----------------------------------------*/
-#buy-me-coffee-container {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    z-index: 1000; 
-}
-
-@media only screen and (max-width: 600px) {
-    #buy-me-coffee-container {
-        bottom: 5px;
-        left: 5px;
-    }
-
-    #bmc-wbtn {
-        font-size: 12px; 
-    }
-}
-
 
 /*--------------------------------------
 |	            Box linguaggi	       |
