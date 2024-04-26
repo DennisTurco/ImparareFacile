@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="in questo sito web inseriro' documentazione attraverso i quali cerchero' in modo riassuntivo e semplificato di spiegare i fondamenti di alcuni linguaggi di programmazione"/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Java - Lista</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--NavBAr-->
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">👨‍🏫 Prenota una lezione</a>
+</div>
+
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html">Home</a>
+    
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale">Contattami</a>
+    <a href="https://dennisturco.github.io/">Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Lista -->
+<article id="6f272ce1-beb5-4724-be2a-26814df6c405" class="page sans"><header><h1 class="page-title">Lista</h1><p class="page-description"></p></header><div class="page-body"><nav id="78334014-1bde-47f8-a17b-6d48b3eb6fdc" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d9caaf69-6870-47fc-a0a5-68f27e231e75"><mark class="highlight-blue">1️⃣ Descrizione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1b48d44b-205f-4f86-a1cf-2f6ff0db5de3"><mark class="highlight-blue">2️⃣ Implementazione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a4a5efb7-d254-48f4-9173-4d74754b23b9"><mark class="highlight-brown"><strong>Classe Nodo</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#31ad3227-6d4d-452c-bed0-aa220e6d00bb"><mark class="highlight-brown"><strong>Classe Lista</strong></mark></a></div></nav><h1 id="d9caaf69-6870-47fc-a0a5-68f27e231e75" class=""><mark class="highlight-blue">1️⃣ Descrizione</mark></h1><figure id="9997c507-3d0f-474c-8d35-a4ea1e7b77d5" class="image"><a href="https://scaler-topics-articles-md.s3.us-west-2.amazonaws.com/traversal-operation-of-linked-list.gif"><img style="width:672px" src="https://scaler-topics-articles-md.s3.us-west-2.amazonaws.com/traversal-operation-of-linked-list.gif"/></a></figure><p id="47f2f06a-9d26-4e55-adf4-630335405e2c" class="">Una <mark class="highlight-orange"><strong>lista </strong></mark>è una struttura dati che organizza una collezione di elementi in una sequenza ordinata. Le liste sono ampiamente utilizzate in programmazione per memorizzare dati in modo dinamico e flessibile.</p><p id="ebeb130c-9090-4337-9117-b6b2cdf8908c" class="">Esistono diversi tipi di liste, tra cui:</p><ol type="1" id="c66af9f7-c9c5-4c83-91ff-779e2739ac0e" class="numbered-list" start="1"><li><strong>Lista Collegata</strong>: Una lista collegata è una sequenza di nodi, ognuno dei quali contiene un elemento di dati e un riferimento al successivo nodo nella sequenza. La lista inizia con un nodo chiamato &quot;testa&quot;, e il suo ultimo nodo ha il suo riferimento impostato a <code><strong>null</strong></code>. Le operazioni di inserimento e rimozione in una lista collegata sono efficienti, specialmente all&#x27;inizio o alla fine della lista.</li></ol><ol type="1" id="cb48aa8f-5199-4a02-9ee2-734c2d6eb407" class="numbered-list" start="2"><li><strong>Lista Concatenata</strong>: Una lista concatenata è simile a una lista collegata, ma offre funzionalità aggiuntive come l&#x27;accesso casuale agli elementi tramite l&#x27;indicizzazione. Ogni elemento della lista contiene anche un riferimento al precedente nodo, consentendo un accesso efficiente a qualsiasi posizione della lista.</li></ol><ol type="1" id="54b5d9ad-9d5b-4e75-bd9f-61c1cd58aee6" class="numbered-list" start="3"><li><strong>Lista Doppiamente Collegata</strong>: È una variante della lista collegata in cui ogni nodo ha un riferimento sia al nodo precedente che a quello successivo nella sequenza. Questo consente un accesso bidirezionale agli elementi della lista, rendendo più efficienti alcune operazioni come l&#x27;eliminazione di elementi.</li></ol><ol type="1" id="5ab40e21-5761-4783-91cd-9d1b44c92b78" class="numbered-list" start="4"><li><strong>Lista Circolare</strong>: In una lista circolare, l&#x27;ultimo nodo della lista punta al primo nodo anziché a <code><strong>null</strong></code>, creando un ciclo continuo. Questo permette di attraversare la lista senza fine.</li></ol><p id="a689bf14-54b0-4757-84fd-d9d2c6c41653" class="">Le liste forniscono una flessibilità notevole perché possono crescere e contrarsi dinamicamente durante l&#x27;esecuzione del programma. Possono anche contenere elementi di diversi tipi di dati e possono essere facilmente estese con nuove operazioni o funzionalità.</p><p id="d5f5bc37-a6c8-4e1f-bd92-068b23c76f5f" class="">Le liste sono ampiamente utilizzate per implementare una varietà di strutture dati complesse, come pile, code, alberi e grafi, e sono fondamentali in molte aree della programmazione, inclusi algoritmi, strutture dati e applicazioni di database.</p><h1 id="1b48d44b-205f-4f86-a1cf-2f6ff0db5de3" class=""><mark class="highlight-blue">2️⃣ Implementazione</mark></h1><h3 id="a4a5efb7-d254-48f4-9173-4d74754b23b9" class=""><mark class="highlight-brown"><strong>Classe Nodo</strong></mark></h3><p id="bbd59117-d7b6-4564-9310-4e94d447bf4a" class="">La classe <code><strong>Nodo</strong></code> rappresenta un elemento fondamentale di una lista collegata. Ogni nodo contiene due parti principali:</p><ol type="1" id="bc9cda50-a68b-46d3-9faf-f483a2e2a224" class="numbered-list" start="1"><li><strong>Dato (</strong><code><strong>dato</strong></code><strong>)</strong>: Questo è il contenuto effettivo del nodo. È il valore che il nodo memorizza o rappresenta. Nel tuo caso, <code><strong>dato</strong></code> è un intero, ma potrebbe essere qualsiasi tipo di dato.</li></ol><ol type="1" id="2904e83a-055e-43fa-80fc-70f2eed3b704" class="numbered-list" start="2"><li><strong>Link (</strong><code><strong>link</strong></code><strong>)</strong>: Questo è un riferimento al prossimo nodo nella lista. Ogni nodo, tranne l&#x27;ultimo, punta al nodo successivo. L&#x27;ultimo nodo della lista ha il suo link impostato su <code><strong>null</strong></code>, indicando la fine della lista.</li></ol><p id="a52b3f2d-ffc0-473f-a5a8-98fea0d0138c" class="">Inoltre, la classe <code><strong>Nodo</strong></code> fornisce metodi per accedere e modificare questi attributi:</p><ul id="471b28f2-0293-436a-8810-dd4a5f9bf976" class="bulleted-list"><li style="list-style-type:disc"><code><strong>getDato()</strong></code>: Restituisce il valore memorizzato nel nodo.</li></ul><ul id="6051c09e-e657-4a4d-bc02-03d583f996b0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>getLink()</strong></code>: Restituisce il riferimento al nodo successivo.</li></ul><ul id="9b2bee8b-d7cd-44ba-a435-bf7270ff0220" class="bulleted-list"><li style="list-style-type:disc"><code><strong>setLink(Nodo link)</strong></code>: Imposta il riferimento al nodo successivo.</li></ul><h3 id="31ad3227-6d4d-452c-bed0-aa220e6d00bb" class=""><mark class="highlight-brown"><strong>Classe Lista</strong></mark></h3><p id="9247a1c1-a818-4eb5-9cee-ef84f463d2d1" class="">La classe <code><strong>Lista</strong></code> rappresenta una sequenza di nodi collegati. Contiene due parti principali:</p><ol type="1" id="cea2056f-a6a6-4f46-ab9f-9c9b8106ed21" class="numbered-list" start="1"><li><strong>Testa (</strong><code><strong>head</strong></code><strong>)</strong>: Questo è un riferimento al primo nodo della lista. Se la lista è vuota, <code><strong>head</strong></code> sarà <code><strong>null</strong></code>. Ogni operazione sulla lista inizia dalla testa.</li></ol><ol type="1" id="a8ade926-0ae5-4be0-921b-5078b16c3ea9" class="numbered-list" start="2"><li><strong>Dimensione (</strong><code><strong>dimensione</strong></code><strong>)</strong>: Questo tiene traccia del numero di elementi presenti nella lista. È utile per ottenere rapidamente la dimensione della lista senza dover attraversare tutti i nodi.</li></ol><p id="d9fc929a-f2dd-4d0b-95b9-40cdf892e173" class="">La classe <code><strong>Lista</strong></code> offre metodi per manipolare la lista collegata:</p><ul id="d2392ef0-cb3f-4f0b-9397-ac78be249963" class="bulleted-list"><li style="list-style-type:disc"><strong>Costruttore</strong>: Inizializza una lista vuota.</li></ul><ul id="725dc7fd-a3eb-42ab-b7d0-181a47453226" class="bulleted-list"><li style="list-style-type:disc"><code><strong>getDimensione()</strong></code>: Restituisce il numero di elementi nella lista.</li></ul><ul id="2393b82e-491d-476f-8594-4c321f2d6059" class="bulleted-list"><li style="list-style-type:disc"><code><strong>VisitaLista()</strong></code>: Stampa tutti gli elementi presenti nella lista, scorrendo da <code><strong>head</strong></code> fino a <code><strong>null</strong></code>.</li></ul><ul id="e8ec5197-ac32-4dd5-9deb-fdef4c519030" class="bulleted-list"><li style="list-style-type:disc"><code><strong>InserisciInTesta(int dato)</strong></code>: Aggiunge un nuovo nodo all&#x27;inizio della lista. Questo metodo crea un nuovo nodo con il dato specificato e lo collega alla testa della lista, rendendolo il nuovo primo nodo.</li></ul><ul id="05858b9d-1e3f-4ee5-af70-66be82912c60" class="bulleted-list"><li style="list-style-type:disc"><code><strong>InserisciInCoda(int dato)</strong></code>: Aggiunge un nuovo nodo alla fine della lista. Questo metodo scorre la lista fino all&#x27;ultimo nodo e collega il nuovo nodo alla sua fine.</li></ul><ul id="e2de201d-4b97-418a-9a91-3ecb8f9fb7db" class="bulleted-list"><li style="list-style-type:disc"><code><strong>EliminaInTesta()</strong></code>: Rimuove il primo nodo dalla lista. Questo metodo aggiorna la testa della lista per puntare al secondo nodo, eliminando così il primo nodo.</li></ul><ul id="db3c76db-4c52-4594-a803-81ffd77560fc" class="bulleted-list"><li style="list-style-type:disc"><code><strong>EliminaInCoda()</strong></code>: Rimuove l&#x27;ultimo nodo dalla lista. Questo metodo scorre la lista fino al penultimo nodo e lo collega a <code><strong>null</strong></code>, eliminando così l&#x27;ultimo nodo.</li></ul><p id="5314119c-1944-4c98-adf3-deb1634dca39" class="">Insieme, la classe <code><strong>Nodo</strong></code> e la classe <code><strong>Lista</strong></code> forniscono un&#x27;implementazione di una lista collegata, una struttura dati dinamica in cui gli elementi sono collegati da nodi e possono essere aggiunti o rimossi in modo efficiente.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="81a2577f-47f3-4b1a-a6f5-195d6dda349b" class="code"><code class="language-Java">public class Nodo {
+    private int dato;   // valore del nodo corrente
+    private Nodo link;  // puntatore al nodo successivo
+
+    public Nodo(int dato) {
+        this.dato = dato;
+        this.link = null;   // non ha ancora un nodo successivo
+    }
+
+    public int getDato() {
+        return dato;
+    }
+    public Nodo getLink() {
+        return link;
+    }
+
+    public void setLink(Nodo link) {
+        this.link = link;   // setto il nodo successivo
+    }
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b8bceb35-075c-4c12-9284-109166d9c259" class="code"><code class="language-Java">public class Lista {
+    private Nodo head;      // punta al primo elemento della lista (null se vuota)
+    private int dimensione; // numero di elementi nella lista
+
+    public Lista() {
+        this.head = null;
+        this.dimensione = 0;
+    }
+
+    // restituisce la dimensione della lista
+    public int getDimensione() {
+        return dimensione;
+    }
+
+    // stampa
+    public void VisitaLista() {
+        Nodo p = head;
+
+        // itero fino a trovare l&#x27;ultimo elemento della lista 
+        while (p != null) {
+            System.out.println(p.getDato() + &quot; &quot;);
+            p = p.getLink();
+        }
+    }
+
+    public void InserisciInTesta(int dato) {
+        Nodo n = new Nodo(dato);    // nuovo nodo
+        n.setLink(head);    // Il link del nuovo nodo punta al nodo corrente (head)
+        head = n;           // Il nuovo nodo diventa la nuova testa della lista
+        dimensione++;
+    }    
+
+    // inserisci in coda
+    public void InserisciInCoda(int dato) {
+        Nodo n = new Nodo(dato);    // nuovo nodo
+
+        if (head == null) {  // caso in cui la lista e&#x27; vuota
+            head = n;
+        } else {
+            Nodo p = head;  // Nodo al primo elemento della lista
+
+            while (p.getLink() != null) {
+                p = p.getLink();
+            }
+
+            n.setLink(null);
+            p.setLink(n);
+        }
+
+        dimensione++;
+    }
+
+    // elimina in testa
+    public void EliminaInTesta() {
+        // se la lista e&#x27; vuota non posso eliminare nulla
+        if (head == null) 
+            return;
+
+        head = head.getLink();
+        dimensione--;
+    }
+
+    // elimina in coda
+    public void EliminaInCoda() {
+        if (head == null)
+            return;
+        
+        if (head.getLink() == null) {  // caso in cui la lista contiene un solo elemento
+            head = null;
+        } else {
+            Nodo p = head;  // nodo di testa
+
+            // p.getList() -&gt; nodo i; p.getLink().getLink() -&gt; nodo i+1
+            while (p.getLink().getLink() != null) {
+                p = p.getLink();
+            }
+
+            p.setLink(null);
+        }
+
+        dimensione--;
+    }
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9b0fa63a-5bf2-4b65-8fee-e8e910dbf5c0" class="code"><code class="language-Java">public class Main {
+    public static void main(String[] args) {
+        // Creazione di una nuova lista
+        Lista lista = new Lista();
+
+        // Inserimento di alcuni elementi
+        lista.InserisciInCoda(10);
+        lista.InserisciInCoda(20);
+        lista.InserisciInCoda(30);
+
+        // Stampa della lista
+        System.out.println(&quot;Lista dopo l&#x27;inserimento:&quot;);
+        lista.VisitaLista();
+
+        // Eliminazione in testa
+        lista.EliminaInTesta();
+        System.out.println(&quot;\nLista dopo l&#x27;eliminazione in testa:&quot;);
+        lista.VisitaLista();
+
+        // Eliminazione in coda
+        lista.EliminaInCoda();
+        System.out.println(&quot;\nLista dopo l&#x27;eliminazione in coda:&quot;);
+        lista.VisitaLista();
+
+        // Inserimento in testa
+        lista.InserisciInTesta(40);
+        System.out.println(&quot;Lista dopo l&#x27;inserimento in testa:&quot;);
+        lista.VisitaLista();
+    }
+}</code></pre></div></article>
+
+
+<footer id="footer">
+    <div style="height: 2px;"></div>
+    <p>&copy; 2023 Dennis Turco</p>
+    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
+    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
+    <table align="center">
+        <tr>
+            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
+            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
+            <th><a href="https://discord.com/invite/kbZVz3m" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
+        </tr>
+    </table>
+</footer>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
