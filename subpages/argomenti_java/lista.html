@@ -105,12 +105,11 @@ function googleTranslateElementInit() {
 
     public void InserisciInTesta(int dato) {
         Nodo n = new Nodo(dato);    // nuovo nodo
-        n.setLink(head);    // Il link del nuovo nodo punta al nodo corrente (head)
-        head = n;           // Il nuovo nodo diventa la nuova testa della lista
+        n.setLink(head);            // Il link del nuovo nodo punta al nodo corrente (head)
+        head = n;                   // Il nuovo nodo diventa la nuova testa della lista
         dimensione++;
     }    
 
-    // inserisci in coda
     public void InserisciInCoda(int dato) {
         Nodo n = new Nodo(dato);    // nuovo nodo
 
@@ -130,7 +129,27 @@ function googleTranslateElementInit() {
         dimensione++;
     }
 
-    // elimina in testa
+    public void InserisciInMezzo(int dato, int posizione) {
+        if (posizione &lt; 0 || posizione &gt; dimensione) 
+            throw new IllegalArgumentException(&quot;Errore: Posizione non valida&quot;);
+        
+        Nodo n = new Nodo(dato); // nuovo nodo
+        if (posizione == 0) {
+            // inserimento in testa
+            n.setLink(head);
+            head = n;
+        } else {
+            Nodo p = head;
+            for (int i = 0; i &lt; posizione-1; i++) {
+                p = p.getLink();
+            }
+            n.setLink(p.getLink());
+            p.setLink(n);
+        }
+
+        dimensione++;
+    }
+
     public void EliminaInTesta() {
         // se la lista e&#x27; vuota non posso eliminare nulla
         if (head == null) 
@@ -140,7 +159,6 @@ function googleTranslateElementInit() {
         dimensione--;
     }
 
-    // elimina in coda
     public void EliminaInCoda() {
         if (head == null)
             return;
@@ -156,6 +174,26 @@ function googleTranslateElementInit() {
             }
 
             p.setLink(null);
+        }
+
+        dimensione--;
+    }
+
+    public void EliminaInMezzo(int posizione) {
+        if (posizione &lt; 0 || posizione &gt; dimensione)
+            throw new IllegalArgumentException(&quot;Errore: Posizione non valida&quot;);
+        if (head == null)
+            throw new IllegalArgumentException(&quot;Errore: Lista gia&#x27; vuota&quot;);
+        
+        if (posizione == 0) {
+            // elimina in testa
+            head = head.getLink();
+        } else {
+            Nodo p = head;
+            for (int i = 0; i &lt; posizione - 1; i++) {
+                p = p.getLink();
+            }
+            p.setLink(p.getLink().getLink());
         }
 
         dimensione--;
@@ -187,6 +225,16 @@ function googleTranslateElementInit() {
         // Inserimento in testa
         lista.InserisciInTesta(40);
         System.out.println(&quot;Lista dopo l&#x27;inserimento in testa:&quot;);
+        lista.VisitaLista();
+
+        // Inserimento in mezzo
+        lista.InserisciInMezzo(25, 1);
+        System.out.println(&quot;Lista dopo l&#x27;inserimento in mezzo:&quot;);
+        lista.VisitaLista();
+
+        // Eliminazione in mezzo
+        lista.EliminaInMezzo(1);
+        System.out.println(&quot;Lista dopo l&#x27;eliminazione in mezzo:&quot;);
         lista.VisitaLista();
     }
 }</code></pre></div></article>
