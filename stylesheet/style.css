@@ -346,12 +346,12 @@ body {
 /*--------------------------------------
 |	              CARD			   |
 ----------------------------------------*/
-.card_container {
+.card_container, .card_container_insegnanti {
 	display: flex;
     justify-content: center;
 }
 
-.card {
+.card_container .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.4s;
     max-width: 400px; 
@@ -360,24 +360,28 @@ body {
     margin: 10px; 
 }
 
-.card:hover {
+.card_container .card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 	opacity: 1;
 }
 
-.card img {
-	border-radius: 10px 10px 0 0;
+.card_container .card img {
 	max-height: 220px;
 }
 
-.card h3 {
+.card_container .card h3 {
 	text-align: center;
 	color: #04AA6D;
 	font-size: 30px;
+	text-shadow: 2px 2px 1px #025f3d;
 }
 
-.card .container {
+.card_container .card .container {
 	padding: 5px 5%;
+}
+
+.card {
+	color: black;
 }
 
 /*--------------------------------------
@@ -391,7 +395,7 @@ footer {
 	color: white;
 	text-align: center;
 	position: static;
-	margin-top: 300px;
+	margin-top: 200px;
 	z-index: 1;
 }
 
