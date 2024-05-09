@@ -49,6 +49,29 @@ function googleTranslateElementInit() {
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
 
 
+<center>
+    <div class="header">
+        <p class="italic-text">
+            <div id="donate-button-container">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script>
+                    PayPal.Donation.Button({
+                    env:'production',
+                    hosted_button_id:'KSE2ZLBWFVQEG',
+                    image: {
+                    src:'https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donate_LG.gif',
+                    alt:'Fai una donazione con il pulsante PayPal',
+                    title:'Sostieni questo sito con una donazione',
+                    }
+                    }).render('#donate-button');
+                </script>
+            </div>
+        </p>
+    </div>
+    </center>
+
+
 <div class="card_container_insegnanti">
     <div class="row">
         <div class="col-sm-6">
