@@ -45,3 +45,26 @@ function invertcolorFunction() {
 	var element = document.body;
 	element.classList.toggle("invert-color");
 }
+
+
+
+// COUNTER VIEW
+var counterContainer = document.querySelector(".website-counter");
+var visitCount = localStorage.getItem("page_views");
+
+// Check if page_view entry is present
+if (visitCount) {
+  visitCount = Number(visitCount) + 1;
+  localStorage.setItem("page_views", visitCount);
+} 
+else {
+  visitCount = 1;
+  localStorage.setItem("page_views", 1);
+}
+
+if(visitCount == 1){
+  counterContainer.innerHTML = visitCount + "&nbsp;VOLTA";
+}
+else{
+  counterContainer.innerHTML = visitCount + "&nbsp;VOLTE";
+}

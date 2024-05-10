@@ -387,56 +387,6 @@ body {
 	color: black;
 }
 
-/*--------------------------------------
-|	              Footer			   |
-----------------------------------------*/
-footer {
-	height: 180px;
-	bottom: 0px;
-	width: 100%;
-	background-color: #333;
-	color: white;
-	text-align: center;
-	position: static;
-	margin-top: 200px;
-	z-index: 1;
-}
-
-footer img {
-	width: 310x;
-	transition: 0.5s;
-	opacity: 0.5;
-	position: relative;
-	max-width: 100%;
-	height: auto;
-}
-
-footer img:hover {
-	transition: 0.5s;
-	opacity: 1;
-}
-
-footer a {
-	color: aliceblue;
-	text-decoration-color: rgb(217, 105, 7);
-	text-decoration-thickness: 2px;
-	transition: 0.5s;
-}
-
-footer a:hover {
-	color: grey;
-	transition: 0.5s;
-}
-
-footer table {
-	margin-top: 15px;
-}
-
-footer table th {
-	border: none;
-	width: 60px;
-	padding-left: 20px;
-}
 
 /*--------------------------------------
 |	              Scrollbar			   |

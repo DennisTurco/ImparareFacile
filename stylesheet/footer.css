@@ -1,0 +1,147 @@
+#footer-container {
+    position: absolute;
+    min-height: 60vh;
+    width: 100%;
+    height: 20em;
+    left: 0;
+    display: block;
+    z-index: 1000;
+    margin-top: 50px;
+}
+.footer{
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    bottom: 0px;
+    background-color: #333;
+    color: #efefef;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.footer div {
+    text-align: center;
+}
+
+.colonna1{
+    width: 50%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.colonna2 {
+    width: 50%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.colonna1 img {
+    height: 50px;
+}
+
+.colonna1 h2 {
+    font-weight: 20;
+}
+.colonna1 h3 {
+    font-weight: 20;
+    margin-left: 5px;
+}
+
+.colonna1 hr {
+    border: solid 1px #efefef;
+    width: 475px;
+}
+
+.colonna2 img {
+    height: 80px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    filter: invert();
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.colonna2 img:hover{
+    background-color: #999;
+}
+
+.contatti_footer a{
+    text-decoration: none;
+}
+
+.logofooter{
+    width: 500px;
+    margin-left: 110px;
+}
+
+.logofooter img{
+    width: 100px;
+    height: 100px;
+    margin-left: 110px;
+}
+
+.vspacingmobile{
+    display: none;
+}
+
+.block{
+    display: block;
+}
+
+.website-counter {
+    color: red;
+}
+
+.contatti_footer h1 {
+    color: white;
+}
+
+@media screen and (max-width:1150px) {
+
+    .footer{
+        flex-direction: column;
+    }
+
+    .colonna1 {
+        display: flex;
+        justify-content: center; /* Centra orizzontalmente il contenuto */
+        align-items: center; /* Centra verticalmente il contenuto */
+        flex-direction: column; /* Mantiene la direzione della colonna a verticale */
+        height: 100%; /* Assicura che la colonna occupi l'intera altezza disponibile */
+    }
+
+    .logofooter {
+        margin-left: 0px;
+    }
+
+    .colonna1, .colonna2 {
+        width: 100%; /* Le colonne occupano l'intera larghezza */
+        text-align: center; /* Allinea il testo al centro */
+        align-items: center; /* Centra orizzontalmente i blocchi interni */
+        justify-content: center; /* Centra verticalmente i blocchi interni */
+    }
+
+}
+
+@media screen and (max-width: 530px) {
+    .colonna1 {
+        transform: scale(0.65); /* Ridimensiona la colonna al 80% della sua dimensione originale */
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .colonna2 img {
+        height: 55px;
+    }
+
+    .colonna2 {
+        margin-top: 0;
+        font-size: 11px;
+    }
+
+    .vspacingmobile{
+        height: 300px;
+        display: block;
+    }
+}

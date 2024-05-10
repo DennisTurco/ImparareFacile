@@ -33,6 +33,7 @@ function googleTranslateElementInit() {
 <link rel="stylesheet" href="../../stylesheet/style.css"/>
 <link rel="stylesheet" href="../../stylesheet/pages.css"/>
 <link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="../../stylesheet/footer.css"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
@@ -173,19 +174,37 @@ public class Main {
 
 
 
-<footer id="footer">
-    <div style="height: 2px;"></div>
-    <p>&copy; 2024 Dennis Turco</p>
-    <i class="material-icons">email</i> Email: <a href="mailto:dennisturco@gmail.com">dennisturco@gmail.com</a>
-    <br><i class="material-icons">location_on</i> Posizione: <a href="https://www.google.it/maps/place/43036+Fidenza+PR/@44.8612438,10.0520697,14z/data=!3m1!4b1!4m5!3m4!1s0x47805e2460c27007:0x896e3cfd8d45d0e3!8m2!3d44.866279!4d10.0615953" target="blank">Fidenza (Provincia di Parma)</a>
-    <table align="center">
-        <tr>
-            <th><a href="https://www.instagram.com/dennis_turco/" target="blank" title="instagram"><img src="../../images/logo/instagram.png"></a></th>
-            <th><a href="https://github.com/DennisTurco" target="blank" title="github"><img src="../../images/logo/github.png"></a></th>
-            <th><a href="https://discordapp.com/invite/9Jb4Gt3HhB" target="blank" title="discord"><img src="../../images/logo/discord.png"></a></th>
-        </tr>
-    </table>
-</footer>
+<div id="footer-container">                                                             <!--Footer Nuovo-->
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <h3 align="center">&copy; 2022 - 2024 Dennis Turco</h3>
+                <hr align="center"><br>
+                <h2 align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></h2>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <h1>CONTATTI</h1><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
 
 <!--Script per permettere l'hover on scroll-->
 <script type="text/JavaScript" src="../../javascript.js"></script>
