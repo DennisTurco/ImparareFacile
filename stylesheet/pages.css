@@ -431,6 +431,11 @@ code {
 	tab-size: 2;
 }
 
+code-toobar {
+	background: #eb5757;
+	color: #eb5757;
+}
+
 code {
 	color: #eb5757;
 }

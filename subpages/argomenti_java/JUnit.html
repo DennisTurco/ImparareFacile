@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Java - JUnit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="../../stylesheet/footer.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">👨‍🏫 Prenota una lezione</a>
+</div>
+
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- JUnit -->
+<article id="0daeb03d-c4fc-4787-bde7-82f7c6fc9234" class="page sans"><header><h1 class="page-title">JUnit</h1><p class="page-description"></p></header><div class="page-body"><nav id="09271748-6394-4451-8115-3ac0a22b8f5d" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a678537d-1534-4a04-9964-be6b6db6823a"><mark class="highlight-blue">1️⃣ Contesto</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#111adf41-b281-4ae3-a844-dde303662915"><mark class="highlight-blue">2️⃣ Definizione</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6b9cb4ff-3a94-4b7d-bcef-1061d9f83244"><mark class="highlight-blue">3️⃣ Tipi di test</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9cfd080e-ed9a-4e0b-8b39-851cac4110b1"><mark class="highlight-brown"><strong>1. Test Unitari</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#16817e86-4b93-49a8-81b7-eeb15e89f89a"><mark class="highlight-brown"><strong>2. Test di Integrazione</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#40152684-5ed9-4daf-ab53-cf3c452e43bf"><mark class="highlight-brown"><strong>3. Test Funzionali</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#784b52ea-413d-48e2-87d7-fb71a29036ed"><mark class="highlight-brown"><strong>4. Test di Regressione</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#01beb021-667c-4ec1-8457-1bb267c446ed"><mark class="highlight-brown"><strong>5. Test di Carico e Prestazioni</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#85b32fb3-ea35-4b26-8804-0e9ce3feba2f"><mark class="highlight-brown"><strong>6. Test End-to-End</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0f92004d-6d96-49b0-866f-2bdfe9bf3e65"><mark class="highlight-brown"><strong>7. Test di Interfaccia Utente (UI)</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#137479fe-b499-4cc9-9587-9841430dcaa5"><mark class="highlight-brown"><strong>Strumenti e Annotazioni Utilizzati in JUnit</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#42771d4e-199c-4c69-baa2-dce947dc993a"><mark class="highlight-blue">4️⃣ Esempio Pratico</mark></a></div></nav><p id="baa8a4e9-202e-4587-9925-10d322e629ec" class="">
+</p><figure id="ce0f2661-03a6-49a0-9cd5-76000706b513"><a href="https://www.youtube.com/watch?v=vZm0lHciFsQ" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Java Unit Testing with JUnit - Tutorial - How to Create And Use Unit Tests</div><div class="bookmark-description">Full tutorial on creating Unit Tests in Java with JUnit!
+
+Do you write Java code that you&#x27;re just not confident is 100% right? You can create unit tests using the JUnit testing framework to verify your Java code, and I&#x27;ll show you exactly how to do it.
+ 
+Many beginners don&#x27;t know there&#x27;s a great way to test their code with simple, fast tests and make sure their code is working exactly how they think it is. 
+
+The IntelliJ testing tools also make creating and running your Unit Tests super simple.
+
+In this beginner&#x27;s Java tutorial video, we&#x27;ll do a full walkthrough of why and how you can create your own unit tests!
+
+Learn or improve your Java by watching it being coded live!
+
+Hi, I&#x27;m John! I&#x27;m a Lead Java Software Engineer and I&#x27;ve been in the programming industry for more than a decade. I love sharing what I&#x27;ve learned over the years in a way that&#x27;s understandable for all levels of Java learners.
+
+Let me know what else you&#x27;d like to see!
+
+Links to any stuff in this description are affiliate links, so if you buy a product through those links I may earn a small commission.
+
+📕 THE best book to learn Java, Effective Java by Joshua Bloch
+https://amzn.to/36AfdUu
+
+📕 One of my favorite programming books, Clean Code by Robert Martin
+https://amzn.to/3GTPVhf
+
+🎧 Or get the audio version of Clean Code for FREE here with an Audible free trial
+http://www.audibletrial.com/johncleancode
+
+
+
+🖥️Standing desk brand I use for recording (get a code for $30 off through this link!)
+https://bit.ly/3QPNGko
+
+📹Phone I use for recording:
+https://amzn.to/3HepYJu
+
+🎙️Microphone I use (classy, I know):
+https://amzn.to/3AYGdbz
+
+Donate with PayPal (Thank you so much!)
+https://www.paypal.com/donate/?hosted_button_id=3VWCJJRHP4WL2
+
+
+☕Complete Java course: 
+https://codingwithjohn.thinkific.com/courses/java-for-beginners
+
+https://codingwithjohn.com</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/751c6312/img/favicon_144x144.png" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=vZm0lHciFsQ</div></div><img src="https://i.ytimg.com/vi/vZm0lHciFsQ/maxresdefault.jpg" class="bookmark-image"/></a></figure><h1 id="a678537d-1534-4a04-9964-be6b6db6823a" class=""><mark class="highlight-blue">1️⃣ Contesto</mark></h1><p id="663461e7-089d-40cc-996b-41c27db9b636" class="">Il testing su Java è un processo fondamentale nello sviluppo software volto a garantire che il codice funzioni correttamente e risponda alle aspettative. </p><p id="2939fb38-fa12-4dd6-9ed3-1289cc6eee3e" class="">In tutti gli ambienti di sviluppo, indipendentemente dal processo di produzione del codice adottato, la fase di testing è spesso trascurata. Questo accade per vari motivi, come la mancanza di tempo, la scarsa volontà degli sviluppatori, o semplicemente perché ritenuta di poco interesse. Tuttavia, il testing è fondamentale per garantire la qualità e la robustezza del software.</p><h1 id="111adf41-b281-4ae3-a844-dde303662915" class=""><mark class="highlight-blue">2️⃣ Definizione</mark></h1><p id="9f5b31c8-139b-4d46-afaa-17e87b5c9464" class="">Il testing del software è l&#x27;insieme di attività svolte per verificare che un&#x27;applicazione soddisfi i requisiti specificati e sia priva di errori. Consiste nell&#x27;eseguire un programma con l&#x27;intento di trovare bug o difetti, garantire che il comportamento del software sia conforme alle aspettative e validare che i risultati siano corretti.</p><h1 id="6b9cb4ff-3a94-4b7d-bcef-1061d9f83244" class=""><mark class="highlight-blue">3️⃣ Tipi di test</mark></h1><h3 id="9cfd080e-ed9a-4e0b-8b39-851cac4110b1" class=""><mark class="highlight-brown"><strong>1. Test Unitari</strong></mark></h3><p id="c87c4305-34b8-4f8d-9f37-d95cb2876fbc" class="">Questi sono test che verificano la funzionalità di unità isolate di codice, come metodi o classi singole.</p><ul id="07d35359-75ca-4352-b1a7-1d42ef86c852" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Metodi</strong>: Testano singoli metodi di una classe.</li></ul><ul id="a51dce4d-bc34-4ae9-988d-31bea7285e5d" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Classi</strong>: Testano l&#x27;interazione tra i metodi all&#x27;interno di una classe.</li></ul><ul id="a7373113-3a87-4b18-96f8-b7629e4b9166" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Eccezioni</strong>: Verificano che i metodi lancino le eccezioni corrette in determinate condizioni.</li></ul><h3 id="16817e86-4b93-49a8-81b7-eeb15e89f89a" class=""><mark class="highlight-brown"><strong>2. Test di Integrazione</strong></mark></h3><p id="9fa3fa86-eac0-43b1-a237-5f9b38b23406" class="">Questi test verificano l&#x27;interazione tra diverse unità o componenti del sistema.</p><ul id="2b0458cd-95fb-4d88-9cbf-16f444179c29" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Componenti</strong>: Verificano l&#x27;integrazione tra classi o moduli diversi.</li></ul><ul id="50ea3bdb-c09a-4dba-be46-4ad08a9784c1" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Servizi</strong>: Testano l&#x27;interazione tra vari servizi all&#x27;interno dell&#x27;applicazione.</li></ul><ul id="88315cbb-0700-4ef3-8612-61e19c1b0e79" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Database</strong>: Verificano che l&#x27;integrazione con il database funzioni correttamente.</li></ul><h3 id="40152684-5ed9-4daf-ab53-cf3c452e43bf" class=""><mark class="highlight-brown"><strong>3. Test Funzionali</strong></mark></h3><p id="72b47421-f967-411d-83b5-e8d2b64dda92" class="">Questi test verificano che il sistema soddisfi i requisiti funzionali specificati.</p><ul id="0780ab0a-9bc5-4e19-a4f9-5dae7c7ff825" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Requisiti</strong>: Verificano che il comportamento del software corrisponda ai requisiti specificati.</li></ul><ul id="b94da41d-9154-4c12-9bee-91fe467badfe" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Scenari</strong>: Testano scenari specifici di utilizzo dell&#x27;applicazione.</li></ul><h3 id="784b52ea-413d-48e2-87d7-fb71a29036ed" class=""><mark class="highlight-brown"><strong>4. Test di Regressione</strong></mark></h3><p id="080f25c6-c413-4ef1-ada5-76c529709cda" class="">Questi test assicurano che le modifiche al codice non abbiano introdotto nuovi bug.</p><ul id="5befd298-6e3c-4a35-8c63-756770ee3220" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Nuove Funzionalità</strong>: Verificano che le nuove funzionalità non abbiano rotto il codice esistente.</li></ul><ul id="3adec181-4805-4260-bba5-4f60bddcf72f" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Bug Fix</strong>: Assicurano che i bug risolti non si ripresentino.</li></ul><h3 id="01beb021-667c-4ec1-8457-1bb267c446ed" class=""><mark class="highlight-brown"><strong>5. Test di Carico e Prestazioni</strong></mark></h3><p id="493076a4-2fcb-43c6-bb54-d8b4803752c9" class="">Questi test verificano il comportamento del sistema sotto carico e la sua performance.</p><ul id="8b9e939e-aa23-4bed-bb9f-730d79188654" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Carico</strong>: Testano come il sistema si comporta sotto carico pesante.</li></ul><ul id="d1ad54e5-aadc-4fbf-882a-628bb896dd49" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Stress</strong>: Verificano il comportamento del sistema oltre i limiti operativi normali.</li></ul><ul id="fbc5b9cd-dfd7-410a-8208-15243ed039e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Performance</strong>: Misurano i tempi di risposta e l&#x27;efficienza del sistema.</li></ul><h3 id="85b32fb3-ea35-4b26-8804-0e9ce3feba2f" class=""><mark class="highlight-brown"><strong>6. Test End-to-End</strong></mark></h3><p id="bd751b2b-0167-42f8-ba8a-d12816c3f412" class="">Questi test verificano l&#x27;intero flusso di lavoro dall&#x27;inizio alla fine, come farebbe un utente reale.</p><ul id="3884630d-7786-46c3-aebd-9226e900f2e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Sistema</strong>: Verificano il sistema nel suo complesso.</li></ul><ul id="243f2291-277a-4459-a037-a9fccd3a10fc" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Flusso di Lavoro</strong>: Testano i flussi di lavoro completi attraverso vari moduli dell&#x27;applicazione.</li></ul><h3 id="0f92004d-6d96-49b0-866f-2bdfe9bf3e65" class=""><mark class="highlight-brown"><strong>7. Test di Interfaccia Utente (UI)</strong></mark></h3><p id="d4e72da8-984e-4c89-bdf1-c1e9bc501b44" class="">Questi test verificano che l&#x27;interfaccia utente funzioni correttamente.</p><ul id="a27b68b5-09d8-4b66-a466-2079b2da89e8" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Componenti UI</strong>: Testano singoli componenti dell&#x27;interfaccia utente.</li></ul><ul id="eec22a10-8c23-46eb-9880-1154d03e89a6" class="bulleted-list"><li style="list-style-type:disc"><strong>Test di Usabilità</strong>: Verificano che l&#x27;interfaccia sia intuitiva e facile da usare.</li></ul><h3 id="137479fe-b499-4cc9-9587-9841430dcaa5" class=""><mark class="highlight-brown"><strong>Strumenti e Annotazioni Utilizzati in JUnit</strong></mark></h3><p id="f6c1db38-b1ba-47eb-859c-39e1f792f371" class="">JUnit fornisce diverse annotazioni e strumenti per categorizzare e gestire i test:</p><table id="e3c3fa1c-6dd6-475e-898c-0f06e157a9be" class="simple-table"><thead class="simple-table-header"><tr id="ca55deb1-d413-4962-b092-743d7bf55a93"><th id="eilm" class="simple-table-header-color simple-table-header"><strong>Annotazione</strong></th><th id=":G&gt;J" class="simple-table-header-color simple-table-header" style="width:510px"><strong>Utilizzo</strong></th></tr></thead><tbody><tr id="fbf8b46a-dd16-4d21-954e-98b6a2293132"><td id="eilm" class=""><strong>@Test</strong></td><td id=":G&gt;J" class="" style="width:510px">per annotare i metodi di test</td></tr><tr id="ce74d525-4baa-4fab-91db-cbd1e17fc64e"><td id="eilm" class=""><strong>@Before</strong></td><td id=":G&gt;J" class="" style="width:510px">per annotare un metodo da eseguire prima dell&#x27;esecuzione di un test case (ad esempio l&#x27;apertura di una connessione ad un database, o uno stream)</td></tr><tr id="0224f2ca-3c0b-48cc-a0b4-3557656a344f"><td id="eilm" class=""><strong>@After</strong></td><td id=":G&gt;J" class="" style="width:510px">per annotare un metodo da eseguire dopo l&#x27;esecuzione di un test case (chiusura di risorse aperte in precedenza)</td></tr><tr id="1412c73b-9c1b-4582-8a26-47db93f05ea2"><td id="eilm" class=""><strong>@BeforeClass</strong></td><td id=":G&gt;J" class="" style="width:510px">come <code>@Before</code> ma solo all&#x27;inizio dell&#x27;esecuzione del test</td></tr><tr id="c908eda3-c06a-4f39-bd28-2d2edd7de792"><td id="eilm" class=""><strong>@AfterClass</strong></td><td id=":G&gt;J" class="" style="width:510px">come <code>@After</code> ma solo alla fine dell&#x27;esecuzione del test</td></tr><tr id="e1f3a9d7-0ca0-4b7a-9769-b82f2c17ed45"><td id="eilm" class=""><strong>@BeforeEach </strong></td><td id=":G&gt;J" class="" style="width:510px">Esegue il codice prima ogni metodo di test.</td></tr><tr id="f6775c36-51bd-4504-b172-119f4c8d0eb4"><td id="eilm" class=""><strong>@AfterEach</strong></td><td id=":G&gt;J" class="" style="width:510px">Esegue il codice dopo ogni metodo di test.</td></tr><tr id="c704ca01-49bf-4b33-9a6a-09f3842da23b"><td id="eilm" class=""><strong>@BeforeAll</strong></td><td id=":G&gt;J" class="" style="width:510px">Esegue il codice prima ogni metodo di test.</td></tr><tr id="9f71f80a-01f8-4348-bba8-295862869821"><td id="eilm" class=""><strong>@AfterAll</strong></td><td id=":G&gt;J" class="" style="width:510px">Esegue il codice una volta dopo tutti i metodi di test.</td></tr><tr id="5319418f-9cbb-40c6-991b-a54e4e2332b3"><td id="eilm" class=""><strong>@Ignore / @Disabled</strong></td><td id=":G&gt;J" class="" style="width:510px">utilizzata per evitare l&#x27;esecuzione di un test (evitando di commentare)</td></tr><tr id="0ce13ba4-3300-4ba6-ad43-27a5f8c2c025"><td id="eilm" class=""><strong>@Tag</strong></td><td id=":G&gt;J" class="" style="width:510px">Categoria di test (utile per filtrare ed eseguire solo determinati gruppi di test).</td></tr></tbody></table><h1 id="42771d4e-199c-4c69-baa2-dce947dc993a" class=""><mark class="highlight-blue">4️⃣ Esempio Pratico</mark></h1><p id="a315c534-08df-4038-bac8-cf40dad1c2b3" class=""><span style="border-bottom:0.05em solid"><strong>DeterminatoreVoto.java</strong></span></p><p id="dd15c54e-1367-49fb-bd1c-89e5ce9dc47a" class="">Questa classe contiene un metodo per convertire un voto numerico in una lettera, secondo una scala prestabilita.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5a3c0d1b-0a63-4361-8aea-2c5fa3131e8a" class="code"><code class="language-Java">public class DeterminatoreVoto {
+    public char determinaVotoInLettera (int voto) {
+        if (voto &lt; 0) {
+            throw new IllegalArgumentException(&quot;Il voto non puo&#x27; essere negativo&quot;);
+        } 
+        else if (voto &gt; 100) {
+            throw new IllegalArgumentException(&quot;Il voto non puo&#x27; essere superiore a 100&quot;);
+        }
+        else if (voto &lt; 60) {
+            return &#x27;F&#x27;;
+        }
+        else if (voto &lt; 70) {
+            return &#x27;D&#x27;;
+        }
+        else if (voto &lt; 80) {
+            return &#x27;C&#x27;;
+        }
+        else if (voto &lt; 90) {
+            return &#x27;B&#x27;;
+        }
+        else {
+            return &#x27;A&#x27;;
+        }
+    }
+}</code></pre><p id="065a49b1-34d3-4692-a1fc-b2f9cdab00a9" class=""><span style="border-bottom:0.05em solid"><strong>DeterminatoreVotoTest.java</strong></span></p><p id="cc4cb9c5-f38b-42d6-9abb-9497162ecf71" class="">Questa classe utilizza JUnit per verificare che il metodo <code><strong>determinaVotoInLettera</strong></code> funzioni correttamente. Include vari test case per coprire diverse situazioni.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5738fac3-e4db-4864-baf0-5b6248f0e9ac" class="code"><code class="language-Java">import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
+
+import org.junit.Before;
+import org.junit.After;
+
+public class DeterminatoreVotoTest {
+    
+    private DeterminatoreVoto determinatore;
+
+    @Before
+    public void startup() {
+        determinatore = new DeterminatoreVoto();
+    }
+
+    @After
+    public void cleanup() {
+        determinatore = null;
+    }
+
+    @Test
+    public void testCinquantacinqueDovrebbeRitornareF() {
+        char lettera = determinatore.determinaVotoInLettera(55);
+        assertEquals(&#x27;F&#x27;, lettera);
+    }
+
+    @Test
+    public void testSessantacinqueDovrebbeRitornareD() {
+        char lettera = determinatore.determinaVotoInLettera(65);
+        assertEquals(&#x27;D&#x27;, lettera);
+    }
+
+    @Test
+    public void testSettantacinqueDovrebbeRitornareC() {
+        char lettera = determinatore.determinaVotoInLettera(75);
+        assertEquals(&#x27;C&#x27;, lettera);
+    }
+
+    @Test
+    public void testOttantacinqueDovrebbeRitornareB() {
+        char lettera = determinatore.determinaVotoInLettera(85);
+        assertEquals(&#x27;B&#x27;, lettera);
+    }
+
+    @Test
+    public void testNovantacinqueDovrebbeRitornareA() {
+        char lettera = determinatore.determinaVotoInLettera(95);
+        assertEquals(&#x27;A&#x27;, lettera);
+    }
+
+    @Test
+    public void testVotoNegativoDovrebbeRitornareException() {
+        assertThrows(IllegalArgumentException.class, () -&gt; {
+            determinatore.determinaVotoInLettera(-10);
+        });
+    }
+
+    @Test
+    public void testVotoEccessivoDovrebbeRitornareException() {
+        assertThrows(IllegalArgumentException.class, () -&gt; {
+            determinatore.determinaVotoInLettera(101);
+        });
+    }
+
+    @Test
+    public void testCheNonRestituisceNull() {
+        char lettera = determinatore.determinaVotoInLettera(75);
+        assertNotNull(lettera);
+    }
+}
+</code></pre><p id="e5492cb3-e881-44c4-92a0-e2d2a541f6d4" class=""><span style="border-bottom:0.05em solid"><strong>DeterminatoreVotoTest2.java</strong></span><strong> </strong><em>(esempio appena più complesso)</em></p><p id="8e7b28fe-41e9-4d77-a501-16663e0b4f95" class="">Utilizza un array bidimensionale per contenere i dati di test e un ciclo per eseguire i test in modo parametrizzato.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d7e28f02-2161-42a0-b009-6d362fe01120" class="code"><code class="language-Java">import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class DeterminatoreVotoTest2 {
+
+    private DeterminatoreVoto determinatore = new DeterminatoreVoto();
+
+    @Test
+    public void testVoti() {
+        Object[][] testData = {
+            {55, &#x27;F&#x27;},
+            {65, &#x27;D&#x27;},
+            {75, &#x27;C&#x27;},
+            {85, &#x27;B&#x27;},
+            {95, &#x27;A&#x27;},
+            {60, &#x27;D&#x27;},
+            {70, &#x27;C&#x27;},
+            {80, &#x27;B&#x27;},
+            {90, &#x27;A&#x27;},
+            {-10, &quot;EXCEPTION&quot;},
+            {101, &quot;EXCEPTION&quot;}
+        };
+
+        for (Object[] data : testData) {
+            int voto = (int) data[0];
+            Object expected = data[1];
+
+            if (expected.equals(&quot;EXCEPTION&quot;)) {
+                assertThrows(IllegalArgumentException.class, () -&gt; {
+                    determinatore.determinaVotoInLettera(voto);
+                });
+            } else {
+                char expectedLetter = (char) expected;
+                char lettera = determinatore.determinaVotoInLettera(voto);
+                assertEquals(expectedLetter, lettera);
+            }
+        }
+    }
+}</code></pre></div></article>
+
+
+<div id="footer-container">                                                             <!--Footer Nuovo-->
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <h3 align="center">&copy; 2022 - 2024 Dennis Turco</h3>
+<hr align="center"><br>
+                <h2 align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></h2>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <h1>CONTATTI</h1><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
