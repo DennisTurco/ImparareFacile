@@ -163,8 +163,69 @@ int main() {
 				cin &gt;&gt; valore;
 		} while (valore &gt;= 0); 
 		// il ciclo continua fintanto che non si inserisce un valore negativo 
-}</code></pre><h1 id="015bc2ac-bcba-4f2b-85e9-e7dffc9da747" class=""><mark class="highlight-blue">Esercizi</mark></h1><figure id="404a544c-fa0f-4786-ab97-3003d545fa5c"><a href="https://ticoprof.wordpress.com/mix-esercizi-if-for-while-cpp/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">MIX esercizi if/for/while in C++</div><div class="bookmark-description">Mix di esercizi svolti in C++ per il ripasso di if, for, while, do while e numeri casuali ,</div></div><div class="bookmark-href"><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=192" class="icon bookmark-icon"/>https://ticoprof.wordpress.com/mix-esercizi-if-for-while-cpp/</div></div><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=240" class="bookmark-image"/></a></figure></div></article>
+}</code></pre><h1 id="015bc2ac-bcba-4f2b-85e9-e7dffc9da747" class=""><mark class="highlight-blue">Esercizi</mark></h1><figure id="404a544c-fa0f-4786-ab97-3003d545fa5c"><a href="https://ticoprof.wordpress.com/mix-esercizi-if-for-while-cpp/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">MIX esercizi if/for/while in C++</div><div class="bookmark-description">Mix di esercizi svolti in C++ per il ripasso di if, for, while, do while e numeri casuali ,</div></div><div class="bookmark-href"><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=192" class="icon bookmark-icon"/>https://ticoprof.wordpress.com/mix-esercizi-if-for-while-cpp/</div></div><img src="https://ticoprof.files.wordpress.com/2017/10/cropped-ticoprof1.png?w=240" class="bookmark-image"/></a></figure>
 
+<h1>QUIZ</h1>
+<div id="quiz"></div>
+    <button id="submit">Risultati</button>
+<div id="results"></div>
+
+</div></article>
+
+<script>
+    var myQuestions = [
+    {
+        question: "1) Quale dei seguenti cicli continua ad eseguire il blocco di codice finché una condizione specificata è vera?",
+        answers: {
+        a: 'for',
+        b: 'do-while',
+        c: 'while',
+        d: 'switch'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "2) Qual è la differenza principale tra un ciclo while e un ciclo do-while?",
+        answers: {
+        a: 'Il ciclo while verifica la condizione all\'inizio, mentre il ciclo do-while la verifica alla fine',
+        b: 'Il ciclo do-while verifica la condizione all\'inizio, mentre il ciclo while la verifica alla fine',
+        c: 'Entrambi verificano la condizione alla fine, ma do-while viene eseguito solo se la condizione è vera',
+        d: 'Nessuna differenza, funzionano allo stesso modo'
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "3) Quante volte viene eseguito un ciclo while se la condizione è inizialmente vera ma diventa falsa dopo 3 iterazioni?",
+        answers: {
+        a: '1',
+        b: '2',
+        c: '3',
+        d: '4'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "4) Quale dei seguenti cicli è più appropriato utilizzare quando si conosce a priori il numero esatto di iterazioni da eseguire?",
+        answers: {
+        a: 'for',
+        b: 'while',
+        c: 'do-while',
+        d: 'switch'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "5) Cosa succede se dimentichiamo di incrementare il contatore all'interno di un ciclo for che utilizza una condizione come i < 10?",
+        answers: {
+        a: 'Il ciclo si esegue una sola volta',
+        b: 'Il ciclo non si esegue mai',
+        c: 'Il compilatore genera un errore',
+        d: 'Il ciclo diventa un ciclo infinito'
+        },
+        correctAnswer: 'd'
+    }
+    ];
+</script>
 
 <div id="footer-container">                                                             <!--Footer Nuovo-->
     <footer class="footer">
@@ -200,6 +261,7 @@ int main() {
 
 <!--Script per permettere l'hover on scroll-->
 <script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <!--Scroll Down Script-->
 <script>

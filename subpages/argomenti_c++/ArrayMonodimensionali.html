@@ -185,7 +185,14 @@ int main(){
         }
     }
     return 0;
-}</code></pre></details></li></ul></div></article>
+}</code></pre></details></li></ul>
+
+<h1>QUIZ</h1>
+<div id="quiz"></div>
+    <button id="submit">Risultati</button>
+<div id="results"></div>
+
+</div></article>
 
 
 <div id="footer-container">                                                             <!--Footer Nuovo-->
@@ -220,8 +227,64 @@ int main(){
     </footer>
 </div>
 
+<script>
+    var myQuestions = [
+    {
+        question: "1) Cos'è un array monodimensionale?",
+        answers: {
+        a: 'Una struttura dati che contiene elementi di tipo diverso',
+        b: 'Una sequenza di variabili dello stesso tipo memorizzate in posizioni di memoria contigue',
+        c: 'Un insieme di variabili di tipo diverso memorizzate in posizioni di memoria casuali',
+        d: 'Una sequenza di puntatori memorizzati in posizioni non contigue'
+        },
+        correctAnswer: 'b'
+    },
+    {
+        question: "2) Come si dichiara un array di 10 interi?",
+        answers: {
+        a: 'int array[10];',
+        b: 'int[10] array;',
+        c: 'int array = new int[10];',
+        d: 'array int[10];'
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "3) Se dichiariamo un array come int arr[5] = {1, 2, 3};, quale sarà il valore di arr[4]?",
+        answers: {
+        a: '1',
+        b: '3',
+        c: '0',
+        d: 'valore non definito'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "4) Quale delle seguenti operazioni non è valida su un array?",
+        answers: {
+        a: 'Modificare il valore di un elemento usando l\'indice dell\'array',
+        b: 'Usare l\'indice dell\'array per accedere a un elemento',
+        c: 'Sommare due array direttamente con l\'operatore +',
+        d: 'Inizializzare un array al momento della dichiarazione'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "5) Se tentiamo di accedere a un elemento al di fuori dei limiti di un array, cosa succede?",
+        answers: {
+        a: 'Il programma si chiude immediatamente',
+        b: 'Viene lanciata un\'eccezione',
+        c: 'Viene restituito un valore casuale o si verifica un comportamento indefinito',
+        d: 'Viene restituito il valore zero'
+        },
+        correctAnswer: 'c'
+    },
+    ];
+</script>
+
 <!--Script per permettere l'hover on scroll-->
 <script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <!--Scroll Down Script-->
 <script>
