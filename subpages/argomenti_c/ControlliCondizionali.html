@@ -204,7 +204,14 @@ int main(){
 
     return 0;
 
-}</code></pre></div></article>
+}</code></pre>
+
+<h1>QUIZ</h1>
+<div id="quiz"></div>
+    <button id="submit">Risultati</button>
+<div id="results"></div>
+
+</div></article>
 
 <div id="footer-container">                                                             <!--Footer Nuovo-->
     <footer class="footer">
@@ -238,8 +245,64 @@ int main(){
     </footer>
 </div>
 
+<script>
+    var myQuestions = [
+    {
+        question: "1) Quale delle seguenti opzioni descrive correttamente il funzionamento di un'istruzione if?",
+        answers: {
+        a: 'Esegue il blocco di codice associato solo se la condizione è falsa',
+        b: 'Esegue il blocco di codice associato solo se la condizione è vera',
+        c: 'Esegue sempre il blocco di codice associato indipendentemente dalla condizione',
+        d: 'Verifica se due condizioni sono uguali'
+        },
+        correctAnswer: 'b'
+    },
+    {
+        question: "2) Cosa viene stampato se la variabile x è 10 e la condizione in un if verifica se x è maggiore di 5?",
+        answers: {
+        a: 'Maggiore di 5',
+        b: 'Non maggiore di 5',
+        c: 'Nessun output',
+        d: 'Errore di compilazione'
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "3) Quando viene eseguito il blocco di codice all'interno di un'istruzione else?",
+        answers: {
+        a: 'Sempre',
+        b: 'Solo quando la condizione dell\'if è vera',
+        c: 'Solo quando la condizione dell\'if è falsa',
+        d: 'Solo quando ci sono più condizioni if e tutte sono false'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "4)  Cosa succede se ci sono più condizioni if-else nidificate e la prima condizione if è vera?",
+        answers: {
+        a: 'Viene eseguito solo il primo blocco if',
+        b: 'Viene eseguito il blocco else',
+        c: 'Vengono eseguiti tutti i blocchi if-else',
+        d: 'Viene eseguito il blocco else finale'
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "5) Qual è lo scopo dell'uso di else if in una struttura condizionale?",
+        answers: {
+        a: 'Per aggiungere una condizione che viene verificata se la condizione if originale è falsa',
+        b: 'Per sostituire l\'istruzione else',
+        c: 'Per eseguire il blocco di codice if solo se ci sono più di due condizioni',
+        d: 'Per terminare la catena di if-else senza eseguire il blocco finale'
+        },
+        correctAnswer: 'a'
+    }
+    ];
+</script>
+
 <!--Script per permettere l'hover on scroll-->
 <script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <!--Scroll Down Script-->
 <script>
