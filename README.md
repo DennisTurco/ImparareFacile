@@ -1,8 +1,8 @@
-# ProgrammazioneManuale
+# ImparareFacile
 
 This is a website that I designed and created to help my students learn the basics of programming through simple theory and exercises.
 
-For now it provides the languages C, C++, SQL and GIT, but perhaps in the future other programming languages could be implemented.
+For now it provides the languages C, C++, Java, SQL and GIT, but perhaps in the future other programming languages could be implemented.
 
 
 ## Licence
