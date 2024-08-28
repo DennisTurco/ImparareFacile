@@ -417,10 +417,10 @@ body {
 /*--------------------------------------
 |	              PDF 			   |
 ----------------------------------------*/
-.pdf {
-    top: 60px; /* Assicurati che questo valore sia adeguato alla tua struttura di layout */
-    width: 100%; /* Occupa l'intera larghezza del contenitore padre */
-    height: 100vh; /* Occupa l'intera altezza della finestra del browser */
+#adobe-dc-view{
+	width: 850px;
+	margin: auto;
+	margin-top: 60px;
 }
 
 /*--------------------------------------

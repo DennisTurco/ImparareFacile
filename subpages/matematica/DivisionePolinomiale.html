@@ -60,21 +60,23 @@ function googleTranslateElementInit() {
     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
-<!--side navbar-->
-<div id="sidenavbar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
-</div>
-<div class="open_sidebar">
-    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
-</div>
-
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
 
 <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
 <div id="mycontent"></div>
 
 <!--PDF-->
-<embed class="pdf" src="../../matematica/DivisionePolinomiale.pdf" width="500" height="375" type="application/pdf">
+<div id="adobe-dc-view"></div>
+<script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+<script type="text/javascript">
+    document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
+        var adobeDCView = new AdobeDC.View({clientId: "9fc282c213104478a26493509ddcdc16", divId: "adobe-dc-view"});
+        adobeDCView.previewFile({
+            content:{location: {url: "../../matematica/DivisionePolinomiale.pdf"}},
+            metaData:{fileName: "Divisione Polinomiale"}
+        }, {embedMode: "IN_LINE"});
+    });
+</script>
 
 <!--Script per permettere l'hover on scroll-->
 <script type="text/JavaScript" src="../../javascript.js"></script>
