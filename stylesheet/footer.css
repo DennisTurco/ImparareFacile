@@ -5,7 +5,7 @@
     height: 20em;
     left: 0;
     display: block;
-    z-index: 1000;
+    z-index: 90;
     margin-top: 50px;
 }
 .footer{
@@ -80,6 +80,12 @@
     height: 100px;
     margin-left: 110px;
 }
+.logofooter b {
+    font-size: 20px;
+}
+.logofooter p, .website-counter {
+    font-size: 25px;
+}
 
 .vspacingmobile{
     display: none;
@@ -95,6 +101,10 @@
 
 .contatti_footer h1 {
     color: white;
+}
+
+.contatti_footer b {
+    font-size: 35px;
 }
 
 @media screen and (max-width:1150px) {

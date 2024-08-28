@@ -68,3 +68,48 @@ if(visitCount == 1){
 else{
   counterContainer.innerHTML = visitCount + "&nbsp;VOLTE";
 }
+
+// SIDE NAVBAR
+document.addEventListener("DOMContentLoaded", function () {
+	const sidenavbar = document.getElementById("sidenavbar");
+	const headers = document.querySelectorAll("h1, h2, h3, h4");
+	
+	headers.forEach(header => {
+		const link = document.createElement("a");
+		const text = header.textContent;
+		const id = text.toLowerCase().replace(/\s+/g, "-");
+		
+		header.id = id;
+		link.href = `#${id}`;
+		link.textContent = text;
+		
+		if (header.tagName.toLowerCase() === "h1") {
+			link.style.fontWeight = "bold";
+		} 
+		else if (header.tagName.toLowerCase() === "h2") {
+			link.style.marginLeft = "20px";
+			link.style.fontWeight = "normal";
+		} 
+		else if (header.tagName.toLowerCase() === "h3") {
+			link.style.marginLeft = "40px";
+			link.style.fontWeight = "normal";
+			link.style.fontSize = "15px";
+		}
+		else if (header.tagName.toLowerCase() === "h4") {
+			link.style.marginLeft = "40px";
+			link.style.fontWeight = "normal";
+			link.style.fontSize = "12px";
+		}
+		
+		sidenavbar.appendChild(link);
+	});
+});
+function openNav() {
+	const sidenavbar = document.getElementById("sidenavbar");
+	sidenavbar.classList.remove("closed");
+}
+
+function closeNav() {
+	const sidenavbar = document.getElementById("sidenavbar");
+	sidenavbar.classList.add("closed");
+}

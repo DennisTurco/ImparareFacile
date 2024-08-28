@@ -219,6 +219,59 @@ body {
 		text-align: left;
 	}
 }
+
+/*--------------------------------------
+|	             sidenavbar            |
+----------------------------------------*/
+#sidenavbar {
+	width: 250px;
+	padding: 20px;
+	background-color: #cbf2ff;
+	height: 100vh;
+	overflow-y: auto;
+	position: fixed;
+	top: 50px;
+	z-index: 100;
+	transition: width 0.3s ease, padding 0.3s ease;
+}
+
+#sidenavbar.closed {
+	width: 0px;
+	padding: 0;
+	overflow: hidden;
+}
+
+#sidenavbar a {
+	display: block;
+	padding: 5px 0;
+	color: #333;
+	text-decoration: none;
+}
+
+#sidenavbar a:hover {
+	color: #007bff;
+}
+
+#sidenavbar .closebtn {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	font-size: 30px;
+	margin-left: 50px;
+}
+
+.open_sidebar {
+	position: fixed;
+	margin-left: 30px;
+	z-index: 99;
+	font-size: 30px;
+}
+
+@media screen and (max-height: 450px) {
+	#sidenavbar {padding-top: 15px;}
+	#sidenavbar a {font-size: 18px;}
+}
+
 /*--------------------------------------
 |	             prenotazione lezione   |
 ----------------------------------------*/
@@ -226,7 +279,7 @@ body {
 	position: fixed;
 	bottom: 10px;
 	left: 10px;
-	z-index: 10000; 
+	z-index: 99; 
 	text-align: center;
 }
 .donate-button {

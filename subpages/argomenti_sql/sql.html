@@ -60,6 +60,14 @@ function googleTranslateElementInit() {
     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
 
 
@@ -130,21 +138,21 @@ WHERE id = 1;</code></pre><h3 id="b8c5dbf8-9892-4599-90e4-c7b76f704503" class=""
 ON clienti (nome);</code></pre><h3 id="1eb4ec61-17cb-48b3-b175-f597fca8715b" class=""><mark class="highlight-brown">Eliminazione di un Indice</mark></h3><p id="bebb2bc0-3e68-49a3-b04e-cdb2d05d7b19" class="">La parola chiave <code>DROP INDEX</code> viene utilizzata per eliminare un indice esistente.</p><p id="42add713-d33a-4a8f-9e35-429d9b31fcd7" class="">Esempio di eliminazione di un indice:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6c4f21a8-4805-4037-8dc7-57d3d68d86a1" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">DROP INDEX idx_nome_cliente;</code></pre><p id="e0921888-1fb4-4cf3-8bc0-87babb43d62c" class="">
 </p></div></article>
 
-<div id="footer-container">                                                             <!--Footer Nuovo-->
+<div id="footer-container">
     <footer class="footer">
         <div class="colonna1">
             <div class="logofooter">
                 <a href="https://dennisturco.github.io/ImparareFacile/">
                     <img align="left" src="../../images/logo/logo.png" alt="site logo">
                 </a><br><br>
-                <h3 align="center">&copy; 2022 - 2024 Dennis Turco</h3>
-<hr align="center"><br>
-                <h2 align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></h2>       
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
             </div>
         </div>
         <div class="colonna2">
             <div class="contatti_footer">
-                <h1>CONTATTI</h1><br>
+                <b>CONTATTI</b><br>
                 <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
                     <img src="../../images/logo/discord.png" alt="discord server">
                 </a>
