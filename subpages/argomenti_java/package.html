@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Package</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="../../stylesheet/footer.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Package -->
+<article id="2f29e58c-ce70-408f-a0a8-b58ecd56523e" class="page sans"><header><h1 class="page-title">Package</h1><p class="page-description"></p></header><div class="page-body"><nav id="42ce4a25-aaf8-467f-82ae-78bbe49ab8a6" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#396c91cb-d830-4d51-a6d9-f0bd00748901">1️⃣ Introduzione</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ee9ad51c-5cf0-4035-8415-07efc949e901">2️⃣ Package Standard</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0ee35e3e-f892-4532-975f-d622e3a0c0c8">3️⃣ Visibilità dei Nomi con i Package</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5c99794b-b475-4b71-91a4-5274fe2b61ac">Visibilità delle Classi vs Visibilità dei Campi</a></div></nav><h1 id="396c91cb-d830-4d51-a6d9-f0bd00748901" class="">1️⃣ Introduzione</h1><ul id="aad8ad13-175b-4c20-9846-915b540e626d" class="bulleted-list"><li style="list-style-type:disc">Le classi correlate tra loro vengono raggruppate in <strong>package</strong>.</li></ul><ul id="547e5c35-f019-449b-9c41-a97bc2adc68e" class="bulleted-list"><li style="list-style-type:disc">Se la classe <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span> appartiene a un package <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span><span>﻿</span></span>, è necessario inserire l&#x27;istruzione <code>package p;</code> all&#x27;inizio del file che contiene la classe <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span>.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e1a137cd-5c86-44e9-a4cc-0df0c492093e" class="code"><code class="mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart LR
+    c1 &amp; c2 --&gt; eserciziFP
+    d1 --&gt; prove
+
+</code></pre></li></ul><ul id="62865711-c265-4e0c-a9c2-7ffee84fc997" class="bulleted-list"><li style="list-style-type:disc">Per convenzione, il nome di un package inizia con una lettera minuscola.</li></ul><p id="50648bd1-139d-4db0-b152-bb7e4f692a4f" class="">
+</p><ol type="1" id="f86673ca-325b-4e22-b2a9-3dac74940f1c" class="numbered-list" start="1"><li>Tutti i file appartenenti allo stesso package devono essere collocati nella stessa cartella, il cui nome corrisponde a quello del package:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="675ff9d1-7391-4909-8fc6-d83101ce3dbc" class="code"><code class="mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart TD
+  src --&gt; eserciziFP
+  src --&gt; prove
+  eserciziFP --&gt; c1.java
+  eserciziFP --&gt; c2.java
+  prove --&gt; d1.java
+
+  style src fill:#f9c6c9,stroke:#333,stroke-width:2px,color:#0057e7</code></pre></li></ol><ol type="1" id="a091ac90-020d-4036-b58b-8ab2a5d483dd" class="numbered-list" start="2"><li>Se non è presente alcuna istruzione <code>package</code>, il file è considerato parte del <strong>package di default</strong> (generalmente la cartella <code>src</code>):<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7b8e9404-1537-4c1c-aa23-bee0307bb65f" class="code"><code class="mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart TD
+  src --&gt; c1.java
+  src --&gt; c2.java
+  src --&gt; d1.java
+
+  style src fill:#f9c6c9,stroke:#333,stroke-width:2px,color:#0057e7</code></pre></li></ol><p id="b362f66d-de08-4215-9566-96a360974e7f" class="">
+</p><ul id="6d80eda4-afbe-4d08-85ac-9c4f096aec77" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: È possibile includere una sola istruzione <code>package</code> in un file, che deve essere posta all&#x27;inizio del file, prima di qualsiasi altra istruzione.</li></ul><ul id="939bf2b3-8353-41c7-9173-37051ed3d865" class="bulleted-list"><li style="list-style-type:disc">È possibile riferirsi a una classe <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span> di un package <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span><span>﻿</span></span> da una classe in un altro package utilizzando:<ol type="1" id="d9e1342e-529c-49c7-85da-17dc1fa5adca" class="numbered-list" start="1"><li><strong>Il nome completo della classe</strong>:<figure id="2f885063-22a9-43a7-a739-37e9bddfc074" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>p</mi><mi mathvariant="normal">.</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">p.c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mord">.</span><span class="mord mathnormal">c</span></span></span></span></span></div></figure><p id="74fae63c-b7d5-4100-8505-aab349a0e7bf" class="">Dove:</p><ul id="e3f83726-64f5-41c9-9bcf-d4fcda2f92b2" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span><span>﻿</span></span> è il nome del package;</li></ul><ul id="cd66d039-a6e9-48bd-b1fb-c74986b51842" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span> è il nome della classe.</li></ul><p id="1d4b9dbc-9768-4b1d-a288-907ea39119e7" class=""><em>Esempio</em>:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d023b671-cde1-46fd-ae10-fe22f2536e97" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package prove;
+
+public class p1 {
+    eserciziFP.c1 a;
+    a = new eserciziFP.c1();
+    a.f1();
+    // Altre operazioni...
+}</code></pre></li></ol><ol type="1" id="88bc153b-33be-472d-b0e6-398157064be0" class="numbered-list" start="2"><li><strong>L&#x27;istruzione </strong><code><strong>import</strong></code>, che permette di &quot;importare&quot; una o più classi di un package:<p id="6b089610-13b1-408c-b5ed-1f023e05ec30" class=""><em>Esempio</em>:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="06975340-bf92-48c6-a96d-9842eddbdd5e" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package prove;
+
+import eserciziFP.c1; // Importa la classe c1
+
+public class d1 {
+    c1 a;
+    a = new c1();
+    a.f1();
+    // Altre operazioni...
+}</code></pre><ul id="8261bb62-86a2-4d1d-8099-1d9ed5a2bacc" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota Bene</strong>: <code>import eserciziFP.</code><code><strong>*</strong></code><code>;</code> importa tutte le classi del package.</li></ul><ul id="736eb508-c88e-4e6e-be37-0551645ae26f" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota Bene</strong>: Classi con lo stesso nome ma in package diversi sono distinte, quindi è necessario usare il nome completo, ad esempio, <em>eserciziFP.c1</em> è diverso da <em>prove.c1</em>.</li></ul></li></ol></li></ul><h1 id="ee9ad51c-5cf0-4035-8415-07efc949e901" class="">2️⃣ Package Standard</h1><p id="10fa2de4-6f25-4ae9-a158-d7133dfb1ae4" class="">I package standard di Java sono sotto-package di <code>java</code>.</p><ul id="74859906-04cc-475f-9c4b-20e808ed3c79" class="bulleted-list"><li style="list-style-type:disc"><strong>java.lang</strong> (non richiede l&#x27;istruzione <code>import</code>)<ul id="ba935ff5-2334-431b-a4b4-e7f9fcbbffc7" class="bulleted-list"><li style="list-style-type:circle">Contiene classi come <code>Object</code>, <code>String</code>, <code>System</code>, <code>Integer</code>, <code>Character</code>, <code>Float</code>, ecc.</li></ul></li></ul><ul id="3f4777d5-21f7-49dd-b703-eb5012fe5617" class="bulleted-list"><li style="list-style-type:disc"><strong>java.util</strong><ul id="0874d662-3f18-4db6-9e7a-3c6aa3cdf1f0" class="bulleted-list"><li style="list-style-type:circle">Contiene classi come <code>Scanner</code>, <code>Vector</code>, <code>Set</code>, ecc.</li></ul></li></ul><ul id="d105a731-096f-4037-a2b8-0c6825112611" class="bulleted-list"><li style="list-style-type:disc"><strong>java.io</strong><ul id="01895550-973f-4e29-bdfc-c87841c1b2b8" class="bulleted-list"><li style="list-style-type:circle">Contiene classi come <code>InputStream</code>, <code>PrintStream</code>, <code>IOException</code>, ecc.</li></ul></li></ul><h1 id="0ee35e3e-f892-4532-975f-d622e3a0c0c8" class="">3️⃣ Visibilità dei Nomi con i Package</h1><p id="93a3d1e9-7eeb-4bbe-b4ab-7281978c77fa" class="">La <strong>visibilità</strong> si applica sia ai <strong>nomi delle classi</strong> sia ai <strong>nomi dei campi interni alle classi</strong>.</p><h3 id="5c99794b-b475-4b71-91a4-5274fe2b61ac" class="">Visibilità delle Classi vs Visibilità dei Campi</h3><ul id="392da683-975f-4512-ad8d-471e1bb05cc5" class="bulleted-list"><li style="list-style-type:disc"><strong>Visibilità delle classi:</strong><ul id="32773f28-aea1-4827-8353-d2da5b9d4339" class="bulleted-list"><li style="list-style-type:circle"><strong>public</strong>: (esempio: <code><strong>public </strong></code><code>class Razionale {…}</code>) La classe è visibile ovunque, anche al di fuori del package in cui è dichiarata.</li></ul><ul id="710fdc7d-8fc1-462c-85aa-6caa937fbbd4" class="bulleted-list"><li style="list-style-type:circle"><strong>Default (senza </strong><code><strong>public</strong></code><strong>)</strong>: (esempio: <code>class Razionale {…}</code>) La classe è visibile solo all&#x27;interno del package in cui è dichiarata (visibilità di package o predefinita).</li></ul></li></ul><ul id="af42e998-e5de-4624-acca-4ed521af074f" class="bulleted-list"><li style="list-style-type:disc"><strong>Visibilità dei campi:</strong><ul id="75e76850-6ffe-4009-8ad5-28256dbf2190" class="bulleted-list"><li style="list-style-type:circle"><strong>public</strong>: I campi sono visibili ovunque.</li></ul><ul id="289bb093-de83-483c-925d-c87095c16779" class="bulleted-list"><li style="list-style-type:circle"><strong>private</strong>: I campi sono visibili solo all&#x27;interno della classe in cui sono dichiarati.</li></ul><ul id="18966ade-6ca9-40aa-93c9-02f0f0d7e3ea" class="bulleted-list"><li style="list-style-type:circle"><strong>Default (senza specifica)</strong>: I campi sono visibili all&#x27;interno della classe in cui sono dichiarati e anche alle classi dello stesso package.</li></ul></li></ul>
+
+<h1>QUIZ</h1>
+<div id="quiz"></div>
+    <button id="submit">Risultati</button>
+<div id="results"></div>
+
+</div></article>
+
+
+
+<div id="footer-container">                                                             <!--Footer Nuovo-->
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <h3 align="center">&copy; 2022 - 2024 Dennis Turco</h3>
+                <hr align="center"><br>
+                <h2 align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></h2>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <h1>CONTATTI</h1><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    var myQuestions = [
+    {
+        question: "1) Quale istruzione viene utilizzata per definire a quale package appartiene una classe in un file Java?",
+        answers: {
+        a: 'import p;',
+        b: 'public p;',
+        c: 'class p;',
+        d: 'package p;'
+        },
+        correctAnswer: 'd'
+    },
+    {
+        question: "2) Dove devono essere collocati i file appartenenti allo stesso package?",
+        answers: {
+        a: 'In cartelle diverse con nomi casuali',
+        b: 'In una cartella chiamata default',
+        c: 'In una cartella chiamata src',
+        d: 'In una singola cartella con il nome del package'
+        },
+        correctAnswer: 'd'
+    },
+    {
+        question: "3) Cosa succede se non si specifica alcuna istruzione package in un file Java?",
+        answers: {
+        a: 'Il file viene considerato parte del package default',
+        b: 'Il file viene considerato parte del package java.lang',
+        b: 'Il file viene considerato parte del package java.io',
+        d: 'Il file viene considerato parte del package java.util'
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "4) Qual è la differenza principale tra la visibilità public e la visibilità predefinita per le classi in un package?",
+        answers: {
+        a: 'Le classi public sono visibili solo all\'interno del package',
+        b: 'Le classi con visibilità predefinita sono visibili ovunque',
+        c: 'Le classi public sono visibili ovunque, mentre le classi con visibilità predefinita sono visibili solo all\'interno del package',
+        d: 'Non esiste differenza tra public e visibilità predefinita'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "5) Quale delle seguenti opzioni importa tutte le classi di un package in Java?",
+        answers: {
+        a: 'import p.*;',
+        b: 'import p.all;',
+        c: 'import p;',
+        d: 'import p.everything;'
+        },
+        correctAnswer: 'a'
+    },
+    ];
+</script>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+<script>
+	AOS.init();
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+<script src="../../navbar.js"></script>
+
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
+
+</body>
+</html>

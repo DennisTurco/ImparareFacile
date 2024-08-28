@@ -12,8 +12,7 @@
 
 body {
 	cursor: default;
-	background-color: rgb(42, 42, 42);
-	color: white;
+	background-color: #ecfdff;
 }
 
 h1 {
@@ -32,7 +31,7 @@ strong {
 
 a {
 	position: relative;
-	color: rgb(211, 187, 187);
+	color: rgb(180, 165, 165);
 	text-decoration: none;
 }
 
@@ -62,13 +61,13 @@ a:hover::before {
 |	             Header text		    |
 ----------------------------------------*/
 .header {
-
     width: 80%;
 	max-width: 600px;
     color: #73a5b6;
     text-align: center;
     padding: 20px;
 	font-size: 14px;
+	margin-top: 50px;
 }
 
 .italic-text {
@@ -90,12 +89,22 @@ a:hover::before {
 ----------------------------------------*/
 body {
 	margin: 0;
-	font-family: Arial
+	font-family: Arial, sans-serif;
 }
 
 .topnav {
-	overflow: hidden;
-	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgb(40, 42, 53);
+	color: white;
+	text-align: center;
+	z-index: 1000; /* Per assicurarsi che la navbar rimanga sopra altri contenuti */
+}
+
+.content {
+	margin-top: 60px; /* Spazio per evitare che il contenuto sia nascosto sotto la navbar */
+	padding: 15px;
 }
 
 .topnav a {
@@ -214,18 +223,16 @@ body {
 |	             prenotazione lezione   |
 ----------------------------------------*/
 #prenotazione-lezione {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    z-index: 10000; 
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	z-index: 10000; 
+	text-align: center;
 }
-
-/*--------------------------------------
-|	            Donazione	           |
-----------------------------------------*/
 .donate-button {
-	display: inline-block;
-	padding: 10px 20px;
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 15px; /* Padding più piccolo inizialmente */
 	font-family: 'Cookie', cursive;
 	font-size: 25px;
 	text-align: center;
@@ -235,7 +242,28 @@ body {
 	background-color: #e06c29;
 	border-radius: 10px;
 	cursor: pointer;
-	transition: background-color 0.3s, color 0.3s;
+	position: relative;
+	overflow: hidden;
+	transition: background-color 0.3s, color 0.3s, width 0.3s, padding 0.3s;
+	white-space: nowrap; /* Impedisce la rottura del testo */
+	width: 65px;
+}
+.donate-button .emoji {
+	margin-right: 5px; /* Spazio tra l'emoji e il testo */
+}
+.donate-button .text {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+	white-space: nowrap; /* Impedisce la rottura del testo */
+}
+.donate-button:hover {
+	background-color: #d05a1c; /* Cambia il colore di sfondo durante l'hover */
+	width: 300px;
+}
+.donate-button:hover .text {
+	opacity: 1;
+	visibility: visible;
 }
 
 /*--------------------------------------
@@ -320,7 +348,7 @@ body {
 	font-size: 18px;
 	border: none;
 	outline: none;
-	background-color: #333;
+	background-color: rgb(40, 42, 53);
 	color: white;
 	cursor: pointer;
 	padding: 15px;
@@ -331,7 +359,6 @@ body {
 
 #myBtn:hover {
 	opacity: 1;
-	background-color: #555;
 }
 
 /*--------------------------------------
