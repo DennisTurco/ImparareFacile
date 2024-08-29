@@ -69,6 +69,7 @@ else{
   counterContainer.innerHTML = visitCount + "&nbsp;VOLTE";
 }
 
+
 // SIDE NAVBAR
 document.addEventListener("DOMContentLoaded", function () {
 	const sidenavbar = document.getElementById("sidenavbar");
