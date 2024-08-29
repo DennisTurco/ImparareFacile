@@ -460,6 +460,7 @@ blockquote {
 	margin: 1em 0;
 	padding-left: 1em;
 	border-left: 3px solid rgb(95, 94, 91);
+	white-space: pre-wrap; /* Mantiene i ritorni a capo e gli spazi bianchi */
 }
 
 .bookmark {
