@@ -276,12 +276,24 @@ body {
 |	             prenotazione lezione   |
 ----------------------------------------*/
 #prenotazione-lezione {
-	position: fixed;
-	bottom: 10px;
-	left: 10px;
-	z-index: 99; 
-	text-align: center;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 99;
+    text-align: center;
+    transition: left 0.3s ease;
 }
+
+/* Quando la sidebar è aperta, sposta il bottone di prenotazione */
+#sidenavbar:not(.closed) ~ #prenotazione-lezione {
+    left: 270px; /* Adatta questo valore alla larghezza della sidebar */
+}
+
+/* Riduci il margine sinistro del contenuto quando la sidebar è chiusa */
+#sidenavbar.closed ~ .content {
+    margin-left: 0;
+}
+
 .donate-button {
 	display: inline-flex;
 	align-items: center;

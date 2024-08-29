@@ -73,6 +73,7 @@ else{
 // SIDE NAVBAR
 document.addEventListener("DOMContentLoaded", function () {
 	const sidenavbar = document.getElementById("sidenavbar");
+	const prenotazioneLezione = document.getElementById("prenotazione-lezione");
 	const headers = document.querySelectorAll("h1, h2, h3, h4");
 	
 	headers.forEach(header => {
@@ -107,10 +108,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function openNav() {
 	const sidenavbar = document.getElementById("sidenavbar");
+	const prenotazioneLezione = document.getElementById("prenotazione-lezione");
 	sidenavbar.classList.remove("closed");
+	sidenavbar.classList.add("open");
+	prenotazioneLezione.style.left = "270px"; // Sposta il bottone a destra
 }
 
 function closeNav() {
 	const sidenavbar = document.getElementById("sidenavbar");
+	const prenotazioneLezione = document.getElementById("prenotazione-lezione");
 	sidenavbar.classList.add("closed");
+	sidenavbar.classList.remove("open");
+	prenotazioneLezione.style.left = "10px"; // Posizione originale del bottone
 }
