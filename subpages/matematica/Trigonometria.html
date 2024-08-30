@@ -78,11 +78,16 @@ function googleTranslateElementInit() {
     });
 </script>
 
-<!--Script per permettere l'hover on scroll-->
-<script type="text/JavaScript" src="../../javascript.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<!--Scroll Down Script-->
+<article>
+    <h1>QUIZ</h1>
+    <div id="quiz"></div>
+        <button id="submit">Risultati</button>
+    <div id="results"></div>
+</article>
 
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <div id="footer-container">
     <footer class="footer">
@@ -115,6 +120,68 @@ function googleTranslateElementInit() {
         </div>
     </footer>
 </div>
+
+<script>
+    var myQuestions = [
+        {
+            question: "1) Il valore di \\(\\sin\\left(\\frac{\\pi}{6}\\right)\\) è:",
+            answers: {
+                a: '\\(\\frac{\\sqrt{3}}{2}\\)',
+                b: '\\(\\frac{1}{2}\\)',
+                c: '\\(\\frac{1}{\\sqrt{2}}\\)',
+                d: '1'
+            },
+            correctAnswer: 'b'
+        },
+        {
+            question: "2) Se \\(\\cos(\\theta) = \\frac{1}{2}\\), allora \\(\\theta\\) potrebbe essere:",
+            answers: {
+                a: '\\(\\frac{\\pi}{3}\\)',
+                b: '\\(\\frac{\\pi}{4}\\)',
+                c: '\\(\\frac{\\pi}{6}\\)',
+                d: '\\(\\frac{\\pi}{2}\\)'
+            },
+            correctAnswer: 'a'
+        },
+        {
+            question: "3) Il valore di \\(\\tan\\left(\\frac{\\pi}{4}\\right)\\) è:",
+            answers: {
+                a: '0',
+                b: '\\(\\frac{1}{2}\\)',
+                c: '1',
+                d: '\\(\\sqrt{3}\\)'
+            },
+            correctAnswer: 'c'
+        },
+        {
+            question: "4) L'equazione \\(\\sin(x) = -\\frac{\\sqrt{2}}{2}\\) ha come soluzione:",
+            answers: {
+                a: '\\(x = \\frac{3\\pi}{4} + 2k\\pi\\)',
+                b: '\\(x = \\frac{5\\pi}{4} + 2k\\pi\\)',
+                c: '\\(x = \\frac{\\pi}{4} + 2k\\pi\\)',
+                d: '\\(x = \\frac{\\pi}{2} + 2k\\pi\\)'
+            },
+            correctAnswer: 'b'
+        },
+        {
+            question: "5) L'equazione \\(\\sin\\left(\\frac{\\pi}{2} + x\\right) -1 = 0\\):",
+            answers: {
+                a: 'non ha soluzione',
+                b: 'ha soluzione \\(x = 2k\\pi\\), \\(k\\) numero intero qualunque',
+                c: 'ha soluzione \\(x = \\frac{\\pi}{4} + 2k\\pi\\), \\(k\\) numero intero qualunque',
+                d: 'ha soluzione unica \\(x = \\frac{3}{2}\\pi\\)'
+            },
+            correctAnswer: 'b'
+        }
+    ];
+</script>
+
+
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 <!-- Script for syntax highlight -->
 <script src="../../prism.js"></script>

@@ -78,11 +78,12 @@ function googleTranslateElementInit() {
     });
 </script>
 
-<!--Script per permettere l'hover on scroll-->
-<script type="text/JavaScript" src="../../javascript.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<!--Scroll Down Script-->
-
+<article>
+    <h1>QUIZ</h1>
+    <div id="quiz"></div>
+        <button id="submit">Risultati</button>
+    <div id="results"></div>
+</article>
 
 <div id="footer-container">
     <footer class="footer">
@@ -115,6 +116,68 @@ function googleTranslateElementInit() {
         </div>
     </footer>
 </div>
+
+
+<script>
+    var myQuestions = [
+        {
+            question: "1) \\(\\log_2(16)\\) è uguale a:",
+            answers: {
+                a: '2',
+                b: '4',
+                c: '8',
+                d: '16'
+            },
+            correctAnswer: 'b'
+        },
+        {
+            question: "2) Se \\(\\log_a(b) = c\\), allora \\(b\\) è uguale a:",
+            answers: {
+                a: '\\(a^c\\)',
+                b: '\\(\\frac{a}{c}\\)',
+                c: '\\(\\log_c(a)\\)',
+                d: '\\(\\frac{c}{a}\\)'
+            },
+            correctAnswer: 'a'
+        },
+        {
+            question: "3) Il valore di \\(\\log_5\\left(\\frac{1}{25}\\right)\\) è:",
+            answers: {
+                a: '-2',
+                b: '-1',
+                c: '1',
+                d: '2'
+            },
+            correctAnswer: 'a'
+        },
+        {
+            question: "4) L'equazione \\(\\log_3(x^2) = 4\\) ha come soluzione:",
+            answers: {
+                a: '\\(x = 3^2\\)',
+                b: '\\(x = \\sqrt{3^4}\\)',
+                c: '\\(x = \\pm 9\\)',
+                d: '\\(x = 81\\)'
+            },
+            correctAnswer: 'c'
+        },
+        {
+            question: "5) Passando in base \\(e\\), il logaritmo in base 3 di \\(e^2\\) diventa:",
+            answers: {
+                a: '\\(2 + \\ln(3)\\)',
+                b: '\\(\\frac{e^2}{\\ln(3)}\\)',
+                c: '\\(\\frac{2}{\\ln(3)}\\)',
+                d: 'nessuna delle precedenti'
+            },
+            correctAnswer: 'c'
+        }
+    ];
+</script>
+
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 <!-- Script for syntax highlight -->
 <script src="../../prism.js"></script>
