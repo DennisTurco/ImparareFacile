@@ -448,10 +448,11 @@ body {
 .card_container, .card_container_insegnanti {
 	display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Aggiunge questa proprietà per assicurare il wrapping delle card */
 }
 
 .card_container .card, .card {
-	box-shadow: 0 4px 8px 0 (235, 40, 40, 0.2);
+	box-shadow: 0 4px 8px 0 rgba(235, 40, 40, 0.2); /* Corregge il colore del box-shadow */
 	transition: 0.4s;
 }
 
@@ -459,7 +460,7 @@ body {
     max-width: 400px; 
     border-radius: 5px;
     opacity: 0.8;
-    margin: 10px; 
+    margin: 10px;
 }
 
 .card_container .card:hover, .card:hover {
@@ -486,6 +487,20 @@ body {
 	color: black;
 }
 
+/* Nuova regola per mantenere le card affiancate anche su schermi piccoli */
+@media (max-width: 576px) {
+    .card_container_insegnanti .row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Questo permette il wrapping delle card se necessario */
+    }
+
+    .card_container_insegnanti .col-sm-6 {
+        flex: 0 0 auto; /* Forza la colonna a non occupare tutta la larghezza */
+        max-width: 150px; /* Forza la larghezza delle colonne */
+        margin: 5px; /* Aggiungi un margine per lo spazio tra le card */
+    }
+}
 
 /*--------------------------------------
 |	              Scrollbar			   |
