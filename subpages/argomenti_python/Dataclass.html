@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Python - Dataclass</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="../../stylesheet/footer.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Dataclass -->
+<article id="126ceac8-31d9-8012-bc3e-df32d415a2a1" class="page sans"><header><h1 class="page-title">Dataclass</h1><p class="page-description"></p></header><div class="page-body"><figure id="126ceac8-31d9-80ae-96fd-df9c097b59e9"><a href="https://docs.python.org/3/library/dataclasses.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">dataclasses — Data Classes</div><div class="bookmark-description">Source code: Lib/dataclasses.py This module provides a decorator and functions for automatically adding generated special methods such as__init__() and__repr__() to user-defined classes. It was ori...</div></div><div class="bookmark-href"><img src="https://docs.python.org/3/_static/py.svg" class="icon bookmark-icon"/>https://docs.python.org/3/library/dataclasses.html</div></div><img src="https://docs.python.org/3/_static/og-image.png" class="bookmark-image"/></a></figure><h1 id="126ceac8-31d9-8065-ac8f-e060c3870d1e" class="">0️⃣ <mark class="highlight-blue">Introduzione</mark></h1><p id="126ceac8-31d9-80f0-90a6-d1d104142135" class="">Le <code>@dataclass</code> in Python automatizzano la creazione di alcuni metodi speciali per le classi, che altrimenti dovremmo definire manualmente. Questo include metodi come <code>__init__</code>, <code>__repr__</code>, <code>__eq__</code>, semplificando notevolmente la gestione di classi che fungono principalmente da contenitori di dati.</p><p id="126ceac8-31d9-80f9-a1b9-db13ea9776ba" class=""><br/>Per utilizzarle, basta importare il decoratore <br/><code>@dataclass</code> dal modulo <code>dataclasses</code>:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-8064-a764-eda857426590" class="code"><code class="language-Python">from dataclasses import dataclass</code></pre><p id="126ceac8-31d9-80a4-8740-f3c62f0c865e" class="">e applicarlo alla classe <code>@dataclass</code>.</p><p id="126ceac8-31d9-80be-a6c3-da2481654935" class="">
+</p><h1 id="126ceac8-31d9-8087-93df-f748b76b010a" class="">1️⃣ <mark class="highlight-blue">Esempio pratico</mark></h1><p id="126ceac8-31d9-800b-9779-c7354f516fc3" class="">Vediamo la differenza tra una classe normale e una <code>@dataclass</code> con un esempio concreto.</p><ul id="126ceac8-31d9-8071-87dc-e8d65a7a59ed" class="bulleted-list"><li style="list-style-type:disc">Senza usare la <code>@dataclass</code>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-8061-b446-f466d858eb96" class="code"><code class="language-Python">class Point:
+    x: int
+    y: int
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __repr__(self):
+        return f&quot;Point(x={self.x}, y={self.y})&quot;
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+p1 = Point(1, 2)
+p2 = Point(2, 1)
+print(p1, p2)
+print(p1 == p2)</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="126ceac8-31d9-80a0-badf-da9a1cbc298b"><div style="font-size:1.5em"><span class="icon">⚙️</span></div><div style="width:100%"><p id="aeab4ec3-9130-4322-830a-1b883e4b9cfe" class=""><em><span style="border-bottom:0.05em solid">Output</span></em>:</p><p id="126ceac8-31d9-80c4-8583-fdbd2e88c85b" class="">Point(x=1, y=2) Point(x=2, y=1)<br/>False<br/></p></div></figure><p id="126ceac8-31d9-80c7-acb6-f4010a0d7c9b" class="">Come si può vedere, dobbiamo scrivere manualmente sia il costruttore (<code>__init__</code>), sia i metodi <code>__repr__</code> e <code>__eq__</code>. Ora, vediamo come si comporta la stessa classe con <code>@dataclass</code></p></li></ul><ul id="126ceac8-31d9-80d4-a3bb-dfe05d04b1d9" class="bulleted-list"><li style="list-style-type:disc">Usando la <code>@dataclass</code>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-801e-8d63-ecb021ca1083" class="code"><code class="language-Python">from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: int
+    y: int
+
+p1 = Point(1, 2)
+p2 = Point(2, 1)
+print(p1, p2)
+print(p1 == p2)</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="126ceac8-31d9-80d0-9f50-fce62f51f8c1"><div style="font-size:1.5em"><span class="icon">⚙️</span></div><div style="width:100%"><p id="7cb227e2-40d7-42d4-b91e-25afd98b0b9d" class=""><em><span style="border-bottom:0.05em solid">Output</span></em>:</p><p id="db616ad3-f28f-4113-9c15-5ebaa2276c3f" class="">Point(x=1, y=2) Point(x=2, y=1)<br/>False<br/></p></div></figure><p id="126ceac8-31d9-80b5-a671-d75fef14f0ea" class="">Come si può notare, l&#x27;output è lo stesso, ma non è stato necessario definire a mano i metodi <code>__init__</code>, <code>__repr__</code> o <code>__eq__</code>. La <code>@dataclass</code> li ha generati automaticamente per noi.</p></li></ul><p id="126ceac8-31d9-80f1-b0fb-f5b98f45da44" class="">
+</p><h1 id="126ceac8-31d9-8019-9bd3-c1a9a93272f4" class="">2️⃣ <mark class="highlight-blue">Dettagli automatici</mark></h1><p id="126ceac8-31d9-8072-8a24-f6c37bc9330d" class="">Quando usiamo <code>@dataclass</code>, Python genera automaticamente i seguenti metodi:</p><ul id="126ceac8-31d9-80f2-bfc1-dd823c370fd0" class="bulleted-list"><li style="list-style-type:disc"><code>__init__</code>: per inizializzare gli attributi</li></ul><ul id="126ceac8-31d9-80dc-aa46-c2f1be08378d" class="bulleted-list"><li style="list-style-type:disc"><code>__repr__</code>: per rappresentare l&#x27;oggetto in modo leggibile</li></ul><ul id="126ceac8-31d9-80c2-b72e-e06501e71421" class="bulleted-list"><li style="list-style-type:disc"><code>__eq__</code>: per confrontare due oggetti</li></ul><p id="126ceac8-31d9-80f8-9109-fb0bf3d26a1c" class="">
+</p><h1 id="126ceac8-31d9-80b7-b8f5-de638ac3a946" class="">3️⃣ <mark class="highlight-blue">Esempio Avanzato</mark></h1><p id="126ceac8-31d9-8022-bfe8-e3c9e97fec2d" class="">Ecco un altro esempio, in cui definiamo una classe per un inventario:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-80f2-be70-da9934b37671" class="code"><code class="language-Python">from typing import ClassVar
+
+@dataclass
+class InventoryItem:
+    &#x27;&#x27;&#x27;Class for keeping track of an item in inventory&#x27;&#x27;&#x27;
+    name: str
+    unit_price: float
+    quantity_on_hand: int = 0
+    class_var: ClassVar[int] = 100</code></pre><p id="126ceac8-31d9-803c-9e57-ed549ccd587e" class="">In questo modo il costruttore che verrà generato ignorerà la variabile “class_var”.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-8073-a10e-e71f62388de6" class="code"><code class="language-Python">def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0):
+    self.name = name
+    self.unit_price = unit_price
+    self.quantity_on_hand = quantity_on_hand</code></pre><p id="126ceac8-31d9-80b6-bd26-ed20c7989054" class="">Possiamo vedere come la <code>@dataclass</code> ha semplificato molto la gestione degli attributi della classe.</p><p id="126ceac8-31d9-807b-83e0-defbd919db16" class="">
+</p><h1 id="126ceac8-31d9-80f0-affc-f196ceedd6b0" class="">4️⃣ <mark class="highlight-blue">Come ignorare variabili nella dataclass</mark></h1><p id="126ceac8-31d9-8021-b52c-f9498d4e7c95" class="">In alcuni casi, potremmo voler evitare che alcune variabili vengano considerate nel costruttore generato automaticamente. Per esempio, potremmo avere variabili che non devono essere inizializzate dall&#x27;esterno. Possiamo ottenere questo comportamento usando <code>ClassVar</code>.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-8062-8414-c6f7ada51307" class="code"><code class="language-Python">from typing import ClassVar
+from dataclasses import dataclass
+
+@dataclass
+class InventoryItem:
+    &#x27;&#x27;&#x27;Classe per tenere traccia degli articoli di inventario&#x27;&#x27;&#x27;
+    name: str
+    unit_price: float
+    quantity_on_hand: int = 0
+    class_var: ClassVar[int] = 100</code></pre><p id="126ceac8-31d9-808e-ace4-d8f2a523b903" class="">In questo caso, la variabile <code>class_var</code> non sarà inclusa nel costruttore.</p><p id="126ceac8-31d9-80b5-a1b2-c37ed2d41063" class="">
+</p><h1 id="126ceac8-31d9-80c2-a4c9-c871757fd9d4" class="">5️⃣ <mark class="highlight-blue">Ereditarietà</mark></h1><h2 id="126ceac8-31d9-8070-a445-eb708c74664b" class=""><mark class="highlight-brown">Classi miste</mark></h2><p id="126ceac8-31d9-80c5-b491-f40c0809e667" class="">Quando ereditiamo da una classe che non è una <code>@dataclass</code>, è necessario gestire manualmente alcune parti del processo di inizializzazione. Ad esempio:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-8031-ae4c-d708f93f10c3" class="code"><code class="language-Python">from dataclasses import dataclass
+
+class Rectangle:
+    def __init__(self, height, width):
+        self.height = height
+        self.width = width
+
+@dataclass
+class Square(Rectangle):
+    side: float
+
+    def __post_init__(self):
+        super().__init__(self.side, self.side)</code></pre><p id="126ceac8-31d9-80a0-a8be-e40a01f88349" class="">È necessario definire il metodo <code>__post_init__</code> manualmente.</p><p id="126ceac8-31d9-80e5-a7e4-f14bf5bc90f9" class="">Chiaramente, come precedentemente, per la classe dataclass verranno automaticamente generati i metodi <code>__init__</code>, <code>__repr__</code> e <code>__eq__</code> </p><h2 id="126ceac8-31d9-80ef-bea9-df423b325e94" class=""><mark class="highlight-brown">Ereditarietà con sole dataclass</mark></h2><p id="126ceac8-31d9-80b3-ac9d-e9988da3e8fd" class="">Quando sia la classe base che quella derivata sono <code>@dataclass</code>, Python gestisce tutto automaticamente. Vediamo un esempio:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="126ceac8-31d9-80cc-b207-d9298f040112" class="code"><code class="language-Python">from dataclasses import dataclass
+
+@dataclass
+class Rectangle:
+    width: int
+    lenght: int
+
+@dataclass
+class ColorRectangle(Rectangle):
+    color: str
+    
+rect = ColorRectangle(10, 10, &quot;green&quot;)</code></pre><p id="126ceac8-31d9-80de-96c9-ced4c8c924f3" class="">In questo caso, non è necessario definire manualmente né il costruttore né il metodo <code>__post_init__</code>, poiché tutto viene generato automaticamente da Python.</p><p id="126ceac8-31d9-80a2-851e-ce0fcd77b276" class="">
+</p></div></article>
+
+
+<div id="footer-container">
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <b>CONTATTI</b><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
