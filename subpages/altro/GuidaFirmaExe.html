@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Guida per firmare un file .exe</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="../../stylesheet/footer.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<article id="130ceac8-31d9-809f-87f1-da37d50ad431" class="page sans"><header><h1 class="page-title">Firmare un file .exe</h1><p class="page-description"></p></header><div class="page-body"><h3 id="130ceac8-31d9-80bb-a169-f9e4b70567d9" class="">1. Genera un certificato autofirmato con OpenSSL</h3><ol type="1" id="130ceac8-31d9-806f-8e98-faefab8b375f" class="numbered-list" start="1"><li>scaricare <a href="https://openssl-library.org/source/index.html">openssl</a><ol type="a" id="130ceac8-31d9-80ab-847e-fb163e1ac126" class="numbered-list" start="1"><li><a href="https://www.youtube.com/watch?v=coaGBdUcKiw&amp;ab_channel=StraightToCoding">https://www.youtube.com/watch?v=coaGBdUcKiw&amp;ab_channel=StraightToCoding</a></li></ol></li></ol><ol type="1" id="130ceac8-31d9-8004-aea8-c74135a07b14" class="numbered-list" start="2"><li>Genera una chiave privata (private key)<ul id="130ceac8-31d9-80ef-ac98-d0a333ff62db" class="bulleted-list"><li style="list-style-type:disc"><code>genpkey -algorithm RSA -out chiave_privata.key -aes256</code></li></ul><ul id="130ceac8-31d9-80bf-b7c3-fb5f245c2a17" class="bulleted-list"><li style="list-style-type:disc">inserire la password</li></ul><ul id="130ceac8-31d9-80a2-a319-e9a1e2bb00cd" class="bulleted-list"><li style="list-style-type:disc">ripetere la password</li></ul></li></ol><ol type="1" id="130ceac8-31d9-805c-a705-c1d460973b14" class="numbered-list" start="3"><li>Genera un certificato autofirmato in formato X.509 usando la chiave privata<ul id="130ceac8-31d9-8091-8fe1-ff918147f324" class="bulleted-list"><li style="list-style-type:disc"><code>openssl req -new -x509 -key chiave_privata.key -out certificato.crt -days 365</code></li></ul><ul id="130ceac8-31d9-805e-a00f-ff0a2579b5b9" class="bulleted-list"><li style="list-style-type:disc">inserire la password creata precedentemente</li></ul><ul id="130ceac8-31d9-8026-ae1d-fa096edba585" class="bulleted-list"><li style="list-style-type:disc">compilare i campi richiesti</li></ul></li></ol><p id="130ceac8-31d9-8051-ab98-d644ef788884" class="">Questi comandi genereranno:</p><ul id="130ceac8-31d9-80cc-ac05-fbc7ddc0835a" class="bulleted-list"><li style="list-style-type:disc"><strong>chiave_privata.key</strong>: la chiave privata.</li></ul><ul id="130ceac8-31d9-80b8-a841-f5fd43e350f0" class="bulleted-list"><li style="list-style-type:disc"><strong>certificato.crt</strong>: il certificato autofirmato, valido per 365 giorni.</li></ul><p id="130ceac8-31d9-8060-94d1-d45a4b82a4be" class="">
+</p><h3 id="130ceac8-31d9-80cf-9ca9-f8d4f88288a0" class="">2. Crea il file <code>.pfx</code></h3><ol type="1" id="130ceac8-31d9-80c0-bf89-edb812a16f39" class="numbered-list" start="1"><li>Per creare il file <code>.pfx</code> contenente sia la chiave privata che il certificato:<ul id="130ceac8-31d9-8009-a8a1-fa56e57b7e3d" class="bulleted-list"><li style="list-style-type:disc"><code>openssl pkcs12 -export -out certificato.pfx -inkey chiave_privata.key -in certificato.crt</code></li></ul><ul id="130ceac8-31d9-80f9-bc51-f18d5a3067dd" class="bulleted-list"><li style="list-style-type:disc">inserire la password usata in precedenze</li></ul><ul id="130ceac8-31d9-8060-9eee-fadb1a5ef954" class="bulleted-list"><li style="list-style-type:disc">inserire una password di esportazione</li></ul><ul id="130ceac8-31d9-80bd-9c58-c991a89a4df4" class="bulleted-list"><li style="list-style-type:disc">ripeter la password</li></ul></li></ol><p id="130ceac8-31d9-8032-9842-e9d7e1541863" class="">
+</p><h3 id="130ceac8-31d9-80e1-8f3e-c8f8e54c1188" class="">3. Firma il file <code>.exe</code> con SignTool (solo su Windows)</h3><ol type="1" id="130ceac8-31d9-801e-8ef6-fc852cf8a67a" class="numbered-list" start="1"><li>installare <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/">SignTool</a> (solo per Windows)<ul id="130ceac8-31d9-806f-8dfe-e3f92d4d452b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.youtube.com/watch?v=vAfYP9hiC0M&amp;ab_channel=AdvancedInstallerPowersPacKitFREE">https://www.youtube.com/watch?v=vAfYP9hiC0M&amp;ab_channel=AdvancedInstallerPowersPacKitFREE</a></li></ul></li></ol><ol type="1" id="130ceac8-31d9-8088-acb5-d58d5e4932ee" class="numbered-list" start="2"><li>Firmare il file .exe, 2 modi possibili:<ol type="a" id="130ceac8-31d9-803c-a69b-f249c2ccccce" class="numbered-list" start="1"><li>tramite cmd:<p id="130ceac8-31d9-8010-8f14-e58fcd3230a7" class=""><code>signtool sign /f certificato.pfx /p PASSWORD /t http://timestamp.digicert.com /v nomefile.exe</code></p></li></ol><ol type="a" id="130ceac8-31d9-80c5-9f6d-ed5766e2734e" class="numbered-list" start="2"><li>tramite applicazione SignGUI</li></ol><p id="131ceac8-31d9-80c4-8ac2-e1af201ebd62" class="">
+</p><p id="131ceac8-31d9-8040-b021-d1d94cb3bfb7" class="">Il programma sarà stato firmato correttamente nel momento in cui, facendo tasto destro sul file, andando su proprietà, sarà comparsa la voce “firme digitali”.<br/><br/></p></li></ol><p id="131ceac8-31d9-8089-b62c-e1af9b8e1b84" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="131ceac8-31d9-80c1-b157-d8fbad31941b"><div style="width:100%"><p id="4a67c21a-1794-44f9-b694-450b15d0ac83" class=""><strong>Nota</strong>:<br/>Se si sta firmando un file .exe, scritto in java ed esportato da .jar a .exe usando launch4j, se si prova ad aprire l’eseguibile dopo la firma si otterrà probabilmente il seguente errore:<br/></p><figure id="131ceac8-31d9-8023-a8a8-c941903d570c" class="image"><img style="width:336.9317932128906px" src="../../images/for_pages/firma1.png"/></figure><figure id="131ceac8-31d9-8060-8f47-fa89ccd1dda0"><div class="source">https://github.com/ebourg/jsign/issues/80</div></figure><p id="131ceac8-31d9-80c1-8c69-ee214c6ccefe" class="">Per risolvere questo problema, occorre seguire i seguenti passaggi:</p><ol type="1" id="131ceac8-31d9-805f-8c93-d102a9865da3" class="numbered-list" start="1"><li>nella sezione “Classpath” di launch4j occorre selezionare il file .jar che si vuole esportare, il programma capirà in automatico la main class e in questo modo è possibile risolvere il problema<figure id="131ceac8-31d9-808b-94a7-d21a41d3018b" class="image"><img style="width:624px" src="../../images/for_pages/firma2.png"/></figure></li></ol><ol type="1" id="131ceac8-31d9-8039-bda9-d987213f2869" class="numbered-list" start="2"><li>Dopo aver rigenerato il file .exe grazie a launch4j, sarà a questo punto possibile ri-firmarlo.</li></ol></div></figure><p id="131ceac8-31d9-80f0-9c7e-ebe563bbed99" class="">
+</p></div></article>
+
+
+<div id="footer-container">
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <b>CONTATTI</b><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
