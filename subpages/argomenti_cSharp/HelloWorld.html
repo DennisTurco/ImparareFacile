@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Hello World</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css">
+<link rel="stylesheet" href="../../stylesheet/footer.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Hello World -->
+<article id="13aceac8-31d9-80ed-aa42-dbd8cb2dee1d" class="page sans"><header><h1 class="page-title">Hello World</h1><p class="page-description"></p></header><div class="page-body"><h1 id="13aceac8-31d9-8075-b22e-cc024ac50f0c" class="">1️⃣ <mark class="highlight-blue">Introduzione</mark></h1><h2 id="13aceac8-31d9-800b-99b3-f59c03e0a928" class=""><mark class="highlight-brown">Che cos’è C#?</mark></h2><p id="13aceac8-31d9-8079-a678-cfd21b39908b" class=""><strong>C#</strong> (si pronuncia &quot;C-Sharp&quot;) è un linguaggio di programmazione orientato agli oggetti sviluppato da Microsoft come parte della piattaforma .NET. Fu introdotto per la prima volta nel 2000 e progettato per combinare la potenza di linguaggi come C++ con la semplicità e la sicurezza di linguaggi come Java. C# è utilizzato per lo sviluppo di applicazioni desktop, web, mobili e giochi (specialmente con Unity) grazie alla sua versatilità e integrazione profonda con l’ecosistema Microsoft.</p><h2 id="13aceac8-31d9-80c9-a7e0-ef225f2d4d94" class=""><mark class="highlight-brown">Caratteristiche principali di C#:</mark></h2><ol type="1" id="13aceac8-31d9-80f1-a976-e7281f1a2cfe" class="numbered-list" start="1"><li><strong>Orientato agli oggetti</strong>: C# adotta il paradigma della programmazione orientata agli oggetti, facilitando la modellazione e l’organizzazione del codice come una collezione di oggetti che interagiscono tra loro.</li></ol><ol type="1" id="13aceac8-31d9-8067-a1f4-ffa519c39bb8" class="numbered-list" start="2"><li><strong>Portabilità</strong>: Attraverso la piattaforma .NET, il codice C# può essere eseguito su diversi sistemi operativi, come Windows, macOS e Linux, rendendolo molto versatile.</li></ol><ol type="1" id="13aceac8-31d9-807e-af96-fa00034df753" class="numbered-list" start="3"><li><strong>Sicurezza e controllo dei tipi</strong>: C# ha un sistema di tipi forte e controllato, minimizzando errori di tipo e fornendo protezione alla memoria.</li></ol><ol type="1" id="13aceac8-31d9-8025-94d7-f4de2f47d94b" class="numbered-list" start="4"><li><strong>Automatic Memory Management</strong>: Come Java, anche C# gestisce automaticamente la memoria attraverso il garbage collector, che recupera e gestisce la memoria in modo efficiente.</li></ol><ol type="1" id="13aceac8-31d9-80cd-889d-d240f8a4d9fb" class="numbered-list" start="5"><li><strong>Multithreading e asincronia</strong>: C# supporta il multithreading, e offre potenti strumenti per la programmazione asincrona (async/await), facilitando lo sviluppo di applicazioni reattive e performanti.</li></ol><ol type="1" id="13aceac8-31d9-8006-9fa6-f33f543c9bf3" class="numbered-list" start="6"><li><strong>Estensione delle librerie</strong>: C# ha un’ampia collezione di librerie (API .NET) che forniscono funzionalità per interfacce grafiche, accesso ai dati, networking, I/O e molto altro.</li></ol><p id="13aceac8-31d9-8029-84a5-dfdb3ab3ca46" class="">Grazie alla sua flessibilità, C# è largamente usato nello sviluppo di applicazioni aziendali, web, giochi (soprattutto con il motore Unity), e per servizi cloud con Microsoft Azure.</p><h1 id="13aceac8-31d9-805e-8868-e15fef01ca69" class="">2️⃣ <mark class="highlight-blue">Struttura di un programma C#</mark></h1><ul id="13aceac8-31d9-8006-97b7-e37b08c56e41" class="bulleted-list"><li style="list-style-type:disc">Ogni classe viene definita in un file con lo stesso nome della classe e l’estensione <code>.cs</code>.</li></ul><ul id="13aceac8-31d9-80e8-8412-d53612eb2032" class="bulleted-list"><li style="list-style-type:disc">La struttura di un’applicazione C# inizia con una classe che contiene il metodo <code>Main</code>, che rappresenta il punto di partenza del programma.</li></ul><ul id="13aceac8-31d9-8039-bcb2-ebd6ea63116f" class="bulleted-list"><li style="list-style-type:disc">Come in Java, anche in C# il paradigma della programmazione orientata agli oggetti (OOP) è centrale, con un’organizzazione basata su <strong>oggetti</strong>.</li></ul><h2 id="13aceac8-31d9-8093-841b-df9b065de45f" class=""><mark class="highlight-brown">Oggetti</mark></h2><ul id="13aceac8-31d9-8034-b611-e77fa53a570d" class="bulleted-list"><li style="list-style-type:disc">Gli <strong>oggetti</strong> in C# hanno <strong>proprietà</strong> (dati) e <strong>metodi</strong> (comportamenti).</li></ul><ul id="13aceac8-31d9-80ec-808a-c64bef27a486" class="bulleted-list"><li style="list-style-type:disc"><em>Esempio</em>: un oggetto &quot;Car&quot; può avere proprietà come &quot;colore&quot;, &quot;modello&quot;, &quot;anno&quot; e comportamenti come &quot;accelera&quot;, &quot;frena&quot;, ecc.</li></ul><ul id="13aceac8-31d9-80b3-bd65-c8cdb374b875" class="bulleted-list"><li style="list-style-type:disc">Le classi sono come &quot;stampini&quot; per creare oggetti; definiscono la struttura e il comportamento degli oggetti che rappresentano.</li></ul><ul id="13aceac8-31d9-80d1-bf55-c9ecd1486aa5" class="bulleted-list"><li style="list-style-type:disc">Per creare un oggetto, si utilizza l’operatore <code>new</code> e si invoca un <strong>costruttore</strong>, che ha lo stesso nome della classe.</li></ul><h2 id="13aceac8-31d9-80f1-ac58-c5d4151af641" class=""><mark class="highlight-brown">Tipi di dato</mark></h2><p id="13aceac8-31d9-80c2-9df9-cd1c7ac42514" class="">Ci sono due categorie di tipi di dato in C#:</p><ol type="1" id="13aceac8-31d9-806e-862b-f9a7af2d6ecd" class="numbered-list" start="1"><li><strong>Tipi primitivi</strong>:<ul id="13aceac8-31d9-802d-81a6-e51e4f2f3059" class="bulleted-list"><li style="list-style-type:disc">int, float, double, char, bool, ecc.</li></ul></li></ol><ol type="1" id="13aceac8-31d9-805e-9db9-c535c7405820" class="numbered-list" start="2"><li><strong>Tipi complessi</strong>:<ul id="13aceac8-31d9-808b-9474-cce355207b37" class="bulleted-list"><li style="list-style-type:disc">String, Array, List, Dictionary (collezioni di .NET)</li></ul><ul id="13aceac8-31d9-80ca-9741-f305a9d5845b" class="bulleted-list"><li style="list-style-type:disc">Classi definite dall&#x27;utente.</li></ul></li></ol><h2 id="13aceac8-31d9-80a3-9032-f20058460ce8" class=""><mark class="highlight-brown">Confronto con Java</mark></h2><ul id="13aceac8-31d9-80c9-a9b4-d61805f9a7db" class="bulleted-list"><li style="list-style-type:disc">C# condivide molte somiglianze con Java, soprattutto nella sintassi e nei principi di programmazione.</li></ul><ul id="13aceac8-31d9-80d8-9885-c2d484fc5271" class="bulleted-list"><li style="list-style-type:disc">C# utilizza <code>bool</code> come tipo booleano, che non è compatibile con <code>int</code>.</li></ul><ul id="13aceac8-31d9-803b-8d44-fb57e64c411c" class="bulleted-list"><li style="list-style-type:disc">Alcuni costrutti come <code>foreach</code> e <code>async/await</code> sono più potenti in C# rispetto a Java, rendendo certe operazioni più semplici da eseguire.</li></ul><p id="13aceac8-31d9-80ab-a3cb-ff8ecf7f671f" class=""><em>Esempio di un semplice programma in C#:</em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13aceac8-31d9-8027-ac99-d0238c7b53f7" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">using System;
+
+namespace HelloWorld // namespace che contiene la classe
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine(&quot;Hello, World!&quot;);
+
+            int x = 5;
+            int y = 2;
+
+            int z = x + y;
+            int t = x * y;
+            int h = x / y;
+
+            Console.WriteLine(&quot;x + y = &quot; + z);
+            Console.WriteLine(&quot;x * y = &quot; + t);
+            Console.WriteLine(&quot;x / y = &quot; + h);
+
+            for (int i = 0; i &lt; 10; i++)
+            {
+                Console.Write(i + &quot; &quot;);
+            }
+        }
+    }
+}</code></pre><hr id="13aceac8-31d9-802a-9932-f5e216458b17"/><h1 id="13aceac8-31d9-803d-9900-c2be003c1726" class="">📑 <mark class="highlight-blue">Esercizi</mark></h1><ol type="1" id="13aceac8-31d9-80fc-bf2b-e1455d547f20" class="numbered-list" start="1"><li>Scrivi un programma in C# che chieda all&#x27;utente di inserire due numeri e ne calcoli la somma.</li></ol><ol type="1" id="13aceac8-31d9-80c2-8ca9-f431ed0effef" class="numbered-list" start="2"><li>Crea una classe <code>Persona</code> con proprietà <code>Nome</code> e <code>Età</code>, e un metodo <code>Saluta</code> che stampa un messaggio di saluto personalizzato.</li></ol><ol type="1" id="13aceac8-31d9-80c2-a086-de8b8c22f1f6" class="numbered-list" start="3"><li>Scrivi un programma che utilizza un ciclo <code>for</code> per stampare i numeri pari da 1 a 20.</li></ol></div></article>
+
+<div id="footer-container">
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <b>CONTATTI</b><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
