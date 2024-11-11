@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Foreach</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css">
+<link rel="stylesheet" href="../../stylesheet/footer.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Foreach -->
+<article id="13bceac8-31d9-8028-8d23-c109e96173c4" class="page sans"><header><h1 class="page-title">Foreach</h1><p class="page-description"></p></header><div class="page-body"><h1 id="13bceac8-31d9-80de-9c33-e79bb2698283" class="">1️⃣ <mark class="highlight-blue">Cos&#x27;è un ciclo </mark><mark class="highlight-blue"><code>foreach</code></mark></h1><p id="13bceac8-31d9-8042-8f20-f6b29418ff76" class="">Il ciclo <code>foreach</code> in C# è uno strumento di iterazione usato per scorrere gli elementi di una collezione o di un array in modo semplice e leggibile. Questo ciclo permette di accedere a ciascun elemento di una collezione senza dover usare un indice o gestire manualmente la condizione di uscita, come invece accade nei cicli <code>for</code> tradizionali.</p><h2 id="13bceac8-31d9-8026-86a2-d58962ccf26e" class=""><mark class="highlight-brown">Sintassi di base:</mark></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-8097-866e-c905204f28c7" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">foreach (tipo elemento in collezione)
+    {
+        // Codice che utilizza l&#x27;elemento corrente
+    }</code></pre><ul id="13bceac8-31d9-8048-94b4-caf676cecc17" class="bulleted-list"><li style="list-style-type:disc"><strong>tipo</strong>: Il tipo degli elementi della collezione (come <code>int</code>, <code>string</code>, <code>var</code>, ecc.).</li></ul><ul id="13bceac8-31d9-8077-b0b3-d0c629b93f1c" class="bulleted-list"><li style="list-style-type:disc"><strong>elemento</strong>: Il nome della variabile che rappresenta l&#x27;elemento corrente in ciascuna iterazione.</li></ul><ul id="13bceac8-31d9-80f2-9a37-f8c9ee1173d8" class="bulleted-list"><li style="list-style-type:disc"><strong>collezione</strong>: La collezione o array da scorrere (come <code>List</code>, <code>Array</code>, <code>Dictionary</code>, ecc.).</li></ul><p id="13bceac8-31d9-80c0-bcc6-d0fdad7a4755" class="">Esempio di base con un array:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-8047-a790-c6be665ca387" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">string[] colori = { &quot;Rosso&quot;, &quot;Verde&quot;, &quot;Blu&quot; };
+    
+    foreach (string colore in colori)
+    {
+        Console.WriteLine(colore);
+    }
+    
+    /* Output:
+    Rosso
+    Verde
+    Blu
+    */</code></pre><h1 id="13bceac8-31d9-8043-b8b3-ceb5d0608a1b" class="">2️⃣ <mark class="highlight-blue">Perché usare </mark><mark class="highlight-blue"><code>foreach</code></mark></h1><p id="13bceac8-31d9-805b-b5f0-f3779f5571d7" class="">Il ciclo <code>foreach</code> è particolarmente utile quando:</p><ul id="13bceac8-31d9-8002-85e9-e0f3b8fc9408" class="bulleted-list"><li style="list-style-type:disc">Si vuole accedere a ciascun elemento di una collezione senza modificare la collezione stessa.</li></ul><ul id="13bceac8-31d9-8048-aaab-c792863d2b86" class="bulleted-list"><li style="list-style-type:disc">Si preferisce scrivere codice più chiaro e leggibile.</li></ul><ul id="13bceac8-31d9-8003-9caf-d6581f8ebaba" class="bulleted-list"><li style="list-style-type:disc">Si vuole evitare la gestione manuale degli indici.</li></ul><p id="13bceac8-31d9-8017-93f1-f966344bd67d" class="">Rispetto ad altri cicli (<code>for</code> e <code>while</code>), <code>foreach</code> rende il codice meno soggetto a errori perché non richiede di sapere la lunghezza della collezione o di incrementare un contatore.</p><h1 id="13bceac8-31d9-8079-a71f-fc35e86dfa19" class="">3️⃣ <mark class="highlight-blue"><code>foreach</code></mark><mark class="highlight-blue"> con diversi tipi di collezioni</mark></h1><p id="13bceac8-31d9-8000-94ae-d6febf406b01" class="">In C#, <code>foreach</code> può essere usato su qualsiasi collezione che implementi l’interfaccia <code>IEnumerable</code> o <code>IEnumerable&lt;T&gt;</code>.</p><h2 id="13bceac8-31d9-80e5-b39f-c86bd63a853a" class=""><mark class="highlight-brown">Esempio con una lista (</mark><mark class="highlight-brown"><code>List&lt;T&gt;</code></mark><mark class="highlight-brown">):</mark></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-80db-96c5-dab934f7a030" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">List&lt;int&gt; numeri = new List&lt;int&gt; { 1, 2, 3, 4, 5 };
+    
+    foreach (int numero in numeri)
+    {
+        Console.WriteLine(numero);
+    }
+    
+    /* Output:
+    1
+    2
+    3
+    4
+    5
+    */</code></pre><h2 id="13bceac8-31d9-80e2-bea6-cebcd6337362" class=""><mark class="highlight-brown">Esempio con un dizionario (</mark><mark class="highlight-brown"><code>Dictionary&lt;TKey, TValue&gt;</code></mark><mark class="highlight-brown">):</mark></h2><p id="13bceac8-31d9-806c-a3e3-e81a1d22f667" class="">Quando si scorre un dizionario, ogni elemento è una coppia <code>KeyValuePair&lt;TKey, TValue&gt;</code>:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-8021-95be-e8902c588c76" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">Dictionary&lt;string, int&gt; età = new Dictionary&lt;string, int&gt;
+    {
+        { &quot;Alice&quot;, 30 },
+        { &quot;Bob&quot;, 25 },
+        { &quot;Charlie&quot;, 35 }
+    };
+    
+    foreach (KeyValuePair&lt;string, int&gt; persona in età)
+    {
+        Console.WriteLine($&quot;{persona.Key} ha {persona.Value} anni.&quot;);
+    }
+    
+    /* Output:
+    Alice ha 30 anni.
+    Bob ha 25 anni.
+    Charlie ha 35 anni.
+    */</code></pre><h2 id="13bceac8-31d9-8074-9935-c153443103fb" class=""><mark class="highlight-brown">Esempio con un array bidimensionale</mark></h2><p id="13bceac8-31d9-8042-8547-e887e6429366" class="">Il <code>foreach</code> può essere usato per iterare sugli elementi di un array bidimensionale, anche se in questo caso la struttura interna non è accessibile come con un <code>for</code>:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-8050-bf5e-c5f3f3197ad3" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">int[,] matrice = { {1, 2}, {3, 4}, {5, 6} };
+    
+    foreach (int elemento in matrice)
+    {
+        Console.WriteLine(elemento);
+    }
+    
+    /* Output
+    1
+    2
+    3
+    4
+    5
+    6
+    */</code></pre><h1 id="13bceac8-31d9-8000-8d2d-e00114d5f03f" class="">4️⃣ <mark class="highlight-blue">Limitazioni di </mark><mark class="highlight-blue"><code>foreach</code></mark></h1><p id="13bceac8-31d9-80a2-b8fb-fd13dde8b47a" class="">Sebbene <code>foreach</code> sia utile, ha alcune limitazioni:</p><ul id="13bceac8-31d9-800c-8343-c1bf335e4b7c" class="bulleted-list"><li style="list-style-type:disc"><strong>Accesso solo in lettura</strong>: Non si possono modificare gli elementi della collezione direttamente. Per modificare gli elementi, bisogna usare un ciclo <code>for</code> o accedere direttamente agli elementi tramite l’indice.</li></ul><ul id="13bceac8-31d9-8071-9543-ffaa8e301f97" class="bulleted-list"><li style="list-style-type:disc"><strong>Modifiche alla collezione</strong>: Durante l&#x27;iterazione, non è possibile aggiungere o rimuovere elementi dalla collezione, poiché genera un&#x27;eccezione <code>InvalidOperationException</code>.</li></ul><p id="13bceac8-31d9-8043-a206-c18c65704229" class="">Ad esempio, questo codice genera un errore:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-801c-947d-ef2d72b78ec0" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">List&lt;int&gt; numeri = new List&lt;int&gt; { 1, 2, 3 };
+    
+    foreach (int numero in numeri)
+    {
+        if (numero == 2)
+        {
+            numeri.Remove(numero);  // Questo genererà un&#x27;eccezione
+        }
+    }</code></pre><p id="13bceac8-31d9-802c-bc6a-f741b10b3107" class="">Per modificare la collezione, si può usare un ciclo <code>for</code> inverso o un ciclo <code>for</code> standard per evitare eccezioni.</p><h1 id="13bceac8-31d9-809b-9247-e08b3280a4b7" class="">5️⃣ <mark class="highlight-blue"><code>foreach</code></mark><mark class="highlight-blue"> e </mark><mark class="highlight-blue"><code>LINQ</code></mark></h1><p id="13bceac8-31d9-800e-804b-e96e4d562c44" class="">In combinazione con le espressioni LINQ (Language-Integrated Query), <code>foreach</code> diventa ancora più potente. Possiamo, ad esempio, filtrare gli elementi in una collezione prima di iterare su di essi.</p><p id="13bceac8-31d9-80f5-b209-e5d449d3c9d3" class="">Esempio di <code>foreach</code> con LINQ:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-80dc-921e-f0c31cd9ed3f" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">List&lt;int&gt; numeri = new List&lt;int&gt; { 1, 2, 3, 4, 5 };
+    
+    var numeriPari = numeri.Where(n =&gt; n % 2 == 0);
+    
+    foreach (int numero in numeriPari)
+    {
+        Console.WriteLine(numero);
+    }
+    
+    /* Output:
+    2
+    4
+    */</code></pre><h1 id="13bceac8-31d9-80ac-8e1a-d620ef1ea8b9" class="">6️⃣<mark class="highlight-blue"> Esempi pratici</mark></h1><h2 id="13bceac8-31d9-80d1-8a8d-df9ffdd0ff08" class=""><mark class="highlight-brown">Iterare su una lista di oggetti personalizzati:</mark></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-8008-b43e-e4ca427a8286" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">public class Studente
+    {
+        public string Nome { get; set; }
+        public int Età { get; set; }
+    }
+    
+    List&lt;Studente&gt; studenti = new List&lt;Studente&gt;
+    {
+        new Studente { Nome = &quot;Alice&quot;, Età = 20 },
+        new Studente { Nome = &quot;Bob&quot;, Età = 22 },
+        new Studente { Nome = &quot;Charlie&quot;, Età = 21 }
+    };
+    
+    foreach (Studente studente in studenti)
+    {
+        Console.WriteLine($&quot;{studente.Nome} ha {studente.Età} anni.&quot;);
+    }
+    
+    /* Output:
+    Alice ha 20 anni.
+    Bob ha 22 anni.
+    Charlie ha 21 anni.
+    */</code></pre><h2 id="13bceac8-31d9-8046-b3dd-f454dc54a736" class=""><mark class="highlight-brown">Iterare su una stringa:</mark></h2><p id="13bceac8-31d9-80cd-af03-e70742422c5f" class="">In C#, anche una stringa è una collezione di caratteri (<code>char</code>), quindi è possibile usare <code>foreach</code> per accedere a ciascun carattere:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13bceac8-31d9-80c7-97d3-f856802503d5" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">string parola = &quot;CSharp&quot;;
+    
+    foreach (char lettera in parola)
+    {
+        Console.Write(lettera + &quot; &quot;);
+    }
+    
+    /* Output:
+    C S h a r p
+    */</code></pre><p id="13bceac8-31d9-80bc-b1ee-e5515dd877ab" class="">
+    </p><h1 id="13bceac8-31d9-80a3-81d1-db48f26468da" class="">📑 <mark class="highlight-blue">Esercizi</mark></h1><p id="13bceac8-31d9-80fb-99cc-c92da53fbd74" class="">Vi propongo, per iniziare a familiarizzare con questa lezione, di provare a riscrivere alcuni cicli for che avete già scritto usando il foreach dove possibile.</p><p id="13bceac8-31d9-80ca-b6be-f45cafd3cc54" class="">
+    </p></div></article>
+
+
+<div id="footer-container">
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <b>CONTATTI</b><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
