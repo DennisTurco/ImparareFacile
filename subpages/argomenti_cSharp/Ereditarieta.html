@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Ereditarietà</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css">
+<link rel="stylesheet" href="../../stylesheet/footer.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Ereditarietà -->
+<article id="13aceac8-31d9-80ad-aca9-eca8df2b6718" class="page sans"><header><h1 class="page-title">Ereditarietà</h1><p class="page-description"></p></header><div class="page-body"><h1 id="13aceac8-31d9-8083-b561-fa750dcf8211" class="">1️⃣ <mark class="highlight-blue"><strong>Definizione di ereditarietà</strong></mark></h1><p id="13aceac8-31d9-8016-8a7e-d0de7b7613a5" class="">In C#, si dice che una classe <strong>A è una sottoclasse di B</strong> (o che <em>B è una superclasse di A</em>) quando:</p><ul id="13aceac8-31d9-804b-b0cc-e0ba7da96c90" class="bulleted-list"><li style="list-style-type:disc"><em>A</em> eredita da <em>B</em> sia il suo stato che il suo comportamento (metodi).</li></ul><ul id="13aceac8-31d9-8098-8862-fad61e0e0e77" class="bulleted-list"><li style="list-style-type:disc">Un&#x27;istanza della classe <em>A</em> può essere usata ovunque si possa utilizzare un&#x27;istanza della classe <em>B</em>.</li></ul><p id="13aceac8-31d9-8010-ab82-f8cef573a018" class="">Per esempio:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13aceac8-31d9-80c3-a990-f1b45e976d20" class="code"><code class="mermaid" style="white-space:pre-wrap;word-break:break-all">classDiagram
+    Persona --|&gt; Studente : Ereditarietà
+
+    note for Persona &quot;classe base&quot;
+    note for Studente &quot;classe derivata&quot;
+
+</code></pre><p id="13aceac8-31d9-804f-a393-f65b1d9c3cab" class="">📖 Un oggetto della classe <code>Studente</code> appartiene alla classe degli studenti e anche alla classe delle persone (ma non viceversa).</p><p id="13aceac8-31d9-80f1-aa04-d5e4fdd28c7a" class="">→ Un oggetto <code>Studente</code> ha tutte le proprietà (attributi e metodi) della classe <code>Persona</code> e può aggiungere ulteriori proprietà specifiche.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13aceac8-31d9-804e-b731-ec6978add504" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">namespace Ereditarieta
+{
+    // Classe base
+    public class Persona
+    {
+        // Attributi della classe
+        private string nome;
+        private string cognome;
+        private string dataNascita;
+
+        // Costruttore
+        // ...
+
+        // Metodi della classe
+        // ...
+    }
+
+    // La classe Studente eredita da Persona
+    // =&gt; ha accesso agli attributi e ai metodi protetti e pubblici.
+    public class Studente : Persona
+    {
+        // Attributi della classe
+        private string matricola;
+
+        // Costruttore
+        // ...
+
+        // Metodi della classe
+        // ...
+    }
+}</code></pre><h1 id="13aceac8-31d9-8033-bcc0-f6e68efdc5bb" class="">2️⃣ <mark class="highlight-blue">Visibilità</mark></h1><p id="13aceac8-31d9-8051-b479-cb058b187954" class="">Visibilità dei campi (dati/record) in una classe C#:</p><table id="13aceac8-31d9-80e8-b1f0-ccda55330d63" class="simple-table"><tbody><tr id="13aceac8-31d9-80df-88c3-d31e19efe17b"><td id="Ell?" class=""></td><td id="[r=z" class=""><code>public</code></td><td id="Z|[a" class=""><code>protected</code></td><td id="NC;=" class=""><code>internal</code></td><td id=":GJ&lt;" class=""><code>private</code></td></tr><tr id="13aceac8-31d9-8096-bba9-e91ebf348bdf"><td id="Ell?" class="">nella classe in cui sono dichiarati</td><td id="[r=z" class="">✅</td><td id="Z|[a" class="">✅</td><td id="NC;=" class="">✅</td><td id=":GJ&lt;" class="">✅</td></tr><tr id="13aceac8-31d9-8020-87fa-cec44ae7e74b"><td id="Ell?" class="">nello stesso assembly (progetto)</td><td id="[r=z" class="">✅</td><td id="Z|[a" class="">✅</td><td id="NC;=" class="">✅</td><td id=":GJ&lt;" class="">❌</td></tr><tr id="13aceac8-31d9-80ee-a0fe-d7edc0feffe2"><td id="Ell?" class="">nelle sottoclassi (anche se in assembly diversi)</td><td id="[r=z" class="">✅</td><td id="Z|[a" class="">✅</td><td id="NC;=" class="">❌</td><td id=":GJ&lt;" class="">❌</td></tr><tr id="13aceac8-31d9-80a7-a14c-efffb6783338"><td id="Ell?" class="">all’esterno</td><td id="[r=z" class="">✅</td><td id="Z|[a" class="">❌</td><td id="NC;=" class="">❌</td><td id=":GJ&lt;" class="">❌</td></tr></tbody></table><h1 id="13aceac8-31d9-8019-b179-ccdbe6d2bb78" class="">3️⃣ <mark class="highlight-blue">Classe Object</mark></h1><p id="13aceac8-31d9-80d9-8209-c50871558d11" class="">In C#, tutte le classi ereditano dalla classe base <code>Object</code>, che è inclusa nel namespace <code>System</code>.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13aceac8-31d9-805f-8562-f63059d2c274" class="code"><code class="mermaid" style="white-space:pre-wrap;word-break:break-all">graph BT
+  Rettangolo --&gt; Object
+  Quadrato --&gt; Rettangolo
+
+</code></pre><p id="13aceac8-31d9-8045-8f48-c87eb4570057" class="">La classe <code>Object</code> contiene l&#x27;implementazione predefinita di alcuni metodi fondamentali, tra cui:</p><ul id="13aceac8-31d9-8003-893a-fd9a062e1eb9" class="bulleted-list"><li style="list-style-type:disc"><code>Equals(Object obj)</code> → boolean<ul id="13aceac8-31d9-80dd-9e7f-f0cc8cc96096" class="bulleted-list"><li style="list-style-type:circle">Confronta i riferimenti di due oggetti (simile a <code>==</code>).</li></ul></li></ul><ul id="13aceac8-31d9-80df-89c8-d1427e800058" class="bulleted-list"><li style="list-style-type:disc"><code>ToString()</code> → string<ul id="13aceac8-31d9-80b0-8b91-f9f93a8c090e" class="bulleted-list"><li style="list-style-type:circle">Restituisce una stringa che rappresenta l&#x27;oggetto.</li></ul></li></ul><ul id="13aceac8-31d9-80ba-bfd9-de23419f0737" class="bulleted-list"><li style="list-style-type:disc"><code>GetHashCode()</code> → int<ul id="13aceac8-31d9-80bb-9c01-feb46edd946e" class="bulleted-list"><li style="list-style-type:circle">Restituisce un codice hash per l&#x27;oggetto.</li></ul></li></ul><p id="13aceac8-31d9-80bf-8c06-c8aba30d6b9c" class="">Questi metodi possono essere ridefiniti in qualsiasi classe derivata.</p><h1 id="13aceac8-31d9-80da-a6d7-d8c7a30dbdfd" class="">4️⃣ <mark class="highlight-blue">Operatore </mark><mark class="highlight-blue"><code>is</code></mark></h1><p id="13aceac8-31d9-80ab-889e-d9291ba4f463" class="">In C#, è possibile determinare se un oggetto <code>o</code> appartiene o no a una classe <code>c</code> con l&#x27;operatore <code>is</code>:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13aceac8-31d9-80eb-ac28-c632fac9a3fa" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">if (o is c)
+{
+    // L&#x27;oggetto o è di tipo c
+}</code></pre><p id="13aceac8-31d9-8051-9e8f-e77ee249be95" class="">Restituisce:</p><ul id="13aceac8-31d9-80cc-ab48-f0a2ba7408c4" class="bulleted-list"><li style="list-style-type:disc"><code>true</code> se l&#x27;oggetto <code>o</code> è di tipo <code>c</code>.</li></ul><ul id="13aceac8-31d9-8040-93f3-ea37e431f550" class="bulleted-list"><li style="list-style-type:disc"><code>false</code> altrimenti.</li></ul><h1 id="13aceac8-31d9-80d4-92d2-d572a4c26b8b" class="">5️⃣ <mark class="highlight-blue">Esempio Completo</mark></h1><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13aceac8-31d9-804e-b20c-c8eaca9167ec" class="code"><code class="mermaid" style="white-space:pre-wrap;word-break:break-all">classDiagram
+    Rettangolo --|&gt; Quadrato : Ereditarietà
+    class Rettangolo {
+        - base: int
+        - altezza: int
+        + Rettangolo()
+        + Rettangolo(int, int)
+        + Perimetro() int
+        + Area() int
+        + GetAltezza() int
+        + GetBase() int
+    }
+    class Quadrato {
+        + Quadrato()
+        + Quadrato(int)
+        + Circonferenza() double
+        + Perimetro() int
+    }</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13aceac8-31d9-80aa-8cb9-cd193c08e2c3" class="code"><code class="language-C#" style="white-space:pre-wrap;word-break:break-all">namespace EreditarietaEsempioCompleto
+{
+    // Classe base
+    public class Rettangolo
+    {
+        // Attributi
+        private int baseRettangolo;
+        private int altezza;
+
+        // Costruttore senza parametri
+        public Rettangolo()
+        {
+            baseRettangolo = 0;
+            altezza = 0;
+        }
+
+        // Costruttore con parametri
+        public Rettangolo(int baseRettangolo, int altezza)
+        {
+            this.baseRettangolo = baseRettangolo;
+            this.altezza = altezza;
+        }
+
+        // Metodo per calcolare il perimetro
+        public int Perimetro()
+        {
+            return 2 * baseRettangolo + 2 * altezza;
+        }
+
+        // Metodo per calcolare l&#x27;area
+        public int Area()
+        {
+            return baseRettangolo * altezza;
+        }
+
+        // Metodi getter
+        public int GetBase()
+        {
+            return baseRettangolo;
+        }
+
+        public int GetAltezza()
+        {
+            return altezza;
+        }
+    }
+
+    // Classe derivata
+    public class Quadrato : Rettangolo
+    {
+        // Costruttore senza parametri
+        public Quadrato() : base() {}
+
+        // Costruttore con un parametro
+        public Quadrato(int lato) : base(lato, lato) {}
+
+        // Metodo per calcolare la circonferenza
+        public double Circonferenza()
+        {
+            return GetAltezza() * 3.14;
+        }
+
+        // Metodo per calcolare il perimetro
+        public new int Perimetro()
+        {
+            return base.Perimetro();
+        }
+    }
+
+    public class MainProgram
+    {
+        public static void Main(string[] args)
+        {
+            Rettangolo r1 = new Rettangolo(5, 7);
+            Quadrato q1 = new Quadrato(4);
+
+            Console.WriteLine(r1.Area());  // area del rettangolo
+            Console.WriteLine(q1.Area());  // area del quadrato
+
+            Console.WriteLine(r1 is Rettangolo); // -&gt; true
+            Console.WriteLine(q1 is Quadrato); // -&gt; true
+            Console.WriteLine(q1 is Rettangolo); // -&gt; true
+            Console.WriteLine(r1 is Quadrato); // -&gt; false
+            Console.WriteLine(q1 is Object); // -&gt; true
+        }
+    }
+}</code></pre><h1 id="13aceac8-31d9-803a-9548-df415d16c3de" class="">📑 <mark class="highlight-blue">Esercizi</mark></h1><ol type="1" id="13aceac8-31d9-8033-9f6f-c5c185d3b88e" class="numbered-list" start="1"><li>Crea una classe <code>Animale</code> con proprietà come <code>Specie</code> e <code>Verso</code>. Definisci una classe <code>Cane</code> che eredita da <code>Animale</code> e aggiunge una proprietà <code>Razza</code>.</li></ol><ol type="1" id="13aceac8-31d9-80ec-807c-e08440dcd982" class="numbered-list" start="2"><li>Scrivi un programma che usa l’operatore <code>is</code> per verificare se un oggetto di tipo <code>Animale</code> è di tipo <code>Cane</code>.</li></ol><ol type="1" id="13aceac8-31d9-80ea-bc31-f5ad4f4cacd5" class="numbered-list" start="3"><li>Estendi la classe <code>Rettangolo</code> per creare una classe <code>Parallelepipedo</code> che aggiunge l’attributo <code>Altezza</code>.</li></ol></div></article>
+
+
+<div id="footer-container">
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <b>CONTATTI</b><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
+
+</body>
+</html>
