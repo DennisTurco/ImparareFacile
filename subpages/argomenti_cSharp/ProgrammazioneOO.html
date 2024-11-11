@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Programmazione O-O</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css">
+<link rel="stylesheet" href="../../stylesheet/footer.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+
+<!-- Programmazione OOP -->
+<article id="13aceac8-31d9-800b-87db-f257d5ef11bc" class="page sans"><header><h1 class="page-title">Programmazione Object-Oriented (0-0)</h1><p class="page-description"></p></header><div class="page-body"><nav id="2f8764ad-0fc6-4723-85c5-adcbbeb359df" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#797bb62b-870b-4883-8dc5-9383464e9a7d">1️⃣ Introduzione</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e3460e87-ccde-4162-a9af-b40efbaf0501">2️⃣ Relazioni</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#76b52d3a-cd08-4fb0-a3b7-3caa369f2cf5">3️⃣ <mark class="highlight-blue">Sistema ad Oggetti</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e9f72fd1-8cf0-44c5-bc5e-6383915327cc">4️⃣ <mark class="highlight-blue">Sistema ad Oggetti vs Sistema Procedurale</mark></a></div></nav><h1 id="797bb62b-870b-4883-8dc5-9383464e9a7d" class="block-color-blue">1️⃣ Introduzione</h1><p id="8ea900e6-26f0-4a2a-8333-4dcb79658eaa" class="">Un problema può essere descritto come un insieme di <strong>oggetti</strong> che richiedono <strong>servizi</strong> ad altri oggetti.</p><p id="0e4653ad-0427-4eca-9181-57b9756c2a34" class="">Un <strong>oggetto</strong> è un&#x27;astrazione che può rappresentare:</p><ul id="b43acd8d-2feb-4ca4-b15d-66ce1777695f" class="bulleted-list"><li style="list-style-type:disc"><strong>Oggetti fisici</strong> (ad esempio: un libro, un cellulare);</li></ul><ul id="0a577cb2-ea25-4eb1-b912-186b85eab7f9" class="bulleted-list"><li style="list-style-type:disc"><strong>Concetti astratti</strong> (ad esempio: un orario, un esame).</li></ul><p id="a8987865-041c-4975-b00c-271042f2761e" class="">Gli oggetti sono caratterizzati da:</p><ul id="67009668-7a67-4e06-97ee-c849daab6147" class="bulleted-list"><li style="list-style-type:disc"><strong>Stato</strong>, che rappresenta le informazioni o attributi dell&#x27;oggetto;</li></ul><ul id="fdda9033-f0d4-4e22-8fcc-308acae47dee" class="bulleted-list"><li style="list-style-type:disc">Un insieme di <strong>servizi</strong> offerti, che rappresentano le funzionalità o i comportamenti dell&#x27;oggetto.</li></ul><p id="080b5fc0-3306-48f9-a216-19d531ec2073" class="">In programmazione orientata agli oggetti (O-O), una classe descrive un insieme di oggetti con le stesse caratteristiche (ad esempio, la classe <em>TelefonoCellulare</em>). I linguaggi di programmazione offrono costrutti specifici per definire queste classi. Ecco un esempio in C++:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a38685a6-467c-4bcc-b361-9260ce959491" class="code"><code class="language-C++" style="white-space:pre-wrap;word-break:break-all">class TelefonoCellulare {
+    // Attributi che descrivono lo stato
+    private:
+        int segnale;
+        int livello_batteria;
+        // Altri attributi...
+
+    // Metodi che descrivono i servizi
+    public:
+        void rispondi() {...};
+        void chiama() {...};
+        // Altri metodi...
+};</code></pre><p id="ca78ce31-ec01-4cea-a309-c20f2a8c8d01" class=""><strong>Oggetto</strong>: Un singolo oggetto è un&#x27;istanza di una classe. Ad esempio:</p><ul id="be4ec8b0-5ec1-49b1-973c-8bcfe2f74a70" class="bulleted-list"><li style="list-style-type:disc">In C++:<ul id="4f88c93b-8846-41b1-98de-7161818ffd54" class="bulleted-list"><li style="list-style-type:circle"><code>TelefonoCellulare mioTelefono;</code></li></ul></li></ul><ul id="510c1aa9-31ff-4dc8-8c4b-16d024a19d29" class="bulleted-list"><li style="list-style-type:disc">In C#:<ul id="96403464-59f5-4314-b290-030a3774595f" class="bulleted-list"><li style="list-style-type:circle"><code>TelefonoCellulare mioTelefono = new TelefonoCellulare();</code></li></ul></li></ul><h1 id="e3460e87-ccde-4162-a9af-b40efbaf0501" class="block-color-blue">2️⃣ Relazioni</h1><ol type="1" id="4a114a14-80f1-48a7-9b83-d4d83176e76d" class="numbered-list" start="1"><li><strong>Relazioni tra oggetti</strong><ul id="f62f775e-1520-4e0f-8ce3-7d9738531526" class="bulleted-list"><li style="list-style-type:disc">Ad esempio, ogni oggetto <em>TelefonoCellulare</em> contiene un oggetto <em>livello_batteria</em>, il che rappresenta una relazione di <strong>contenimento</strong>.</li></ul></li></ol><ol type="1" id="f31dcdf0-5b95-448c-a71d-d7151f13fd11" class="numbered-list" start="2"><li><strong>Relazioni tra classi</strong><ul id="68d0592e-8a8b-4fb3-bb13-513196739623" class="bulleted-list"><li style="list-style-type:disc">Ad esempio, la classe <em>TelefonoCellulare</em> è un sottoinsieme della classe degli <strong>oggetti fisici</strong>, definendo una relazione di <strong>ereditarietà</strong>.</li></ul></li></ol><h1 id="76b52d3a-cd08-4fb0-a3b7-3caa369f2cf5" class="">3️⃣ <mark class="highlight-blue">Sistema ad Oggetti</mark></h1><p id="66f9dbc2-6a8e-4c5a-a8d2-9a2c0f755d4f" class="">Un sistema ad oggetti è costituito da un insieme di oggetti che richiedono l&#x27;esecuzione di servizi ad altri oggetti. Per realizzare un sistema ad oggetti, è necessario:</p><ol type="1" id="c83cf556-6585-4879-a3ef-3422d6486b8f" class="numbered-list" start="1"><li><strong>Descrivere le classi</strong>, specificando:<ul id="162d470d-3323-4c6c-89eb-be3404b5c252" class="bulleted-list"><li style="list-style-type:disc">Lo stato (attributi);</li></ul><ul id="b345236f-db2e-4455-b17b-5e61e9a4eea0" class="bulleted-list"><li style="list-style-type:disc">I servizi (metodi);</li></ul><ul id="9e031037-ada0-49d6-a236-479b7032712f" class="bulleted-list"><li style="list-style-type:disc">Le relazioni tra le classi.</li></ul></li></ol><ol type="1" id="1bbd3b8c-af98-4edb-a4b6-dd13d7e3732a" class="numbered-list" start="2"><li><strong>Creare gli oggetti</strong> a partire dalle classi definite.</li></ol><ol type="1" id="288e088f-002a-41ae-ab23-e05d2f92d4dc" class="numbered-list" start="3"><li><strong>Iniziare la comunicazione tra oggetti</strong>, inviando i messaggi necessari per richiedere servizi.</li></ol><p id="80187abb-b15f-4dbb-b65a-35dd63c0a1f5" class="">
+</p><p id="dacc773f-c0da-440c-81b4-8ef5685c8aee" class=""><em>Esempio in c++ per descrivere le classi:</em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0f4d6c24-24fd-4ded-a441-ae4edb9086b3" class="code"><code class="language-C++">class Rettangolo {
+		// attributi -&gt; stato
+		private:
+				int l; // larghezza
+				int a; // altezza
+		public:
+				// costruttori -&gt; inizializzazione oggetti della classe = stato iniziale
+				Rettangolo() {
+						l = 0;
+						a = 0;
+				}
+				Rettangolo(int x, int y) {
+						l = x;
+						a = y;
+				}
+				
+				// metodi -&gt; servizi
+				int perimetro() {
+						return 2*l+2*a;
+				}
+				int area() {
+						return l*a;
+				}
+				// eventuali set e get
+}</code></pre><p id="cca46fc6-a881-40db-8be7-73547956b1f3" class=""><em>Esempio in c++ per creare gli oggetti:</em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0fd02451-ca38-4b0f-8e23-7fcf772f1ed5" class="code"><code class="language-C++">int main () {
+		// 3 oggetti di classe rettangolo
+		Rettangolo r1(5, 7);
+		Rettangolo r2(4, 8);
+		Rettangolo r3(10, 10);
+		
+		// invio di un &quot;messaggio&quot; di servizio &quot;calcola area&quot; all&#x27;oggetto r1
+		int area1 = r1.area();
+		cout &lt;&lt; &quot;Area 1 = &quot; &lt;&lt; area1;
+		
+		// invio di un &quot;messaggio&quot; di servizio &quot;calcola perimetro&quot; all&#x27;oggetto r2
+		int perimetro2 = r2.perimetro();
+		cout &lt;&lt; &quot;Perimetro 2 = &quot; &lt;&lt; perimetro2;
+		// ...
+}</code></pre><h1 id="e9f72fd1-8cf0-44c5-bc5e-6383915327cc" class="">4️⃣ <mark class="highlight-blue">Sistema ad Oggetti vs Sistema Procedurale</mark></h1><p id="6fd600f6-72ef-4f85-89ad-58b8d4543449" class="">Un sistema procedurale è un sistema privo di classi, costituito da un insieme di funzioni (o procedure) che si richiamano tra loro.</p><ul id="c290bbaf-fb92-4562-8c15-b0d82d08b594" class="bulleted-list"><li style="list-style-type:disc"><strong>Nella programmazione procedurale:</strong><ul id="1bbc4546-87c8-4877-83e2-3324ab817d61" class="bulleted-list"><li style="list-style-type:circle">Si analizza il problema per individuare l&#x27;algoritmo risolutivo;</li></ul><ul id="79471cd1-81d9-4a22-902d-498c883438ae" class="bulleted-list"><li style="list-style-type:circle">Si scompone l&#x27;algoritmo in un insieme di algoritmi più piccoli e gestibili.</li></ul></li></ul><ul id="2da63cc9-28db-41b7-a0a6-44f2b02d8001" class="bulleted-list"><li style="list-style-type:disc"><strong>Nella programmazione orientata agli oggetti (O-O):</strong><ul id="88062f65-79bb-4f76-a2e9-7134de1161bc" class="bulleted-list"><li style="list-style-type:circle">Si analizza il problema descrivendo le entità coinvolte (gli oggetti) e si definiscono le relative classi;</li></ul><ul id="f2892bb2-ec40-4661-822d-6f21d9132a5f" class="bulleted-list"><li style="list-style-type:circle">Si scompone il problema assegnando responsabilità ai singoli oggetti e individuando le interazioni tra loro;</li></ul><ul id="68e0bfbf-5f78-496d-99c0-9023e205b5b0" class="bulleted-list"><li style="list-style-type:circle">Si definisce un insieme di algoritmi che implementano i servizi offerti dagli oggetti (metodi delle classi).</li></ul></li></ul><p id="4a2d773d-5d72-4c3b-b86f-78786916402f" class="">In generale, la programmazione O-O tende a massimizzare il riuso del codice, con conseguenti benefici in termini di:</p><ul id="363bdc5c-b033-405c-a07b-0faf7fb68672" class="bulleted-list"><li style="list-style-type:disc">Riduzione dei tempi di sviluppo;</li></ul><ul id="14199141-6872-4d3a-b07d-fef2eb8a6ec8" class="bulleted-list"><li style="list-style-type:disc">Riduzione dei costi (soprattutto in termini di personale).</li></ul><p id="1461b992-787d-4543-927f-1050bf03d8e9" class="">
+</p></div></article>
+
+
+<div id="footer-container">
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <b>CONTATTI</b><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+</body>
+</html>
