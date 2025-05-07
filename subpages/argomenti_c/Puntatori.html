@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSE1MKHYSG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GSE1MKHYSG');
+</script>
+
+<meta charset="utf-8"/>
+<meta name="author" content="Dennis Turco"/>
+<meta name="description" content="Sito web dedicato alla pubblicazione di documentazione volta a spiegare in modo chiaro e conciso i concetti fondamentali di programmazione e matematica."/>
+<meta name="keywords" content="HTML, CSS, JavaScript"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Serve per la visualizzazione da mobile-->
+<title>Puntatori</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="icon" href="../../images/logo/logo.png"/>  <!--Icona della pagina web-->
+<link rel="stylesheet" href="../../stylesheet/bootstrap.min.css"/> <!--incorporo bootstrap-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--Script per permettere l'hover on scroll-->
+<link rel="stylesheet" href="../../stylesheet/style.css"/>
+<link rel="stylesheet" href="../../stylesheet/pages.css"/>
+<link rel="stylesheet" href="../../stylesheet/prism.css"/>
+<link rel="stylesheet" href="../../stylesheet/footer.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div id="prenotazione-lezione">
+    <a href="https://calendar.app.google/Rjok4qYyNwfbJnja9" target="_blank" class="donate-button">
+        <span class="emoji">👨‍🏫</span>
+        <span class="text">Prenota una lezione</span>
+    </a>
+</div>
+
+<!--navbar-->
+<div class="topnav" id="myTopnav"> 
+    <a href="../../index.html"><i class="fa-solid fa-home"></i> Home</a>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa-solid fa-circle-chevron-down"></i></i> Materie</button>
+        <div class="dropdown-content">
+            <a href="../../HomeMatematica.html">Matematica</a>
+            <a href="../../HomeInformatica.html">Informatica</a>
+        </div>
+    </div>
+    <a href="../../insegnanti.html"><i class="fa-solid fa-chalkboard-user"></i> Insegnanti</a>
+    <a href="mailto:dennisturco@gmail.com?subject=Programmazione Manuale"><i class="fa-solid fa-envelope"></i> Contattami</a>
+    <a href="https://dennisturco.github.io/"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--side navbar-->
+<div id="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
+</div>
+<div class="open_sidebar">
+    <a href="javascript:void(0)" class="openbtn" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">north</i></button> <!--Torna su-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<div id="mycontent"></div>
+
+<body class="line-numbers">
+
+
+<!--Puntatori-->
+<article id="1ecceac8-31d9-800d-b2a9-cd6f558a10b4" class="page sans"><header><h1 class="page-title">Puntatori</h1><p class="page-description"></p></header><div class="page-body"><h1 id="1ecceac8-31d9-80c2-9c50-e17ad8d01d76" class=""><mark class="highlight-blue">Puntatori</mark></h1><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-80b3-8079-d8d21c1f0559" class="code"><code class="language-C">int altezza = 30;
+
+    printf(&quot;%d&quot;, altezza);  // output -&gt; 30
+    printf(&quot;%p&quot;, &amp;altezza); // output -&gt; indirizzo di memoria di altezza (0x7ffe5367e044)</code></pre><p id="1ecceac8-31d9-8024-a5f1-eb59651ea81c" class="">Un Puntatore è una variabile che salva l’indirizzo di memoria di un’altra variabile come suo valore.</p><p id="1ecceac8-31d9-80c9-9e44-ea2c1e970bbf" class="">Una variabile puntatore punta ad un tipo di dato (come <code>int</code>) dello stesso tipo e viene creato con l’operatore <code>*</code>.</p><h2 id="1ecceac8-31d9-8060-8826-c47533e327f7" class=""><mark class="highlight-orange">Esempio di puntatore:</mark></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-8036-8aac-f7a6d4d48162" class="code"><code class="language-C">int altezza = 30;
+    
+    // variabile puntatore di nome ptrA che contene l&#x27;indirizzo di mememoria 
+    // della variabile altezza
+    int* ptr = &amp;altezza; 
+    
+    printf(&quot;%d\n&quot;, altezza);  // output -&gt; 30
+    printf(&quot;%p\n&quot;, &amp;altezza); // output -&gt; indirizzo di memoria di altezza (0x7ffe5367e044)
+    printf(&quot;%p\n&quot;, ptr);      // output -&gt; indirizzo di memoria di altezza (0x7ffe5367e044)
+    printf(&quot;%d\n&quot;, *ptr);     // output -&gt; valore di altezza (30)</code></pre><h1 id="1ecceac8-31d9-8022-b72e-c21bacac48ce" class=""><mark class="highlight-blue">Puntatori e Array</mark></h1><p id="1ecceac8-31d9-8020-991d-dccfe58c585c" class="">In C, un <strong>array</strong> è una collezione di elementi dello stesso tipo memorizzati in locazioni di memoria contigue. Quando si utilizza il nome dell’array in un’espressione, esso viene automaticamente convertito in un <strong>puntatore al primo elemento dell’array</strong>.</p><h2 id="1ecceac8-31d9-803e-86ab-fa197238ef16" class=""><mark class="highlight-orange">Esempio:</mark></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-8023-b572-d1c4d3f63014" class="code"><code class="language-C" style="white-space:pre-wrap;word-break:break-all">int numeri[] = {10, 20, 30, 40, 50};
+    
+    printf(&quot;%p\n&quot;, numeri);     // indirizzo del primo elemento dell’array
+    printf(&quot;%p\n&quot;, &amp;numeri[0]); // stesso indirizzo del primo elemento
+    printf(&quot;%d\n&quot;, *numeri);    // valore del primo elemento (10)</code></pre><p id="1ecceac8-31d9-8098-b585-c538ca681aae" class="">In questo esempio:</p><ul id="1ecceac8-31d9-80cd-af6e-f17360712326" class="bulleted-list"><li style="list-style-type:disc"><code>numeri</code> è un puntatore implicito a <code>&amp;numeri[0]</code></li></ul><ul id="1ecceac8-31d9-80f7-9737-c2f9878cb02b" class="bulleted-list"><li style="list-style-type:disc"><code>numeri</code> accede al valore del primo elemento (cioè 10)</li></ul><p id="1ecceac8-31d9-80b5-a87b-f2f1ffcf71d4" class="">Puoi anche accedere agli altri elementi usando l’aritmetica dei puntatori:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-8036-83df-eca3f16e5219" class="code"><code class="language-C">printf(&quot;%d\n&quot;, *(numeri + 1)); // output -&gt; 20
+    printf(&quot;%d\n&quot;, *(numeri + 2)); // output -&gt; 30</code></pre><h2 id="1ecceac8-31d9-8082-82af-ce2605b6038a" class=""><mark class="highlight-orange">Accesso agli elementi con il puntatore:</mark></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-8051-8d61-d35f47175cfa" class="code"><code class="language-C">int* ptr = numeri;
+    
+    printf(&quot;%d\n&quot;, *(ptr + 3)); // output -&gt; 40</code></pre><h1 id="1ecceac8-31d9-80c1-87aa-ef61e13d20dd" class=""><mark class="highlight-blue">Puntatori e Cicli</mark></h1><p id="1ecceac8-31d9-80d9-b590-d06a427db516" class="">Spesso si usano i puntatori per scorrere un array:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-807f-bf2c-ede1726e99ed" class="code"><code class="language-C" style="white-space:pre-wrap;word-break:break-all">int numeri[] = {1, 2, 3, 4, 5};
+    int* ptr = numeri;
+    
+    for (int i = 0; i &lt; 5; i++) {
+        printf(&quot;%d &quot;, *(ptr + i));
+    }
+    // Output: 1 2 3 4 5</code></pre><p id="1ecceac8-31d9-8064-953d-e6320b5c1c02" class="">Oppure si può usare il puntatore direttamente nel ciclo:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-80cf-aa5b-c28bbd8de494" class="code"><code class="language-C" style="white-space:pre-wrap;word-break:break-all">int* end = numeri + 5;
+    
+    for (int* p = numeri; p &lt; end; p++) {
+        printf(&quot;%d &quot;, *p);
+    }</code></pre><h1 id="1ecceac8-31d9-808f-840c-e12345f45971" class=""><mark class="highlight-blue">Puntatori e Funzioni</mark></h1><p id="1ecceac8-31d9-8076-bbaa-c268e5e96b2f" class="">Puoi passare un array a una funzione come puntatore:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ecceac8-31d9-80b5-8a85-d3f3e3298c50" class="code"><code class="language-C" style="white-space:pre-wrap;word-break:break-all">void stampaArray(int* arr, int lunghezza) {
+        for (int i = 0; i &lt; lunghezza; i++) {
+            printf(&quot;%d &quot;, arr[i]);
+        }
+    }
+    
+    int main() {
+        int dati[] = {100, 200, 300};
+        stampaArray(dati, 3);
+        return 0;
+    }
+    </code></pre><h1 id="1ecceac8-31d9-809a-9fde-e4cbe81104d3" class=""><mark class="highlight-blue">Esercizi</mark></h1><figure id="1ecceac8-31d9-80d7-9c2a-ca468d8871ee"><a href="https://www.codegrind.it/esercizi/c/pointer" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Codegrind - Formazione digitale a 360°</div><div class="bookmark-description">Corsi di programmazione e risorse pratiche per diventare uno sviluppatore web professionista.</div></div><div class="bookmark-href"><img src="https://www.codegrind.it/favicon.ico" class="icon bookmark-icon"/>https://www.codegrind.it/esercizi/c/pointer</div></div><img src="https://qwerty-edx.b-cdn.net/Codegrind/codegrind-preview.avif" class="bookmark-image"/></a></figure></div></article>
+
+
+<div id="footer-container">
+    <footer class="footer">
+        <div class="colonna1">
+            <div class="logofooter">
+                <a href="https://dennisturco.github.io/ImparareFacile/">
+                    <img align="left" src="../../images/logo/logo.png" alt="site logo">
+                </a><br><br>
+                <b align="center">&copy; 2022 - 2024 Dennis Turco</b>
+                <hr align="center"><br>
+                <p align=" center">HAI VISUALIZZATO QUESTO SITO<br><div class="website-counter" noIcon="true"></div></p>       
+            </div>
+        </div>
+        <div class="colonna2">
+            <div class="contatti_footer">
+                <b>CONTATTI</b><br>
+                <a href="https://discordapp.com/invite/9Jb4Gt3HhB" id="discord_link" target="_blank">
+                    <img src="../../images/logo/discord.png" alt="discord server">
+                </a>
+                <a href="https://www.linkedin.com/in/dennis-turco-751239232/" id="linkedin_link" target="_blank">
+                    <img src="../../images/logo//l3.png" alt="linkedin_profile">
+                </a>
+                <a href="https://github.com/DennisTurco" id="github_link" target="_blank">
+                    <img src="../../images/logo//github.png" alt="github_profile">
+                </a>
+                <a href="mailto:dennisturco@gmail.com" id="email" target="_blank">
+                    <img src="../../images/logo//mail.png" alt="mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<!--Script per permettere l'hover on scroll-->
+<script type="text/JavaScript" src="../../javascript.js"></script>
+<script type="text/JavaScript" src="../../quiz.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!--Scroll Down Script-->
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+</script>
+
+<!-- Script for syntax highlight -->
+<script src="../../prism.js"></script>
+
+<script src="../../navbar.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
