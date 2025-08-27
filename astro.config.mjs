@@ -7,7 +7,8 @@ import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://dennisturco.github.io/ImparareFacile/",
+  site: "https://DennisTurco.github.io", // for github pages
+  base: "/ImparareFacile",  // for github pages
   integrations: [
     mdx(),
     sitemap(),
