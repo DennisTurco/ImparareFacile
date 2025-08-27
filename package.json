@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "npm run build && npx gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",
@@ -30,5 +31,8 @@
     "mermaid": "^11.10.1",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.0.14"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
