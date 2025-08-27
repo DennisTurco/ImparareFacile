@@ -8,11 +8,11 @@ tags: ["c", "programmazione", "struct", "medio"]
 author: "Dennis Turco"
 ---
 
-# 0️⃣ Link utili
+## 0️⃣ Link utili
 
 [C Structures (structs)](https://www.w3schools.com/c/c_structs.php#)
 
-# 1️⃣ Struct
+## 1️⃣ Struct
 
 Le strutture (chiamate anche struct) sono un modo per raggruppare diverse variabili correlate in un unico posto. Ogni variabile nella struttura è nota come **membro** della struttura.
 
@@ -50,11 +50,11 @@ struct libro {
 };
 
 int main() {
-	struct libro l;
+    struct libro l;
 }
 ```
 
-# 2️⃣ Accedere ai campi
+## 2️⃣ Accedere ai campi
 
 per accedere ai campi (variabili) interne si usa il simbolo `.`
 
@@ -68,20 +68,20 @@ struct libro {
 };
 
 int main() {
-	// dichiarazione dell'oggetto della struct
-	struct libro s;
+    // dichiarazione dell'oggetto della struct
+    struct libro s;
 
-	// accesso ad un campo della struct
-	s.titolo = "Diario di Jorge";
+    // accesso ad un campo della struct
+    s.titolo = "Diario di Jorge";
 
-	// stampa il titolo del libro
-	printf ("%s \n", s.titolo); //output: Diario di Jorge
-	
-	return 0;
+    // stampa il titolo del libro
+    printf ("%s \n", s.titolo); //output: Diario di Jorge
+
+    return 0;
 }
 ```
 
-# 3️⃣ Passare una struct ad una funzione
+## 3️⃣ Passare una struct ad una funzione
 
 In questo esempio la funzione “func” stampa gli elementi di una struct attraverso un puntatore alla struttura presa come paramentro.
 
@@ -90,34 +90,34 @@ In questo esempio la funzione “func” stampa gli elementi di una struct attra
 #include <string.h>
 
 struct student {
-	int id;
-	char name[20];
-	float percentage;
+    int id;
+    char name[20];
+    float percentage;
 };
 
 void func(struct student *record) {
-	printf(" Id is: %d \n", record->id);
-	printf(" Name is: %s \n", record->name);
-	printf(" Percentage is: %f \n", record->percentage);
+    printf(" Id is: %d \n", record->id);
+    printf(" Name is: %s \n", record->name);
+    printf(" Percentage is: %f \n", record->percentage);
 }
 
 int main() {
-	struct student record;
-	
-	record.id=1;
-	strcpy(record.name, "Raju");
-	record.percentage = 86.5;
-	
-	func(&record);
-	return 0;
+    struct student record;
+
+    record.id=1;
+    strcpy(record.name, "Raju");
+    record.percentage = 86.5;
+
+    func(&record);
+    return 0;
 }
 ```
 
-# 📑 Esercizi
+## 📑 Esercizi
 
-## Esercizio 1
+### Esercizio 1
 
-realizzare una struct “classe” con 2 metodi: 
+realizzare una struct “classe” con 2 metodi:
 
 - char nome[2];
 - int alunni;
@@ -138,7 +138,7 @@ struct classe {
 int main() {
 
     struct classe s;
-    
+
     // inserimento
     printf("Inserisci il nome della classe (1A, 2B..): ");
     scanf("%s", s[i].nome);
@@ -159,7 +159,7 @@ int main() {
 
 ## Esercizio 2
 
-realizzare una struct “classe” con 2 metodi: 
+realizzare una struct “classe” con 2 metodi:
 
 - char nome[2];
 - int alunni;
@@ -181,7 +181,7 @@ int main() {
     int size = 3;
 
     struct classe s[size];
-    
+
     // inserimento
     for (int i=0; i<size; i++) {
         printf("Inserisci il nome della classe (1A, 2B..): ");
@@ -264,7 +264,7 @@ int main() {
     int size = 3;
 
     struct classe s[size];
-    
+
     // inserimento
     inserimento(&s, size);
 

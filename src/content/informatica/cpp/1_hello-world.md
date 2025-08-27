@@ -372,7 +372,7 @@ inserisci secondo valore: 5
 la somma è: 8
 <details>
 <summary>💡 Mostra soluzione</summary>
-    
+
 ```cpp
     #include <iostream>
     using namespace std;

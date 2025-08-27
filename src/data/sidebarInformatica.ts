@@ -10,10 +10,10 @@ export const sidebar = {
     { title: "Array Monodimensionali", url: "/ImparareFacile/informatica/c/4_array-monodimensionali" },
     // { title: "Array Bidimensionali (Work in Progress)", url: "" },
     // { title: "String (Work in Progress)", url: "" },
-    // { title: "Funzioni (Work in Progress)", url: "" },
+    { title: "Funzioni", url: "/ImparareFacile/informatica/c/5_funzioni" },
     // { title: "Funzione rand() (Work in Progress)", url: "" },
-    { title: "Puntatori", url: "/ImparareFacile/informatica/c/5_puntatori" },
-    { title: "Struct", url: "/ImparareFacile/informatica/c/6_struct" },
+    { title: "Puntatori", url: "/ImparareFacile/informatica/c/6_puntatori" },
+    { title: "Struct", url: "/ImparareFacile/informatica/c/7_struct" },
   ],
   "C++": [
     { title: "Hello World", url: "/ImparareFacile/informatica/cpp/helloworld" },

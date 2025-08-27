@@ -45,6 +45,48 @@ const makeTitle = title
       gtag('config', 'G-GSE1MKHYSG');
     </script>
 
+    <script>
+      let copyButtonLabel = "Copy Code";
+      let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+      for (let codeBlock of codeBlocks) {
+        // assicurati che codeBlock abbia un parentNode
+        if (!codeBlock.parentNode) continue;
+
+        let wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+
+        let copyButton = document.createElement("button");
+        copyButton.className = "copy-code";
+        copyButton.innerHTML = copyButtonLabel;
+
+        codeBlock.setAttribute("tabindex", "0");
+
+        // wrap codeBlock con un wrapper
+        codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+        wrapper.appendChild(codeBlock);
+        codeBlock.appendChild(copyButton);
+
+        copyButton.addEventListener("click", async () => {
+          await copyCode(codeBlock, copyButton);
+        });
+      }
+
+      async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+
+        await navigator.clipboard.writeText(text);
+
+        // visual feedback that task is completed
+        button.innerText = "Code Copied";
+
+        setTimeout(() => {
+          button.innerText = copyButtonLabel;
+        }, 700);
+      }
+    </script>
+
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}

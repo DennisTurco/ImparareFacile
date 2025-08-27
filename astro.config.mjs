@@ -16,20 +16,13 @@ export default defineConfig({
       rehypePlugins: [rehypeKatex],
     }),
     sitemap(),
-    icon({
-      include: ["fa6-solid", "fa6-brands"],
-    }),
+    icon({ include: ["fa6-solid", "fa6-brands"] }),
     mermaid({
       theme: 'forest',
       autoTheme: true,
-      mermaidConfig: {
-        flowchart: {
-          curve: 'basis',
-        },
-      },
+      mermaidConfig: { flowchart: { curve: 'basis' } },
     }),
   ],
   vite: {
-    plugins: [tailwindcss()],
-  },
+    plugins: [tailwindcss()],},
 });

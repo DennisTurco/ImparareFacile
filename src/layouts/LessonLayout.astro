@@ -13,16 +13,25 @@ const lessons = rawLessons as LessonsType;
 <Layout title={frontmatter.title}>
   <div class="flex flex-col lg:flex-row max-w-[1200px] mx-auto mt-14 px-4 lg:px-0 gap-8">
 
-    <!-- Sidebar -->
     <aside class="hidden lg:block w-64 sticky top-20 h-[calc(100vh-80px)] overflow-y-auto border-r border-gray-200 pr-4">
-      <h2 class="text-xl font-bold mb-4">Lezioni</h2>
+    <h2 class="text-xl font-bold mb-4">Lezioni</h2>
 
+    <!-- Search bar -->
+    <input
+      type="text"
+      placeholder="Cerca..."
+      id="lesson-search"
+      class="w-full mb-4 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+    />
+
+    <!-- Lista lezioni -->
+    <div id="lessons-list">
       {Object.entries(lessons).map(([language, lessonList]) => (
-        <div class="mb-4">
+        <div class="mb-4" data-language={language}>
           <h3 class="font-semibold">{language}</h3>
           <ul class="space-y-2 pl-2">
             {lessonList.map(lesson => (
-              <li>
+              <li data-title={lesson.title.toLowerCase()}>
                 <a
                   href={lesson.url}
                   class={`block px-2 py-1 rounded hover:bg-gray-100 transition
@@ -35,7 +44,8 @@ const lessons = rawLessons as LessonsType;
           </ul>
         </div>
       ))}
-    </aside>
+    </div>
+  </aside>
 
     <!-- Contenuto principale -->
     <main class="flex-1">
@@ -71,3 +81,27 @@ const lessons = rawLessons as LessonsType;
     </main>
   </div>
 </Layout>
+
+
+<script>
+  const searchInput = document.getElementById("lesson-search") as HTMLInputElement | null;
+  const lessonContainers = Array.from(document.querySelectorAll<HTMLDivElement>("#lessons-list > div"));
+
+  searchInput?.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+
+    lessonContainers.forEach(container => {
+      let anyVisible = false;
+
+      const items = Array.from(container.querySelectorAll<HTMLLIElement>("li"));
+      items.forEach(item => {
+        const title = item.dataset.title || "";
+        const match = title.includes(query);
+        item.style.display = match ? "block" : "none";
+        if (match) anyVisible = true;
+      });
+
+      container.style.display = anyVisible ? "block" : "none";
+    });
+  });
+</script>
