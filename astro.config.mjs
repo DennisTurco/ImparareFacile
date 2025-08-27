@@ -14,7 +14,6 @@ export default defineConfig({
     sitemap(),
     icon({
       include: ["fa6-solid", "fa6-brands"],
-
     }),
     mermaid({
       theme: 'forest', // Tema predefinito
