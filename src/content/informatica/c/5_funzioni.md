@@ -8,7 +8,7 @@ tags: ["c", "programmazione", "funzioni", "medio"]
 author: "Dennis Turco"
 ---
 
-# 1️⃣ Descrizione
+## 1️⃣ Descrizione
 
 Le **funzioni** in **C++**, e in generale in tutti i linguaggi di programmazione, sono sostanzialmente dei blocchi di codice riutilizzabili; possono essere pensate come dei “sottoprogrammi” richiamabili da altri programmi.
 
@@ -34,22 +34,22 @@ Dove:
 - **nome_funzione** è il nome dato alla funzione, si raccomanda di seguire le stesse regole sintattiche per le variabili.
 - **[<*elenco_parametri*>]** può anche essere una lista vuota, oppure si elencano gli argomenti passati alla funzione detti anche parametri.
 
-# 3️⃣ Valore di ritorno
+## 3️⃣ Valore di ritorno
 
 - Ogni funzione presenta un valore di ritorno che puo’ essere di qualsiasi tipo predefinito o definito dell’utente.
 - Se nella dichiarazione viene omesso il tipo di ritorno, esso viene considerato automaticamente un intero.
 - Nel caso di funzione che compie un azione, ovvio non deve ritornare nessun valore, si usa il tipo predefinito `void` come valore di ritorno.
 - Una funzione puo’ avere o meno una lista di argomenti.
 
-# 4️⃣ Parametri per Valore vs per Riferimento
+## 4️⃣ Parametri per Valore vs per Riferimento
 
-## funzioni con parametri per valore
+### funzioni con parametri per valore
 
 **Parametri per valore**: i parametri passati per valore vanno specificati all’interno delle parentesi tonde dopo il nome della funzione specificando per ogni parametro il nome preceduto dalla sua tipologia; quando sono presenti più parametri vanno separati da virgolo. Quando si passa un parametro in questo modo all’inizio dell’esecuzione della funzione il valore memorizzato all’interno della variabile passata come parametro viene copiato in una nuova variabile della funzione. I parametri passati per valore possono essere anche opzionali, ovvero si possono creare funzioni che possono ricevere un numero diverso di parametri; questo si fa assegnando ad alcuni parametri dei valori di default.
 
-## Funzioni con parametri per riferimento
+### Funzioni con parametri per riferimento
 
-**Parametri per riferimento**: affinché una funzione riceva un parametro in questo modo è necessario anteporre una & prima del nome del parametro. I parametri passati in questo modo fanno sì che i cambiamenti che all’interno del codice della funzione su un parametro avvengano anche sulle variabili del programma chiamante. I parametri passati per riferimento non possono né essere opzionali né essere valori numerici. 
+**Parametri per riferimento**: affinché una funzione riceva un parametro in questo modo è necessario anteporre una & prima del nome del parametro. I parametri passati in questo modo fanno sì che i cambiamenti che all’interno del codice della funzione su un parametro avvengano anche sulle variabili del programma chiamante. I parametri passati per riferimento non possono né essere opzionali né essere valori numerici.
 
 *Ad esempio:*
 
@@ -70,6 +70,6 @@ int main() {
 }
 ```
 
-# 📑 Esercizi
+## 📑 Esercizi
 
 [Esercizi con le funzioni in C++](https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/)

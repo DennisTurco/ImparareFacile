@@ -1,15 +1,90 @@
 ---
-import Card from "./card.astro";
-import mateIcon from "@/assets/logo/matematica.png";
-import infoIcon from "@/assets/logo/informatica.png";
+import { videos } from "@/data/videos.ts";
 ---
 
-<Card class="bg-gradient-to-r from-blue-100 to-blue-200 border border-blue-300 p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center gap-4">
-  <!-- Testo -->
-  <div class="text-center md:text-left">
-    <p class="text-lg font-medium text-gray-800">
-      I video lezioni vengono erogati solo su richiesta.
-      Se sei interessato contattami!</a>
-    </p>
+<div class="container mx-auto px-6 py-12 space-y-8">
+  <h1 class="text-3xl font-bold text-center mb-4">Catalogo Video Lezioni</h1>
+
+<!-- Descrizione -->
+<div class="bg-blue-100 border border-blue-300 rounded-xl p-4 text-center">
+  <p class="text-gray-800 text-lg">
+    I video sono privati per la visualizzazione, 
+    <a href="/ImparareFacile/contact" class="text-blue-600 font-semibold underline hover:text-blue-800">
+      contattatemi
+    </a> 
+    per richiedere la visione.
+  </p>
+  <p class="text-gray-800 text-lg mt-2">
+    Se volete nuovi video che non ci sono, 
+    <a href="/ImparareFacile/contact" class="text-blue-600 font-semibold underline hover:text-blue-800">
+      contattatemi
+    </a> 
+    e li aggiungo!
+  </p>
+</div>
+
+  <!-- Griglia video -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+    {videos.map((video, index) => (
+      <div
+        class="bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center"
+        id={`video-card-${index}`}
+      >
+        <h2 class="text-xl font-semibold mb-4">{video.title}</h2>
+
+        <div class="flex flex-col items-center gap-2 w-full" id={`form-${index}`}>
+          <input
+            type="password"
+            placeholder="Inserisci la password"
+            class="border p-2 rounded w-full"
+            id={`pass-${index}`}
+          />
+          <button
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full access-button"
+            data-index={index}
+            data-password={video.password}
+            data-url={video.url}
+          >
+            Accedi
+          </button>
+        </div>
+
+        <div class="w-full mt-4 hidden" id={`iframe-${index}`}>
+          <iframe
+            class="w-full h-64 md:h-80 rounded"
+            src=""
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    ))}
   </div>
-</Card>
+</div>
+
+
+<script>
+  document.querySelectorAll(".access-button").forEach((btn) => {
+  const button = btn as HTMLButtonElement; // cast a HTMLButtonElement
+  button.addEventListener("click", () => {
+    const index = button.dataset.index;
+    const password = button.dataset.password;
+    const url = button.dataset.url;
+    const input = document.getElementById(`pass-${index}`) as HTMLInputElement;
+    if (input.value === password) {
+      document.getElementById(`form-${index}`)!.classList.add("hidden");
+
+      const iframeContainer = document.getElementById(`iframe-${index}`)!;
+      const iframe = iframeContainer.querySelector("iframe")!;
+
+      const cleanUrl = `${url}?rel=0&modestbranding=1&controls=1&showinfo=0`;
+      iframe.src = cleanUrl;
+
+      iframeContainer.classList.remove("hidden");
+    } else {
+      alert("Password errata!");
+    }
+  });
+});
+</script>

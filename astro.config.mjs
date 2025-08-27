@@ -4,23 +4,27 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import mermaid from 'astro-mermaid';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://DennisTurco.github.io", // for github pages
-  base: "/ImparareFacile/",  // for github pages
+  site: "https://DennisTurco.github.io",
+  base: "/ImparareFacile/",
   integrations: [
-    mdx(),
+    mdx({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
     sitemap(),
     icon({
       include: ["fa6-solid", "fa6-brands"],
     }),
     mermaid({
-      theme: 'forest', // Tema predefinito
-      autoTheme: true, // Cambio automatico del tema in base a data-theme
+      theme: 'forest',
+      autoTheme: true,
       mermaidConfig: {
         flowchart: {
-          curve: 'basis', // Curvatura dei collegamenti
+          curve: 'basis',
         },
       },
     }),

@@ -8,15 +8,15 @@ tags: ["c", "programmazione", "arraymonodimensionali", "medio-difficile"]
 author: "Dennis Turco"
 ---
 
-# 1️⃣ Descrizione
+## 1️⃣ Descrizione
 
 Un **array monodimensionale** (o vettore) è una sequenza di variabili dello stesso tipo che vengono situate consecutivamente nella memoria ed alle quali è possibile accedere usando uno stesso nome (identificatore) a cui viene aggiunto un indice. Pensiamo all'**array** come ad un insieme di cassetti numerati.
 
 **Definizione**: **Sequenza** di $n$ elementi ($n ≥ 0$) tutti di tipo $t$ individuati singolarmente da un numero intero int fra 0 e $n-1$ (detto indice).
 
-![](../../../assets/for_pages/array1.png)
+![array1](../../../assets/for_pages/array1.png)
 
-# 2️⃣ Dichiarazione
+## 2️⃣ Dichiarazione
 
 $$
 t \ \  A[n];
@@ -33,13 +33,13 @@ dove:
 const int M = 100
 
 //dichiara ad esempio un array di 10 elementi
-int A[N]; 
+int A[N];
 
 //dichiara un array di 10 elementi float
-float V[10]; 
+float V[10];
 
 //dichiara un array di 100 elementi
-int B[M]; 
+int B[M];
 
 //array di interi con la dimensione definita implicitamente
 int C = {3,5,6,2,1}
@@ -54,7 +54,7 @@ int E[10] = {3,5,6,2,1,8,4,7,9,0}
 int F[N] = {0};
 ```
 
-# 3️⃣ Dimensione Array
+## 3️⃣ Dimensione Array
 
 1. Numero elementi predefinito → **array statici** = dimensione array costante (nota a compile-time)
 2. Numero elementi specificato a run-time → **array semidinamici** = dimensione array qualsiasi (intera)
@@ -62,100 +62,97 @@ int F[N] = {0};
 
 <aside>
 📖 *Nota Bene*: per gli array statici e semidinamici, una volta allocata, la dimensione dell’array non è più modificabile.
-
 </aside>
 
-# 4️⃣ Operazioni
+## 4️⃣ Operazioni
 
-### **Accesso elemento**
+### Accesso elemento
 
 ```c
 int vett[5] = {2, 0, 1, 6, 3};
 vett[4];  // -> mi riferisco al valore 3
 ```
 
-### **Lettura elemento**
+### Lettura elemento
 
 ```c
 int vett[5];
 scanf("%d", &vett[2]); // inserisco un valore nella posizione 3
 ```
 
-### **Scrittura elemento**
+### Scrittura elemento
 
 ```c
 int vett[5] = {2, 0, 1, 6, 3};
 printf("%d", vett[2]); //Output: 1
 ```
 
-![](../../../assets/for_pages/array2.png)
+![array2](../../../assets/for_pages/array2.png)
 
 ### Cosa NON si può fare
 
 - NO confronto e assegnamento
-    
+
     ```c
     int A[10];
     int B[10];
-    
+
     A == B; // ----> ERRORE
     A = B;  // ----> ERRORE
     ```
-    
+
 - NO I/O su array
-    
+
     ```c
     int A[10];
-    
+
     printf("%d", A); // ----> ERRORE
     scanf("%d", &A);  // ----> ERRORE
     ```
-    
 
 ### Soluzione a questi problemi
 
 per eseguire correttamente operazioni di confronto, assegnamento ed I/O è spesso necessario utilizzare dei **cicli**.
 
 - Confronto e assegnamento:
-    
+
     *esempio*: `A[i] == B[j]`
-    
+
     *esempio*: `A[i] = 5`
-    
+
 - I/O su array:
-    
+
     *esempio*:  `scanf("%d", &A[3])`
-    
+
     *esempio*:  `printf("%d", A[i])`
-    
 
-# 5️⃣ Algoritmi principali
+## 5️⃣ Algoritmi principali
 
-### **Stampa Array**
+### Stampa Array
 
 ```c
 int vett[5] = {2, 0, 1, 6, 3};
 
 for (int i=0; i<5; i++) {
-		printf("%d ", vett[i]);
+    printf("%d ", vett[i]);
 }
 
 // Output: 2 0 1 6 3
 ```
 
-### **Leggi Array**
+### Leggi Array
 
 ```c
 int vett[5];
 
 for (int i=0; i<5; i++) {
-		scanf("%d", &vett[i]);
+    scanf("%d", &vett[i]);
 }
 ```
 
-### **Ordinamento Array (Bubble Sort)**
+### Ordinamento Array (Bubble Sort)
 
-![](https://giancarmelopittala.com/images/articles/bubble-sort.gif)
+![array4](https://giancarmelopittala.com/images/articles/bubble-sort.gif)
 
 ```c
 int dim = 5;
@@ -174,7 +171,7 @@ for (int i = 0; i < dim; i++) {
 
 Ragionamento per “swappare” gli elementi di un array tra di loro:
 
-![](../../../assets/for_pages/array4.png)
+![array4](../../../assets/for_pages/array4.png)
 
 ### **Ricerca Massimo/Minimo**
 
@@ -182,7 +179,7 @@ Ragionamento per “swappare” gli elementi di un array tra di loro:
 vett[5] = {2, 5, 1, 0, 3};
 
 int max = vett[0];
-    
+
 for (int i=0; i<5; i++) {
     if (max < vett[i]) {
         max = vett[i];
@@ -194,13 +191,13 @@ printf("%d", max);
 // Output: 5
 ```
 
-![](../../../assets/for_pages/array3.png)
+![array3](../../../assets/for_pages/array3.png)
 
-# 📑 Esercizi
+## 📑 Esercizi
 
 [35 Esercizi con gli array](https://ticoprof.wordpress.com/2016/04/26/esercizi-con-gli-array/)
 
-## ESERCIZIO 1
+### ESERCIZIO 1
 
 Leggere un array di interi di 10 posizioni e verificare se è palindromo (ovvero se non cambia ad essere letto dalla prima cella all’ultima o viceversa).
 
@@ -209,36 +206,37 @@ inserisci 10 valori: 3 5 7 9 1 1 9 7 5 3
 l'array e' palindromo
 <details>
 <summary>💡 Mostra soluzione</summary>
-    
+
 ```c
 #include <stdio.h>
 
 int main() {
     int a[10];
 
-        printf("inserisci 10 valori: ");
-    for (int i=0; i<10; i++) {    
-                scanf("%d", &a[i]);
+    printf("inserisci 10 valori: ");
+    for (int i=0; i<10; i++) {
+        scanf("%d", &a[i]);
     }
 
     bool palindromo = true;
-    
+
     for(int i=0; i<5; i++) {
         if(a[i] != a[9-i]) {
             palindromo = false;
         }
     }
     if(palindromo) {
-                printf("l'array e' palindromo");
+        printf("l'array e' palindromo");
     }
     else {
-                printf("l'array NON e' palindromo");
+        printf("l'array NON e' palindromo");
     }
 }
 ```
+
 </details>
 
-## ESERCIZIO 2
+### ESERCIZIO 2
 
 Leggere un array di 10 interi e stampare solo i numeri che appaiono nell'array una volta soltanto.
 
@@ -247,7 +245,7 @@ inserisci 10 numeri interi:  1 3 5 3 2 0 5 2 3 4
 1 0 4
 <details>
 <summary>💡 Mostra soluzione</summary>
-    
+
 ```c
 #include <stdio.h>
 
@@ -257,14 +255,14 @@ int main(){
     //memorizzo l'array
     printf("inserisci 10 numeri interi: ");
     for(int i=0; i<10; i++) {
-                scanf("&d", &a[i]);
+        scanf("&d", &a[i]);
     }
-    
-    //per ogni numero dell'array 
+
+    //per ogni numero dell'array
     for(int i=0;i<10;i++) {
         // voglio contare quante volte appare a[i]
         int volte=0;
-        
+
         //controllo quante volte compare a[i]
         for(int j=0; j<10; j++) {
             if(a[j] == a[i]) {
@@ -272,7 +270,7 @@ int main(){
             }
         }
         if(volte == 1) {
-                        printf("%d ", a[i]);
+            printf("%d ", a[i]);
         }
     }
     return 0;

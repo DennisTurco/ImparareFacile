@@ -2,7 +2,7 @@
 import Container from "@/components/container.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-import discordIcon from "@/assets/logo/discord.png";
+import { Icon } from "astro-icon/components";
 
 // menuitems definiti qui
 const menuitems = [
@@ -25,7 +25,7 @@ const menuitems = [
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg">
+        <a href="/ImparareFacile/" class="text-lg">
           <span class="font-bold text-slate-800">Imparare</span><span class="text-slate-500">Facile</span>
         </a>
         <div class="block lg:hidden">
@@ -68,7 +68,7 @@ const menuitems = [
         <!-- Icona Discord -->
         <div class="ml-4 hidden lg:flex">
           <a href="https://discord.com/invite/9Jb4Gt3HhB" target="_blank" rel="noopener noreferrer">
-            <img src={discordIcon.src} alt="Discord" class="h-8 w-8 hover:scale-110 transition" />
+            <Icon name="fa6-brands:discord" class="h-8 w-8" />
           </a>
         </div>
       </MenuItems>

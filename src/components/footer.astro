@@ -1,31 +1,32 @@
 ---
-import discordIcon from "@/assets/logo/discord.png";
-import linkedinIcon from "@/assets/logo/l3.png";
-import githubIcon from "@/assets/logo/github.png";
-import mailIcon from "@/assets/logo/mail.png";
+import { Icon } from "astro-icon/components";
 ---
 
 <footer class="my-20">
   <div class="flex flex-col items-center space-y-4">
     <!-- Social links -->
-    <div class="flex space-x-6">
-      <a href="https://discordapp.com/invite/9Jb4Gt3HhB" target="_blank" aria-label="Discord">
-        <img src={discordIcon.src} alt="discord server" class="h-10 w-10"/>
+    <div class="flex space-x-4">
+      <a href="https://discordapp.com/invite/9Jb4Gt3HhB" target="_blank" aria-label="Discord"
+         class="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white hover:bg-gray-800 transition">
+        <Icon name="fa6-brands:discord" class="h-6 w-6" />
       </a>
-      <a href="https://www.linkedin.com/in/dennis-turco-751239232/" target="_blank" aria-label="LinkedIn">
-        <img src={linkedinIcon.src} alt="linkedin profile" class="h-10 w-10"/>
+      <a href="https://www.linkedin.com/in/dennis-turco-751239232/" target="_blank" aria-label="LinkedIn"
+         class="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white hover:bg-gray-800 transition">
+        <Icon name="fa6-brands:linkedin" class="h-6 w-6" />
       </a>
-      <a href="https://github.com/DennisTurco" target="_blank" aria-label="GitHub">
-        <img src={githubIcon.src} alt="github profile" class="h-10 w-10"/>
+      <a href="https://github.com/DennisTurco" target="_blank" aria-label="GitHub"
+         class="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white hover:bg-gray-800 transition">
+        <Icon name="fa6-brands:github" class="h-6 w-6" />
       </a>
-      <a href="mailto:dennisturco@gmail.com" target="_blank" aria-label="Email">
-        <img src={mailIcon.src} alt="mail" class="h-10 w-10"/>
+      <a href="/ImparareFacile/contact" target="_blank" aria-label="Email"
+         class="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white hover:bg-gray-800 transition">
+        <Icon name="fa6-solid:envelope" class="h-6 w-6" />
       </a>
     </div>
 
     <!-- Copyright -->
     <p class="text-center text-sm text-slate-500">
-      Copyright © 2022 - 2025 Dennis Turco. All rights reserved.
+      Copyright © 2022 - 2025 Dennis Turco
     </p>
   </div>
 </footer>

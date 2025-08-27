@@ -9,11 +9,11 @@ author: "Dennis Turco"
 ---
 
 
-# 1️⃣ Ciclo For
+## 1️⃣ Ciclo For
 
 Quando parliamo di ciclo for parliamo di iterazione definita ovvero di quando abbiamo delle **istruzioni da ripetere** e **conosciamo quante volte** vogliamo **ripeterle**.
 
-## **Sintassi**
+### Sintassi
 
 Il seguente ciclo scrive per 10 volte sullo schermo la parola “ciao”.
 
@@ -36,7 +36,7 @@ nell’esempio precedente:
 2. `i < 10`    →  Condizione del ciclo for;
 3. `i++`         →   Aggiornamento della variabile contatore;
 
-## Esempi
+### Esempi
 
 ***esempio 1***:
 
@@ -108,13 +108,13 @@ int main() {
                 printf("x = %d\n", x);
                 printf("Valore = %d\n", val3);
                 val3++; //  => val = val + 1;
-            } 
+            }
         }
     }
 }
 ```
 
-# 2️⃣ Ciclo While
+## 2️⃣ Ciclo While
 
 L’istruzione **while** prevede che prima venga valutata la *condizione* e poi, se è vera, verranno eseguite le *operazioni* all’interno del ciclo. Ecco perchè si definisce **pre-condizionale**.
 
@@ -124,17 +124,17 @@ Il ciclo potrebbe **non essere mai eseguito** se la condizione non fosse vera 
 
 Il ciclo potrebbe essere **infinito** se la condizione risultasse sempre vera. In questo caso si genera un **loop**.
 
-## **Sintassi**
+### Sintassi
 
 L'utilizzo tipico del while prevede quasi sempre l'esecuzione di un blocco di istruzioni, quindi quasi sempre troviamo il costrutto espresso nella forma:
 
 ```c
 while(condizione) {
-		// Istruzioni da eseguire
+    // Istruzioni da eseguire
 }
 ```
 
-## Esempi
+### Esempi
 
 ***esempio***:
 Generiamo i numeri da 0 a 10, a step di 2, utilizzando il ciclo while in C++
@@ -143,17 +143,17 @@ Generiamo i numeri da 0 a 10, a step di 2, utilizzando il ciclo while in C++
 #include <stdio.h>
 
 int main() {
-		int count = 0;
-		while(count <= 10) {
-				printf("%d\n", count);
-				count = count + 2;
-		}
+    int count = 0;
+    while(count <= 10) {
+        printf("%d\n", count);
+        count = count + 2;
+    }
 
-		return 0;
+    return 0;
 }
 ```
 
-# 3️⃣ Ciclo Do-While
+## 3️⃣ Ciclo Do-While
 
 L’idea alla base del ciclo **do-while** sta nel fatto che prima si entra nel ciclo (viene eseguito il corpo del ciclo), poi si controllo.
 
@@ -165,19 +165,17 @@ La semantica del costrutto **do-while** è dunque la seguente:
 2. Si valuta la condizione, la quale può essere vera o falsa.
 3. Se la condizione è vera si ritorna al punto 1; altrimenti si passa all’istruzione successiva.
 
-## **Sintassi**
+### Sintassi
 
 troviamo il costrutto espresso nella forma:
 
 ```c
 do {
-
-		// istruzioni;
-
+    // istruzioni;
 } while (condizione);
 ```
 
-## Esempi
+### Esempi
 
 ***esempio***:
 
@@ -187,16 +185,16 @@ inserire un valore finchè non viene letto un valore negativo.
 #include <stdio.h>
 
 int main() {
-		int valore;
+    int valore;
 
-		do {
-				printf("Inserire valore negativo: ");
-				scanf("%d", &valore);
-		} while (valore >= 0); 
-		// il ciclo continua fintanto che non si inserisce un valore negativo 
+    do {
+        printf("Inserire valore negativo: ");
+        scanf("%d", &valore);
+    } while (valore >= 0);
+    // il ciclo continua fintanto che non si inserisce un valore negativo
 }
 ```
 
-# 📑 Esercizi
+## 📑 Esercizi
 
 [MIX esercizi if/for/while in C++](https://ticoprof.wordpress.com/mix-esercizi-if-for-while-cpp/)

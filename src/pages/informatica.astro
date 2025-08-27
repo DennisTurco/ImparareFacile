@@ -5,8 +5,13 @@ import Container from "@/components/container.astro";
 import { Icon } from "astro-icon/components";
 
 // Ottieni tutte le lezioni pubblicate
-const entries = await getCollection("informatica", ({ data }) => {
+let entries = await getCollection("informatica", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
+});
+
+// Ordina per numero nel nome file (slug)
+entries = entries.sort((a, b) => {
+  return a.slug.localeCompare(b.slug, undefined, { numeric: true });
 });
 
 // Tipi
