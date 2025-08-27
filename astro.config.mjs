@@ -8,12 +8,12 @@ import mermaid from 'astro-mermaid';
 // https://astro.build/config
 export default defineConfig({
   site: "https://dennisturco.github.io/ImparareFacile/",
-  base: '/astroship/', // for github pages
   integrations: [
     mdx(),
     sitemap(),
     icon({
       include: ["fa6-solid", "fa6-brands"],
+
     }),
     mermaid({
       theme: 'forest', // Tema predefinito
