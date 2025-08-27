@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import { Icon } from "astro-icon/components";
+
+// Ottieni tutte le lezioni pubblicate
+const entries = await getCollection("informatica", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+
+// Tipi
+type LessonEntry = typeof entries[number];
+type ByLanguage = Record<string, LessonEntry[]>;
+
+// Raggruppa per linguaggio in base allo slug
+const byLanguage: ByLanguage = entries.reduce((acc, entry) => {
+  const [lang] = entry.slug.split("/");
+  if (!acc[lang]) acc[lang] = [];
+  acc[lang].push(entry);
+  return acc;
+}, {} as ByLanguage);
+---
+
+<Layout title="Informatica">
+  <Container>
+    <div class="container mx-auto px-6 py-8 space-y-8">
+      <h1 class="text-3xl font-bold">Progetti ed esercizi</h1>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>
+          <a
+            href="subpages/altro/Progetti.html"
+            class="text-blue-600 hover:underline">Progetti</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.geeksforgeeks.org/explore?page=2&difficulty=School,Basic,Easy&sortBy=submissions&itm_source=geeksforgeeks&itm_medium=main_header&itm_campaign=practice_header"
+            target="_blank"
+            class="text-blue-600 hover:underline">
+            Esercizi e sfide di programmazione (tutti i linguaggi)
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="text-3xl font-bold">Linguaggi</h1>
+
+      {Object.entries(byLanguage).map(([lang, lessons]) => (
+        <div>
+          <h2 class="text-2xl font-semibold flex items-center gap-2 mt-6">
+            {lang === "c" && <Icon name="fa6-solid:bookmark" class="text-gray-700" />}
+            {lang === "cpp" && <Icon name="fa6-solid:bookmark" class="text-gray-700" />}
+            {lang === "java" && <Icon name="fa6-brands:java" class="text-red-600" />}
+            <span class="uppercase">{lang}</span>
+          </h2>
+          <ul class="list-disc pl-6 space-y-2">
+            {lessons.map((lesson) => (
+              <li>
+                <a
+                  href={`/informatica/${lesson.slug}`}
+                  class="text-blue-600 hover:underline"
+                >
+                  {lesson.data.title || lesson.slug}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Layout>

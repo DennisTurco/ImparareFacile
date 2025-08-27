@@ -1,0 +1,19 @@
+---
+import Card from "./card.astro";
+import mateIcon from "@/assets/logo/matematica.png";
+import infoIcon from "@/assets/logo/informatica.png";
+---
+
+<div class="grid grid-cols-2 gap-4">
+  <Card
+    image={infoIcon.src}
+    url="/informatica"
+    title="Informatica"
+  />
+
+  <Card
+    image={mateIcon.src}
+    url="/matematica"
+    title="Matematica"
+  />
+</div>

@@ -1,0 +1,77 @@
+---
+import Container from "@/components/container.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import discordIcon from "@/assets/logo/discord.png";
+
+// menuitems definiti qui
+const menuitems = [
+  {
+    title: "Materie",
+    path: "#",
+    children: [
+      { title: "Informatica", path: "/informatica" },
+      { title: "Matematica", path: "/matematica" },
+    ],
+  },
+  { title: "Insegnanti", path: "/insegnanti" },
+  { title: "Contattami", path: "/contact" },
+  { title: "Video Lezioni", badge: true, path: "/videolezioni" },
+  { title: "Portfolio", path: "https://dennisturco.com/" },
+];
+---
+
+<Container>
+  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="text-lg">
+          <span class="font-bold text-slate-800">Imparare</span><span class="text-slate-500">Facile</span>
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+      </div>
+
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0 items-center">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item, index) => (
+              <>
+                {item.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuitems.length - 1}
+                  />
+                )}
+
+                {!item.children && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
+                      <span> {item.title}</span>
+                      {item.badge && (
+                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
+                          New
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ul>
+
+        <!-- Icona Discord -->
+        <div class="ml-4 hidden lg:flex">
+          <a href="https://discord.com/invite/9Jb4Gt3HhB" target="_blank" rel="noopener noreferrer">
+            <img src={discordIcon.src} alt="Discord" class="h-8 w-8 hover:scale-110 transition" />
+          </a>
+        </div>
+      </MenuItems>
+    </Astronav>
+  </header>
+</Container>

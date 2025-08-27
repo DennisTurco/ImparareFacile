@@ -1,0 +1,122 @@
+---
+title: "Interfacce"
+draft: false
+publishDate: "2025-08-27"
+subject: "Java"
+category: "Informatica"
+tags: ["java", "programmazione", "interfacce", "medio"]
+author: "Dennis Turco"
+---
+
+# 0️⃣ Link utili
+
+[Interfaces in Java - GeeksforGeeks](https://www.geeksforgeeks.org/interfaces-in-java/)
+
+# 1️⃣ Interfacce in java
+
+**Interfaccia**: una collezione di metodi `public` senza implementazione, definita da una struttura specifica in Java.
+
+```java
+public interface I {
+	public t1 m1(...);
+	//...
+	public t2 mn(...);
+}
+```
+
+Sebbene simile a una `class`, un'interfaccia presenta differenze fondamentali:
+
+- **Solo dichiarazioni di metodi**: un'interfaccia contiene esclusivamente le testate dei metodi, senza corpo, cioè non specifica come questi metodi devono essere implementati.
+- **Visibilità pubblica**: i metodi dichiarati in un'interfaccia sono sempre `public`, non sono permessi metodi `private` o `protected`.
+- **Assenza di attributi e costruttori**: un'interfaccia non può contenere campi dati né costruttori.
+
+In sintesi, un'interfaccia descrive **cosa** un oggetto sa fare, ma non **come** lo fa. Essa definisce un contratto che le classi che la implementano devono rispettare, fornendo poi l'implementazione concreta dei metodi.
+
+<aside>
+📚 *Nota Bene*: non è possibile creare direttamente un'istanza di un'interfaccia, poiché non contiene implementazioni concrete.
+
+*Esempio, data un'interfaccia `I`*:
+
+```java
+I x = new I(); // -> ERRORE
+```
+
+</aside>
+
+Per poter utilizzare i metodi definiti in un'interfaccia, una classe deve dichiarare che la implementa, assumendosi la responsabilità di fornire le implementazioni concrete di tali metodi.
+
+*Esempio*:
+
+```java
+public class CI implements I {
+	// implementazione dei metodi di I
+}
+```
+
+### Implementazione delle Interfacce
+
+Quando una classe implementa un'interfaccia:
+
+- Deve fornire l'implementazione di **tutti** i metodi dichiarati nell'interfaccia.
+- Può aggiungere ulteriori metodi non dichiarati nell'interfaccia.
+- La classe che implementa l'interfaccia diventa un **sotto-tipo** dell'interfaccia stessa, secondo il **principio di sostituibilità**: un oggetto della classe implementante può essere utilizzato ovunque sia richiesto un oggetto del tipo dell'interfaccia.
+
+*Esempio*:
+
+```java
+I A = new CI(); // A è un oggetto di tipo I che utilizza l'implementazione di CI
+```
+
+È possibile avere più implementazioni diverse della stessa interfaccia.
+
+*Esempio*:
+
+```java
+public interface I {
+	public int m1(int x);
+}
+
+public class CI1 implements I {
+	public int m1(int x) {
+		// implementazione specifica di CI1
+	}
+	public void m2() {
+		// un altro metodo specifico di CI1
+	}
+}
+
+public class CI2 implements I {
+	public int m1(int x) {
+		// implementazione specifica di CI2
+	}
+}
+
+// esempio di utilizzo
+I A = new CI1(); // A è un oggetto di tipo I che usa l'implementazione di CI1
+I B = new CI2(); // B è un oggetto di tipo I che usa l'implementazione di CI2
+
+```
+
+<aside>
+📚 *Nota Bene*: $CI1$ e $CI2$ sono sotto-tipi di $I$, quindi rispettano il **principio di sostituibilità**.
+
+- Perciò, se esiste una funzione: `int f(I x) {...}`
+    - `f(A)` è valido.
+    - `f(B)` è valido.
+- Tuttavia, se la funzione è definita come: `int f(CI1 x) {...}`
+    - `f(A)` è valido.
+    - `f(B)` non è valido.
+</aside>
+
+### Vantaggi delle Interfacce
+
+Le interfacce sono strumenti fondamentali nella programmazione orientata agli oggetti per:
+
+- **Migliorare la pulizia del codice**: separando la definizione dei metodi dalla loro implementazione, si ottiene un codice più modulare e leggibile.
+- **Favorire la riusabilità del codice**: poiché diverse classi possono implementare la stessa interfaccia, il codice che utilizza l'interfaccia può lavorare con qualsiasi classe che la implementa, senza necessitare di modifiche.
+
+Tuttavia, è importante utilizzare le interfacce in modo ponderato: non tutte le classi necessitano di un'interfaccia dedicata, poiché un eccesso di interfacce può complicare inutilmente il design del software.
+
+# 📑 Esercizi
+
+[esercizi risolti su classi astratte ed interfacce in Java](https://www.edutecnica.it/informatica/abstractx/abstractx.htm)

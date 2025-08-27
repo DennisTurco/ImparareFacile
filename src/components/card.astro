@@ -1,0 +1,31 @@
+---
+const { image, url, title, description } = Astro.props;
+---
+
+{url ? (
+  <a href={url} class="block rounded-2xl shadow-lg hover:shadow-xl transition overflow-hidden bg-white">
+    {image && (
+      <div class="h-40 w-full flex items-center justify-center bg-gray-100">
+        <img src={image} alt={title} class="h-full object-contain"/>
+      </div>
+    )}
+    <div class="p-4">
+      {title && <h2 class="text-xl font-bold mb-2">{title}</h2>}
+      {description && <p class="text-gray-600 text-sm">{description}</p>}
+      <slot /> <!-- 👈 qui puoi mettere contenuti custom -->
+    </div>
+  </a>
+) : (
+  <div class="block rounded-2xl shadow-lg transition overflow-hidden bg-white p-4">
+    {image && (
+      <div class="h-40 w-full flex items-center justify-center bg-gray-100">
+        <img src={image} alt={title} class="h-full object-contain"/>
+      </div>
+    )}
+    <div class="p-4">
+      {title && <h2 class="text-xl font-bold mb-2">{title}</h2>}
+      {description && <p class="text-gray-600 text-sm">{description}</p>}
+      <slot /> <!-- 👈 contenuti custom qui funzionano -->
+    </div>
+  </div>
+)}

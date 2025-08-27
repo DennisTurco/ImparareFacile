@@ -1,0 +1,60 @@
+---
+import { Picture } from "astro:assets";
+import heroImage from "@/assets/logo/logo.png";
+---
+
+<main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24 gap-8">
+  <!-- Immagine -->
+  <div class="py-6 md:order-1 hidden md:block max-w-[280px] mx-auto">
+    <Picture
+      src={heroImage}
+      alt="Logo Imparare Facile"
+      widths={[200, 400, 600]}
+      sizes="(max-width: 800px) 100vw, 280px"
+      loading="eager"
+      format="avif"
+      class="w-full h-auto rounded-lg"
+    />
+  </div>
+
+  <!-- Testo principale -->
+  <div>
+    <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+      Imparare Facile
+    </h1>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+      ImparareFacile è il sito degli appunti pensato per tutti i miei studenti e non solo! Dove carico appunti utili di matematica e informatica, con esercizi. Ci tengo a precisare che il sito non è completo,
+      aggiungo le parti mancanti solamente nel caso in cui vi è una richiesta. Nel caso non esitate a Contattami!
+    </p>
+  </div>
+</main>
+
+<!-- Messaggio di donazione -->
+<section class="mt-12 px-6 md:px-0 max-w-2xl mx-auto text-center space-y-4">
+  <p class="italic text-slate-600">
+    Questo sito è sviluppato senza alcun costo, esente da pubblicità. Se apprezzi il lavoro e hai tratto beneficio dall'utilizzo del sito, considera la possibilità di effettuare una donazione. 
+    Il tuo contributo sosterrà il continuo miglioramento e l'evoluzione del sito. Grazie di cuore!
+  </p>
+
+  <div id="donate-button-container" class="flex justify-center">
+    <div id="donate-button"></div>
+  </div>
+
+  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+  <script lang="ts">
+    window.addEventListener('load', () => {
+      if (window.PayPal && window.PayPal.Donation) {
+        window.PayPal.Donation.Button({
+          env: 'production',
+          hosted_button_id: 'KSE2ZLBWFVQEG',
+          image: {
+            src: 'https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donate_LG.gif',
+            alt: 'Fai una donazione con il pulsante PayPal',
+            title: 'Sostieni questo sito con una donazione',
+          }
+        }).render('#donate-button');
+      }
+    });
+  </script>
+
+</section>

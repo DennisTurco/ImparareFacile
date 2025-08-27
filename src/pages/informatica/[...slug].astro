@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import LessonLayout from "@/layouts/LessonLayout.astro";
+import { sidebar } from "@/data/sidebarInformatica.ts";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("informatica");
+  return entries.map(e => ({
+    params: { slug: e.slug }, // normale stringa
+    props: { entry: e },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const frontmatter = {
+  title: entry.data.title,
+  publishDate: entry.data.publishDate,
+  subject: entry.data.subject,
+  category: entry.data.category,
+  author: entry.data.author,
+  tags: entry.data.tags,
+  url: `/informatica/${entry.slug}`,
+};
+---
+
+<LessonLayout {frontmatter} lessons={sidebar}>
+  <Content />
+</LessonLayout>

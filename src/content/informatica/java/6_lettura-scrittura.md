@@ -1,0 +1,159 @@
+---
+title: "Lettura, Scrittura su file"
+draft: false
+publishDate: "2025-08-27"
+subject: "Java"
+category: "Informatica"
+tags: ["java", "programmazione", "lettura", "scrittura", "file", "medio"]
+author: "Dennis Turco"
+---
+
+# 0️⃣ **Introduzione**
+
+In Java, il concetto di "**stream**" e "**buffer**" sono fondamentali per la gestione efficiente dell'input e dell'output di dati. Vediamo cosa sono e come vengono utilizzati.
+
+# 1️⃣ **Buffer**
+
+Un **buffer** è una zona di memoria temporanea utilizzata per archiviare dati durante il loro trasferimento tra due luoghi. Nel contesto di Java, i buffer sono spesso utilizzati per migliorare le prestazioni durante la lettura o la scrittura di dati da o verso un file o un'altra fonte/destinazione.
+
+- Esempio Lettura:
+    
+    ```java
+    import java.io.BufferedReader;
+    import java.io.FileReader;
+    import java.io.IOException;
+    
+    public class LeggiFileJava {
+        public static void main(String[] args) {
+            String percorsoFile = "percorso_del_tuo_file.txt";
+    
+            try (BufferedReader reader = new BufferedReader(new FileReader(percorsoFile))) {
+                String linea;
+                while ((linea = reader.readLine()) != null) {
+                    System.out.println(linea);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+    
+- Esempio Scrittura:
+    
+    ```java
+    import java.io.BufferedWriter;
+    import java.io.FileWriter;
+    import java.io.IOException;
+    
+    public class ScriviSuFileJava {
+        public static void main(String[] args) {
+            String percorsoFile = "percorso_del_tuo_file.txt";
+    
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(percorsoFile))) {
+                writer.write("Prima linea di testo");
+                writer.newLine(); // Aggiungi una nuova linea
+                writer.write("Seconda linea di testo");
+    
+                System.out.println("Scrittura su file completata.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+    
+
+# 2️⃣ **Stream**
+
+Gli "**stream**" in Java sono flussi di dati che permettono la lettura e la scrittura sequenziale di dati. Ci sono due tipi principali di stream: **ByteStream** e **CharacterStream**.
+
+## **ByteStream**
+
+Questo tipo di stream è utilizzato per elaborare dati byte per byte (8 bit). Le classi più comuni in questo contesto sono FileInputStream e FileOutputStream. Il FileInputStream è utilizzato per leggere da una fonte, mentre il FileOutputStream è utilizzato per scrivere su una destinazione. Ecco una lista delle varie classi ByteStream:
+
+- **`FileInputStream`**: Legge byte da un file.
+- **`FileOutputStream`**: Scrive byte su un file.
+- Altre classi ByteStream disponibili.
+
+Esempio Lettura e Scrittura:
+
+```java
+import java.io.*; 
+
+public class ByteStream { 
+    public static void main(String[] args) throws IOException { 
+        
+        // dichiarazione degli Stream
+        FileInputStream sourceStream = null; 
+        FileOutputStream targetStream = null; 
+  
+        try { 
+            sourceStream = new FileInputStream("percorso_file_mittente.txt"); 
+            targetStream = new FileOutputStream("percorso_file_destinatario.txt"); 
+
+            // Lettura del contenuto del file di partenza e scrittura nel file 
+            // di destinazione byte per byte
+            int data; 
+            while ((data = sourceStream.read()) != -1) {
+                targetStream.write((byte)data);             
+            }
+
+        } finally { 
+            // chiusura degli Stream
+            if (sourceStream != null) 
+                sourceStream.close(); 
+            if (targetStream != null) 
+                targetStream.close(); 
+        } 
+    } 
+} 
+```
+
+<aside>
+📖 Nota Bene: Il blocco **`finally`** viene eseguito sempre, indipendentemente dal fatto che ci sia un'eccezione o meno. Questo è importante per assicurarsi che, anche in caso di eccezioni, le risorse vengano comunque chiuse correttamente.
+
+</aside>
+
+## **CharacterStream**
+
+In Java, i caratteri sono memorizzati utilizzando le convenzioni Unicode. Gli stream di caratteri ci permettono di leggere e scrivere dati carattere per carattere. Le classi più comuni in questo contesto sono FileReader e FileWriter. FileReader è utilizzato per leggere da una fonte, mentre FileWriter è utilizzato per scrivere su una destinazione.
+
+Esempio Lettura e Scrittura:
+
+```java
+import java.io.*;
+
+public class CharacterStream {
+    public static void main(String[] args) throws IOException {
+
+        // dichiarazione degli Stream
+        FileReader sourceStream = null;
+        FileWriter destinationStream = null;
+
+        try {
+            sourceStream = new FileReader("percorso_file_mittente.txt");
+            destinationStream = new FileWriter("percorso_file_destinatario.txt");
+
+            // Lettura del contenuto del file di partenza e scrittura nel file 
+            // di destinazione carattere per carattere
+            int data;
+            while ((data = sourceStream.read()) != -1) {
+                destinationStream.write(data);
+            }
+
+        } finally {
+            // Chiusura Stream
+            if (sourceStream != null)
+                sourceStream.close();
+            if (destinationStream != null)
+                destinationStream.close();
+        }
+    }
+}
+
+```
+
+# 📑 Esercizi
+
+[Files di testo in Java esercizi risolti](https://www.edutecnica.it/informatica/streamx/streamx.htm)
