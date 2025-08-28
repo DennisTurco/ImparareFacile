@@ -1,14 +1,14 @@
 ---
 title: "Puntatori"
 draft: false
-publishDate: "2025-08-27"
+publishDate: "2025-08-28"
 subject: "C"
 category: "Informatica"
 tags: ["c", "programmazione", "puntatori", "difficile"]
 author: "Dennis Turco"
 ---
 
-## Puntatori
+## 1. Puntatori
 
 ```c
 int altezza = 30;
@@ -21,12 +21,12 @@ Un Puntatore è una variabile che salva l’indirizzo di memoria di un’altra v
 
 Una variabile puntatore punta ad un tipo di dato (come `int`) dello stesso tipo e viene creato con l’operatore `*`.
 
-### Esempio di puntatore
+### 1.1 Esempio di puntatore
 
 ```c
 int altezza = 30;
 
-// variabile puntatore di nome ptrA che contene l'indirizzo di mememoria 
+// variabile puntatore di nome ptrA che contene l'indirizzo di mememoria
 // della variabile altezza
 int* ptr = &altezza;
 
@@ -36,11 +36,11 @@ printf("%p\n", ptr);      // output -> indirizzo di memoria di altezza (0x7ffe53
 printf("%d\n", *ptr);     // output -> valore di altezza (30)
 ```
 
-## Puntatori e Array
+## 2. Puntatori e Array
 
 In C, un **array** è una collezione di elementi dello stesso tipo memorizzati in locazioni di memoria contigue. Quando si utilizza il nome dell’array in un’espressione, esso viene automaticamente convertito in un **puntatore al primo elemento dell’array**.
 
-### Esempio
+### 2.1 Esempio
 
 ```c
 int numeri[] = {10, 20, 30, 40, 50};
@@ -62,7 +62,7 @@ printf("%d\n", *(numeri + 1)); // output -> 20
 printf("%d\n", *(numeri + 2)); // output -> 30
 ```
 
-### Accesso agli elementi con il puntatore
+### 2.2 Accesso agli elementi con il puntatore
 
 ```c
 int* ptr = numeri;
@@ -70,7 +70,7 @@ int* ptr = numeri;
 printf("%d\n", *(ptr + 3)); // output -> 40
 ```
 
-## Puntatori e Cicli
+## 3. Puntatori e Cicli
 
 Spesso si usano i puntatori per scorrere un array:
 
@@ -94,7 +94,7 @@ for (int* p = numeri; p < end; p++) {
 }
 ```
 
-## Puntatori e Funzioni
+## 4. Puntatori e Funzioni
 
 Puoi passare un array a una funzione come puntatore:
 
@@ -113,6 +113,6 @@ int main() {
 
 ```
 
-## Esercizi
+## 5. Esercizi
 
 [Codegrind - Formazione digitale a 360°](https://www.codegrind.it/esercizi/c/pointer)

@@ -45,45 +45,56 @@ const makeTitle = title
     </script>
 
     <!-- Copy code to clipboard -->
-    <script>
-      let copyButtonLabel = "Copia il Codice";
+     <script>
+      let copyButtonLabel = "Copia il codice";
+      let codeBlocks = Array.from(document.querySelectorAll("pre"));
 
-      // seleziona tutti i blocchi Astro-code
-      let codeBlocks = Array.from(document.querySelectorAll("div.astro-code"));
+      for (let codeBlock of codeBlocks) {
+        if (!codeBlock.parentNode) continue;
 
-      for (let block of codeBlocks) {
-        let codeEl = block.querySelector("code");
+        let codeEl = codeBlock.querySelector("code");
         if (!codeEl) continue;
 
-        // salta se è un mermaid
         if (codeEl.className.toLowerCase().includes("mermaid")) continue;
-
-        console.log("das")
 
         let wrapper = document.createElement("div");
         wrapper.style.position = "relative";
 
         let copyButton = document.createElement("button");
         copyButton.className = "copy-code";
-        copyButton.innerText = copyButtonLabel;
+        copyButton.innerHTML = copyButtonLabel;
+        copyButton.style.position = "absolute";
+        copyButton.style.top = "5px";
+        copyButton.style.right = "5px";
 
-        let preEl = block.querySelector("pre") || codeEl;
-        preEl.setAttribute("tabindex", "0");
+        codeBlock.setAttribute("tabindex", "0");
 
-        if (block.parentNode == null) continue;
-
-        block.parentNode.insertBefore(wrapper, block);
-        wrapper.appendChild(block);
+        codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+        wrapper.appendChild(codeBlock);
         wrapper.appendChild(copyButton);
 
         copyButton.addEventListener("click", async () => {
-          let text = codeEl.innerText;
-          await navigator.clipboard.writeText(text);
-          copyButton.innerText = "Codice Copiato";
-          setTimeout(() => (copyButton.innerText = copyButtonLabel), 700);
+          await copyCode(codeBlock, copyButton);
         });
       }
-    </script>
+
+      async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        if (!code) return;
+
+        let text = code.innerText;
+
+        try {
+          await navigator.clipboard.writeText(text);
+          button.innerText = "Codice copiato";
+          setTimeout(() => {
+            button.innerText = copyButtonLabel;
+          }, 700);
+        } catch (err) {
+          console.error("Failed to copy:", err);
+        }
+      }
+      </script>
 
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->

@@ -1,16 +1,16 @@
 ---
 title: "Lista"
 draft: false
-publishDate: "2025-08-27"
+publishDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "lista", "strutture dati", "complesso"]
 author: "Dennis Turco"
 ---
 
-# 1️⃣ Descrizione
+## 1. Descrizione
 
-![](https://scaler-topics-articles-md.s3.us-west-2.amazonaws.com/traversal-operation-of-linked-list.gif)
+![List](https://scaler-topics-articles-md.s3.us-west-2.amazonaws.com/traversal-operation-of-linked-list.gif)
 
 Una **lista** è una struttura dati che organizza una collezione di elementi in una sequenza ordinata. Le liste sono ampiamente utilizzate in programmazione per memorizzare dati in modo dinamico e flessibile.
 
@@ -25,13 +25,13 @@ Le liste forniscono una flessibilità notevole perché possono crescere e contra
 
 Le liste sono ampiamente utilizzate per implementare una varietà di strutture dati complesse, come pile, code, alberi e grafi, e sono fondamentali in molte aree della programmazione, inclusi algoritmi, strutture dati e applicazioni di database.
 
-# 2️⃣ Implementazione
+## 2. Implementazione
 
-### **Classe Nodo**
+### 2.1 Classe Nodo
 
 La classe **`Nodo`** rappresenta un elemento fondamentale di una lista collegata. Ogni nodo contiene due parti principali:
 
-1. **Info(`info`)**: Questo è il contenuto effettivo del nodo. È il valore che il nodo memorizza o rappresenta. 
+1. **Info(`info`)**: Questo è il contenuto effettivo del nodo. È il valore che il nodo memorizza o rappresenta.
 2. **Link (`link`)**: Questo è un riferimento al prossimo nodo nella lista. Ogni nodo, tranne l'ultimo, punta al nodo successivo. L'ultimo nodo della lista ha il suo link impostato su **`null`**, indicando la fine della lista.
 
 Inoltre, la classe **`Nodo`** fornisce metodi per accedere e modificare questi attributi:
@@ -66,7 +66,7 @@ public class Nodo {
 }
 ```
 
-### **Classe Lista**
+### 2.2 Classe Lista
 
 La classe **`Lista`** rappresenta una sequenza di nodi collegati. Contiene due parti principali:
 
@@ -116,7 +116,7 @@ public class Lista {
         n.setLink(head);            // Il link del nuovo nodo punta al nodo corrente (head)
         head = n;                   // Il nuovo nodo diventa la nuova testa della lista
         dimensione++;
-    }    
+    }
 
     public void InserisciInCoda(int dato) {
         Nodo n = new Nodo(dato);    // nuovo nodo
@@ -160,7 +160,7 @@ public class Lista {
 
     public void EliminaInTesta() {
         // se la lista e' vuota non posso eliminare nulla
-        if (head == null) 
+        if (head == null)
             return;
 
         head = head.getLink();
@@ -170,7 +170,7 @@ public class Lista {
     public void EliminaInCoda() {
         if (head == null)
             return;
-        
+
         if (head.getLink() == null) {  // caso in cui la lista contiene un solo elemento
             head = null;
         } else {
@@ -192,7 +192,7 @@ public class Lista {
             throw new IllegalArgumentException("Errore: Posizione non valida");
         if (head == null)
             throw new IllegalStateException("Errore: Lista gia' vuota");
-        
+
         if (posizione == 0) {
             // elimina in testa
             head = head.getLink();
@@ -252,20 +252,19 @@ public class Main {
 }
 ```
 
-# 📑 Esercizi
+## 3. Esercizi
 
 - **ESERCIZIO 1**:
-    
     Un dispsitivo MP3 consente di gestire playlist di brani musicali descritti da *titolo* e *durata* espressa in secondi. Implementare in linguaggio Java le classi Brano e Playlist che consentano di eseguire le seguenti operazioni, gestendo in modo adeguato le relative eccezioni:
-    
-    - aggiunta di un brano alla Lista dall’ultima posizione;
-    - eliminazione dalla lista di un brano identificato dal titolo;
-    - determinazione della durata totale dei brani della lista;
-    - esportazione dei primi *n* brani della lista in un vettore ( con *n* fornito come parametro);
-    - esportazione dei brani della lista fino a un tempo complessivo *t* di riproduzione (con *t* fornito come parametro);
-    - spostamento di un brano identificato dalla posizione (2, 3, …, n) nella posizione precedente (1, 2, …, n - 1);
-    - spostamento di un brano identificato dalla posizione (1, 2, …, n - 1) nella posizione successiva (2, 3, …, n);
-    - salvataggio e ripristino della lista dei brani in/da un file di tipo testuale;
-    - riordino casuale dei brani della lista (funzione *shuffle:* il metodo *nextint* della classe *java.util.Random* restituisce un numero casuale intero).
-    
+
+  - aggiunta di un brano alla Lista dall’ultima posizione;
+  - eliminazione dalla lista di un brano identificato dal titolo;
+  - determinazione della durata totale dei brani della lista;
+  - esportazione dei primi *n* brani della lista in un vettore ( con *n* fornito come parametro);
+  - esportazione dei brani della lista fino a un tempo complessivo *t* di riproduzione (con *t* fornito come parametro);
+  - spostamento di un brano identificato dalla posizione (2, 3, …, n) nella posizione precedente (1, 2, …, n - 1);
+  - spostamento di un brano identificato dalla posizione (1, 2, …, n - 1) nella posizione successiva (2, 3, …, n);
+  - salvataggio e ripristino della lista dei brani in/da un file di tipo testuale;
+  - riordino casuale dei brani della lista (funzione *shuffle:* il metodo *nextint* della classe *java.util.Random* restituisce un numero casuale intero).
+
     Realizzare un main che consenta di eseguire le operazioni in modo interattivo.

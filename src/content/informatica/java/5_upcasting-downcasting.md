@@ -1,7 +1,7 @@
 ---
 title: "Upcasting / Downcasting"
 draft: false
-publishDate: "2025-08-27"
+publishDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "upcasting", "downcasting", "difficile"]
@@ -10,17 +10,17 @@ author: "Dennis Turco"
 
 [Upcasting and Downcasting in Java - Full Tutorial](https://www.youtube.com/watch?v=HpuH7n9VOYk&ab_channel=CodingwithJohn)
 
-## ✅ **UPCASTING**
+## 1. UPCASTING
 
-### Cos'è:
+### 1.1 Cos'è
 
 L'**upcasting** è quando si assegna un oggetto di una **classe derivata (sottoclasse)** a una **variabile di tipo della superclasse**.
 
-### Perché è utile:
+### 1.2 Perché è utile
 
 Permette di trattare gli oggetti figli (come `Studente`) come se fossero della classe padre (`Persona`). Questo è utile quando vuoi scrivere codice generico che può funzionare su diversi tipi di oggetti.
 
-### ✅ Esempi nel tuo codice:
+### 1.3 Esempi nel tuo codice
 
 ```java
 Persona persona1 = new Studente("Gigi", "Sali", "DSKNGHSJDJH2323DSH", "23723");
@@ -40,19 +40,19 @@ Anche questo è **upcasting**: stai passando un oggetto `Studente` al metodo che
 
 ---
 
-## ❌ **DOWNCASTING**
+## 2. DOWNCASTING
 
-### Cos'è:
+### 2.1 Cos'è
 
 Il **downcasting** è l'operazione opposta: convertire un riferimento della superclasse (es. `Persona`) in un riferimento della sottoclasse (es. `Studente`).
 
-### Attenzione!
+### 2.2 Attenzione
 
 Non è sempre sicuro! Se l’oggetto **non è effettivamente** un `Studente`, si avrà un **errore a runtime (`ClassCastException`)**.
 
 ---
 
-### ✅ Esempi corretti nel tuo codice:
+### 2.3 Esempi corretti nel tuo codice
 
 ```java
 Studente studente1 = (Studente) persona1;
@@ -62,7 +62,7 @@ Questo funziona perché `persona1` **è** un `Studente` (vedi sopra, era stato c
 
 ---
 
-### ❌ Esempio sbagliato (errore a runtime):
+### 2.4 Esempio sbagliato (errore a runtime)
 
 ```java
 Studente studente2 = (Studente) persona;
@@ -78,7 +78,7 @@ Quindi, anche se il compilatore accetta il cast, **a runtime si genera un’ecce
 
 ---
 
-### ✅ Come evitarlo: uso di `instanceof`
+### 2.4 Come evitarlo: uso di `instanceof`
 
 ```java
 if (persona instanceof Studente) {
@@ -93,14 +93,14 @@ Questo è il modo sicuro per fare **downcasting condizionato**. Controlli prima 
 
 ---
 
-## 🧠 Riepilogo:
+## 3. Riepilogo
 
 | Operazione | Sicurezza | Quando usarla | Cast richiesto |
 | --- | --- | --- | --- |
 | **Upcasting** | Sicura | Quando tratti un oggetto figlio come oggetto generico | ❌ No |
 | **Downcasting** | Rischiosa | Quando vuoi usare metodi della sottoclasse | ✅ Sì (e `instanceof` è consigliato) |
 
-## ESEMPIO COMPLETO:
+## 4. Esempio Completo
 
 ```java
 public class Program {

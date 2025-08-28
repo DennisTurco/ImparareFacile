@@ -1,7 +1,7 @@
 ---
 title: "Pila"
 draft: false
-publishDate: "2025-08-27"
+publishDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "lista", "pila", "strutture dati", "complesso"]
@@ -9,9 +9,9 @@ author: "Dennis Turco"
 ---
 
 
-# 1️⃣ Descrizione
+## 1. Descrizione
 
-![](https://scaler.com/topics/images/working-of-stack-in-java.gif)
+![Pila](https://scaler.com/topics/images/working-of-stack-in-java.gif)
 
 Una **pila**, in Java, è una struttura dati lineare che segue il principio "LIFO" (Last In, First Out), il che significa che l'ultimo elemento inserito è il primo ad essere rimosso. È simile a un mucchio di piatti: il primo piatto che viene messo sul mucchio è l'ultimo a essere preso.
 
@@ -25,11 +25,11 @@ Operazioni principali:
 - **isEmpty()**: Verifica se la pila è vuota.
 - **size()**: Restituisce il numero di elementi nella pila.
 
-# 2️⃣ Implementazione
+## 2. Implementazione
 
 In questo esempio implementiamo una la Pila utilizzando una lista.
 
-## Classe Nodo
+### 2.1 Classe Nodo
 
 La classe **`Nodo`** rappresenta un elemento fondamentale della lista. Ogni nodo contiene due parti principali:
 
@@ -67,7 +67,7 @@ public class Nodo {
 }
 ```
 
-## Classe Pila
+### 2.2 Classe Pila
 
 1. **Classe `Pila`**: Questa classe rappresenta la struttura dati della pila e contiene i metodi per gestire gli elementi all'interno della pila.
 2. **Attributi**:
@@ -122,18 +122,18 @@ public class Pila {
 
     // rimuove il Nodo in cima e ne ritorna il contenuto
     public int pop() {
-        if (isEmpty()) 
+        if (isEmpty())
             throw new IllegalStateException("Errore: la pila e' vuota.");
-        
+
         int elemento = cima.getInfo();  // estrazione del contenuto del Nodo in cima
         cima = cima.getLink();          // rimozione del Nodo in cima
 
         dimensione--;
-        
+
         return elemento;
     }
 
-    // ritorna il contenuto del Nodo in cima 
+    // ritorna il contenuto del Nodo in cima
     public int peek() {
         if (isEmpty())
             throw new IllegalStateException("Errore: la pila e' vuota.");

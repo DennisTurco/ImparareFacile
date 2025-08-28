@@ -1,14 +1,14 @@
 ---
 title: "Ereditarietà"
 draft: false
-publishDate: "2025-08-27"
+publishDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "ereditarieta", "difficile"]
 author: "Dennis Turco"
 ---
 
-# 1️⃣ **Definizione di ereditarietà**
+## 1. Definizione di ereditarietà
 
 Si dice che una classe **A è una sottoclasse di B** (e analogamente che *B è una superclasse di A*) quando:
 
@@ -23,7 +23,6 @@ classDiagram
     note for Persona "classe base"
     note for Studente "classe derivata"
 ```
-
 
 <aside>
 un oggetto della classe Studente appartiene alla classe degli studenti e anche alla classe delle persone (ma non viceversa).
@@ -63,7 +62,7 @@ public class Studente extends Persona {
 }
 ```
 
-# 2️⃣ Visibilità
+## 2. Visibilità
 
 visibilità campi (dati/record) di una classe
 
@@ -74,30 +73,30 @@ visibilità campi (dati/record) di una classe
 | nelle sottoclassi (anche se in package diversi) | ✅ | ✅ | ❌ | ❌ |
 | all’esterno | ✅ | ❌ | ❌ | ❌ |
 
-# 3️⃣ Classe Object
+## 3. Classe Object
 
 Tutte le classi sono derivate dalla classe Object (def. in java.lang)
 
 ```mermaid
 graph BT
   Rettangolo --> Object
-  Quadrato --> Rettangolo 
+  Quadrato --> Rettangolo
 ```
 
 ---
 
-Object contiene l’implementazione di default di alcuni metodi, per esempio:
+Object contiene l'mplementazione di default di alcuni metodi, per esempio:
 
 - `equals(Object)` → boolean
-    - confronta i reference dei due oggetti (come ==).
+  - confronta i reference dei due oggetti (come ==).
 - `toString()` → String
-    - restituisce la stringa corrente al reference dell’oggetto di invocazione.
+  - restituisce la stringa corrente al reference dell’oggetto di invocazione.
 - `cone()` → Object
-    - effettua una copia (superficiale) dell’oggetto di invocazione.
+  - effettua una copia (superficiale) dell’oggetto di invocazione.
 
 Questi attributi sono ereditati da tutte le classi, ma possono essere ridefinite.
 
-# 4️⃣ Instanceof
+## 4. Instanceof
 
 In java è possibile determinare se un oggetto $o$ appartiene o no ad una classe $c$ con l’operatore `instanceof`
 
@@ -115,7 +114,7 @@ restituisce:
 - true → se l’oggetto $o$ è di tipo $c$.
 - false → altrimenti.
 
-# 5️⃣Esempio Completo
+## 5. Esempio Completo
 
 ```mermaid
 classDiagram
@@ -146,7 +145,7 @@ public class Rettangolo {
     // attributi
     private int base;
     private int altezza;
-    
+
     // costruttore senza parametri
     public Rettangolo() {
         this.base = 0;
@@ -186,13 +185,13 @@ package Java.ereditarieta_esempio_completo;
 public class Quadrato extends Rettangolo{
     // in questo caso questa classe non ha attributi
     // perchè già tutti contenuti nella classe base
-    
+
     // costruttore senza parametri
     public Quadrato() {
         super();
     }
 
-    // costruttore con un parametro 
+    // costruttore con un parametro
     public Quadrato(int lato){
         super(lato, lato);
     }
@@ -230,6 +229,6 @@ public class Main {
 }
 ```
 
-# 📑 Esercizi
+## 6. Esercizi
 
 [Ereditarietà di classi in linguaggio Java:esercizi risolti](https://www.edutecnica.it/informatica/polimorfismo_x/polimorfismo_x.htm)

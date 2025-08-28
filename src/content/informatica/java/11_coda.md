@@ -8,10 +8,9 @@ tags: ["java", "programmazione", "lista", "coda", "strutture dati", "complesso"]
 author: "Dennis Turco"
 ---
 
+## 1. Descrizione
 
-# 1️⃣ Descrizione
-
-![](https://scaler.com/topics/images/working-of-java-queue.gif)
+![Coda](https://scaler.com/topics/images/working-of-java-queue.gif)
 
 Una **coda** (queue) in Java è una struttura dati che segue il principio FIFO (First-In-First-Out), il che significa che il primo elemento inserito è il primo ad essere rimosso. È simile a una fila di persone in un supermercato: la prima persona che entra è la prima ad essere servita.
 
@@ -25,11 +24,11 @@ Operazioni principali:
 - **isEmpty()**: Verifica se la coda è vuota.
 - **size()**: Restituisce il numero di elementi presenti nella coda.
 
-# 2️⃣ Implementazione
+## 2. Implementazione
 
 In questo esempio implementiamo una la Coda utilizzando una lista.
 
-## Classe Nodo
+### 2.1 Classe Nodo
 
 La classe **`Nodo`** rappresenta un elemento fondamentale della lista. Ogni nodo contiene due parti principali:
 
@@ -67,7 +66,7 @@ public class Nodo {
 }
 ```
 
-## Classe Coda
+### 2.2 Classe Coda
 
 1. **Classe `Coda`**: Questa classe rappresenta la struttura dati della coda e contiene i metodi per gestire gli elementi all'interno della coda.
 2. **Attributi**:
@@ -125,7 +124,7 @@ public class Coda {
             end.setLink(n);
         }
         end = n;
-        
+
         dimensione++;
     }
 
@@ -137,11 +136,11 @@ public class Coda {
 
         int elemento = front.getInfo(); // Salva l'elemento all'inizio della coda
         front = front.getLink();        // Rimuove il nodo all'inizio della coda
-        
+
         if (front == null) {
             end = null;     // Se la coda diventa vuota, anche il riferimento alla fine viene aggiornato
         }
-        
+
         dimensione--;
 
         return elemento;

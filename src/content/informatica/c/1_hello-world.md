@@ -1,14 +1,14 @@
 ---
 title: "Hello World"
 draft: false
-publishDate: "2025-08-27"
+publishDate: "2025-08-28"
 subject: "C"
 category: "Informatica"
 tags: ["c", "programmazione", "introduzione", "facile"]
 author: "Dennis Turco"
 ---
 
-# 1️⃣ Hello World
+## 1. Hello World
 
 Il **primo programma in C**
 il più semplice in assoluto è il famoso “Hello World!” (Ciao Mondo) che ha soltanto lo scopo di stampare a video la scritta per spiegare la sintassi basilare del linguaggio.
@@ -17,15 +17,15 @@ il più semplice in assoluto è il famoso “Hello World!” (Ciao Mondo) che ha
 #include <stdio.h>  //libreria
 
 int main (){ //inizio del main
-	//corpo del main
-	printf("Hello World!");
-	return 0;
+    //corpo del main
+    printf("Hello World!");
+    return 0;
 } //fine del main
 ```
 
 Elementi Fondamentali:
 
-- **`#include`** è una direttiva del preprocessore, un comando, che permette di richiamare le librerie standard del C. 
+- **`#include`** è una direttiva del preprocessore, un comando, che permette di richiamare le librerie standard del C.
 Senza librerie un programma non avrebbe a disposizione i comandi per eseguire anche le operazioni più semplici, come leggere un file o stampare a video una scritta.
 - La funzione principale in un qualsiasi programma in C è il **`main()`** che, in questo caso, non ha parametri, ma può ricevere anche degli input da riga di comando. Il main è indispensabile ed unico e deve esserci sempre;
 - Le **parentesi graffe `{}`** servono, invece, per delimitare blocchi di istruzioni, o come vengono abitualmente chiamate “statement”, che sono eseguite in ordine, da quella più in alto, giù fino all’ultima;
@@ -37,7 +37,7 @@ All’interno di un ftprogramma C possono essere inseriti dei **commenti**, bast
 - `//` – Tutto quello che sta a destra sulla medesima riga viene considerato commento e viene ignorato (ai fini dell’interpretazione del linguaggio) dal compilatore;
 - `/* … */` – Tutto quello che è compreso tra i due asterischi viene considerato commento; questa forma viene utilizzata per commenti su più righe.
 
-# 2️⃣ Variabili
+## 2. Variabili
 
 Le variabili vengono definite da un **tipo** e da un **nome**.
 
@@ -47,8 +47,8 @@ Le variabili vengono definite da un **tipo** e da un **nome**.
 #include <stdio.h>
 
 int main (){
-	int x;  //int (valore intero) indica il tipo, 
-					//mentre x indica il nome della variabile
+    int x;  //int (valore intero) indica il tipo,
+            //mentre x indica il nome della variabile
 }
 ```
 
@@ -62,9 +62,9 @@ il C è **case-sensitive**, quindi si fa distinzione tra lettere maiuscole e let
 #include <stdio.h>
 
 int main (){
-	//sono due variabili diverse
-	int x;
-	int X;
+    //sono due variabili diverse
+    int x;
+    int X;
 }
 ```
 
@@ -76,8 +76,8 @@ Il **tipo** della variabile indica quale tipo di valori può assumere il contenu
 #include <stdlib.h>
 
 int main (){
-	int valore = 10;
-	char carattere = 'c';
+    int valore = 10;
+    char carattere = 'c';
 }
 ```
 
@@ -89,10 +89,10 @@ int main (){
 #include <stdio.h>
 
 int main (){
-	x = 5; //errore!! -> la variabile x non e' stata dichiarata!
-	
-	int x;
-	x = 5; //OK
+    x = 5; //errore!! -> la variabile x non e' stata dichiarata!
+
+    int x;
+    x = 5; //OK
 }
 ```
 
@@ -106,7 +106,7 @@ Successivamente **la variabile deve essere inizializzata**, cioè le deve esser
 // dichiarazione ed inizializzazione int y = 15;
 ```
 
-## Variabili - tipi
+### 2.1 Variabili - tipi
 
 Nella tabella seguente sono mostrati i vari tipi (principali), la parola chiave C che li identifica (`char` per carattere, `int` per intero, etc.), la tipologia di informazioni che rappresentano ed il numero di byte necessari per la loro rappresentazione in C:
 
@@ -120,7 +120,7 @@ Nella tabella seguente sono mostrati i vari tipi (principali), la parola chiave 
 | `double` | Numero reale “lungo” | 8 (64 bit) |
 | `bool` | Confronto | 1 (8 bit) |
 
-### int
+#### 2.1.1 int
 
 Il tipo **int** permette di rappresentare numeri interi. Possiamo dichiarare un `int` con due varianti: **short e long**, anche se in realtà un tipo `int` è già di per se’ un tipo `short`, mentre il la keyword `long` permette di estendere (utilizzando due byte in più) il range dei valori che il tipo int può assumere, consentendoci di lavorare con grandi numeri. (attenzione ad usare operazione di divisione `/`).
 
@@ -135,7 +135,7 @@ z = x / y; // z vale 2, cioè la parte intera della divisione tra 7 e 3
 
 ---
 
-### char
+#### 2.1.2 char
 
 Il tipo **`char`** può contenere qualsiasi carattere definito secondo lo [standard ASCII](https://www.asciitable.com/), quindi qualsiasi lettera (maiuscola o minuscola), cifra (da 0 a 9) e simbolo previsto dalla codifica.
 
@@ -149,7 +149,7 @@ char a = 'r';
 
 ---
 
-### float e double
+#### 2.1.3 float e double
 
 I tipi **`float`** e **`double`** sono i cosiddetti numeri in virgola mobile, che rappresentano l’insieme dei numeri reali: con essi possiamo rappresentare numeri molto piccoli o numeri molto grandi, positivi e negativi e naturalmente con e senza decimali.
 
@@ -164,7 +164,7 @@ z = x / y; // z vale 3.5
 
 ---
 
-### bool
+#### 2.1.4 bool
 
 i tipi `bool` sono valori che possono essere `true` oppure `false`.
 
@@ -193,7 +193,7 @@ int main() {
 }
 ```
 
-# 3️⃣ Operatori
+## 3. Operatori
 
 Gli **operatori** si suddividono in:
 
@@ -201,7 +201,7 @@ Gli **operatori** si suddividono in:
 - Operatori di confronto;
 - Operatori logici;
 
-## **Operatori aritmetici**
+### 3.1 Operatori aritmetici
 
 Comprendono somma, sottrazione, moltiplicazione, divisione intera, divisione con modulo ecc. (in ordine `+`, `-`, `*`, `/`, `%`).
 
@@ -210,8 +210,7 @@ Comprendono somma, sottrazione, moltiplicazione, divisione intera, divisione con
 | Addizione | + | 4 + 27 = 31 |
 | Sottrazione | – | 76 – 23 = 53 |
 | Moltiplicazione | * | 4 * 7 = 28 |
-| Divisione intera | / | 10 / 3 = 3
-(3 è il n di volte divisibili senza resto) |
+| Divisione intera | / | 10 / 3 = 3 (3 è il n di volte divisibili senza resto) |
 | Divisione con modulo | % | 11 / 6 = 5 (5 è il resto della divisione) |
 
 | Operazioni con i double | Simbolo | Esempio |
@@ -250,7 +249,7 @@ int x = 3; x *= y + 3;
 
 ```
 
-## **Operatori di confronto**
+### 3.2 Operatori di confronto
 
 Operatori che permettono di verificare determinate condizioni, come ad esempio l’uguaglianza(`==`), la disuguaglianza(`!=`) oppure `>`, `<`, `>=`, `<=`;
 
@@ -271,24 +270,24 @@ Operatori che permettono di verificare determinate condizioni, come ad esempio l
 `a > b`     VERO $\Leftrightarrow$ a è maggiore strettamente di b.
                 FALSO altrimenti.
 
-## **Operatori logici**
+### 3.3 Operatori logici
 
-Da utilizzare con le istruzioni condizionali ed iterative, come ad esempio l’operatore e/allo stesso tempo (`&&`),  o/oppure(`||`) 
+Da utilizzare con le istruzioni condizionali ed iterative, come ad esempio l’operatore e/allo stesso tempo (`&&`),  o/oppure(`||`)
 
 | Simbolo | Significato | Utilizzo |
 | --- | --- | --- |
 | && | AND logico | `a && b` |
-| || | OR logico | `a || b` |
+| \|\| | OR logico | `a \|\| b` |
 
 *esempi*:
 
 `a && b`   VERO $\Leftrightarrow$ a è vero e b è vero.
                 FALSO altrimenti.
 
-`a || b`   VERO $\Leftrightarrow$ a è vero e/o b è vero. 
+`a || b`   VERO $\Leftrightarrow$ a è vero e/o b è vero.
                 FALSO altrimenti
 
-# 4️⃣ Input - Output
+## 4. Input - Output
 
 In questa lezione esaminiamo gli strumenti che il **linguaggio C**
 ci offre per operare su input e output. In particolare vediamo come effettuare semplici stampe a video a partire dalle informazioni inserite con la tastiera.
@@ -296,12 +295,12 @@ ci offre per operare su input e output. In particolare vediamo come effettuare s
 Per fare questo dobbiamo includere il file **<stdio.h>**
 che mette a disposizione alcune funzioni predefinite per eseguire la lettura da un dispositivo di input (es. tastiera) o scrittura su un dispositivo di output (es. video);
 
-le funzioni di cui parleremo sono: 
+le funzioni di cui parleremo sono:
 
 1. **printf()**
 2. **scanf()**
 
-## printf
+### 4.1 printf
 
 L’istruzione per stampare a video più usata è la **printf()**, che ci permette di controllare ciò che viene stampato, nel senso che permette di decidere cosa stampare ed in quale forma. La struttura di printf è la seguente:
 
@@ -351,7 +350,7 @@ Le **sequenze di escape** servono per rappresentare quei caratteri “speciali�
 | `\a` | Torna indietro di uno spazio |
 | `\f` | Salto pagina |
 
-## scanf
+### 4.2 scanf
 
 La funzione **scanf()** serve per leggere dallo **stdin** (generalmente la tastiera) una sequenza di caratteri (lettere o cifre) che verranno memorizzate all’interno di opportune variabili. Scanf è, quindi, definita come segue:
 
@@ -364,19 +363,19 @@ A differenza di `printf()`, però la variabile deve essere messa preceduta dal 
 ```c
 #include <stdio.h>
 int main(){
-	int i;
-	scanf("%d \n", &i);
-	printf("%d \n", i);
+    int i;
+    scanf("%d \n", &i);
+    printf("%d \n", i);
 }
 ```
 
 **Questo semplice programma sopra esposto serve solamente per leggere un numero da tastiera e ristamparlo a video;**
 
-# 📑 Esercizi
+## 5. Esercizi
 
-## Esercizio 1
+### 5.1 Esercizio 1
 
-realizzare un programma che chiede all’utente 2 valori interi e ne restituisce la somma. 
+realizzare un programma che chiede all’utente 2 valori interi e ne restituisce la somma.
 
 > Esempio Output:
 inserisci primo valore: 3
@@ -388,76 +387,78 @@ la somma è: 8
 ```c
 #include <stdio.h>
 
-int main() { 
+int main() {
     // dichiarazione variabili intere
     int x;
     int y;
-    
+
     // lettura variabili
     printf("inserisci primo valore: ");
     scanf("%d", &x);
     printf("inserisci secondo valore: ");
     scanf("%d", &y);
-    
+
     // operazioni
     int somma = x+y;
-    
+
     // stampa somma
     printf("la somma è: %d", somma);
-    
+
     return 0;
 }
 ```
+
 </details>
 
-## Esercizio 2
+### 5.2 Esercizio 2
 
-realizzare un programma che chiede all’utente un valore intero e ne restituisce il valore successivo (+1) e quello precedente (-1). 
+realizzare un programma che chiede all’utente un valore intero e ne restituisce il valore successivo (+1) e quello precedente (-1).
 
 > Esempio Output:
 inserisci valore: 4
 valore: 4
-valore + 1: 5 
+valore + 1: 5
 valore - 1: 3
 <details>
 <summary>💡 Mostra soluzione</summary>
-    
+
 ```c
 #include <stdio.h>
 
 int main(){
     // dichiarazione variabili
     int x;
-    
+
     // lettura variabili
     printf("inserisci valore: ");
         scanf("%d", &x);
-    
+
     // operazioni
     int somma = x+1;
     int sottrazione = x-1;
-    
+
     //stampa
     printf("valore: %d\n", x);
         printf("valore + 1: %d\n", somma);
         printf("valore - 1: %d\n", sottrazione);
-    
+
     return 0;
 }
 ```
+
 </details>
 
-## Esercizio 3
+### 5.3 Esercizio 3
 
 realizzare un programma che chiede all’utente 2 valori reali e ne restituisce la media.
 
 > Esempio Output:
 inserisci primo valore: 6
-inserisci secondo valore: 5 
+inserisci secondo valore: 5
 la media è: 5.5
 <details>
 <summary>💡 Mostra soluzione</summary>
-    
+
 ```c
 #include <stdio.h>
 
@@ -471,7 +472,7 @@ int main(){
     scanf("%f", &x);
     printf("inserisci secondo valore: ");
     scanf("%f", &y);
-    
+
     float media = (x+y)/2;
 
     // operazioni

@@ -1,18 +1,18 @@
 ---
 title: "Eccezioni"
 draft: false
-publishDate: "2025-08-27"
+publishDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "eccezioni", "difficile"]
 author: "Dennis Turco"
 ---
 
-# 1️⃣ Introduzione
+## 1. Introduzione
 
 Le eccezioni sono un meccanismo fondamentale per la gestione degli errori in Java, fornendo un modo strutturato per gestire situazioni eccezionali che possono verificarsi durante l'esecuzione di un programma. Sebbene il concetto di eccezione sia simile a quello presente in C++, in Java le eccezioni sono trattate in modo più rigoroso e sono parte integrante del linguaggio.
 
-### Motivazioni e meccanismi (simili a C++):
+### 1.1 Motivazioni e meccanismi (simili a C++)
 
 - **Generazione dell'eccezione**: In Java, un'eccezione può essere generata (o "sollevata") utilizzando la parola chiave `throw`. Questo è simile a C++, dove `throw` è utilizzato per lo stesso scopo.
 - **Cattura e gestione dell'eccezione**: Per catturare e gestire un'eccezione, si utilizzano i blocchi `try-catch`. Anche questo è simile a C++, con alcune differenze sintattiche e di comportamento.
@@ -41,14 +41,14 @@ graph BT
 
 ```
 
-### Tipi di eccezioni:
+### 1.2 Tipi di eccezioni
 
 - **Eccezioni controllate (checked exceptions)**: Devono essere dichiarate nell’intestazione del metodo che può sollevare l’eccezione, usando la parola chiave `throws`. Il compilatore richiede che queste eccezioni siano gestite, garantendo che il programma non venga eseguito senza un'adeguata gestione degli errori. Un esempio tipico è `IOException`.
 - **Eccezioni non controllate (unchecked exceptions)**: Sono eccezioni che derivano dalla classe `RuntimeException`. Non è obbligatorio dichiararle o gestirle nel codice. Esempi comuni includono `NullPointerException` e `ArithmeticException`.
 
-# 2️⃣ Eccezioni in java
+## 2. Eccezioni in java
 
-## Creazione e gestione delle eccezioni
+### 2.1 Creazione e gestione delle eccezioni
 
 In Java, le eccezioni sono gestite principalmente attraverso i blocchi `try-catch-finally`. Ecco la sintassi di base:
 
@@ -58,15 +58,15 @@ try {
 } catch (TipoEccezione e) {
     // Codice per gestire l'eccezione
 } finally {
-    // Codice che verrà eseguito indipendentemente dal fatto che si verifichi o 
+    // Codice che verrà eseguito indipendentemente dal fatto che si verifichi o
     // meno un'eccezione
 }
 
 ```
 
-## Esempi di eccezioni
+### 2.2 Esempi di eccezioni
 
-### Esempio di eccezione controllata (`IOException`)
+#### 2.2.1 Esempio di eccezione controllata (`IOException`)
 
 ```java
 import java.io.FileReader;
@@ -87,7 +87,7 @@ public class EsempioIOException {
 
 In questo esempio, `IOException` è un'eccezione controllata che deve essere gestita dal programma, poiché la lettura di un file potrebbe fallire.
 
-### Esempio di eccezione non controllata (`NullPointerException`)
+#### 2.2.2 Esempio di eccezione non controllata (`NullPointerException`)
 
 ```java
 public class EsempioNullPointerException {
@@ -105,7 +105,7 @@ public class EsempioNullPointerException {
 
 In questo esempio, `NullPointerException` è un'eccezione non controllata che si verifica quando si tenta di accedere a un metodo o una proprietà di un oggetto che è null.
 
-## Eccezioni personalizzate
+## 3. Eccezioni personalizzate
 
 Java consente di definire eccezioni personalizzate per rappresentare condizioni di errore specifiche della propria applicazione.
 
@@ -137,6 +137,6 @@ public class EsempioEccezionePersonalizzata {
 
 In questo esempio, abbiamo definito un'eccezione personalizzata `DenominatoreNulloException` per gestire il caso in cui un metodo di divisione tenti di dividere per zero.
 
-# 📑 Esercizi
+## 4. Esercizi
 
 [Gestione delle eccezioni in linguaggio Java:esercizi risolti](https://www.edutecnica.it/informatica/eccezionix/eccezionix.htm)
