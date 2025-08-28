@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  variant: "tip" | "caution" | "danger" | "info";
+}
+
+const { variant } = Astro.props as Props;
+
+const iconName = {
+  tip: "fa6-solid:lightbulb",
+  caution: "fa6-solid:triangle-exclamation", // nome corretto in FA6
+  danger: "fa6-solid:fire",
+  info: "fa6-solid:circle-info",          // nome corretto in FA6
+}[variant];
+---
+
+<div
+  class:list={[
+    "aside prose-p:my-0 my-3 rounded-md border-l-4 px-4 py-3",
+    {
+      "prose-code:bg-green-400/20 border-green-400 bg-green-400/10 text-green-950":
+        variant === "tip",
+    },
+    {
+      "prose-code:bg-yellow-400/20 border-yellow-400 bg-yellow-400/10 text-yellow-950":
+        variant === "caution",
+    },
+    {
+      "prose-code:bg-red-400/20 border-red-400 bg-red-400/10 text-red-950":
+        variant === "danger",
+    },
+    {
+      "prose-code:bg-sky-400/20 border-sky-400 bg-sky-400/10 text-sky-950":
+        variant === "info",
+    },
+  ]}
+>
+  <div class="flex items-center gap-2 pb-2">
+    <Icon name={iconName} class="h-7 w-7" aria-hidden="true" />
+    <p class="text-sm font-bold">{variant.toUpperCase()}</p>
+  </div>
+  <slot />
+</div>

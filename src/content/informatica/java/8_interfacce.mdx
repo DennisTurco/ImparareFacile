@@ -32,16 +32,15 @@ Sebbene simile a una `class`, un'interfaccia presenta differenze fondamentali:
 
 In sintesi, un'interfaccia descrive **cosa** un oggetto sa fare, ma non **come** lo fa. Essa definisce un contratto che le classi che la implementano devono rispettare, fornendo poi l'implementazione concreta dei metodi.
 
-<aside>
-📚 *Nota Bene*: non è possibile creare direttamente un'istanza di un'interfaccia, poiché non contiene implementazioni concrete.
+<Aside variant="info">
+Non è possibile creare direttamente un'istanza di un'interfaccia, poiché non contiene implementazioni concrete.
 
 *Esempio, data un'interfaccia `I`*:
 
 ```java
 I x = new I(); // -> ERRORE
 ```
-
-</aside>
+</Aside>
 
 Per poter utilizzare i metodi definiti in un'interfaccia, una classe deve dichiarare che la implementa, assumendosi la responsabilità di fornire le implementazioni concrete di tali metodi.
 
@@ -97,8 +96,8 @@ I B = new CI2(); // B è un oggetto di tipo I che usa l'implementazione di CI2
 
 ```
 
-<aside>
-📚 *Nota Bene*: $CI1$ e $CI2$ sono sotto-tipi di $I$, quindi rispettano il **principio di sostituibilità**.
+<Aside variant="info">
+$CI1$ e $CI2$ sono sotto-tipi di $I$, quindi rispettano il **principio di sostituibilità**.
 
 - Perciò, se esiste una funzione: `int f(I x) {...}`
     - `f(A)` è valido.
@@ -106,7 +105,7 @@ I B = new CI2(); // B è un oggetto di tipo I che usa l'implementazione di CI2
 - Tuttavia, se la funzione è definita come: `int f(CI1 x) {...}`
     - `f(A)` è valido.
     - `f(B)` non è valido.
-</aside>
+</Aside>
 
 ### Vantaggi delle Interfacce
 

@@ -29,13 +29,13 @@
 }
 
 .prose code:not(pre code) {
-  background-color: #e4e2e2; /* grigio chiaro simile a Notion */
-  color: #b40707; /* testo scuro */
-  padding: 0.2rem 0.5rem; /* spazio interno leggermente maggiore */
-  border-radius: 0.35rem; /* angoli arrotondati più morbidi */
-  font-family: 'Fira Code', monospace; /* monospace elegante */
-  font-size: 0.875rem; /* dimensione simile a Notion */
-  font-weight: 500; /* leggermente più marcato */
+  background-color: #e4e2e2; /* Light gray */
+  color: #b40707; /* Rosso acceso */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .katex {
@@ -47,12 +47,13 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #3730a3;
+  background-color: #eeeeee;
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
   line-height: 1rem;
+  cursor: pointer;
 }
 
 .copy-code:hover {
-  background-color: #312e81;
+  background-color: #e4e4e4;
 }

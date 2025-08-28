@@ -20,16 +20,15 @@ Per esempio:
 ```mermaid
 classDiagram
     Persona --|> Studente : Inheritance
-    
     note for Persona "classe base"
     note for Studente "classe derivata"
 ```
 
+
 <aside>
-📖 un oggetto della classe Studente appartiene alla classe degli studenti e anche alla classe delle persone (ma non viceversa).
+un oggetto della classe Studente appartiene alla classe degli studenti e anche alla classe delle persone (ma non viceversa).
 
 ⇒ un oggetto Studente ha tutte le propietà (attributi e metodi) di Persona + eventuali altre sue personali propietà.
-
 </aside>
 
 ```java
@@ -49,10 +48,10 @@ public class Persona {
     // ...
 }
 
-// la classe Studente deriva da Persona 
+// la classe Studente deriva da Persona
 // => (ha accesso agli attributi e ai metodi protected e public).
 public class Studente extends Persona {
-    
+
     // attributi della classe
     private String matricola;
 

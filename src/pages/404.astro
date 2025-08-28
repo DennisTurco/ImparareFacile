@@ -1,7 +1,7 @@
 ---
 import Container from "@/components/container.astro";
 import Layout from "@/layouts/Layout.astro";
-import githubIcon from "@/assets/logo/github.png";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="404 Not Found">
@@ -15,20 +15,26 @@ import githubIcon from "@/assets/logo/github.png";
           <!-- Bottone Home -->
           <a
             href="/ImparareFacile/"
-            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
+            class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
           >
-            ← Torna alla Home
+            <Icon name="fa6-solid:house" class="h-7 w-7" />
+            Torna alla Home
           </a>
 
           <!-- Bottone Report GitHub -->
-          <a
-            href="https://github.com/DennisTurco/ImparareFacile/issues/new?title=404+Page+Not+Found&body=Pagina+404+in+URL:+{{window.location.href}}"
+          <a id="report-link"
+            href="#"
             target="_blank"
-            class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
-          >
-            <img src={githubIcon.src} alt="GitHub" class="h-6 w-6"/>
-            <span>Segnala su GitHub</span>
+            class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-sm">
+            <Icon name="fa6-brands:github" class="h-7 w-7" />
+            Segnala errore
           </a>
+          <script type="module">
+            const link = document.getElementById('report-link');
+            const currentURL = window.location.href;
+            const githubURL = `https://github.com/DennisTurco/ImparareFacile/issues/new?title=404+Page+Not+Found&body=Pagina+404+in+URL:+${encodeURIComponent(currentURL)}`;
+            link.href = githubURL;
+          </script>
         </div>
       </div>
     </div>

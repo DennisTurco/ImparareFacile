@@ -1,0 +1,5 @@
+@plugin '@tailwindcss/typography';
+
+.prose .katex-display {
+    @apply text-foreground;
+}

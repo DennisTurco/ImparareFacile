@@ -8,7 +8,7 @@ tags: ["c", "programmazione", "arraymonodimensionali", "medio-difficile"]
 author: "Dennis Turco"
 ---
 
-## 1️⃣ Descrizione
+## 1. Descrizione
 
 Un **array monodimensionale** (o vettore) è una sequenza di variabili dello stesso tipo che vengono situate consecutivamente nella memoria ed alle quali è possibile accedere usando uno stesso nome (identificatore) a cui viene aggiunto un indice. Pensiamo all'**array** come ad un insieme di cassetti numerati.
 
@@ -16,7 +16,7 @@ Un **array monodimensionale** (o vettore) è una sequenza di variabili dello ste
 
 ![array1](../../../assets/for_pages/array1.png)
 
-## 2️⃣ Dichiarazione
+## 2. Dichiarazione
 
 $$
 t \ \  A[n];
@@ -54,17 +54,17 @@ int E[10] = {3,5,6,2,1,8,4,7,9,0}
 int F[N] = {0};
 ```
 
-## 3️⃣ Dimensione Array
+## 3. Dimensione Array
 
 1. Numero elementi predefinito → **array statici** = dimensione array costante (nota a compile-time)
 2. Numero elementi specificato a run-time → **array semidinamici** = dimensione array qualsiasi (intera)
 3. Numero elementi non specificato → **array dinamici**
 
-<aside>
-📖 *Nota Bene*: per gli array statici e semidinamici, una volta allocata, la dimensione dell’array non è più modificabile.
-</aside>
+<Aside variant="info">
+Per gli array statici e semidinamici, una volta allocata, la dimensione dell’array non è più modificabile.
+</Aside>
 
-## 4️⃣ Operazioni
+## 4. Operazioni
 
 ### Accesso elemento
 
@@ -126,7 +126,7 @@ per eseguire correttamente operazioni di confronto, assegnamento ed I/O è spess
 
     *esempio*:  `printf("%d", A[i])`
 
-## 5️⃣ Algoritmi principali
+## 5. Algoritmi principali
 
 ### Stampa Array
 
@@ -173,7 +173,7 @@ Ragionamento per “swappare” gli elementi di un array tra di loro:
 
 ![array4](../../../assets/for_pages/array4.png)
 
-### **Ricerca Massimo/Minimo**
+### Ricerca Massimo/Minimo
 
 ```cpp
 vett[5] = {2, 5, 1, 0, 3};
@@ -193,7 +193,7 @@ printf("%d", max);
 
 ![array3](../../../assets/for_pages/array3.png)
 
-## 📑 Esercizi
+## 6. Esercizi
 
 [35 Esercizi con gli array](https://ticoprof.wordpress.com/2016/04/26/esercizi-con-gli-array/)
 
@@ -278,3 +278,56 @@ int main(){
 ```
 
 </details>
+
+
+## Quiz a risposta multipla
+
+import Quiz from '../../../components/Quiz.jsx';
+
+<Quiz client:load questions={[
+  {
+    question: "Cos'è un array monodimensionale?",
+    answers: {
+      a: 'Struttura dati con elementi diversi',
+      b: 'Sequenza di variabili dello stesso tipo in memoria contigua',
+      c: 'Variabili di tipo diverso in memoria casuale',
+      d: 'Sequenza di puntatori non contigui'
+    },
+    correctAnswer: 'b'
+  },
+  {
+    question: "Come si dichiara un array di 10 interi?",
+    answers: {
+      a: 'int array[10];',
+      b: 'int[10] array;',
+      c: 'int array = new int[10];',
+      d: 'array int[10];'
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "3) Se dichiariamo un array come int arr[5] = {1, 2, 3};, quale sarà il valore di arr[4]?",
+    answers: { a: '1', b: '3', c: '0', d: 'valore non definito' },
+    correctAnswer: 'c'
+  },
+  {
+    question: "4) Quale delle seguenti operazioni non è valida su un array?",
+    answers: {
+      a: 'Modificare il valore di un elemento usando l\'indice dell\'array',
+      b: 'Usare l\'indice dell\'array per accedere a un elemento',
+      c: 'Sommare due array direttamente con l\'operatore +',
+      d: 'Inizializzare un array al momento della dichiarazione'
+    },
+    correctAnswer: 'c'
+  },
+  {
+    question: "5) Se tentiamo di accedere a un elemento al di fuori dei limiti di un array, cosa succede?",
+    answers: {
+      a: 'Il programma si chiude immediatamente',
+      b: 'Viene lanciata un\'eccezione',
+      c: 'Viene restituito un valore casuale o si verifica un comportamento indefinito',
+      d: 'Viene restituito il valore zero'
+    },
+    correctAnswer: 'c'
+  }
+]} />

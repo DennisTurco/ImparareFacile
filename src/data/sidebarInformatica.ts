@@ -1,8 +1,8 @@
 export const sidebar = {
-  "Informatica Introduzione": [
-    { title: "Algebra Booleana", url: "/ImparareFacile/informatica/introduzione/AlgebraBooleana" },
-    { title: "Porte Logiche", url: "/ImparareFacile/informatica/introduzione/PorteLogiche" },
-  ],
+  // "Informatica Introduzione": [
+  //   { title: "Algebra Booleana", url: "/ImparareFacile/informatica/introduzione/AlgebraBooleana" },
+  //   { title: "Porte Logiche", url: "/ImparareFacile/informatica/introduzione/PorteLogiche" },
+  // ],
   "C": [
     { title: "Hello World", url: "/ImparareFacile/informatica/c/1_hello-world" },
     { title: "Controlli Condizionali: if-else", url: "/ImparareFacile/informatica/c/2_controlli-condizionali" },
@@ -18,19 +18,19 @@ export const sidebar = {
   "C++": [
     { title: "Hello World", url: "/ImparareFacile/informatica/cpp/helloworld" },
     { title: "Controlli Condizionali: if-else", url: "/ImparareFacile/informatica/cpp/ControlliCondizionali" },
-    { title: "Cicli", url: "/ImparareFacile/informatica/cpp/Cicli" },
-    { title: "Array Monodimensionali", url: "/ImparareFacile/informatica/cpp/ArrayMonodimensionali" },
-    { title: "Array Bidimensionali", url: "/ImparareFacile/informatica/cpp/ArrayBidimensionali" },
-    // { title: "String (Work in Progress)", url: "" },
-    { title: "Funzioni", url: "/ImparareFacile/informatica/cpp/Funzioni" },
-    { title: "Funzione rand()", url: "/ImparareFacile/informatica/cpp/FunzioneRand" },
+    // { title: "Cicli", url: "/ImparareFacile/informatica/cpp/Cicli" },
+    // { title: "Array Monodimensionali", url: "/ImparareFacile/informatica/cpp/ArrayMonodimensionali" },
+    // { title: "Array Bidimensionali", url: "/ImparareFacile/informatica/cpp/ArrayBidimensionali" },
+    // // { title: "String (Work in Progress)", url: "" },
+    // { title: "Funzioni", url: "/ImparareFacile/informatica/cpp/Funzioni" },
+    // { title: "Funzione rand()", url: "/ImparareFacile/informatica/cpp/FunzioneRand" },
   ],
   "Java": [
     { title: "Hello World", url: "/ImparareFacile/informatica/java/1_hello-world" },
     { title: "Package", url: "/ImparareFacile/informatica/java/2_package" },
     { title: "Programmazione O-O", url: "/ImparareFacile/informatica/java/3_programmazione-oo" },
     { title: "Ereditarietà", url: "/ImparareFacile/informatica/java/4_ereditarieta" },
-    { title: "Ereditarietà", url: "/ImparareFacile/informatica/java/5_upcasting-downcasting" },
+    { title: "Upcasting / Downcasting", url: "/ImparareFacile/informatica/java/5_upcasting-downcasting" },
     { title: "Lettura e Scrittura su File", url: "/ImparareFacile/informatica/java/6_lettura-scrittura" },
     { title: "Eccezioni", url: "/ImparareFacile/informatica/java/7_eccezioni" },
     { title: "Interfacce", url: "/ImparareFacile/informatica/java/8_interfacce" },
@@ -39,38 +39,38 @@ export const sidebar = {
     { title: "Coda", url: "/ImparareFacile/informatica/java/11_coda" },
     { title: "JUnit Test", url: "/ImparareFacile/informatica/java/12_junit" },
   ],
-  "C#": [
-    { title: "Hello World", url: "/ImparareFacile/informatica/c#/helloworld" },
-    { title: "Programmazione O-O", url: "/ImparareFacile/informatica/c#/ProgrammazioneOO" },
-    { title: "Ereditarietà", url: "/ImparareFacile/informatica/c#/Ereditarieta" },
-    { title: "Foreach", url: "/ImparareFacile/informatica/c#/Foreach" },
-    { title: "Enums", url: "/ImparareFacile/informatica/c#/Enums" },
-    { title: "LINQ", url: "/ImparareFacile/informatica/c#/LINQ" },
-  ],
-  "Python": [
-    { title: "Input e Output", url: "/ImparareFacile/informatica/python/InputOutput" },
-    { title: "Dataclass", url: "/ImparareFacile/informatica/python/Dataclass" },
-    { title: "Liste", url: "/ImparareFacile/informatica/python/lista" },
-  ],
-  "SQL": [
-    { title: "Base di dati", url: "/ImparareFacile/informatica/sql/SQLIntroduzione" },
-    { title: "Algebra Relazionale", url: "/ImparareFacile/informatica/sql/AlgebraRelazionale" },
-    { title: "Diagrammi ER", url: "/ImparareFacile/informatica/sql/DiagrammiER" },
-    { title: "SQL: Concetti base", url: "/ImparareFacile/informatica/sql/sql" },
-    { title: "SQL: Trigger", url: "/ImparareFacile/informatica/sql/Trigger" },
-  ],
-  "Strutture Dati": [
-    { title: "Pila e Coda", url: "/ImparareFacile/informatica/strutturedati/PilaECoda" },
-    { title: "Alberi", url: "/ImparareFacile/informatica/strutturedati/Alberi" },
-    { title: "RiassuntoTeoria", url: "/ImparareFacile/informatica/strutturedati/RiassuntoTeoria" },
-  ],
-  "Strumenti": [
-    { title: "Comandi Base", url: "/ImparareFacile/informatica/strumenti/GITBase" },
-  ],
-  "Guide": [
-    { title: "Guida a DOSBox", url: "/ImparareFacile/informatica/altro/GuidaDOSBox" },
-    { title: "Guida conversione da .jar a .exe", url: "/ImparareFacile/informatica/altro/GuidaConversioneDaJarAdExe" },
-    { title: "Guida per firmare un file .exe", url: "/ImparareFacile/informatica/altro/GuidaFirmaExe" },
-    { title: "Guida per la scelta della GUI", url: "/ImparareFacile/informatica/altro/GuidaSceltaGUI" },
-  ],
+  // "C#": [
+  //   { title: "Hello World", url: "/ImparareFacile/informatica/c#/helloworld" },
+  //   { title: "Programmazione O-O", url: "/ImparareFacile/informatica/c#/ProgrammazioneOO" },
+  //   { title: "Ereditarietà", url: "/ImparareFacile/informatica/c#/Ereditarieta" },
+  //   { title: "Foreach", url: "/ImparareFacile/informatica/c#/Foreach" },
+  //   { title: "Enums", url: "/ImparareFacile/informatica/c#/Enums" },
+  //   { title: "LINQ", url: "/ImparareFacile/informatica/c#/LINQ" },
+  // ],
+  // "Python": [
+  //   { title: "Input e Output", url: "/ImparareFacile/informatica/python/InputOutput" },
+  //   { title: "Dataclass", url: "/ImparareFacile/informatica/python/Dataclass" },
+  //   { title: "Liste", url: "/ImparareFacile/informatica/python/lista" },
+  // ],
+  // "SQL": [
+  //   { title: "Base di dati", url: "/ImparareFacile/informatica/sql/SQLIntroduzione" },
+  //   { title: "Algebra Relazionale", url: "/ImparareFacile/informatica/sql/AlgebraRelazionale" },
+  //   { title: "Diagrammi ER", url: "/ImparareFacile/informatica/sql/DiagrammiER" },
+  //   { title: "SQL: Concetti base", url: "/ImparareFacile/informatica/sql/sql" },
+  //   { title: "SQL: Trigger", url: "/ImparareFacile/informatica/sql/Trigger" },
+  // ],
+  // "Strutture Dati": [
+  //   { title: "Pila e Coda", url: "/ImparareFacile/informatica/strutturedati/PilaECoda" },
+  //   { title: "Alberi", url: "/ImparareFacile/informatica/strutturedati/Alberi" },
+  //   { title: "RiassuntoTeoria", url: "/ImparareFacile/informatica/strutturedati/RiassuntoTeoria" },
+  // ],
+  // "Strumenti": [
+  //   { title: "Comandi Base", url: "/ImparareFacile/informatica/strumenti/GITBase" },
+  // ],
+  // "Guide": [
+  //   { title: "Guida a DOSBox", url: "/ImparareFacile/informatica/altro/GuidaDOSBox" },
+  //   { title: "Guida conversione da .jar a .exe", url: "/ImparareFacile/informatica/altro/GuidaConversioneDaJarAdExe" },
+  //   { title: "Guida per firmare un file .exe", url: "/ImparareFacile/informatica/altro/GuidaFirmaExe" },
+  //   { title: "Guida per la scelta della GUI", url: "/ImparareFacile/informatica/altro/GuidaSceltaGUI" },
+  // ],
 };
