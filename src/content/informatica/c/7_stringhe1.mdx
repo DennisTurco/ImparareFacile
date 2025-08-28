@@ -1,0 +1,107 @@
+---
+title: "Strings"
+draft: false
+publishDate: "2025-08-28"
+subject: "C"
+category: "Informatica"
+tags: ["c", "programmazione", "string", "medio"]
+author: "Dennis Turco"
+---
+
+## 1. Introduzione
+
+Le stringhe sono un insieme di caratteri, possono contenenere anche spazi, caratteri speciali e a capi.
+Per esempio "esempio", "Hello World" o "Ciao come stai?" sono stringhe.
+
+Ogni stringa termina con un carattere "invisibile", ovvero il carattere terminatore di stringa `'\0'`.
+
+Le stringhe a differenza dei singoli caratteri (che vengono delimitati da `'`) sono contenute dai simboli `"`.
+
+In c è possibile creare una stringa attraverso la dichiarazione di un **array di `char`** nel seguente modo:
+
+```c
+char nome[] = "Giancarlo"; // dichiarazione e inizializzazione di una stringa
+printf("%s", nome); // stampa di una stringa a terminale
+```
+
+## 2. Operazioni
+
+### 2.1 Accesso
+
+Siccome le stringhe non sono altro che array di caratteri, è possibile accedere ai singoli elementi (caratteri) in questo modo:
+
+```c
+char nome[] = "Giancarlo";
+printf("%c", nome[2]); // --> a
+```
+
+### 2.2 Modifica
+
+Per modificare una stringa è necessario lavorare carattere per carattere come per esempio:
+
+```c
+char nome[] = "Giancarlo";
+printf("%c", nome[2]); // --> a
+```
+
+<Aside variant="danger">
+Non è possibile modificare una stringa passando un'altra stringa come per esempio:
+```c
+    char nome[] = "Giancarlo";
+    nome = "NuovoNome"; // --> NO!
+```
+</Aside>
+
+## 3. Funzioni Principali
+
+Il linguaggio c offre la possibilità di usare numerose funzioni molto utili per operare sulle stringhe come:
+- `strlen(stringa)` $\rightarrow$ restituisce la lunghezza della stringa (numero di caratteri)
+- `strcat(stringa1, stringa2)` $\rightarrow$ concatena nella stringa1, l'unione tra stringa1 e stringa2
+- `strcpy(stringa1, stringa2)` $\rightarrow$ copia la stringa2 nella stringa1
+- `strcmp(stringa1, stringa2)` $\rightarrow$ restituisce 0 se le 2 stringhe sono uguali, 1 se stringa2 precede alfabeticamente stringa1, -1 viceversa
+
+### 3.1 strlen
+
+```c
+char nome[] = "Giancarlo";
+printf("%d", strlen(nome)); // --> 9
+```
+
+### 3.2 strcat
+
+```c
+char stringa1[32] = "Ciao mondo ";
+char stringa2[32] = "Come va??";
+strcat(stringa1, stringa2);
+printf("%s", stringa1); // --> Ciao mondo Come va??
+```
+
+### 3.3 strcpy
+
+```c
+char stringa1[32] = "Ciao mondo";
+char stringa2[32] = "Come va??";
+strcpy(stringa1, stringa2);
+printf("%s", stringa1) // -> Come va??
+printf("%s", stringa2) // -> Come va??
+```
+
+### 3.4 strcmp
+
+```c
+char stringa1[32] = "Ciao mondo";
+char stringa2[32] = "Come va??";
+if (strcmp(stringa1, stringa2) == 1) {
+    printf("La stringa '%s' precede la stringa '%s'", stringa2, stringa1);
+} else if (strcmp(stringa1, stringa2) == -1) {
+    printf("La stringa '%s' precede la stringa '%s'", stringa1, stringa2);
+} else if (strcmp(stringa1, stringa2) == 0) {
+    printf("La due stringhe: '%s' e '%s' sono uguali", stringa1, stringa2);
+}
+
+// --> La stringa 'Ciao mondo' precede la stringa 'Come va??'
+```
+
+### 4. Esercizi
+
+[Esercizi sulle stringhe](https://www.ilprofdinformatica.it/le-mie-lezioni/programmazione-c/stringhe)
