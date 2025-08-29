@@ -16,7 +16,7 @@ Un'istruzione if-else controlla il ramo condizionale. Le istruzioni nell'oggetto
 
 The syntax of the `if` statement is:
 
-LA sintassi dell’ `if` statement è:
+LA sintassi dell' `if` statement è:
 
 ```c
 if (condizione) {
@@ -24,16 +24,16 @@ if (condizione) {
 }
 ```
 
-L’ `if` statement valuta la `condizione` dentro alle parentesi `( )`.
+L' `if` statement valuta la `condizione` dentro alle parentesi `( )`.
 
-- Se la `condizione` risulta `true`, il codice dentro al corpo dell’ `if` viene *eseguito*.
-- Se la `condizione` risulta `false`, il codice dentro al corpo dell’ `if` viene *evitato*.
+- Se la `condizione` risulta `true`, il codice dentro al corpo dell' `if` viene *eseguito*.
+- Se la `condizione` risulta `false`, il codice dentro al corpo dell' `if` viene *evitato*.
 
-**Nota:** Il codice dentro `{ }` è il corpo dell’ `if` statement.
+**Nota:** Il codice dentro `{ }` è il corpo dell' `if` statement.
 
 ## 3️⃣ Funzionamento
 
-L’istruzione **if** permette di verificare determinate condizioni ed ha la seguente sintassi:
+L'istruzione **if** permette di verificare determinate condizioni ed ha la seguente sintassi:
 
 ```c
 //...
@@ -45,7 +45,7 @@ if(condizione){
 //...
 ```
 
-In questo caso **se** l’espressione risulta **vera**, fa eseguire l’istruzione immediatamente successiva, **altrimenti** (se la condizione è **falsa**) si salta l’istruzione (od il blocco di istruzioni) e si procede nell’esecuzione delle istruzioni successive, che possono essere la prosecuzione del programma o un semplice **else**, ad indicare la possibile alternativa all’if:
+In questo caso **se** l'espressione risulta **vera**, fa eseguire l'istruzione immediatamente successiva, **altrimenti** (se la condizione è **falsa**) si salta l'istruzione (od il blocco di istruzioni) e si procede nell'esecuzione delle istruzioni successive, che possono essere la prosecuzione del programma o un semplice **else**, ad indicare la possibile alternativa all'if:
 
 ```c
 f(condizione){
@@ -82,13 +82,13 @@ Così si può comandare il flusso del programma decidendo di eseguire una parte 
 
 ```c
 if (risultato_esame >= 18){
-    printf ("Complimenti hai superato l’esame");
+    printf ("Complimenti hai superato l'esame");
 }
 else if (risultato_esame >= 15) {
-    printf ("Devi sostenere l’orale per questo esame");
+    printf ("Devi sostenere l'orale per questo esame");
 }
 else {
-    printf ("Non hai superato l’esame");
+    printf ("Non hai superato l'esame");
 }
 ```
 
@@ -98,7 +98,7 @@ else {
 
 ### ESERCIZIO 1
 
-realizzare un programma che chiede all’utente 3 valori (valore1, valore2, valore3), in base ai quali il programma restituisce in output i 3 valori dal maggiore al minore.
+realizzare un programma che chiede all'utente 3 valori (valore1, valore2, valore3), in base ai quali il programma restituisce in output i 3 valori dal maggiore al minore.
 
 > Esempio Output:
 inserisci 3 numeri:
@@ -155,7 +155,7 @@ if (numero1 >= numero2 && numero1 >= numero3) {
 
 ### ESERCIZIO 2
 
-realizzare un programma che chiede all’utente 2 valori, in base ai quali il programma dice qual è il maggiore, oppure uguali nel caso.
+realizzare un programma che chiede all'utente 2 valori, in base ai quali il programma dice qual è il maggiore, oppure uguali nel caso.
 
 > Esempio Output:
 inserisci primo valore:  7
@@ -195,7 +195,7 @@ int main(){
 
 ### ESERCIZIO 3
 
-realizzare un programma che chiede all’utente 1 valore, se il valore è:
+realizzare un programma che chiede all'utente 1 valore, se il valore è:
 
 $x>1 ∧ x < 5$  → il voto è estremamente insufficiente
 
@@ -213,7 +213,7 @@ $x<0 ∨ x>10$  → il voto non è valido
 
 > Esempio Output:
 inserisci valore:  7
-il voto e’ buono
+il voto e' buono
 <details>
 <summary>💡 Mostra soluzione</summary>
 

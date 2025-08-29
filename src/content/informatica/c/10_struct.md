@@ -38,8 +38,8 @@ Utilizzare la `struct`parola chiave all'interno del `main()`metodo, seguita da
 
 dove:
 
-- `nome_struct` indica il nome della struct che abbiamo dichiarato, nell’esempio precedente si chiama “libro”.
-- `nome_variabile` nome definito dall’utente.
+- `nome_struct` indica il nome della struct che abbiamo dichiarato, nell'esempio precedente si chiama “libro”.
+- `nome_variabile` nome definito dall'utente.
 
 ```c
 struct libro {
@@ -122,7 +122,7 @@ realizzare una struct “classe” con 2 metodi:
 - char nome[2];
 - int alunni;
 
-che chiede all’utente l’inserimento dei campi della struct e ne stampi il contenuto.
+che chiede all'utente l'inserimento dei campi della struct e ne stampi il contenuto.
 
 <details>
 <summary>💡 Mostra soluzione</summary>
@@ -164,7 +164,7 @@ realizzare una struct “classe” con 2 metodi:
 - char nome[2];
 - int alunni;
 
-che chiede all’utente l’inserimento dei campi della struct e ne stampi il contenuto.
+che chiede all'utente l'inserimento dei campi della struct e ne stampi il contenuto.
 *Nota*: utilizzare un array di struct (es. `struct classe s[size];` con size grandezza arbitraria).
 <details>
 <summary>💡 Mostra soluzione</summary>
@@ -208,7 +208,7 @@ int main() {
 
 ## Esercizio 3
 
-come l’esercizio presedente, ma in più aggiungere la funzione “ordinamento” che ordina gli elementi della struct in base al campo “alunni”, l’obbiettivo è quello di ottenere la stampa ordinata in ordine crescente
+come l'esercizio presedente, ma in più aggiungere la funzione “ordinamento” che ordina gli elementi della struct in base al campo “alunni”, l'obbiettivo è quello di ottenere la stampa ordinata in ordine crescente
 
 <details>
 <summary>💡 Mostra soluzione</summary>

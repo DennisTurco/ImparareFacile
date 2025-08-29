@@ -43,7 +43,7 @@ graph BT
 
 ### 1.2 Tipi di eccezioni
 
-- **Eccezioni controllate (checked exceptions)**: Devono essere dichiarate nell’intestazione del metodo che può sollevare l’eccezione, usando la parola chiave `throws`. Il compilatore richiede che queste eccezioni siano gestite, garantendo che il programma non venga eseguito senza un'adeguata gestione degli errori. Un esempio tipico è `IOException`.
+- **Eccezioni controllate (checked exceptions)**: Devono essere dichiarate nell'intestazione del metodo che può sollevare l'eccezione, usando la parola chiave `throws`. Il compilatore richiede che queste eccezioni siano gestite, garantendo che il programma non venga eseguito senza un'adeguata gestione degli errori. Un esempio tipico è `IOException`.
 - **Eccezioni non controllate (unchecked exceptions)**: Sono eccezioni che derivano dalla classe `RuntimeException`. Non è obbligatorio dichiararle o gestirle nel codice. Esempi comuni includono `NullPointerException` e `ArithmeticException`.
 
 ## 2. Eccezioni in java

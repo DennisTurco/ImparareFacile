@@ -1,0 +1,176 @@
+---
+title: "File"
+draft: false
+publishDate: "2025-08-29"
+subject: "C"
+category: "Informatica"
+tags: ["c", "programmazione", "file", "medio"]
+author: "Dennis Turco"
+---
+
+## 1. Manipolare File
+
+In C, i file permettono di salvare e leggere dati in modo permanente dalla memoria di massa (hard disk, SSD, ecc.). La gestione dei file si basa su un puntatore a una struttura di tipo `FILE`, definita nella libreria standard: `#include <stdio.h>`
+
+Prima di pensare a come leggero o scrivere dobbiamo aprirlo, con `fopen`:
+
+```c
+File *file;
+file = fopen(nome_file, modo);
+// ...
+fclose(file);
+```
+
+La funzione `fclose` serve per chiudere il file, è buona norma chiudere sempre i file dopo aversi aperti quando non servono più, per liberare risorse.
+
+la funzione fopen prende in input 2 parametri:
+
+| Parametro   | Descrizione                                                                 |
+|-------------|------------------------------------------------------------------------------|
+| *nome_file* | Nome del file da aprire o creare, ad esempio `"test.txt"`                    |
+| *modo*      | Un singolo carattere che determina la modalità di apertura:<br/>• `w`: Scrive sul file (sovrascrivendolo)<br/>• `a`: Aggiunge testo al file (senza sovrascriverlo)<br/>• `r`: Legge dal file |
+
+<Aside variant="info">
+- Se apriamo un file in modalità scrittura (`w`), se il file esisteva già in precedenza, allora verrà sovrascritto, altrimenti verrà creato.
+
+- Tenere in considerazione che se non specifichiamo nessun percorso del file alla `fopen`, il file verrà creato nella stessa directory del progetto.
+</Aside>
+
+## 2. Scrivere su File
+
+Per Scrivere su file le modalità di apertura principali disponibili sono: `w` e `a`.
+
+La funzione principale per questo compito è:
+- `int fprintf(FILE *fp, const char *format, ...);`: Stampa formattata dentro un file (simile a printf).
+
+    Esempio:
+
+    ```c
+    FILE *fp = fopen("dati.txt", "w");
+    fprintf(fp, "Nome: %s, Età: %d\n", "Luca", 25);
+    fclose(fp);
+    ```
+
+
+## 3. Leggere da File
+
+Per Leggere da file la modalità di lettura principale disponibili è: `r`.
+
+Sono disponibili 2 funzioni principali:
+- `int fscanf(FILE *fp, const char *format, ...);`: legge formattato da un file (simile a scanf).
+
+    Esempio:
+
+    ```c
+    FILE *fp = fopen("dati.txt", "r");
+    char nome[20];
+    int eta;
+    fscanf(fp, "Nome: %s, Età: %d", nome, &eta);
+    printf("%s ha %d anni\n", nome, eta);
+    fclose(fp);
+    ```
+
+- `char *fgets(char *str, int n, FILE *fp);`: legge una riga di testo da un file.
+    - `str` = buffer dove salvare
+    - `n` = numero massimo di caratteri da leggere
+    - `fp` = puntatore al file
+
+    Esempio:
+
+    ```c
+    FILE *fp = fopen("dati.txt", "r");
+    char riga[100];
+    while (fgets(riga, 100, fp) != NULL) {
+        printf("%s", riga);
+    }
+    fclose(fp);
+    ```
+
+<Aside variant="info">
+È buona pratica, tutte le volte che si cerca du aprire un file, specialmente se in modalità lettura, controllare se l'apertura è andata a buon fine:
+Tenendo in considerazione che la `fopen` restituisce `NULL` se non è stato possibile aprire il file (per esempio in caso di percorso errato).
+```c
+file = fopen("loremipsum.txt", "r");
+if(file == NULL) {
+  printf("Errore apertura del file!");
+}
+```
+</Aside>
+
+## 4. Altre Funzioni Utili
+
+Oltre alle funzioni di apertura, scrittura e lettura, i file presentano anche altre funzioni utili per manipolare i file.
+
+### 4.1 Controllo della fine file
+
+`int feof(FILE *fp);`: Restituisce un valore diverso da 0 se il file è terminato.
+
+Esempio:
+
+```c
+// continuiamo a leggere dal file riga per riga fino a che raggiungiamo la fine
+while (!feof(fp)) {
+    fgets(riga, 100, fp);
+    printf("%s", riga);
+}
+```
+
+### 4.2 Posizionamento nel file
+
+Ci sono 2 funzioni principali per gestire il posizionamento nel file:
+
+- `int fseek(FILE *fp, long offset, int origin);`: Sposta il "cursore" del file in una posizione specifica.
+    - `offset` = spostamento (in byte)
+    - `origin` = punto di riferimento:
+        - `SEEK_SET` $\rightarrow$ dall'inizio del file
+        - `SEEK_CUR` $\rightarrow$ dalla posizione attuale
+        - `SEEK_END` $\rightarrow$ dalla fine del file
+
+    Esempio: andare al 10° byte dall'inizio:
+
+    ```c
+    fseek(fp, 10, SEEK_SET);
+    ```
+
+- `void rewind(FILE *fp);`: Riporta il cursore all'inizio del file (riparte da inizio file).
+
+## 5. Esempio Completo
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+    char riga[100];
+
+    // Scrittura
+    fp = fopen("testo.txt", "w");
+    fprintf(fp, "Ciao Mondo!\n");
+    fprintf(fp, "Seconda riga.\n");
+    fclose(fp);
+
+    // Lettura
+    fp = fopen("testo.txt", "r");
+    if (fp == NULL) {
+        printf("Errore apertura file!\n");
+        return 1;
+    }
+
+    while (fgets(riga, 100, fp) != NULL) {
+        printf("%s", riga);
+    }
+
+    rewind(fp); // torna all’inizio
+    fseek(fp, 6, SEEK_SET); // sposta dopo "Ciao "
+    fgets(riga, 100, fp);
+    printf("\nDopo fseek: %s\n", riga);
+
+    fclose(fp);
+    return 0;
+}
+```
+
+## 6. Esercizi
+
+[Esercizi sui file](https://www.codegrind.it/esercizi/c/file-handling)

@@ -17,9 +17,9 @@ printf("%d", altezza);  // output -> 30
 printf("%p", &altezza); // output -> indirizzo di memoria di altezza (0x7ffe5367e044)
 ```
 
-Un Puntatore è una variabile che salva l’indirizzo di memoria di un’altra variabile come suo valore.
+Un Puntatore è una variabile che salva l'indirizzo di memoria di un'altra variabile come suo valore.
 
-Una variabile puntatore punta ad un tipo di dato (come `int`) dello stesso tipo e viene creato con l’operatore `*`.
+Una variabile puntatore punta ad un tipo di dato (come `int`) dello stesso tipo e viene creato con l'operatore `*`.
 
 ### 1.1 Esempio di puntatore
 
@@ -38,14 +38,14 @@ printf("%d\n", *ptr);     // output -> valore di altezza (30)
 
 ## 2. Puntatori e Array
 
-In C, un **array** è una collezione di elementi dello stesso tipo memorizzati in locazioni di memoria contigue. Quando si utilizza il nome dell’array in un’espressione, esso viene automaticamente convertito in un **puntatore al primo elemento dell’array**.
+In C, un **array** è una collezione di elementi dello stesso tipo memorizzati in locazioni di memoria contigue. Quando si utilizza il nome dell'array in un'espressione, esso viene automaticamente convertito in un **puntatore al primo elemento dell'array**.
 
 ### 2.1 Esempio
 
 ```c
 int numeri[] = {10, 20, 30, 40, 50};
 
-printf("%p\n", numeri);     // indirizzo del primo elemento dell’array
+printf("%p\n", numeri);     // indirizzo del primo elemento dell'array
 printf("%p\n", &numeri[0]); // stesso indirizzo del primo elemento
 printf("%d\n", *numeri);    // valore del primo elemento (10)
 ```
@@ -55,7 +55,7 @@ In questo esempio:
 - `numeri` è un puntatore implicito a `&numeri[0]`
 - `numeri` accede al valore del primo elemento (cioè 10)
 
-Puoi anche accedere agli altri elementi usando l’aritmetica dei puntatori:
+Puoi anche accedere agli altri elementi usando l'aritmetica dei puntatori:
 
 ```c
 printf("%d\n", *(numeri + 1)); // output -> 20

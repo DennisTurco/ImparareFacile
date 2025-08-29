@@ -1,4 +1,4 @@
-// provare a caricare su https://jumpshare.com
+// to generate passwords: https://www.generate-password.com
 export const videos = [
   {
     title: "C - Puntatori",
@@ -11,18 +11,18 @@ export const videos = [
     password: "567asdasdasd8",
   },
   {
-    title: "C - Stringhe 1",
+    title: "C - Strings",
     url: "https://www.youtube.com/embed/VIDEO_ID_3",
-    password: "aasdasdasdbcd",
+    password: "$R4X8tmd*8",
   },
   {
-    title: "C - Stringhe 2",
+    title: "C - Strings: Funzioni Numeriche",
     url: "https://www.youtube.com/embed/VIDEO_ID_3",
-    password: "abcsadasdasdd",
+    password: "#YHfs2t!CS",
   },
   {
     title: "C - File",
     url: "https://www.youtube.com/embed/VIDEO_ID_3",
-    password: "abasdasdasdcd",
+    password: "7Bz3pz!GKM",
   },
 ];

@@ -257,7 +257,7 @@ public class Main {
 - **ESERCIZIO 1**:
     Un dispsitivo MP3 consente di gestire playlist di brani musicali descritti da *titolo* e *durata* espressa in secondi. Implementare in linguaggio Java le classi Brano e Playlist che consentano di eseguire le seguenti operazioni, gestendo in modo adeguato le relative eccezioni:
 
-  - aggiunta di un brano alla Lista dall’ultima posizione;
+  - aggiunta di un brano alla Lista dall'ultima posizione;
   - eliminazione dalla lista di un brano identificato dal titolo;
   - determinazione della durata totale dei brani della lista;
   - esportazione dei primi *n* brani della lista in un vettore ( con *n* fornito come parametro);

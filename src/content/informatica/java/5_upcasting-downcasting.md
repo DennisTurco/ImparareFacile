@@ -48,7 +48,7 @@ Il **downcasting** è l'operazione opposta: convertire un riferimento della supe
 
 ### 2.2 Attenzione
 
-Non è sempre sicuro! Se l’oggetto **non è effettivamente** un `Studente`, si avrà un **errore a runtime (`ClassCastException`)**.
+Non è sempre sicuro! Se l'oggetto **non è effettivamente** un `Studente`, si avrà un **errore a runtime (`ClassCastException`)**.
 
 ---
 
@@ -74,7 +74,7 @@ Qui invece `persona` **non è un `Studente`**. È stato creato con:
 Persona persona = new Persona("Carlo", "Magno", ...);
 ```
 
-Quindi, anche se il compilatore accetta il cast, **a runtime si genera un’eccezione**, perché `persona` **non può diventare un `Studente`**.
+Quindi, anche se il compilatore accetta il cast, **a runtime si genera un'eccezione**, perché `persona` **non può diventare un `Studente`**.
 
 ---
 
@@ -89,7 +89,7 @@ if (persona instanceof Studente) {
 }
 ```
 
-Questo è il modo sicuro per fare **downcasting condizionato**. Controlli prima se l’oggetto è davvero della sottoclasse.
+Questo è il modo sicuro per fare **downcasting condizionato**. Controlli prima se l'oggetto è davvero della sottoclasse.
 
 ---
 

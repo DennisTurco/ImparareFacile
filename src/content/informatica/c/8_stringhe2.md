@@ -68,7 +68,7 @@ double x = atof(s);
 - Descrizione:
   - Converte una stringa in `long int`.
   - Supporta diverse basi numeriche (2–36), oppure 0 (riconosce automaticamente decimale, ottale, esadecimale).
-  - `endptr` → se non è `NULL`, memorizza l’indirizzo del primo carattere non convertito.
+  - `endptr` → se non è `NULL`, memorizza l'indirizzo del primo carattere non convertito.
 
 ```c
 #include <stdio.h>
