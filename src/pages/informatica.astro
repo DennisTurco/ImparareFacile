@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 
 // Ottieni tutte le lezioni pubblicate
 let entries = await getCollection("informatica", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
+  return !data.draft && data.lastUpdateDate < new Date();
 });
 
 // Ordina per numero nel nome file (slug)

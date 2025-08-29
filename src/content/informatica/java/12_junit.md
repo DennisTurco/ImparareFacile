@@ -1,11 +1,12 @@
 ---
 title: "JUnit"
 draft: false
-publishDate: "2025-08-27"
+lastUpdateDate: "2025-08-27"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "junit", "test", "difficile"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 [Java Unit Testing with JUnit - Tutorial - How to Create And Use Unit Tests](https://www.youtube.com/watch?v=vZm0lHciFsQ)

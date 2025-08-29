@@ -1,11 +1,12 @@
 ---
 title: "Upcasting / Downcasting"
 draft: false
-publishDate: "2025-08-28"
+lastUpdateDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "upcasting", "downcasting", "difficile"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 [Upcasting and Downcasting in Java - Full Tutorial](https://www.youtube.com/watch?v=HpuH7n9VOYk&ab_channel=CodingwithJohn)

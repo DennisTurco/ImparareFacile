@@ -1,11 +1,12 @@
 ---
 title: "Ereditarietà"
 draft: false
-publishDate: "2025-08-28"
+lastUpdateDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "ereditarieta", "difficile"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 ## 1. Definizione di ereditarietà

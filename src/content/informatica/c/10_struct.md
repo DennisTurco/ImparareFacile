@@ -1,11 +1,12 @@
 ---
 title: "Struct"
 draft: false
-publishDate: "2025-08-27"
+lastUpdateDate: "2025-08-27"
 subject: "C"
 category: "Informatica"
 tags: ["c", "programmazione", "struct", "medio"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 ## 0️⃣ Link utili

@@ -1,11 +1,12 @@
 ---
 title: "Hello World"
 draft: false
-publishDate: "2025-08-27"
+lastUpdateDate: "2025-08-27"
 subject: "C"
 category: "Informatica"
 tags: ["c++", "programmazione", "introduzione", "facile"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 

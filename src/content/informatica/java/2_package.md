@@ -1,11 +1,12 @@
 ---
 title: "Package"
 draft: false
-publishDate: "2025-08-28"
+lastUpdateDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "package", "medio"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 ## 1. Introduzione

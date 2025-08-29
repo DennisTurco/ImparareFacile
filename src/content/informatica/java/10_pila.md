@@ -1,11 +1,12 @@
 ---
 title: "Pila"
 draft: false
-publishDate: "2025-08-28"
+lastUpdateDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "lista", "pila", "strutture dati", "complesso"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 

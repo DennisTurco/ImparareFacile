@@ -1,15 +1,15 @@
 // to generate passwords: https://www.generate-password.com
 export const videos = [
-  {
-    title: "C - Puntatori",
-    url: "https://www.youtube.com/embed/dpp4_tG9dTA",
-    password: "1asdsadasd234",
-  },
-  {
-    title: "C - Array dinamici (puntatori)",
-    url: "https://www.youtube.com/embed/VIDEO_ID_2",
-    password: "567asdasdasd8",
-  },
+  // {
+  //   title: "C - Puntatori",
+  //   url: "https://www.youtube.com/embed/dpp4_tG9dTA",
+  //   password: "1asdsadasd234",
+  // },
+  // {
+  //   title: "C - Array dinamici (puntatori)",
+  //   url: "https://www.youtube.com/embed/VIDEO_ID_2",
+  //   password: "567asdasdasd8",
+  // },
   {
     title: "C - Strings",
     url: "https://www.youtube.com/embed/VIDEO_ID_3",

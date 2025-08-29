@@ -1,11 +1,12 @@
 ---
 title: "Eccezioni"
 draft: false
-publishDate: "2025-08-28"
+lastUpdateDate: "2025-08-28"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "eccezioni", "difficile"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 ## 1. Introduzione

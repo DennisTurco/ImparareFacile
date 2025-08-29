@@ -60,7 +60,7 @@ const lessons = rawLessons as LessonsType;
           <div class="flex justify-start gap-3 mt-4">
             <a
               href="/ImparareFacile/informatica"
-              class="inline-flex items-center gap-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-sm">
+              class="inline-flex items-center gap-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-sm no-underline">
               <Icon name="fa6-solid:arrow-left" class="h-5 w-5" />
               Torna Indietro
             </a>
@@ -69,7 +69,7 @@ const lessons = rawLessons as LessonsType;
               id="report-link"
               href="#"
               target="_blank"
-              class="inline-flex items-center gap-1 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-sm">
+              class="inline-flex items-center gap-1 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-sm no-underline">
               <Icon name="fa6-brands:github" class="h-5 w-5" />
               Segnala errore
             </a>
@@ -83,39 +83,93 @@ const lessons = rawLessons as LessonsType;
           </div>
         </div>
 
-        <h1 class="text-5xl font-bold">{frontmatter.title}</h1>
-        <div class="flex flex-wrap gap-4 text-gray-600 text-sm mt-2">
-          <span>✍️ {frontmatter.author}</span>
-          {
-            frontmatter.publishDate && (
-              <span>📅 {getFormattedDate(frontmatter.publishDate)}</span>
-            )
-          }
-          {frontmatter.subject && <span>📘 {frontmatter.subject}</span>}
-          {frontmatter.category && <span>🏷️ {frontmatter.category}</span>}
+        <h1 class="text-5xl font-extrabold tracking-tight">{frontmatter.title}</h1>
+
+        <div class="mt-3 flex flex-wrap items-center gap-x-3 text-sm text-gray-600">
+          <span class="flex items-center gap-1">
+            ✍️ <span class="font-medium">{frontmatter.author}</span>
+          </span>
+
+          {frontmatter.category && (
+            <span class="flex items-center gap-1">
+              🏷️ <span>{frontmatter.category}</span>
+            </span>
+          )}
+
+          {frontmatter.subject && (
+            <span class="flex items-center gap-1">
+              📘 <span>{frontmatter.subject}</span>
+            </span>
+          )}
         </div>
 
-        {
-          frontmatter.tags && frontmatter.tags.length > 0 && (
-            <div class="mt-2 flex flex-wrap gap-2">
-              {frontmatter.tags.map((tag) => (
-                <span class="bg-gray-200 px-2 py-1 rounded text-sm">{tag}</span>
-              ))}
-            </div>
-          )
-        }
+        {frontmatter.lastUpdateDate && (
+          <div class="mt-1 text-xs text-gray-400 italic">
+            Ultima modifica:{" "}
+            <time datetime={frontmatter.lastUpdateDate}>
+              {getFormattedDate(frontmatter.lastUpdateDate)}
+            </time>
+          </div>
+        )}
+
+        {frontmatter.tags && frontmatter.tags.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-2">
+            {frontmatter.tags.map((tag) => (
+              <span
+                class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 hover:bg-gray-200 transition"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {frontmatter.videoLesson && (
+          <div class="mt-6">
+            <a
+              href="/ImparareFacile/videolezioni"
+              class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-sky-600 no-underline"
+            >
+              🎥 Guarda la videolezione
+            </a>
+          </div>
+        )}
+
 
         <slot />
 
         <div class="text-center mt-8">
           <a
             href="/ImparareFacile/informatica"
-            class="inline-flex items-center gap-2 bg-gray-200 px-5 py-3 rounded-md hover:bg-gray-300 transition">
+            class="inline-flex items-center gap-2 bg-gray-200 px-5 py-3 rounded-md hover:bg-gray-300 transition no-underline">
             <Icon name="fa6-solid:arrow-left" class="h-5 w-5" />
             Torna Indietro
           </a>
         </div>
       </div>
+
+      <!-- Bottone torna su -->
+      <button
+        id="scrollTopBtn"
+        class="hidden fixed bottom-6 right-6 z-50 rounded-full bg-blue-600 p-3 text-white shadow-lg hover:bg-blue-700 transition cursor-pointer"
+        aria-label="Torna all'inizio"
+      >
+        <Icon name="fa6-solid:arrow-up" class="h-5 w-5" />
+      </button>
+
+      <!-- Bottone Prenota una lezione -->
+      <a
+        href="/ImparareFacile/insegnanti"
+        class="group fixed bottom-6 left-6 z-50 flex items-center justify-center w-12 h-12 overflow-hidden rounded-full bg-green-600 text-white shadow-lg hover:w-auto hover:px-4 hover:bg-green-700"
+        aria-label="Prenota una lezione"
+      >
+        <Icon name="fa6-solid:calendar-plus" class="h-5 w-5" />
+        <span
+          class="absolute left-12 whitespace-nowrap text-sm font-medium group-hover:translate-x-0 group-hover:opacity-300 group-hover:relative group-hover:left-2"
+        >
+          Prenota una lezione
+        </span>
+      </a>
 
       <!-- Table of Contents -->
       <aside
@@ -182,3 +236,21 @@ const lessons = rawLessons as LessonsType;
     });
   });
 </script>
+
+
+<script>
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn?.classList.remove("hidden");
+    } else {
+      scrollTopBtn?.classList.add("hidden");
+    }
+  });
+
+  scrollTopBtn?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+

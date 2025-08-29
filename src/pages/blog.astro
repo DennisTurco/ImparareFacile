@@ -7,12 +7,12 @@ import Sectionhead from "@/components/sectionhead.astro";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
+  return !data.draft && data.lastUpdateDate < new Date();
 });
 
 // Sort content entries by publication date
 publishedBlogEntries.sort(function (a, b) {
-  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+  return b.data.lastUpdateDate.valueOf() - a.data.lastUpdateDate.valueOf();
 });
 ---
 
@@ -57,8 +57,8 @@ publishedBlogEntries.sort(function (a, b) {
                       <span class="text-gray-400">• </span>
                       <time
                         class="text-gray-400"
-                        datetime={blogPostEntry.data.publishDate.toISOString()}>
-                        {blogPostEntry.data.publishDate.toDateString()}
+                        datetime={blogPostEntry.data.lastUpdateDate.toISOString()}>
+                        {blogPostEntry.data.lastUpdateDate.toDateString()}
                       </time>
                     </div>
                   </div>

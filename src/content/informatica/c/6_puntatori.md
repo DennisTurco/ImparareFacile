@@ -1,11 +1,12 @@
 ---
 title: "Puntatori"
 draft: false
-publishDate: "2025-08-28"
+lastUpdateDate: "2025-08-28"
 subject: "C"
 category: "Informatica"
 tags: ["c", "programmazione", "puntatori", "difficile"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 ## 1. Puntatori

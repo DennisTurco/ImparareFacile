@@ -1,11 +1,12 @@
 ---
 title: "Coda"
 draft: false
-publishDate: "2025-08-27"
+lastUpdateDate: "2025-08-27"
 subject: "Java"
 category: "Informatica"
 tags: ["java", "programmazione", "lista", "coda", "strutture dati", "complesso"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 ## 1. Descrizione

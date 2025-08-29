@@ -1,11 +1,12 @@
 ---
 title: "Strings - Funzioni Numeriche"
 draft: false
-publishDate: "2025-08-28"
+lastUpdateDate: "2025-08-28"
 subject: "C"
 category: "Informatica"
 tags: ["c", "programmazione", "string", "difficile"]
 author: "Dennis Turco"
+videoLesson: true
 ---
 
 ## 1. Introduzione

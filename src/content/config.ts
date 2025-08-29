@@ -11,7 +11,7 @@ const blogCollection = defineCollection({
       src: z.string(),
       alt: z.string(),
     }),
-    publishDate: z.string().transform(str => new Date(str)),
+    lastUpdateDate: z.string().transform(str => new Date(str)),
     author: z.string().default('ImparareFacile'),
     category: z.string(),
     tags: z.array(z.string()),
@@ -22,10 +22,11 @@ const informaticaCollection = defineCollection({
   schema: z.object({
     draft: z.boolean(),
     title: z.string(),
-    publishDate: z.string().transform(str => new Date(str)),
+    lastUpdateDate: z.string().transform(str => new Date(str)),
     author: z.string().default('Dennis Turco'),
     subject: z.string(),
     category: z.string(),
+    videoLesson: z.boolean(),
     tags: z.array(z.string()),
   }),
 });
@@ -34,10 +35,11 @@ const matematicaCollection = defineCollection({
   schema: z.object({
     draft: z.boolean(),
     title: z.string(),
-    publishDate: z.string().transform(str => new Date(str)),
+    lastUpdateDate: z.string().transform(str => new Date(str)),
     author: z.string().default('Dennis Turco'),
     subject: z.string(),
     category: z.string(),
+    videoLesson: z.boolean(),
     tags: z.array(z.string()),
   }),
 });
@@ -51,7 +53,7 @@ const teamCollection = defineCollection({
       src: z.string(),
       alt: z.string(),
     }),
-    publishDate: z.string().transform(str => new Date(str)),
+    lastUpdateDate: z.string().transform(str => new Date(str)),
   }),
 });
 

@@ -1,11 +1,12 @@
 ---
 title: "Controlli Condizionali: if-esle"
 draft: false
-publishDate: "2025-08-27"
+lastUpdateDate: "2025-08-27"
 subject: "C++"
 category: "Informatica"
 tags: ["c++", "programmazione", "controllicondizionali", "facile"]
 author: "Dennis Turco"
+videoLesson: false
 ---
 
 ## 1️⃣ Descrizione

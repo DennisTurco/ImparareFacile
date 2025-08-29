@@ -19,11 +19,12 @@ const { Content } = await entry.render();
 
 const frontmatter = {
   title: entry.data.title,
-  publishDate: entry.data.publishDate,
+  lastUpdateDate: entry.data.lastUpdateDate,
   subject: entry.data.subject,
   category: entry.data.category,
   author: entry.data.author,
   tags: entry.data.tags,
+  videoLesson: entry.data.videoLesson,
   url: `/ImparareFacile/informatica/${entry.slug}`,
 };
 ---
