@@ -12,7 +12,7 @@ export const videos = [
   // },
   {
     title: "C - Strings",
-    url: "https://www.youtube.com/embed/VIDEO_ID_3",
+    url: "https://www.youtube.com/embed/S_zOGkwIyec",
     password: "$R4X8tmd*8",
   },
   {
@@ -22,7 +22,7 @@ export const videos = [
   },
   {
     title: "C - File",
-    url: "https://www.youtube.com/embed/VIDEO_ID_3",
+    url: "https://www.youtube.com/embed/KgtGL6eymz8",
     password: "7Bz3pz!GKM",
   },
 ];
