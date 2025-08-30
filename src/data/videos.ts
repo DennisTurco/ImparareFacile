@@ -13,16 +13,16 @@ export const videos = [
   {
     title: "C - Strings",
     url: "https://www.youtube.com/embed/S_zOGkwIyec",
-    password: "$R4X8tmd*8",
+    allowed: ["dennisturco@gmail.com", "gabrielefabbri2005@gmail.com"]
   },
   {
     title: "C - Strings: Funzioni Numeriche",
     url: "https://www.youtube.com/embed/VIDEO_ID_3",
-    password: "#YHfs2t!CS",
+    allowed: ["dennisturco@gmail.com", "gabrielefabbri2005@gmail.com"]
   },
   {
     title: "C - File",
     url: "https://www.youtube.com/embed/KgtGL6eymz8",
-    password: "7Bz3pz!GKM",
+    allowed: ["dennisturco@gmail.com", "gabrielefabbri2005@gmail.com"]
   },
 ];

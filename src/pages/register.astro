@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import RegisterForm from "@/components/RegisterForm.jsx";
+---
+
+<Layout title="Registrazione">
+  <Container>
+    <RegisterForm client:load />
+  </Container>
+</Layout>

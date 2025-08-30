@@ -3,6 +3,9 @@ import Container from "@/components/container.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import { Icon } from "astro-icon/components";
+import { supabase } from "../../lib/supabaseClient.js";
+import UserMenu from "@/components/UserMenu.jsx";
+
 
 // menuitems definiti qui
 const menuitems = [
@@ -19,6 +22,23 @@ const menuitems = [
   { title: "Video Lezioni", badge: true, path: "/ImparareFacile/videolezioni" },
   { title: "Portfolio", path: "https://dennisturco.com/" },
 ];
+
+let user = null;
+
+// controlla se l’utente è loggato
+const checkUser = async () => {
+  const { data } = await supabase.auth.getUser();
+  user = data.user;
+};
+
+checkUser();
+
+// logout semplice
+const logout = async () => {
+  await supabase.auth.signOut();
+  user = null;
+  location.reload(); // ricarica la pagina per aggiornare la navbar
+};
 ---
 
 <Container>
@@ -64,6 +84,11 @@ const menuitems = [
             ))
           }
         </ul>
+
+        <!-- Qui inserisci il componente React -->
+        <div class="flex gap-2 ml-4">
+          <UserMenu client:load />
+        </div>
 
         <!-- Icona Discord -->
         <div class="ml-4 hidden lg:flex">
